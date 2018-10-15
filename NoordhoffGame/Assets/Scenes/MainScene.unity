@@ -298,7 +298,6 @@ GameObject:
   m_Component:
   - component: {fileID: 863003049}
   - component: {fileID: 863003048}
-  - component: {fileID: 863003047}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -306,20 +305,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &863003047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863003046}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78048e88d8021504b9d3122e8a621970, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tmap: {fileID: 1395098294}
-  nodePrefab: {fileID: 3298835826715825621, guid: 0d98d94119db44b489f7c9a4837bd026, type: 3}
 --- !u!156049354 &863003048
 Grid:
   m_ObjectHideFlags: 0
