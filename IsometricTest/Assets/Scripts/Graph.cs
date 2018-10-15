@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using Assets.Scripts;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Color = UnityEngine.Color;
@@ -12,17 +11,19 @@ using Color = UnityEngine.Color;
 public class Graph
 {
     public Dictionary<string, ANode> ANodeMap { get; }
-    const int distNodes = 8;
+    const int distNodes = 1;
     private Tilemap tileMap;
+    private GridLayout gridLayout;
 
-    public Graph(Tilemap tmap)
+    public Graph(Tilemap tmap, GridLayout glayout)
     {
         tileMap = tmap;
+        gridLayout = glayout;
         ANodeMap = new Dictionary<string, ANode>();
-        CreateGraph(distNodes);
+        CreateGraph2();
     }
 
-    public void AddANode(string id, Vector2 pos)
+    public void AddANode(string id, Vector3 pos)
     {
         ANodeMap[id] = new ANode(id, pos);
     }
@@ -52,6 +53,7 @@ public class Graph
         {
             gCost[ANode.Value] = Double.MaxValue;
         }
+
         gCost[start] = 0;
 
         // The total cost of start to end ANode
@@ -60,6 +62,7 @@ public class Graph
         {
             fCost[ANode.Value] = Double.MaxValue;
         }
+
         fCost[start] = CalculateEuclidean(start, end);
 
         while (open.Count > 0)
@@ -73,6 +76,7 @@ public class Graph
                     current = open[i];
                 }
             }
+
             if (current == end)
             {
                 return ConstructPath(prevANode, current);
@@ -129,6 +133,7 @@ public class Graph
             newANode.AdjEdges.Add(new Edge(totalPath, edgeCost));
             totalPath = newANode;
         }
+
         return totalPath;
     }
 
@@ -166,6 +171,7 @@ public class Graph
             prevANode[ANode.Value] = null;
             open.Add(ANode.Value);
         }
+
         cost[source] = 0;
 
         // Executing algorithm
@@ -220,6 +226,7 @@ public class Graph
                 }
             }
         }
+
         ANodeMap.Remove(input);
     }
 
@@ -227,91 +234,153 @@ public class Graph
     // 1. Generate all the nodes
     // 2. Combine each node with edges for both going from start to end and end to start
     // 3. Remove all nodes that are placed on top of static objects like walls
-    public void CreateGraph(int distNodes)
+    public void CreateGraph2()
     {
-        int amountNodesX = 100 / distNodes;
-        int amountNodesY = 100 / distNodes;
 
-        float vectorX, vectorY;
-        string val, val2;
+        //tileMap.CompressBounds();
 
-        // Make nodes
-        for (int i = 0; i < amountNodesY; i++)
-        {
-            for (int j = 0; j < amountNodesX; j++)
-            {
-                vectorX = j * distNodes + 5;
-                vectorY = i * distNodes + 4;
-                val = vectorX + ";" + vectorY;
-                Vector2 vector = new Vector2(vectorX, vectorY);
+        //BoundsInt area = tileMap.cellBounds;
+        //TileBase[] tiles = tileMap.GetTilesBlock(area);
 
-                AddANode(val, vector);
-            }
-        }
-        //Generate edges
-        for (int i = 0; i < amountNodesY; i++)
-        {
-            for (int j = 0; j < amountNodesX; j++)
-            {
-                vectorX = j * distNodes + 5;
-                vectorY = i * distNodes + 4;
-                val = vectorX + ";" + vectorY;
-                vectorX = (j + 1) * distNodes + 5;
-                vectorY = i * distNodes + 4;
-                val2 = vectorX + ";" + vectorY;
-
-                // Horizontal
-                if (j < amountNodesX - 1)
-                {
-                    AddEdge(val, val2);
-                    AddEdge(val2, val);
-                }
-
-                // Vertical
-                vectorX = j * distNodes + 5;
-                vectorY = (i + 1) * distNodes + 4;
-                val2 = vectorX + ";" + vectorY;
-                if (i < amountNodesY - 1)
-                {
-                    AddEdge(val, val2);
-                    AddEdge(val2, val);
-                }
-
-                // Diagonal \ 
-                vectorX = (j + 1) * distNodes + 5;
-                vectorY = (i + 1) * distNodes + 4;
-                val2 = vectorX + ";" + vectorY;
-                if (i < amountNodesY - 1 && j < amountNodesX - 1)
-                {
-                    AddEdge(val, val2);
-                    AddEdge(val2, val);
-                }
-
-                // Diagonal /
-                vectorX = (j - 1) * distNodes + 5;
-                vectorY = (i + 1) * distNodes + 4;
-                val2 = vectorX + ";" + vectorY;
-                if (i < amountNodesY - 1 && j > 0)
-                {
-                    AddEdge(val, val2);
-                    AddEdge(val2, val);
-                }
-            }
-        }
-
-        // Remove unnecessary nodes
-        //List<ANode> nodeList = ANodeMap.Values.ToList();
-        //foreach (ANode t in nodeList)
+        //for (int y = 0; y < area.size.y; y++)
         //{
-        //    foreach (StaticEntity entity in myWorld.StaticEntities)
+        //    for (int x = 0; x < area.size.x; x++)
         //    {
-        //        if (entity.IntersectsPoint(t.Position))
+        //        for (int z = 0; z < area.size.z; z++)
         //        {
-        //            RemoveNode(t.ID);
+        //            TileBase tile = tiles[x + z + y * area.size.x];
+        //            if (tile != null)
+        //            {
+        //                //Debug.Log("x:" + x + " y:" + y + " tile:" + tile.name);
+        //                if (tile.name.Contains("brown") || tile.name.Contains("black_white"))
+        //                {
+        //                    Vector3 vector = gridLayout.CellToWorld(new Vector3Int(x, y, z));
+        //                    string coords = x + ";" + y;
+        //                    AddANode(coords, vector);
+        //                }
+
+        //            }
         //        }
         //    }
         //}
+
+        foreach (var pos in tileMap.cellBounds.allPositionsWithin)
+        {
+            Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+            Vector3 place = gridLayout.CellToWorld(localPlace);
+            string coords = pos.x + ";" + pos.y;
+            if (tileMap.HasTile(localPlace) && pos.z < 1)
+            {
+                TileBase tile = tileMap.GetTile(localPlace);
+                if (tile.name.Contains("brown") || tile.name.Contains("black_white"))
+                {
+                    place.z = 10;
+                    AddANode(coords, place);
+                }
+            }
+            else if (tileMap.HasTile(localPlace) && pos.z >= 1)
+            {
+                if (ANodeMap.ContainsKey(coords))
+                {
+                    RemoveNode(coords);
+                }
+            }
+        }
+
+        string val, val2;
+
+        //Generate edges
+
+        for (int y = -12; y < 4; y++)
+        {
+            for (int x = 0; x < 17; x++)
+            {
+                string ownVal = x + ";" + y;
+                //Debug.Log("x:" + x + " y:" + y);
+                if (ANodeMap.ContainsKey(ownVal))
+                {
+                    string valWest = (x - 1) + ";" + y;
+                    string valEast = (x + 1) + ";" + y;
+                    string valNorth = x + ";" + (y - 1);
+                    string valSouth = x + ";" + (y + 1);
+                    string valNorthWest = (x - 1) + ";" + (y - 1);
+                    string valNorthEast = (x + 1) + ";" + (y - 1);
+                    string valSouthWest = (x - 1) + ";" + (y + 1);
+                    string valSouthEast = (x + 1) + ";" + (y + 1);
+
+                    // West
+                    if (x > 0 && ANodeMap.ContainsKey(valWest))
+                    {
+                        AddEdge(ownVal, valWest);
+                        AddEdge(valWest, ownVal);
+                    }
+
+                    // East
+                    if (x < 16 - 1 && ANodeMap.ContainsKey(valEast))
+                    {
+                        AddEdge(ownVal, valEast);
+                        AddEdge(valEast, ownVal);
+                    }
+
+                    // North
+                    if (y > 0 && ANodeMap.ContainsKey(valNorth))
+                    {
+                        AddEdge(ownVal, valNorth);
+                        AddEdge(valNorth, ownVal);
+                    }
+
+                    // South
+                    if (y < 16 - 1 && ANodeMap.ContainsKey(valSouth))
+                    {
+                        AddEdge(ownVal, valSouth);
+                        AddEdge(valSouth, ownVal);
+                    }
+
+                    // NorthWest
+                    if (x > 0 && y > 0 && ANodeMap.ContainsKey(valNorthWest))
+                    {
+                        AddEdge(ownVal, valNorthWest);
+                        AddEdge(valNorthWest, ownVal);
+                    }
+
+                    // NorthEast
+                    if (x < 16 - 1 && y > 0 && ANodeMap.ContainsKey(valNorthEast))
+                    {
+                        AddEdge(ownVal, valNorthEast);
+                        AddEdge(valNorthEast, ownVal);
+                    }
+
+                    // SouthWest
+                    if (x > 0 && y < 16 - 1 && ANodeMap.ContainsKey(valSouthWest))
+                    {
+                        AddEdge(ownVal, valSouthWest);
+                        AddEdge(valSouthWest, ownVal);
+                    }
+
+                    // SouthEast
+                    if (x < 16 - 1 && y < 16 - 1 && ANodeMap.ContainsKey(valSouthEast))
+                    {
+                        AddEdge(ownVal, valSouthEast);
+                        AddEdge(valSouthEast, ownVal);
+                    }
+                }
+            }
+        }
     }
+
+    // Remove unnecessary nodes
+    //List<ANode> nodeList = ANodeMap.Values.ToList();
+    //foreach (ANode t in nodeList)
+    //{
+    //    foreach (StaticEntity entity in myWorld.StaticEntities)
+    //    {
+    //        if (entity.IntersectsPoint(t.Position))
+    //        {
+    //            RemoveNode(t.ID);
+    //        }
+    //    }
+    //}
+
 
     public void Render()
     {
@@ -328,21 +397,22 @@ public class Graph
             {
                 dest = edge.Dest;
                 destPos = new Vector2(dest.Position.x, dest.Position.y);
-                Debug.DrawLine(new Vector3(pos.x, pos.y, -1), new Vector3(destPos.x, destPos.y, -1), Color.green);
-                Debug.Log("pos: " + pos + ", destpos: " + destPos);
-
-                //g.DrawLine(new Pen(Color.Orange, 1), pos, destPos);
+                Debug.DrawLine(new Vector3(pos.x, pos.y, -1), new Vector3(destPos.x, destPos.y, -1), Color.magenta);
+                //Debug.Log("pos: " + pos + ", destpos: " + destPos);
             }
         }
 
         //Draw all nodes
         foreach (KeyValuePair<string, ANode> node in ANodeMap)
         {
-            pos = new Vector2(node.Value.Position.x - 1.1f, node.Value.Position.y - 1.1f);
-            Debug.DrawLine(new Vector3(pos.x, pos.y, -1), new Vector3(pos.x + 1, pos.y + 1, -1), Color.cyan);
+            pos = new Vector2(node.Value.Position.x, node.Value.Position.y);
+            Debug.DrawLine(new Vector3(pos.x - 0.1f, pos.y, -1), new Vector3(pos.x + 0.1f, pos.y, -1), Color.cyan);
+            Debug.DrawLine(new Vector3(pos.x, pos.y - 0.1f, -1), new Vector3(pos.x, pos.y + 0.1f, -1), Color.cyan);
 
             //g.FillEllipse(new SolidBrush(node.Value.Color), pos.X, pos.Y, 3, 3);
         }
-
     }
+
+
 }
+

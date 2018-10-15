@@ -11,9 +11,9 @@ namespace Assets.Scripts
     {
         public string ID { get; set; }
         public List<Edge> AdjEdges { get; set; }
-        public Vector2 Position { get; set; }
+        public Vector3 Position { get; set; }
 
-        public ANode(string id, Vector2 pos)
+        public ANode(string id, Vector3 pos)
         {
             this.ID = id;
             this.Position = pos;
