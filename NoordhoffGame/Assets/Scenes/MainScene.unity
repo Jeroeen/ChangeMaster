@@ -489,6 +489,8 @@ MonoBehaviour:
   Partner: {fileID: 1662319028}
   PartnerName: {fileID: 1041808055}
   DialogueText: {fileID: 1422467248}
+  PrevButton: {fileID: 1711949586}
+  NextButton: {fileID: 372503239}
 --- !u!1 &832951950
 GameObject:
   m_ObjectHideFlags: 0
