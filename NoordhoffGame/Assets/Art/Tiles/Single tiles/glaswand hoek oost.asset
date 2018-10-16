@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: uitprobeersel
+  m_Name: glaswand hoek oost
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: cb4c7b8aca92519469a4acb7c7d3974d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1766b46957656104b8df5eb91419cc6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

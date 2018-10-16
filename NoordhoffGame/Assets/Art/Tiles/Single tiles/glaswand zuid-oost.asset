@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: elit nee gon
+  m_Name: glaswand zuid-oost
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: d7db2d5ea2df5374bbab378613dfa6d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c81d20ff7fba75946afbbb6abbe8a358, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

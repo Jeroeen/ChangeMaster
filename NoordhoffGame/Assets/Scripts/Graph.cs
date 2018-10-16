@@ -272,7 +272,7 @@ public class Graph
             if (tileMap.HasTile(localPlace) && pos.z < 1)
             {
                 TileBase tile = tileMap.GetTile(localPlace);
-                if (tile.name.Contains("brown") || tile.name.Contains("black_white"))
+                if (tile.name.Contains("tegel bruin") || tile.name.Contains("tegel vloer"))
                 {
                     place.z = 10;
                     AddANode(coords, place);
@@ -286,11 +286,8 @@ public class Graph
                 }
             }
         }
-
-        string val, val2;
-
+        
         //Generate edges
-
         for (int y = -12; y < 4; y++)
         {
             for (int x = 0; x < 17; x++)
@@ -336,33 +333,33 @@ public class Graph
                         AddEdge(valSouth, ownVal);
                     }
 
-                    // NorthWest
-                    if (x > 0 && y > 0 && ANodeMap.ContainsKey(valNorthWest))
-                    {
-                        AddEdge(ownVal, valNorthWest);
-                        AddEdge(valNorthWest, ownVal);
-                    }
+                    //// NorthWest
+                    //if (x > 0 && y > 0 && ANodeMap.ContainsKey(valNorthWest))
+                    //{
+                    //    AddEdge(ownVal, valNorthWest);
+                    //    AddEdge(valNorthWest, ownVal);
+                    //}
 
-                    // NorthEast
-                    if (x < 16 - 1 && y > 0 && ANodeMap.ContainsKey(valNorthEast))
-                    {
-                        AddEdge(ownVal, valNorthEast);
-                        AddEdge(valNorthEast, ownVal);
-                    }
+                    //// NorthEast
+                    //if (x < 16 - 1 && y > 0 && ANodeMap.ContainsKey(valNorthEast))
+                    //{
+                    //    AddEdge(ownVal, valNorthEast);
+                    //    AddEdge(valNorthEast, ownVal);
+                    //}
 
-                    // SouthWest
-                    if (x > 0 && y < 16 - 1 && ANodeMap.ContainsKey(valSouthWest))
-                    {
-                        AddEdge(ownVal, valSouthWest);
-                        AddEdge(valSouthWest, ownVal);
-                    }
+                    //// SouthWest
+                    //if (x > 0 && y < 16 - 1 && ANodeMap.ContainsKey(valSouthWest))
+                    //{
+                    //    AddEdge(ownVal, valSouthWest);
+                    //    AddEdge(valSouthWest, ownVal);
+                    //}
 
-                    // SouthEast
-                    if (x < 16 - 1 && y < 16 - 1 && ANodeMap.ContainsKey(valSouthEast))
-                    {
-                        AddEdge(ownVal, valSouthEast);
-                        AddEdge(valSouthEast, ownVal);
-                    }
+                    //// SouthEast
+                    //if (x < 16 - 1 && y < 16 - 1 && ANodeMap.ContainsKey(valSouthEast))
+                    //{
+                    //    AddEdge(ownVal, valSouthEast);
+                    //    AddEdge(valSouthEast, ownVal);
+                    //}
                 }
             }
         }
