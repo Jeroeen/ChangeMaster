@@ -1,19 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class OpenDialogue : MonoBehaviour
 {
 	private InitiateDialogue _ini;
+	private bool IsActive = false;
 	public GameObject Dialogue;
-	
+
 	[SerializeField] public int Level;
 	[SerializeField] public int DialogueCount;
 	[SerializeField] public int AmountOfDialogues;
 
 	void OnMouseDown()
 	{
+		if (IsActive) return;
+		IsActive = true;
 		if (EventSystem.current.IsPointerOverGameObject())
 		{
 			return;
