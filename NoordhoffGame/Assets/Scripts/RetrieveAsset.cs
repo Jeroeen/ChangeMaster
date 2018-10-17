@@ -5,30 +5,44 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Assets.Scripts
 {
-	class RetrieveAsset
+	public class RetrieveAsset
 	{
-		private Dictionary<string, Sprite> assets;
+		private static Dictionary<string, Sprite> _assets;
 
 		private RetrieveAsset() { }
 
-		public Dictionary<string, Sprite> retrieveAssets()
+		public static Dictionary<string, Sprite> RetrieveAssets()
 		{
-			if (assets != null)
+			if (_assets != null)
 			{
-				string[] AssetGuids = AssetDatabase.FindAssets("", new[] {"Assets"});
-				List<String> AssetPaths = new List<String>();
+				return _assets;
+			}
 
-				foreach (string guid in AssetGuids)
+			_assets = new Dictionary<string, Sprite>();
+
+			string[] assetGuids = AssetDatabase.FindAssets("", new[] { "Assets/Sprites" });
+
+			List<String> assetPaths = assetGuids.Select(AssetDatabase.GUIDToAssetPath).ToList();
+
+			foreach (string path in assetPaths.Distinct())
+			{
+				Sprite sprite = (Sprite)AssetDatabase.LoadAssetAtPath(path, typeof(Sprite));
+				if (sprite != null)
 				{
-					AssetPaths.Add(AssetDatabase.GUIDToAssetPath(guid));
-					Debug.Log(AssetDatabase.GUIDToAssetPath(guid));
+					_assets.Add(sprite.name, sprite);
 				}
 			}
 
-			return assets;
+			return _assets;
+		}
+
+		public static Sprite GetSpriteByName(string name)
+		{
+			return _assets.FirstOrDefault(x => x.Key == name).Value;
 		}
 	}
 }

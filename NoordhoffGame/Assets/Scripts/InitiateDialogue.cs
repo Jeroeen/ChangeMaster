@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,29 +10,27 @@ public class InitiateDialogue : MonoBehaviour
 	private RetrieveJson _json;
 	private DialogueItem dialogue;
 
-	private string _nameOfPartner;
-	private int _numberOfConversation;
-
-	public RectTransform Partner;
+	public SpriteRenderer Partner;
 	public Text PartnerName;
 	public Text DialogueText;
 
 	public Button PrevButton;
 	public Button NextButton;
 
-	public void Initialize(string nameOfPartner, int numberOfConversation)
+	public void Initialize(string nameOfPartner, int level, int dialogueCount)
 	{
-		_nameOfPartner = nameOfPartner;
-		_numberOfConversation = numberOfConversation;
+		RetrieveAsset.RetrieveAssets();
 
 		_json = new RetrieveJson();
-		dialogue = _json.LoadJson(_nameOfPartner, _numberOfConversation);
+		dialogue = _json.LoadJson(nameOfPartner, level, dialogueCount);
 
 		NextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
 		PrevButton.GetComponentInChildren<Text>().text = dialogue.PreviousButtonText;
 
 		PartnerName.text = dialogue.Speaker;
 		DialogueText.text = dialogue.DialogueLines[0];
+
+		Partner.sprite = RetrieveAsset.GetSpriteByName(nameOfPartner);
 
 		PrevButton.interactable = false;
 	}
@@ -42,6 +41,7 @@ public class InitiateDialogue : MonoBehaviour
 		if (dialogue.IsEndOfDialogue())
 		{
 			gameObject.SetActive(false);
+
 			return;
 		}
 
