@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -24,16 +23,14 @@ namespace Assets.Scripts
 
 			_assets = new Dictionary<string, Sprite>();
 
-			string[] assetGuids = AssetDatabase.FindAssets("", new[] { "Assets/Sprites" });
+			Object[] assetObjects = Resources.LoadAll("Sprites", typeof(Sprite));
+			
 
-			List<String> assetPaths = assetGuids.Select(AssetDatabase.GUIDToAssetPath).ToList();
-
-			foreach (string path in assetPaths.Distinct())
+			foreach (Object obj in assetObjects.Distinct())
 			{
-				Sprite sprite = (Sprite)AssetDatabase.LoadAssetAtPath(path, typeof(Sprite));
-				if (sprite != null)
+				if (obj != null)
 				{
-					_assets.Add(sprite.name, sprite);
+					_assets.Add(obj.name, (Sprite)obj);
 				}
 			}
 

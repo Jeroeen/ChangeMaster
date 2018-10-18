@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using LitJson;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -16,20 +16,20 @@ namespace Assets.Scripts
 			string path;
 			if (dialogueCount < 0)
 			{
-				path = "Assets/Scripts/DialogueFiles/" + nameOfPartner + "-" + level + ".json";
+				path = "DialogueFiles/" + nameOfPartner + "-" + level;
 			}
 			else
 			{
-				path = "Assets/Scripts/DialogueFiles/" + nameOfPartner + "-" + level + "-" + dialogueCount + ".json";
+				path = "DialogueFiles/" + nameOfPartner + "-" + level + "-" + dialogueCount;
 			}
 
-			using (StreamReader r = new StreamReader(path))
-			{
-				string json = r.ReadToEnd();
-				DialogueItem item = JsonConvert.DeserializeObject<DialogueItem>(json);
+			Debug.Log(path);
+			TextAsset asset = Resources.Load(path) as TextAsset;
+			string jsonString = asset.ToString();
 
-				return item;
-			}
+			DialogueItem item = JsonMapper.ToObject<DialogueItem>(jsonString);
+
+			return item;
 		}
 	}
 }

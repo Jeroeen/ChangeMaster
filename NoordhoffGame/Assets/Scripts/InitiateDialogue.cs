@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class InitiateDialogue : MonoBehaviour
 {
 	private RetrieveJson _json;
-	private DialogueItem dialogue;
+	private DialogueItem _dialogue;
 
 	public SpriteRenderer Partner;
 	public Text PartnerName;
@@ -22,13 +22,13 @@ public class InitiateDialogue : MonoBehaviour
 		RetrieveAsset.RetrieveAssets();
 
 		_json = new RetrieveJson();
-		dialogue = _json.LoadJson(nameOfPartner, level, dialogueCount);
+		_dialogue = _json.LoadJson(nameOfPartner, level, dialogueCount);
 
-		NextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
-		PrevButton.GetComponentInChildren<Text>().text = dialogue.PreviousButtonText;
+		NextButton.GetComponentInChildren<Text>().text = _dialogue.nextButtonText;
+		PrevButton.GetComponentInChildren<Text>().text = _dialogue.previousButtonText;
 
-		PartnerName.text = dialogue.Speaker;
-		DialogueText.text = dialogue.DialogueLines[0];
+		PartnerName.text = _dialogue.speaker;
+		DialogueText.text = _dialogue.lines[0];
 
 		Partner.sprite = RetrieveAsset.GetSpriteByName(nameOfPartner);
 
@@ -38,29 +38,32 @@ public class InitiateDialogue : MonoBehaviour
 	public void NextLine()
 	{
 		// Final page of slide, so close dialogue screen
-		if (dialogue.IsEndOfDialogue())
+		if (_dialogue.IsEndOfDialogue())
 		{
 			gameObject.SetActive(false);
+			OpenDialogue.IsActive = false;
 
 			return;
 		}
 
-		DialogueText.text = dialogue.NextLine();
+		DialogueText.text = _dialogue.NextLine();
 		PrevButton.interactable = true;
 
 		// Next page is final page of slide
-		if (dialogue.IsEndOfDialogue())
+		if (_dialogue.IsEndOfDialogue())
 		{
-			NextButton.GetComponentInChildren<Text>().text = dialogue.ConfirmButtonText;
+			NextButton.GetComponentInChildren<Text>().text = _dialogue.confirmButtonText;
 		}
 
 	}
 
 	public void PreviousLine()
 	{
-		DialogueText.text = dialogue.PreviousLine();
+		DialogueText.text = _dialogue.PreviousLine();
 		NextButton.interactable = true;
-		if (dialogue.IsBeginningOfDialogue())
+
+		NextButton.GetComponentInChildren<Text>().text = _dialogue.nextButtonText;
+		if (_dialogue.IsBeginningOfDialogue())
 		{
 			PrevButton.interactable = false;
 		}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using LitJson;
 
 namespace Assets.Scripts
 {
@@ -11,20 +11,15 @@ namespace Assets.Scripts
 	{
 		public int currentPage { get; set; }
 
-		[JsonProperty("speaker")]
-		public string Speaker { get; private set; }
+		public string speaker { get; private set; }
 
-		[JsonProperty("previousButtonText")]
-		public string PreviousButtonText { get; private set; }
+		public string previousButtonText { get; private set; }
 
-		[JsonProperty("nextButtonText")]
-		public string NextButtonText { get; private set; }
+		public string nextButtonText { get; private set; }
 
-		[JsonProperty("confirmButtonText")]
-		public string ConfirmButtonText { get; private set; }
+		public string confirmButtonText { get; private set; }
 
-		[JsonProperty("lines")]
-		public List<string> DialogueLines { get; private set; }
+		public List<string> lines { get; private set; }
 
 		public DialogueItem()
 		{
@@ -34,18 +29,18 @@ namespace Assets.Scripts
 		public string PreviousLine()
 		{
 			currentPage--;
-			return DialogueLines[currentPage];
+			return lines[currentPage];
 		}
 
 		public string NextLine()
 		{
 			currentPage++;
-			return DialogueLines[currentPage];
+			return lines[currentPage];
 		}
 
 		public bool IsEndOfDialogue()
 		{
-			return currentPage >= DialogueLines.Count - 1;
+			return currentPage >= lines.Count - 1;
 		}
 
 		public bool IsBeginningOfDialogue()
