@@ -29,11 +29,13 @@ public class Settingscript : MonoBehaviour
             {   
                 Settings.interactable = false;
                 Settings.alpha = 0;
+                Settings.blocksRaycasts = false;
             }   
             else
             {   
                 Settings.interactable = true;
                 Settings.alpha = 1;
+                Settings.blocksRaycasts = true;
             }
 
             infoButton.interactable = !infoButton.IsInteractable();

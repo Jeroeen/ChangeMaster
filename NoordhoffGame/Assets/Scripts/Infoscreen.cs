@@ -12,7 +12,7 @@ public class Infoscreen : MonoBehaviour
     public Sprite Img2;
 
     private bool disable = false;
-    private Vector2 pos = new Vector2(0.0f, 0.0f);
+    private Vector2 pos = new Vector2(0.0f, -5.0f);
     private ScrollRect infoScroll;
 
 
@@ -36,6 +36,8 @@ public class Infoscreen : MonoBehaviour
             if(i >= 3)
             {
             testScroll.sizeDelta = new Vector2(testScroll.sizeDelta.x, testScroll.sizeDelta.y + 110);
+                testScroll.anchoredPosition = new Vector2(testScroll.anchoredPosition.x, testScroll.anchoredPosition.y - 60);
+
             }
             pos = new Vector2(pos.x, pos.y - 110.0f);
 
@@ -51,11 +53,13 @@ public class Infoscreen : MonoBehaviour
             {
                 Info.interactable = false;
                 Info.alpha = 0;
+                Info.blocksRaycasts = false;
             }
             else
             {
                 Info.interactable = true;
                 Info.alpha = 1;
+                Info.blocksRaycasts = true;
             }
             settingsbutton.interactable = !settingsbutton.IsInteractable();
         }
