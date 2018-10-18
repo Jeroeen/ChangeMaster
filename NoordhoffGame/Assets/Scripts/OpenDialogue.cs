@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Debug = UnityEngine.Debug;
 
 public class OpenDialogue : MonoBehaviour
 {
