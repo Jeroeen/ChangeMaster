@@ -3457,7 +3457,7 @@ GameObject:
   - component: {fileID: 1730224310}
   m_Layer: 0
   m_Name: Animatiemedewerker
-  m_TagString: GameController
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3579,7 +3579,7 @@ GameObject:
   - component: {fileID: 1899222745}
   m_Layer: 0
   m_Name: Kapitein
-  m_TagString: GameController
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

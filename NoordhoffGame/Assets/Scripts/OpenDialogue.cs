@@ -10,49 +10,42 @@ public class OpenDialogue : MonoBehaviour
 	private InitiateDialogue _ini;
 	public static bool IsActive { get; set; }
 	public GameObject Dialogue;
-	
+
 
 	void FixedUpdate()
 	{
-		if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+		if ((Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+			&& Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
 		{
-			if (Input.touchCount == 1)
-			{
-				if (Input.GetTouch(0).phase == TouchPhase.Began)
-				{
-					CheckTouch(Input.GetTouch(0).position);
-				}
-			}
+			CheckTouch(Input.GetTouch(0).position);
 		}
-		else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+		else if ((Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+			&& Input.GetMouseButtonDown(0))
 		{
-			if (Input.GetMouseButtonDown(0))
-			{
-				CheckTouch(Input.mousePosition);
-			}
+			CheckTouch(Input.mousePosition);
 		}
 	}
 
-	private void CheckTouch(Vector3 pos)
+	private void CheckTouch(Vector3 position)
 	{
-		Vector3 wp = Camera.main.ScreenToWorldPoint(pos);
-		Vector2 touchPos = new Vector2(wp.x, wp.y);
-		Collider2D hit = Physics2D.OverlapPoint(touchPos);
+		Vector3 worldPoint = Camera.main.ScreenToWorldPoint(position);
+		Vector2 touchPosition = new Vector2(worldPoint.x, worldPoint.y);
+		Collider2D hit = Physics2D.OverlapPoint(touchPosition);
 
-		if (hit && hit.gameObject.tag == "GameController")
+		if (hit && hit.gameObject.tag == "Character")
 		{
 			IsActive = true;
-			
-			InitiateDialogue dia = Dialogue.GetComponent<InitiateDialogue>();
+
+			InitiateDialogue dialogue = Dialogue.GetComponent<InitiateDialogue>();
 
 			CharModel characterModel = hit.transform.gameObject.GetComponentInChildren<CharModel>();
-			dia.Initialize(hit.transform.name, characterModel.Level, characterModel.DialogueCount);
+			dialogue.Initialize(hit.transform.name, characterModel.Level, characterModel.DialogueCount);
 
 			if (characterModel.DialogueCount >= 0 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
 			{
 				characterModel.DialogueCount++;
 			}
-			
+
 			Dialogue.SetActive(true);
 		}
 	}
