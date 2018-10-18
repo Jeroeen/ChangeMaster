@@ -1,4 +1,4 @@
-﻿// Attach this script on your main ortohgraphic camera:
+﻿// Attach this script on your main ortohgraphic Camera:
 
 /* The MIT License (MIT)
 
@@ -184,9 +184,9 @@ public class ViewportHandler : MonoBehaviour
 
     private void Update()
     {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         ComputeResolution();
-#endif
+//#endif
     }
 
     void OnDrawGizmos()
