@@ -12,8 +12,9 @@ public class InterventionScreen : MonoBehaviour
     public GameObject Text;
     public GameObject Button;
     public EventSystem EventSystem;
+    public CanvasGroup blockingPanel;
 
-    private Vector2 position = new Vector2(5.0f, 45.0f);
+    private Vector2 position = new Vector2(0.0f, 0.0f);
     private int textCount = 0;
     private ScrollRect interventionScroll;
     private RectTransform scrollviewContent;
@@ -21,6 +22,7 @@ public class InterventionScreen : MonoBehaviour
     private InterventionList interventions;
     private RetrieveJson json;
     private float textboxSizeX;
+    private float elementLimit;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,8 @@ public class InterventionScreen : MonoBehaviour
         //get the size of the text box for use further in the file
         RectTransform textRect = Text.GetComponent<RectTransform>();
         textboxSizeX = textRect.sizeDelta.x;
+        position = new Vector2(textboxSizeX / 8, -textboxSizeX / 8);
+
 
 
         fillScrollView();
@@ -67,13 +71,16 @@ public class InterventionScreen : MonoBehaviour
             entry.callback.AddListener((eventData) => { clickAdvice(ID); });
             trigger.triggers.Add(entry);
 
-                textCount++;
-            
+            textCount++;
+
+            elementLimit = scrollviewContent.sizeDelta.x /textboxSizeX;
+            //scrollviewContent.sizeDelta.y;
+
             //if more than 4(the length of the window is as long as 4 textelements) textelements are added, lengthen the scrollview content containing the interventions
-            if (i >= 4)
+            if (i >= elementLimit - 1) 
             {
-                scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x + (textboxSizeX + 10.0f), scrollviewContent.sizeDelta.y);
-                scrollviewContent.anchoredPosition = new Vector2(scrollviewContent.anchoredPosition.x + 80.0f, scrollviewContent.anchoredPosition.y);
+                scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x + (textboxSizeX), scrollviewContent.sizeDelta.y);
+                scrollviewContent.anchoredPosition = new Vector2(scrollviewContent.anchoredPosition.x + (textboxSizeX /2) , scrollviewContent.anchoredPosition.y);
             }
         }
 
@@ -91,8 +98,8 @@ public class InterventionScreen : MonoBehaviour
         GameObject aText = Instantiate(Text);
         panels.Add(aText);
         RectTransform textRect = aText.GetComponent<RectTransform>();
-        textRect.sizeDelta = new Vector2(textRect.sizeDelta.x + 100.0f, textRect.sizeDelta.y + 40.0f);
-
+        textRect.sizeDelta = new Vector2(textRect.sizeDelta.x *2, textRect.sizeDelta.y+(textRect.sizeDelta.y / 4));
+        
         //resize the scrollview's content element;
         scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - ((textboxSizeX + 10.0f) * (textCount - 4)), scrollviewContent.sizeDelta.y);
         scrollviewContent.anchoredPosition = new Vector2(5.0f, 0.0f);
@@ -100,7 +107,7 @@ public class InterventionScreen : MonoBehaviour
 
         //determine the standard position of all assets
         Vector2 newPos = new Vector2(position.x - ((textboxSizeX + 5.0f) * textCount), position.y-10);
-
+        textboxSizeX = textboxSizeX * 2;
         //create the text that tells the player the intervention they have chosen
         GameObject ChosenText = Instantiate(aText, interventionScroll.content.transform);
         panels.Add(ChosenText);
@@ -109,7 +116,7 @@ public class InterventionScreen : MonoBehaviour
         //create the text that tells the player the advice concerning the intervention they have chosen
         GameObject AdviceText = Instantiate(aText, interventionScroll.content.transform);
         panels.Add(AdviceText);
-        initiateTextObject(AdviceText, "Het volgende advies hoort bij je gekozen interventie: \n" + interventions.interventions[selected].advice, new Vector2(newPos.x + 255.0f, newPos.y));
+        initiateTextObject(AdviceText, "Het volgende advies hoort bij je gekozen interventie: \n" + interventions.interventions[selected].advice, new Vector2(newPos.x + textboxSizeX, newPos.y));
        
         //create a button with an onclick that will execute showFinished()
         GameObject NextButton = Instantiate(Button, interventionScroll.content.transform);
@@ -137,17 +144,17 @@ public class InterventionScreen : MonoBehaviour
         GameObject aText = Instantiate(Text);
         panels.Add(aText);
         RectTransform textRect = aText.GetComponent<RectTransform>();
-        textRect.sizeDelta = new Vector2(textRect.sizeDelta.x *2, textRect.sizeDelta.y + 40);
+        textRect.sizeDelta = new Vector2(textRect.sizeDelta.x *2, textRect.sizeDelta.y *2);
 
         //determine the standard position of all assets
 
-        Vector2 newPos = new Vector2(position.x - ((textboxSizeX + 5.0f) * textCount), position.y - 10);
+        Vector2 newPos = new Vector2(position.x - ((textboxSizeX /2) * textCount), position.y);
 
         //create the text that will tell the player what changed with their skills
         GameObject ChosenText = Instantiate(aText, interventionScroll.content.transform);
         panels.Add(ChosenText);
         RectTransform cTextPos = ChosenText.GetComponent<RectTransform>();
-        cTextPos.anchoredPosition = newPos;
+        cTextPos.anchoredPosition = new Vector2(newPos.x /2, newPos.y);
         Text chosenText = ChosenText.GetComponentInChildren<Text>();
         chosenText.text = "je hebt level 1 gehaald daarbij heb je de volgende skills gehaald \n"
             + "Analytisch  " + selectedIntervention.Analytisch + "\n"
@@ -167,12 +174,14 @@ public class InterventionScreen : MonoBehaviour
     {
         if (Interventionscreen.interactable)
         {
+            blockingPanel.blocksRaycasts = false;
             Interventionscreen.interactable = false;
             Interventionscreen.alpha = 0;
             Interventionscreen.blocksRaycasts = false;
         }
         else
         {
+            blockingPanel.blocksRaycasts = true;
             Interventionscreen.interactable = true;
             Interventionscreen.alpha = 1;
             Interventionscreen.blocksRaycasts = true;

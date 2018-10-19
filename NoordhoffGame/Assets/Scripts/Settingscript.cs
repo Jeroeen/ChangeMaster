@@ -7,6 +7,7 @@ public class Settingscript : MonoBehaviour
 {
     public Button InfoButton;
     public CanvasGroup SettingsScreen;
+    public CanvasGroup blockingPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +19,15 @@ public class Settingscript : MonoBehaviour
     public void showMenu()
     {
         if (SettingsScreen.interactable)
-        {   
+        {
+            blockingPanel.blocksRaycasts = false;
             SettingsScreen.interactable = false;
             SettingsScreen.alpha = 0;
             SettingsScreen.blocksRaycasts = false;
         }   
         else
-        {   
+        {
+            blockingPanel.blocksRaycasts = true;
             SettingsScreen.interactable = true;
             SettingsScreen.alpha = 1;
             SettingsScreen.blocksRaycasts = true;

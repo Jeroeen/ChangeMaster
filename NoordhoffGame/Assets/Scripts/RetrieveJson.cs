@@ -1,4 +1,5 @@
-﻿using LitJson;
+﻿using Assets.Scripts;
+using LitJson;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -6,14 +7,34 @@ using UnityEngine;
 
 public class RetrieveJson
 {
+    public DialogueItem LoadJson(string nameOfPartner, int level, int dialogueCount)
+    {
+        string path;
+        if (dialogueCount < 0)
+        {
+            path = "DialogueFiles/" + nameOfPartner + "-" + level;
+        }
+        else
+        {
+            path = "DialogueFiles/" + nameOfPartner + "-" + level + "-" + dialogueCount;
+        }
+
+        TextAsset asset = Resources.Load(path) as TextAsset;
+        string jsonString = asset.ToString();
+
+        DialogueItem item = JsonMapper.ToObject<DialogueItem>(jsonString);
+
+        return item;
+    }
+
     public InterventionList LoadJsonInterventions(int level)
     {
         string path;
 
-        path = Application.dataPath + "/StreamingAssets/InterventionFiles/" + "InterventionsLevel_" + level + ".json";
-        
+        path = "InterventionFiles/InterventionsLevel_" + level;
 
-        string jsonString = File.ReadAllText(path);
+        TextAsset asset = Resources.Load(path) as TextAsset;
+        string jsonString = asset.ToString();
         InterventionList item = JsonMapper.ToObject<InterventionList>(jsonString);
 
         return item;
@@ -23,10 +44,11 @@ public class RetrieveJson
     {
         string path;
 
-        path = Application.dataPath + "/StreamingAssets/InformationFiles/" + "InformationLevel_" + level + ".json";
+        path = "InformationFiles/InformationLevel_" + level;
 
 
-        string jsonString = File.ReadAllText(path);
+        TextAsset asset = Resources.Load(path) as TextAsset;
+        string jsonString = asset.ToString();
         InfoList item = JsonMapper.ToObject<InfoList>(jsonString);
 
         return item;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -9,9 +10,7 @@ public class Infoscreen : MonoBehaviour
     public Button SettingsButton;
     public CanvasGroup InfoScreen;
     public GameObject Panel;
-
-    public Sprite Img1;
-    public Sprite Img2;
+    public CanvasGroup blockingPanel;
 
     private List<Sprite> Images = new List<Sprite>();
     private Vector2 position = new Vector2(0.0f, -5.0f);
@@ -26,10 +25,11 @@ public class Infoscreen : MonoBehaviour
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
         InfoList Information = json.LoadJsonInformation(1);
-
+        RetrieveAsset.RetrieveAssets();
         for (int i = 0; i < Information.InformationList.Length; i++)
         {
-            Images.Add(LoadNewSprite(Application.dataPath + Information.InformationList[i].Image));
+            Images.Add(RetrieveAsset.GetSpriteByName(Information.InformationList[i].Image));
+            
         }
 
 
@@ -61,10 +61,10 @@ public class Infoscreen : MonoBehaviour
             //set the position
             RectTransform[] infoRectTransform = Panels[i].GetComponents<RectTransform>();
             infoRectTransform[0].anchoredPosition = position;
-            Debug.Log(position.x);
 
+            float elementLimit = scrollviewContent.sizeDelta.y / panelSizeY;
             //if there are more than 3 elements, make the content element from the scrollview bigger and set it to the correct position 
-            if(i >= 3)
+            if (i >= elementLimit - 1) 
             {
                 infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y +(panelSizeY + 10));
                 infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x, infoScrollviewRect.anchoredPosition.y -((0.5f* panelSizeY) + 10));
@@ -76,49 +76,20 @@ public class Infoscreen : MonoBehaviour
         
     }
 
-    public Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f)
-    {
-
-        // Load a PNG or JPG image from disk to a Texture2D, assign this texture to a new sprite and return its reference
-        Texture2D SpriteTexture = LoadTexture(FilePath);
-        Sprite NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0, 0), PixelsPerUnit);
-
-        
-        return NewSprite;
-    }
-
-    public Texture2D LoadTexture(string FilePath)
-    {
-
-        // Load a PNG or JPG file from disk to a Texture2D
-        // Returns null if load fails
-
-        Texture2D Tex2D;
-        byte[] FileData;
-
-        if (File.Exists(FilePath))
-        {
-            FileData = File.ReadAllBytes(FilePath);
-            Tex2D = new Texture2D(2, 2);                // Create new "empty" texture
-            if (Tex2D.LoadImage(FileData))              // Load the imagedata into the texture (size is set automatically)
-                return Tex2D;                           // If data = readable -> return texture
-        }
-        return null;                     // Return null if load failed
-    }
-
-
-    //a function that will enable or disable the menu
+   
     public void enableInfo()
     {
 
         if(InfoScreen.interactable)
         {
+            blockingPanel.blocksRaycasts = false;
             InfoScreen.interactable = false;
             InfoScreen.alpha = 0;
             InfoScreen.blocksRaycasts = false;
         }
         else
         {
+            blockingPanel.blocksRaycasts = true;
             InfoScreen.interactable = true;
             InfoScreen.alpha = 1;
             InfoScreen.blocksRaycasts = true;
