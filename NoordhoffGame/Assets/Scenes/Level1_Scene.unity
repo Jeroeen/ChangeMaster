@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoButton: {fileID: 829836587}
   SettingsScreen: {fileID: 14799758}
-  blockingPanel: {fileID: 1743278519}
+  BlockingPanel: {fileID: 0}
 --- !u!224 &14799762
 RectTransform:
   m_ObjectHideFlags: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 162555664}
   m_HandleRect: {fileID: 162555663}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0.99975586
   m_Size: 0.9994061
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -611,6 +611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue: {fileID: 780742645}
   Checker: {fileID: 475555192}
+  SettingsButton: {fileID: 463160807}
+  InfoButton: {fileID: 829836587}
 --- !u!4 &212539101
 Transform:
   m_ObjectHideFlags: 0
@@ -875,8 +877,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 773883700}
   m_HandleRect: {fileID: 773883699}
   m_Direction: 2
-  m_Value: 0.5
-  m_Size: 0.98928165
+  m_Value: 0.5000035
+  m_Size: 0.98928183
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1274,7 +1276,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.54597
+  orthographic size: 6.504408
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1382,7 +1384,7 @@ MonoBehaviour:
   Text: {fileID: 5416837157748592240, guid: aea35f00488d80e49871d80f7c149240, type: 3}
   Button: {fileID: 7703157438557406637, guid: 83135aa65b77dc54e990dbd0e6c3bbe2, type: 3}
   EventSystem: {fileID: 832951952}
-  blockingPanel: {fileID: 1743278519}
+  BlockingPanel: {fileID: 0}
 --- !u!225 &556364707
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2051,7 +2053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.725586, y: 359}
+  m_AnchoredPosition: {x: 1.8497316, y: 0}
   m_SizeDelta: {x: 2386.7, y: 718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101843427 stripped
@@ -2097,7 +2099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -842, y: 0}
+  m_AnchoredPosition: {x: -0.49993896, y: 0}
   m_SizeDelta: {x: 1684, y: 811.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1323096120
@@ -5151,7 +5153,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 121269541}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6226,8 +6228,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 575328435}
   m_HandleRect: {fileID: 575328434}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.49922478
+  m_Value: 0.00003299241
+  m_Size: 0.9984497
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6387,5 +6389,13 @@ PrefabInstance:
       propertyPath: NextButton
       value: 
       objectReference: {fileID: 1101843427}
+    - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: InfoButton
+      value: 
+      objectReference: {fileID: 829836587}
+    - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: SettingButton
+      value: 
+      objectReference: {fileID: 463160807}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
