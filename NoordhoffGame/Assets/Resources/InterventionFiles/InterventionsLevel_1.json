@@ -1,9 +1,9 @@
 {
-  "interventions": 
+  "Interventions": 
 	[
 		 {
-		"intervention":"Ontslag van de zieke medewerkers.",
-		"advice":"Deze zou kunnen, maar het nadeel is dat het probleem niet bij hun ligt. De keuze is daarom niet de beste optie. ",
+		"Intervention":"Ontslag van de zieke medewerkers.",
+		"Advice":"Deze zou kunnen, maar het nadeel is dat het probleem niet bij hun ligt. De keuze is daarom niet de beste optie. ",
 		"Analytisch": -1,
 		"Enthousiasmerend": -1 , 
 		"Besluitvaardig": 1,
@@ -12,8 +12,8 @@
 		"Creatief": 0,  
 		"Kennis_veranderkunde": 0 
 		},{
-		"intervention":"Medewerkers ziek laten zijn en schoonmaakpersoneel inzetten om daar te werken.",
-		"advice":"Kan, maar daarmee los je de oorzaak niet op. Daarnaast creëer je een angstcultuur. Niet de beste keus. ",
+		"Intervention":"Medewerkers ziek laten zijn en schoonmaakpersoneel inzetten om daar te werken.",
+		"Advice":"Kan, maar daarmee los je de oorzaak niet op. Daarnaast creëer je een angstcultuur. Niet de beste keus. ",
 		"Analytisch": -1,
 		"Enthousiasmerend": -1 , 
 		"Besluitvaardig": 0,
@@ -23,8 +23,8 @@
 		"Kennis_veranderkunde": 0 
 		},
 		{
-		"intervention":"Berisping van de teamleider om normale roosters te maken en ze niet meer te pesten.",
-		"advice":"Kan, maar de teamleider doet het ergens om, dus meer zoeken naar de oorzaak en die met elkaar aanpakken",
+		"Intervention":"Berisping van de teamleider om normale roosters te maken en ze niet meer te pesten.",
+		"Advice":"Kan, maar de teamleider doet het ergens om, dus meer zoeken naar de oorzaak en die met elkaar aanpakken",
 		"Analytisch": -1,
 		"Enthousiasmerend": -1 , 
 		"Besluitvaardig": 1,
@@ -33,8 +33,8 @@
 		"Creatief": 0,  
 		"Kennis_veranderkunde": 0 
 		},{
-		"intervention":"Gesprek met de teamleider en haar problemen oplossen.",
-		"advice":"Kan, maar dat is eenzijdig. Het probleem zit in het team. Niet de beste keus.",
+		"Intervention":"Gesprek met de teamleider en haar problemen oplossen.",
+		"Advice":"Kan, maar dat is eenzijdig. Het probleem zit in het team. Niet de beste keus.",
 		"Analytisch": 1,
 		"Enthousiasmerend": -1 , 
 		"Besluitvaardig": 1,
@@ -43,8 +43,8 @@
 		"Creatief": -1,  
 		"Kennis_veranderkunde": 0 
 		},{
-		"intervention":"Teamcoaching opstarten om samen te zoeken naar doel en werksfeer. ",
-		"advice":"Beste keus. Duurt iets langer, maar zorgt voor de meest duurzame oplossing van gedrag. Daarin wordt de teamsamenwerking besproken en gekeken naar wat ieder teamlid nodig heeft. ",
+		"Intervention":"Teamcoaching opstarten om samen te zoeken naar doel en werksfeer. ",
+		"Advice":"Beste keus. Duurt iets langer, maar zorgt voor de meest duurzame oplossing van gedrag. Daarin wordt de teamsamenwerking besproken en gekeken naar wat ieder teamlid nodig heeft. ",
 		"Analytisch": 1,
 		"Enthousiasmerend": 1 , 
 		"Besluitvaardig": 1,
@@ -53,8 +53,8 @@
 		"Creatief": 1,  
 		"Kennis_veranderkunde": 1 
 		},{
-		"intervention":"Medewerkers ziek laten zijn en de kinderspeelplek een deel van de dag dicht doen.",
-		"advice":"Kan, maar daarmee los je de oorzaak niet op. Tevredenheid bij gasten gaat naar beneden. Niet de beste keus",
+		"Intervention":"Medewerkers ziek laten zijn en de kinderspeelplek een deel van de dag dicht doen.",
+		"Advice":"Kan, maar daarmee los je de oorzaak niet op. Tevredenheid bij gasten gaat naar beneden. Niet de beste keus",
 		"Analytisch": -1,
 		"Enthousiasmerend": 0 , 
 		"Besluitvaardig": 1,
@@ -63,8 +63,8 @@
 		"Creatief": 0,  
 		"Kennis_veranderkunde": 0 
 		},{
-		"intervention":"Medewerkers ziek laten zijn en de overige animatiemedewerkers alleen voor de groep te zetten. ",
-		"advice":"Kan, maar de teamleider doet het ergens om, dus meer zoeken naar de oorzaak en die met elkaar aanpakken",
+		"Intervention":"Medewerkers ziek laten zijn en de overige animatiemedewerkers alleen voor de groep te zetten. ",
+		"Advice":"Kan, maar de teamleider doet het ergens om, dus meer zoeken naar de oorzaak en die met elkaar aanpakken",
 		"Analytisch": -1,
 		"Enthousiasmerend": -1 , 
 		"Besluitvaardig": 0,
