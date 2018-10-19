@@ -12,7 +12,7 @@ namespace Assets.Scripts.Utility
 	{
 		public bool IsPointerOverUI { get; private set; }
 
-		void Update()
+		void FixedUpdate()
 		{
 			IsPointerOverUI = IsPointerOverUIObject();
 		}

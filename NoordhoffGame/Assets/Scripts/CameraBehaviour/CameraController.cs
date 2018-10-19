@@ -143,23 +143,23 @@ public class CameraController : MonoBehaviour
         Vector3 camMin = new Vector3(transform.position.x - camWidth / 2, transform.position.y - camHeight / 2, transform.position.z);
         Vector3 camMax = new Vector3(transform.position.x + camWidth / 2, transform.position.y + camHeight / 2, transform.position.z);
 
-        if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended) || Input.GetMouseButtonUp(0))
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetMouseButtonUp(0))
         {
             if (camMin.x <= TilemapHandler.MinBounds.x)
             {
-                transform.Translate((TilemapHandler.MinBounds.x - transform.position.x + camWidth / 2), 0, 0);
+                transform.Translate(TilemapHandler.MinBounds.x - transform.position.x + camWidth / 2, 0, 0);
             }
             if (camMax.x >= TilemapHandler.MaxBounds.x)
             {
-                transform.Translate((TilemapHandler.MaxBounds.x - transform.position.x - camWidth / 2), 0, 0);
+                transform.Translate(TilemapHandler.MaxBounds.x - transform.position.x - camWidth / 2, 0, 0);
             }
             if (camMin.y <= TilemapHandler.MinBounds.y)
             {
-                transform.Translate(0, (TilemapHandler.MinBounds.y - transform.position.y + camHeight / 2), 0);
+                transform.Translate(0, TilemapHandler.MinBounds.y - transform.position.y + camHeight / 2, 0);
             }
             if (camMax.y >= TilemapHandler.MaxBounds.y)
             {
-                transform.Translate(0, (TilemapHandler.MaxBounds.y - transform.position.y - camHeight / 2), 0);
+                transform.Translate(0, TilemapHandler.MaxBounds.y - transform.position.y - camHeight / 2, 0);
             }
         }
     }
