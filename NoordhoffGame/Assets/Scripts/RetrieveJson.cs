@@ -10,7 +10,7 @@ public class RetrieveJson
     {
         string path;
 
-        path = Application.dataPath + "/StreamingAssets/InterventionFiles/" + "Level_" + level + ".json";
+        path = Application.dataPath + "/StreamingAssets/InterventionFiles/" + "InterventionsLevel_" + level + ".json";
         
 
         string jsonString = File.ReadAllText(path);
@@ -18,4 +18,18 @@ public class RetrieveJson
 
         return item;
     }
+
+    public InfoList LoadJsonInformation(int level)
+    {
+        string path;
+
+        path = Application.dataPath + "/StreamingAssets/InformationFiles/" + "InformationLevel_" + level + ".json";
+
+
+        string jsonString = File.ReadAllText(path);
+        InfoList item = JsonMapper.ToObject<InfoList>(jsonString);
+
+        return item;
+    }
+
 }

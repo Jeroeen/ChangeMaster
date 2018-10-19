@@ -6,21 +6,21 @@ using UnityEngine.EventSystems;
 
 public class InterventionScreen : MonoBehaviour
 {
-    public CanvasGroup InterventionMenu;
+    public Button InfoButton;
+    public Button SettingsButton;
+    public CanvasGroup Interventionscreen;
     public GameObject Text;
     public GameObject Button;
-    public EventSystem eventSystem;
+    public EventSystem EventSystem;
 
-    private Vector2 pos = new Vector2(5.0f, 45.0f);
+    private Vector2 position = new Vector2(5.0f, 45.0f);
     private int textCount = 0;
-    private ScrollRect intvScroll;
-    private RectTransform contentScroll;
-    private List<GameObject> Panels = new List<GameObject>();
-    private string[] text;
-    private string[] advies;
+    private ScrollRect interventionScroll;
+    private RectTransform scrollviewContent;
+    private List<GameObject> panels = new List<GameObject>();
     private InterventionList interventions;
-
     private RetrieveJson json;
+    private float textboxSizeX;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +29,17 @@ public class InterventionScreen : MonoBehaviour
         json = new RetrieveJson();
         interventions = json.LoadJsonInterventions(1);
 
-        //intvScroll is the ScrollRect that contains the list of interventions to choose from
-        intvScroll = InterventionMenu.GetComponentInChildren<ScrollRect>();
-        //contentscroll is an element of intvScroll that we are going to use to actually put the text elements in
-        contentScroll = intvScroll.content.GetComponent<RectTransform>();
-        contentScroll.anchoredPosition = new Vector2(pos.x, 0.0f);
-        
+        //interventionScroll is the ScrollRect that contains the list of interventions to choose from
+        interventionScroll = Interventionscreen.GetComponentInChildren<ScrollRect>();
+
+        //set the content element of the scrollview to the position 0,0 since, for some reason, sometimes it moves away from that position
+        scrollviewContent = interventionScroll.content.GetComponent<RectTransform>();
+        scrollviewContent.anchoredPosition = new Vector2(0.0f, 0.0f);
+
+        //get the size of the text box for use further in the file
+        RectTransform textRect = Text.GetComponent<RectTransform>();
+        textboxSizeX = textRect.sizeDelta.x;
+
 
         fillScrollView();
 
@@ -45,17 +50,17 @@ public class InterventionScreen : MonoBehaviour
         //add as much interventions as are in the array that we retrieved using "LoadJsonInterventions"
         for (int i = 0; i < interventions.interventions.Length; i++)
         {
-            //instantiate the text element
-            Panels.Add(Instantiate(Text, intvScroll.content.transform));
+            //instantiate the text element and add it to the list that holds all the UI elements
+            panels.Add(Instantiate(Text, interventionScroll.content.transform));
 
-            initiateTextObject(Panels[i], interventions.interventions[i].intervention, pos);
-            //VVVV
-            pos = new Vector2(pos.x + 155.0f, pos.y);
-            Panels[i].name = "button " + i;
+            initiateTextObject(panels[i], interventions.interventions[i].intervention, position);
+            position = new Vector2(position.x + textboxSizeX + 5.0f, position.y);
+            //set the name of the button that we'll later be using to see what intervention was selected
+            panels[i].name = "button " + i;
 
             //add an eventListener that triggers when the user clicks the text element and then executes clickAdvice() 
             //with the correct ID for the current Intervention
-            EventTrigger trigger = Panels[i].GetComponent<EventTrigger>();
+            EventTrigger trigger = panels[i].GetComponent<EventTrigger>();
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             int ID = i;
@@ -67,8 +72,8 @@ public class InterventionScreen : MonoBehaviour
             //if more than 4(the length of the window is as long as 4 textelements) textelements are added, lengthen the scrollview content containing the interventions
             if (i >= 4)
             {
-                contentScroll.sizeDelta = new Vector2(contentScroll.sizeDelta.x + 160, contentScroll.sizeDelta.y);
-                contentScroll.anchoredPosition = new Vector2(contentScroll.anchoredPosition.x + 80, contentScroll.anchoredPosition.y);
+                scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x + (textboxSizeX + 10.0f), scrollviewContent.sizeDelta.y);
+                scrollviewContent.anchoredPosition = new Vector2(scrollviewContent.anchoredPosition.x + 80.0f, scrollviewContent.anchoredPosition.y);
             }
         }
 
@@ -78,39 +83,39 @@ public class InterventionScreen : MonoBehaviour
     private void clickAdvice(int selected)
     {
        //delete all the current elements
-        foreach(GameObject g in Panels)
+        foreach(GameObject g in panels)
         {
             Destroy(g);
         }
         //create the standard text element that will be used to instantiate all other text elements in this function
         GameObject aText = Instantiate(Text);
-        Panels.Add(aText);
+        panels.Add(aText);
         RectTransform textRect = aText.GetComponent<RectTransform>();
-        textRect.sizeDelta = new Vector2(textRect.sizeDelta.x + 100, textRect.sizeDelta.y + 40);
+        textRect.sizeDelta = new Vector2(textRect.sizeDelta.x + 100.0f, textRect.sizeDelta.y + 40.0f);
 
         //resize the scrollview's content element;
-        contentScroll.sizeDelta = new Vector2(contentScroll.sizeDelta.x - (160 * (textCount - 4)), contentScroll.sizeDelta.y);
-        contentScroll.anchoredPosition = new Vector2(5, 0);
-        intvScroll.horizontal = false;
+        scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - ((textboxSizeX + 10.0f) * (textCount - 4)), scrollviewContent.sizeDelta.y);
+        scrollviewContent.anchoredPosition = new Vector2(5.0f, 0.0f);
+        interventionScroll.horizontal = false;
 
         //determine the standard position of all assets
-        Vector2 newPos = new Vector2(pos.x - (155.0f * textCount), pos.y-10);
+        Vector2 newPos = new Vector2(position.x - ((textboxSizeX + 5.0f) * textCount), position.y-10);
 
         //create the text that tells the player the intervention they have chosen
-        GameObject ChosenText = Instantiate(aText, intvScroll.content.transform);
-        Panels.Add(ChosenText);
+        GameObject ChosenText = Instantiate(aText, interventionScroll.content.transform);
+        panels.Add(ChosenText);
         initiateTextObject(ChosenText, "Je hebt gekozen voor de interventie: \n\n" + interventions.interventions[selected].intervention, newPos);
 
         //create the text that tells the player the advice concerning the intervention they have chosen
-        GameObject AdviceText = Instantiate(aText, intvScroll.content.transform);
-        Panels.Add(AdviceText);
+        GameObject AdviceText = Instantiate(aText, interventionScroll.content.transform);
+        panels.Add(AdviceText);
         initiateTextObject(AdviceText, "Het volgende advies hoort bij je gekozen interventie: \n" + interventions.interventions[selected].advice, new Vector2(newPos.x + 255.0f, newPos.y));
        
         //create a button with an onclick that will execute showFinished()
-        GameObject NextButton = Instantiate(Button, intvScroll.content.transform);
+        GameObject NextButton = Instantiate(Button, interventionScroll.content.transform);
         RectTransform NextButtonTransform = NextButton.GetComponent<RectTransform>();
-        Panels.Add(NextButton);
-        initiateTextObject(NextButton, "Doorgaan", new Vector2(newPos.x, -(0.5f * contentScroll.sizeDelta.y) + NextButtonTransform.sizeDelta.y));
+        panels.Add(NextButton);
+        initiateTextObject(NextButton, "Doorgaan", new Vector2(newPos.x, -(0.5f * scrollviewContent.sizeDelta.y) + NextButtonTransform.sizeDelta.y));
         NextButton.GetComponent<Button>().onClick.AddListener(delegate { showFinished(selected); });
        
 
@@ -120,7 +125,7 @@ public class InterventionScreen : MonoBehaviour
     private void showFinished(int selected)
     {
         //delete all the current elements
-        foreach (GameObject g in Panels)
+        foreach (GameObject g in panels)
         {
             Destroy(g);
         }
@@ -130,17 +135,17 @@ public class InterventionScreen : MonoBehaviour
 
         //create the standard text element that will be used to instantiate all other text elements in this function
         GameObject aText = Instantiate(Text);
-        Panels.Add(aText);
+        panels.Add(aText);
         RectTransform textRect = aText.GetComponent<RectTransform>();
         textRect.sizeDelta = new Vector2(textRect.sizeDelta.x *2, textRect.sizeDelta.y + 40);
 
         //determine the standard position of all assets
 
-        Vector2 newPos = new Vector2(pos.x - (155.0f * textCount), pos.y - 10);
+        Vector2 newPos = new Vector2(position.x - ((textboxSizeX + 5.0f) * textCount), position.y - 10);
 
         //create the text that will tell the player what changed with their skills
-        GameObject ChosenText = Instantiate(aText, intvScroll.content.transform);
-        Panels.Add(ChosenText);
+        GameObject ChosenText = Instantiate(aText, interventionScroll.content.transform);
+        panels.Add(ChosenText);
         RectTransform cTextPos = ChosenText.GetComponent<RectTransform>();
         cTextPos.anchoredPosition = newPos;
         Text chosenText = ChosenText.GetComponentInChildren<Text>();
@@ -153,6 +158,28 @@ public class InterventionScreen : MonoBehaviour
             + "Creatief " + selectedIntervention.Creatief + "\n"
             + "Kennis van veranderkunde " + selectedIntervention.Kennis_veranderkunde;
 
+
+    }
+
+
+    //a function that will enable or disable the menu 
+    public void showMenu()
+    {
+        if (Interventionscreen.interactable)
+        {
+            Interventionscreen.interactable = false;
+            Interventionscreen.alpha = 0;
+            Interventionscreen.blocksRaycasts = false;
+        }
+        else
+        {
+            Interventionscreen.interactable = true;
+            Interventionscreen.alpha = 1;
+            Interventionscreen.blocksRaycasts = true;
+        }
+
+        InfoButton.interactable = !InfoButton.IsInteractable();
+        SettingsButton.interactable = !SettingsButton.IsInteractable();
 
     }
 

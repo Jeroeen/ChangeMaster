@@ -1,0 +1,18 @@
+{
+  "InformationList": 
+	[
+		 {
+		"Image":"/Sprites/kapitien Iglo.png",
+		"Text":"Ik ben het er niet mee eens"
+		},{
+		"Image":"/Sprites/ijsbeertje.png",
+		"Text":"Ik ben het er wel mee eens"
+		},
+		{
+		"Image":"/Sprites/muntjes.png",
+		"Text":"waarom sta ik hier, ik ben een stapel muntjes, ik kan niet praten"
+ 
+		}
+	]
+    
+}

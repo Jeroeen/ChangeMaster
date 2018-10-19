@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class Settingscript : MonoBehaviour
 {
-    public Button infoButton;
-    public CanvasGroup Settings;
-    bool disable = false;
+    public Button InfoButton;
+    public CanvasGroup SettingsScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,35 +14,29 @@ public class Settingscript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    //a function that will enable or disable the menu
+    public void showMenu()
     {
+        if (SettingsScreen.interactable)
+        {   
+            SettingsScreen.interactable = false;
+            SettingsScreen.alpha = 0;
+            SettingsScreen.blocksRaycasts = false;
+        }   
+        else
+        {   
+            SettingsScreen.interactable = true;
+            SettingsScreen.alpha = 1;
+            SettingsScreen.blocksRaycasts = true;
+        }
+
+        InfoButton.interactable = !InfoButton.IsInteractable();
         
     }
 
-    public void showMenu()
+     // Update is called once per frame
+    void Update()
     {
-        if (!disable)
-        {
-            if (Settings.interactable)
-            {   
-                Settings.interactable = false;
-                Settings.alpha = 0;
-                Settings.blocksRaycasts = false;
-            }   
-            else
-            {   
-                Settings.interactable = true;
-                Settings.alpha = 1;
-                Settings.blocksRaycasts = true;
-            }
-
-            infoButton.interactable = !infoButton.IsInteractable();
-        }
-    }
-
-    public void switchDisable()
-    {
-        disable = !disable;       
+        
     }
 }
