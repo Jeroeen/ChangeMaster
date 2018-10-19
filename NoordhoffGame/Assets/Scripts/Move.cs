@@ -45,7 +45,6 @@ public class Move : MonoBehaviour
 
         if (path.BestPath != null)
         {
-            Debug.Log("Path: " + path.BestPath.Position);
             transform.position = Vector3.MoveTowards(transform.position, path.BestPath.Position, 4 * Time.deltaTime);
 
             if (Vector3.Magnitude(transform.position - (Vector3)path.BestPath.Position) < 0.1f && path.BestPath.AdjEdges.Count > 0 && path.BestPath.AdjEdges[0] != null && path.BestPath.AdjEdges[0].Dest != null)
