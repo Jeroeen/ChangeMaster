@@ -5,31 +5,22 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    public Text coinAmount;
-    public int coins = 0;
+    public Text CoinAmount;
+    public int Coins = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        coinAmount.text = coins.ToString();
-        
+        CoinAmount.text = Coins.ToString();     
     }
-
-    // Update is called once per frame
-    void Update()
+    public void AddCoin()
     {
-        
+        Coins++;
+        CoinAmount.text = Coins.ToString();
     }
-
-    public void addCoin()
+    public void AddCoins(int amount)
     {
-        coins++;
-        coinAmount.text = coins.ToString();
-    }
-
-    public void addCoins(int amount)
-    {
-        coins += amount;
-        coinAmount.text = coins.ToString();
+        Coins += amount;
+        CoinAmount.text = Coins.ToString();
     }
 }

@@ -5,15 +5,13 @@ using UnityEngine;
 public class InterventionList 
 {
 
-    public Intervention[] interventions { get; set; }
+    public Intervention[] Interventions { get; set; }
     
     public InterventionList()
-    {
-
-    }
+    {}
     public InterventionList(Intervention[] Interventions)
     {
-        interventions = Interventions;
+        this.Interventions = Interventions;
     }
 
 }

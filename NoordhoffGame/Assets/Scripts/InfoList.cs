@@ -16,6 +16,7 @@ public class InfoList
     {
 
     }
+
     public InfoList(info[] Information)
     {
         InformationList = Information;

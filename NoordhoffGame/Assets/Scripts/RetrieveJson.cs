@@ -29,9 +29,7 @@ public class RetrieveJson
 
     public InterventionList LoadJsonInterventions(int level)
     {
-        string path;
-
-        path = "InterventionFiles/InterventionsLevel_" + level;
+        string path = "InterventionFiles/InterventionsLevel_" + level;
 
         TextAsset asset = Resources.Load(path) as TextAsset;
         string jsonString = asset.ToString();
@@ -42,9 +40,7 @@ public class RetrieveJson
 
     public InfoList LoadJsonInformation(int level)
     {
-        string path;
-
-        path = "InformationFiles/InformationLevel_" + level;
+        string path = "InformationFiles/InformationLevel_" + level;
 
 
         TextAsset asset = Resources.Load(path) as TextAsset;

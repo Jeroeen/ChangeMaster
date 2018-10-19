@@ -17,7 +17,7 @@ public class OpenDialogue : MonoBehaviour
     public Button InfoButton;
 
 
-	void FixedUpdate()
+	void Update()
 	{
 		if (EventSystem.current.IsPointerOverGameObject() || Checker.IsPointerOverUI)
 		{

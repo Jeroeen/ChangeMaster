@@ -7,39 +7,26 @@ public class Settingscript : MonoBehaviour
 {
     public Button InfoButton;
     public CanvasGroup SettingsScreen;
-    public CanvasGroup blockingPanel;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-
-    }
-
+    public CanvasGroup BlockingPanel;
     //a function that will enable or disable the menu
-    public void showMenu()
+    public void ShowMenu()
     {
         if (SettingsScreen.interactable)
         {
-            blockingPanel.blocksRaycasts = false;
+            BlockingPanel.blocksRaycasts = false;
             SettingsScreen.interactable = false;
             SettingsScreen.alpha = 0;
             SettingsScreen.blocksRaycasts = false;
         }   
         else
         {
-            blockingPanel.blocksRaycasts = true;
+            BlockingPanel.blocksRaycasts = true;
             SettingsScreen.interactable = true;
             SettingsScreen.alpha = 1;
             SettingsScreen.blocksRaycasts = true;
         }
 
         InfoButton.interactable = !InfoButton.IsInteractable();
-        
-    }
-
-     // Update is called once per frame
-    void Update()
-    {
         
     }
 }
