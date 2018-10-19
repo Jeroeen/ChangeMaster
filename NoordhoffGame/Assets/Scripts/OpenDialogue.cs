@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class OpenDialogue : MonoBehaviour
 {
-	private InitiateDialogue _ini;
+	private InitiateDialogue _initiateDialogue;
 	public static bool IsActive { get; set; }
 	public GameObject Dialogue;
 

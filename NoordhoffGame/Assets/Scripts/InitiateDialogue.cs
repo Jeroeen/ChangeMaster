@@ -24,11 +24,11 @@ public class InitiateDialogue : MonoBehaviour
 		_json = new RetrieveJson();
 		_dialogue = _json.LoadJson(nameOfPartner, level, dialogueCount);
 
-		NextButton.GetComponentInChildren<Text>().text = _dialogue.nextButtonText;
-		PrevButton.GetComponentInChildren<Text>().text = _dialogue.previousButtonText;
+		NextButton.GetComponentInChildren<Text>().text = _dialogue.NextButtonText;
+		PrevButton.GetComponentInChildren<Text>().text = _dialogue.PreviousButtonText;
 
-		PartnerName.text = _dialogue.speaker;
-		DialogueText.text = _dialogue.lines[0];
+		PartnerName.text = _dialogue.NameOfSpeaker;
+		DialogueText.text = _dialogue.DialogueLines[0];
 
 		Partner.sprite = RetrieveAsset.GetSpriteByName(nameOfPartner);
 
@@ -52,7 +52,7 @@ public class InitiateDialogue : MonoBehaviour
 		// Next page is final page of slide
 		if (_dialogue.IsEndOfDialogue())
 		{
-			NextButton.GetComponentInChildren<Text>().text = _dialogue.confirmButtonText;
+			NextButton.GetComponentInChildren<Text>().text = _dialogue.ConfirmButtonText;
 		}
 
 	}
@@ -62,7 +62,7 @@ public class InitiateDialogue : MonoBehaviour
 		DialogueText.text = _dialogue.PreviousLine();
 		NextButton.interactable = true;
 
-		NextButton.GetComponentInChildren<Text>().text = _dialogue.nextButtonText;
+		NextButton.GetComponentInChildren<Text>().text = _dialogue.NextButtonText;
 		if (_dialogue.IsBeginningOfDialogue())
 		{
 			PrevButton.interactable = false;

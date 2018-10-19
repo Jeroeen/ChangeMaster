@@ -72,7 +72,7 @@ public class JsonMockWrapper : IJsonWrapper {
 		set {}
 	}
 
-	void IDictionary.Add(object k, object v) {}
+	void IDictionary.Add(object object1, object object2) {}
 	void IDictionary.Clear() {}
 	bool IDictionary.Contains(object key) { return false; }
 	void IDictionary.Remove(object key) {}
@@ -88,7 +88,7 @@ public class JsonMockWrapper : IJsonWrapper {
 		return null;
 	}
 
-	void IOrderedDictionary.Insert(int i, object k, object v) {}
+	void IOrderedDictionary.Insert(int i, object object1, object object2) {}
 	void IOrderedDictionary.RemoveAt(int i) {}
 }
 

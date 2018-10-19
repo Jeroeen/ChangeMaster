@@ -11,41 +11,46 @@ namespace Assets.Scripts
 	{
 		public int CurrentPage { get; set; }
 
-		public string speaker { get; private set; }
+		[JsonAlias("speaker")]
+		public string NameOfSpeaker { get; private set; }
 
-		public string previousButtonText { get; private set; }
+		[JsonAlias("previousButtonText")]
+		public string PreviousButtonText { get; private set; }
 
-		public string nextButtonText { get; private set; }
+		[JsonAlias("nextButtonText")]
+		public string NextButtonText { get; private set; }
 
-		public string confirmButtonText { get; private set; }
+		[JsonAlias("confirmButtonText")]
+		public string ConfirmButtonText { get; private set; }
 
-		public List<string> lines { get; private set; }
+		[JsonAlias("lines")]
+		public List<string> DialogueLines { get; private set; }
 
 		public DialogueItem()
 		{
-			currentPage = 0;
+			CurrentPage = 0;
 		}
 
 		public string PreviousLine()
 		{
-			currentPage--;
-			return lines[currentPage];
+			CurrentPage--;
+			return DialogueLines[CurrentPage];
 		}
 
 		public string NextLine()
 		{
-			currentPage++;
-			return lines[currentPage];
+			CurrentPage++;
+			return DialogueLines[CurrentPage];
 		}
 
 		public bool IsEndOfDialogue()
 		{
-			return currentPage >= lines.Count - 1;
+			return CurrentPage >= DialogueLines.Count - 1;
 		}
 
 		public bool IsBeginningOfDialogue()
 		{
-			return currentPage <= 0;
+			return CurrentPage <= 0;
 		}
 	}
 }
