@@ -10,12 +10,12 @@ public class CameraController : MonoBehaviour
     private float zoomValue;
     private bool isPlayingCutscene;
     private bool canFreeRoam;
+    private Vector3 Destination = Vector3.zero;
 
-    public Vector3 Destination = Vector3.zero;
-    public float ZoomSpeed = 2f;
-    public float MoveSpeed = 2f;
-    public int MinZoom = 16;
-    public int MaxZoom = 33;
+    [SerializeField] private float zoomSpeed = 2f;
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private int minZoom = 16;
+    [SerializeField] private int maxZoom = 33;
     public ViewportHandler ViewportHandler;
     public TilemapHandler TilemapHandler;
     public Camera Camera;
@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
         // Delete this To start cutscene first
         canFreeRoam = true;
         transform.position = new Vector3(transform.position.x, transform.position.y + 3.5f, transform.position.z);
-        zoomValue = MinZoom;
+        zoomValue = minZoom;
     }
     
     void Update()
@@ -40,23 +40,23 @@ public class CameraController : MonoBehaviour
 
         if (isPlayingCutscene)
         {
-            ExecuteCutscene1();
+            ExecuteCutscene();
         }
         else if (!isPlayingCutscene && canFreeRoam)
         {
             ExecuteFreeRoam();
         }
 
-        zoomValue = Mathf.Clamp(zoomValue, MinZoom, MaxZoom);
+        zoomValue = Mathf.Clamp(zoomValue, minZoom, maxZoom);
         ViewportHandler.UnitsSize = zoomValue;
     }
 
-    private void ExecuteCutscene1()
+    private void ExecuteCutscene()
     {
-        zoomValue -= ZoomSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, Destination, MoveSpeed * Time.deltaTime);
+        zoomValue -= zoomSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, Destination, moveSpeed * Time.deltaTime);
 
-        if ((int)Math.Ceiling(zoomValue) == MinZoom)
+        if ((int)Math.Ceiling(zoomValue) == minZoom)
         {
             isPlayingCutscene = false;
             canFreeRoam = true;
@@ -83,11 +83,11 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetKey("up"))
         {
-            zoomValue += ZoomSpeed * 6 * Time.deltaTime;
+            zoomValue += zoomSpeed * 6 * Time.deltaTime;
         }
         else if (Input.GetKey("down"))
         {
-            zoomValue -= ZoomSpeed * 6 * Time.deltaTime;
+            zoomValue -= zoomSpeed * 6 * Time.deltaTime;
         }
     }
 
@@ -117,7 +117,7 @@ public class CameraController : MonoBehaviour
             float touchesPrevPosDifference = (firstTouchPrevPos - secondTouchPrevPos).magnitude;
             float touchesCurPosDifference = (firstTouch.position - secondTouch.position).magnitude;
 
-            float zoomModifier = (firstTouch.deltaPosition - secondTouch.deltaPosition).magnitude * ZoomSpeed;
+            float zoomModifier = (firstTouch.deltaPosition - secondTouch.deltaPosition).magnitude * zoomSpeed;
 
             if (touchesPrevPosDifference > touchesCurPosDifference)
             {

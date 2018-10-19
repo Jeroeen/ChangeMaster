@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Edge
 {
-    public ANode Dest { get; set; }
+    public ANode Destination { get; set; }
     public double Cost { get; set; }
 
     public Edge(ANode node, double cost)
     {
-        Dest = node;
+        Destination = node;
         Cost = cost;
     }
 }

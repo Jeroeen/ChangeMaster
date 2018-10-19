@@ -45,9 +45,9 @@ public class Move : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, path.BestPath.Position, 4 * Time.deltaTime);
 
-            if (Vector3.Magnitude(transform.position - (Vector3)path.BestPath.Position) < 0.1f && path.BestPath.AdjEdges.Count > 0 && path.BestPath.AdjEdges[0] != null && path.BestPath.AdjEdges[0].Dest != null)
+            if (Vector3.Magnitude(transform.position - (Vector3)path.BestPath.Position) < 0.1f && path.BestPath.AdjacentEdges.Count > 0 && path.BestPath.AdjacentEdges[0] != null && path.BestPath.AdjacentEdges[0].Destination != null)
             {
-                path.BestPath = path.BestPath.AdjEdges[0].Dest;
+                path.BestPath = path.BestPath.AdjacentEdges[0].Destination;
             }
         }
     }

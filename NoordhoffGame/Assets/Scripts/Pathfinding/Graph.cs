@@ -36,7 +36,7 @@ public class Graph
         cost = CalculateEuclidean(startANode, endANode);
 
         Edge e = new Edge(ANodeMap[end], cost);
-        ANodeMap[start].AdjEdges.Add(e);
+        ANodeMap[start].AdjacentEdges.Add(e);
     }
 
     public ANode AStar(ANode start, ANode end)
@@ -85,9 +85,9 @@ public class Graph
             open.Remove(current);
             closed.Add(current);
 
-            foreach (Edge neighbourEdge in current.AdjEdges)
+            foreach (Edge neighbourEdge in current.AdjacentEdges)
             {
-                ANode neighbourANode = neighbourEdge.Dest;
+                ANode neighbourANode = neighbourEdge.Destination;
                 if (closed.Contains(neighbourANode))
                 {
                     // Ignore the neighbour which is evaluated
@@ -130,7 +130,7 @@ public class Graph
             current = map[current];
             ANode newANode = new ANode(current.ID, current.Position);
             double edgeCost = CalculateEuclidean(newANode, totalPath);
-            newANode.AdjEdges.Add(new Edge(totalPath, edgeCost));
+            newANode.AdjacentEdges.Add(new Edge(totalPath, edgeCost));
             totalPath = newANode;
         }
 
@@ -198,9 +198,9 @@ public class Graph
             }
 
             // Visit each neighbour via the connected edge of the current ANode
-            foreach (Edge e in current.AdjEdges)
+            foreach (Edge e in current.AdjacentEdges)
             {
-                ANode neighbour = e.Dest;
+                ANode neighbour = e.Destination;
                 double newCost = cost[current] + e.Cost;
                 if (newCost < cost[neighbour])
                 {
@@ -217,12 +217,12 @@ public class Graph
     {
         foreach (KeyValuePair<string, ANode> node in ANodeMap)
         {
-            List<Edge> edges = node.Value.AdjEdges;
+            List<Edge> edges = node.Value.AdjacentEdges;
             for (int i = 0; i < edges.Count; i++)
             {
-                if (edges[i].Dest.ID == input)
+                if (edges[i].Destination.ID == input)
                 {
-                    node.Value.AdjEdges.Remove(edges[i]);
+                    node.Value.AdjacentEdges.Remove(edges[i]);
                 }
             }
         }
@@ -390,9 +390,9 @@ public class Graph
         {
             pos = new Vector2(node.Value.Position.x, node.Value.Position.y);
 
-            foreach (Edge edge in node.Value.AdjEdges)
+            foreach (Edge edge in node.Value.AdjacentEdges)
             {
-                dest = edge.Dest;
+                dest = edge.Destination;
                 destPos = new Vector2(dest.Position.x, dest.Position.y);
                 Debug.DrawLine(new Vector3(pos.x, pos.y, -1), new Vector3(destPos.x, destPos.y, -1), Color.magenta);
                 //Debug.Log("pos: " + pos + ", destpos: " + destPos);

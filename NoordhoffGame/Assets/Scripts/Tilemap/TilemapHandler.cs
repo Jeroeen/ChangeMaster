@@ -8,10 +8,10 @@ public class TilemapHandler : MonoBehaviour
     public Tilemap Tilemap;
 
     [HideInInspector]
-    public Vector2 MinBounds { get; set; }
+    public Vector2 MinBounds { get; private set; }
 
     [HideInInspector]
-    public Vector2 MaxBounds { get; set; }
+    public Vector2 MaxBounds { get; private set; }
 
     void Start()
     {

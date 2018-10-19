@@ -40,17 +40,17 @@ public class ViewportHandler : MonoBehaviour
     private float _width;
     private float _height;
     //*** bottom screen
-    private Vector3 _bl;
-    private Vector3 _bc;
-    private Vector3 _br;
+    private Vector3 bottomLeft;
+    private Vector3 bottomCamera;
+    private Vector3 bottomRight;
     //*** middle screen
-    private Vector3 _ml;
-    private Vector3 _mc;
-    private Vector3 _mr;
+    private Vector3 middleLeft;
+    private Vector3 middleCamera;
+    private Vector3 middleRight;
     //*** top screen
-    private Vector3 _tl;
-    private Vector3 _tc;
-    private Vector3 _tr;
+    private Vector3 topLeft;
+    private Vector3 topCamera;
+    private Vector3 topRight;
     #endregion
 
     #region PROPERTIES
@@ -74,63 +74,63 @@ public class ViewportHandler : MonoBehaviour
     {
         get
         {
-            return _bl;
+            return bottomLeft;
         }
     }
     public Vector3 BottomCenter
     {
         get
         {
-            return _bc;
+            return bottomCamera;
         }
     }
     public Vector3 BottomRight
     {
         get
         {
-            return _br;
+            return bottomRight;
         }
     }
     public Vector3 MiddleLeft
     {
         get
         {
-            return _ml;
+            return middleLeft;
         }
     }
     public Vector3 MiddleCenter
     {
         get
         {
-            return _mc;
+            return middleCamera;
         }
     }
     public Vector3 MiddleRight
     {
         get
         {
-            return _mr;
+            return middleRight;
         }
     }
     public Vector3 TopLeft
     {
         get
         {
-            return _tl;
+            return topLeft;
         }
     }
     public Vector3 TopCenter
     {
         get
         {
-            return _tc;
+            return topCamera;
         }
     }
     public Vector3 TopRight
     {
         get
         {
-            return _tr;
+            return topRight;
         }
     }
     #endregion
@@ -169,17 +169,17 @@ public class ViewportHandler : MonoBehaviour
         bottomY = cameraY - _height / 2;
 
         //*** bottom
-        _bl = new Vector3(leftX, bottomY, 0);
-        _bc = new Vector3(cameraX, bottomY, 0);
-        _br = new Vector3(rightX, bottomY, 0);
+        bottomLeft = new Vector3(leftX, bottomY, 0);
+        bottomCamera = new Vector3(cameraX, bottomY, 0);
+        bottomRight = new Vector3(rightX, bottomY, 0);
         //*** middle
-        _ml = new Vector3(leftX, cameraY, 0);
-        _mc = new Vector3(cameraX, cameraY, 0);
-        _mr = new Vector3(rightX, cameraY, 0);
+        middleLeft = new Vector3(leftX, cameraY, 0);
+        middleCamera = new Vector3(cameraX, cameraY, 0);
+        middleRight = new Vector3(rightX, cameraY, 0);
         //*** top
-        _tl = new Vector3(leftX, topY, 0);
-        _tc = new Vector3(cameraX, topY, 0);
-        _tr = new Vector3(rightX, topY, 0);
+        topLeft = new Vector3(leftX, topY, 0);
+        topCamera = new Vector3(cameraX, topY, 0);
+        topRight = new Vector3(rightX, topY, 0);
     }
 
     private void Update()

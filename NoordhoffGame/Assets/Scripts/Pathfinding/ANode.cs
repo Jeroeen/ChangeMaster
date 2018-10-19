@@ -10,14 +10,14 @@ namespace Assets.Scripts
     public class ANode
     {
         public string ID { get; set; }
-        public List<Edge> AdjEdges { get; set; }
+        public List<Edge> AdjacentEdges { get; set; }
         public Vector3 Position { get; set; }
 
         public ANode(string id, Vector3 pos)
         {
             this.ID = id;
             this.Position = pos;
-            AdjEdges = new List<Edge>();
+            AdjacentEdges = new List<Edge>();
         }
     }
 }

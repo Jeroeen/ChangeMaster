@@ -172,9 +172,9 @@ namespace Assets.Scripts
             while (currANode != null)
             {
                 pos = new Vector2(currANode.Position.x, currANode.Position.y);
-                foreach (Edge edge in currANode.AdjEdges)
+                foreach (Edge edge in currANode.AdjacentEdges)
                 {
-                    dest = edge.Dest;
+                    dest = edge.Destination;
                     pos = new Vector2(pos.x, pos.y);
                     destPos = new Vector2(dest.Position.x, dest.Position.y);
                     //g.DrawLine(new Pen(Color.Cyan, 1), pos, destPos);
@@ -185,7 +185,7 @@ namespace Assets.Scripts
                 //g.FillEllipse(Brushes.Cyan, pos.X, pos.Y, 3, 3);
 
 
-                if (currANode.AdjEdges.Count == 0)
+                if (currANode.AdjacentEdges.Count == 0)
                 {
                     break;
                 }
