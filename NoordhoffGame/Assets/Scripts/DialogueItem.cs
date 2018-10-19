@@ -9,7 +9,7 @@ namespace Assets.Scripts
 {
 	public class DialogueItem
 	{
-		public int currentPage { get; set; }
+		public int CurrentPage { get; set; }
 
 		public string speaker { get; private set; }
 
