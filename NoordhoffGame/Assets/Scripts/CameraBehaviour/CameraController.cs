@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngineInternal;
@@ -16,11 +17,13 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private int minZoom = 16;
     [SerializeField] private int maxZoom = 33;
+
     public ViewportHandler ViewportHandler;
     public TilemapHandler TilemapHandler;
     public Camera Camera;
+	public MouseChecker Checker;
 
-    void Start()
+	void Start()
     {
         zoomValue = ViewportHandler.UnitsSize;
 
@@ -38,17 +41,19 @@ public class CameraController : MonoBehaviour
             isPlayingCutscene = true;
         }
 
-        if (isPlayingCutscene)
-        {
-            ExecuteCutscene();
-        }
-        else if (!isPlayingCutscene && canFreeRoam)
-        {
-            ExecuteFreeRoam();
-        }
+	    if (Checker.IsPointerOverUI) return;
 
-        zoomValue = Mathf.Clamp(zoomValue, minZoom, maxZoom);
-        ViewportHandler.UnitsSize = zoomValue;
+	    if (isPlayingCutscene)
+	    {
+		    ExecuteCutscene();
+	    }
+	    else if (!isPlayingCutscene && canFreeRoam)
+	    {
+		    ExecuteFreeRoam();
+	    }
+
+	    zoomValue = Mathf.Clamp(zoomValue, minZoom, maxZoom);
+	    ViewportHandler.UnitsSize = zoomValue;
     }
 
     private void ExecuteCutscene()
