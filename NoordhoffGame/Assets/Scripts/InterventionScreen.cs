@@ -45,6 +45,7 @@ public class InterventionScreen : MonoBehaviour
     //function to fill the scroll view for the first time
     private void FillScrollView()
     {
+        Debug.Log(interventions);
         //add as much interventions as are in the array that we retrieved using "LoadJsonInterventions"
         for (int i = 0; i < interventions.Interventions.Length; i++)
         {
