@@ -5,6 +5,7 @@ using System.Threading;
 using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class OpenDialogue : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class OpenDialogue : MonoBehaviour
 	public static bool IsActive { get; set; }
 	public GameObject Dialogue;
 	public MouseChecker Checker;
+    public Button SettingsButton;
+    public Button InfoButton;
 
-	void FixedUpdate()
+
+	void Update()
 	{
 		if (EventSystem.current.IsPointerOverGameObject() || Checker.IsPointerOverUI)
 		{
@@ -45,8 +49,9 @@ public class OpenDialogue : MonoBehaviour
 		}
 
 		IsActive = true;
-
-		InitiateDialogue dialogue = Dialogue.GetComponent<InitiateDialogue>();
+        SettingsButton.interactable = false;
+        InfoButton.interactable = false;
+        InitiateDialogue dialogue = Dialogue.GetComponent<InitiateDialogue>();
 
 		CharModel characterModel = hit.transform.gameObject.GetComponentInChildren<CharModel>();
 		dialogue.Initialize(hit.transform.name, characterModel.Level, characterModel.DialogueCount);

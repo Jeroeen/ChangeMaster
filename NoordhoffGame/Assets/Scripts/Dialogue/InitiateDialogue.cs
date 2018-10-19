@@ -16,8 +16,10 @@ public class InitiateDialogue : MonoBehaviour
 
 	public Button PrevButton;
 	public Button NextButton;
+    public Button SettingButton;
+    public Button InfoButton;
 
-	public void Initialize(string nameOfPartner, int level, int dialogueCount)
+    public void Initialize(string nameOfPartner, int level, int dialogueCount)
 	{
 		RetrieveAsset.RetrieveAssets();
 
@@ -42,8 +44,10 @@ public class InitiateDialogue : MonoBehaviour
 		{
 			gameObject.SetActive(false);
 			OpenDialogue.IsActive = false;
+            InfoButton.interactable = true;
+            SettingButton.interactable = true;
 
-			return;
+            return;
 		}
 
 		DialogueText.text = _dialogue.NextLine();
