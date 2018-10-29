@@ -6,7 +6,14 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
     public Text CoinAmount;
-    public int Coins = 0;
+    public static int Coins = 0;
+    public static int Analytisch = 0;
+    public static int Enthousiasmerend = 0;
+    public static int Besluitvaardig = 0;
+    public static int Empathisch = 0;
+    public static int Overtuigend = 0;
+    public static int Creatief = 0;
+    public static int Veranderkunde_Kennis = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +29,16 @@ public class PlayerScript : MonoBehaviour
     {
         Coins += amount;
         CoinAmount.text = Coins.ToString();
+    }
+    public string GetPlayerTitle()
+    {
+        if(Veranderkunde_Kennis >= 1)
+        {
+            return "veranderkundige";
+        }
+        else
+        {
+            return "junior veranderkundige";
+        }
     }
 }
