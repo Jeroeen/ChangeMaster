@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class InitiateDialogue : MonoBehaviour
 {
 	private RetrieveJson _json;
-	private DialogueItem _dialogue;
+    private DialogueItem _dialogue;
 
 	public SpriteRenderer Partner;
 	public Text PartnerName;
@@ -59,6 +59,7 @@ public class InitiateDialogue : MonoBehaviour
 		// Next page is final page of slide
 		if (_dialogue.IsEndOfDialogue())
 		{
+
 			NextButton.GetComponentInChildren<Text>().text = _dialogue.ConfirmButtonText;
 		}
 

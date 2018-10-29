@@ -14,6 +14,8 @@ public class Transition : MonoBehaviour
     void Start()
     {
         alpha = image.color.a;
+        CanFadeToBlack = false;
+        CanFadeToNormal = false;
     }
 
     void Update()
@@ -23,20 +25,23 @@ public class Transition : MonoBehaviour
 
     public void FadeInAndOut()
     {
-        if (alpha < 1)
+        if (alpha < 1 && CanFadeToBlack)
         {
             alpha += 0.01f;
             image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
         }
-        else if (alpha == 0)
+        else if (alpha == 1)
         {
+            CanFadeToBlack = false;
             SceneManager.LoadScene(1);
-        }
-
-        if (alpha > 0)
+        }else if (alpha > 0 && CanFadeToNormal)
         {
             alpha -= 0.01f;
             image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+        }
+        else if(alpha == 0 && CanFadeToNormal)
+        {
+            CanFadeToNormal = false;
         }
     }
 }

@@ -41,9 +41,9 @@ public class Cutscene : MonoBehaviour
 	{
 		if (_destinations.Count == 0 && transform.position == _destination && _dialogue.activeSelf == false)
 		{
+           
 			if (HasDialogueOpened)
 			{
-			    _transition.CanFadeToBlack = true;
 				
 			}
 			IsMoveZoomingCamera = false;
