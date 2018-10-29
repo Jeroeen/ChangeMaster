@@ -44,10 +44,13 @@ public class InitiateDialogue : MonoBehaviour
 		{
 			gameObject.SetActive(false);
 			OpenDialogue.IsActive = false;
-            InfoButton.interactable = true;
-            SettingButton.interactable = true;
+		    if (InfoButton != null && SettingButton != null)
+		    {
+		        InfoButton.interactable = true;
+		        SettingButton.interactable = true;
+		    }
 
-            return;
+		    return;
 		}
 
 		DialogueText.text = _dialogue.NextLine();

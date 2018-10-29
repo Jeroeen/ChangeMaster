@@ -18,6 +18,7 @@ public class Cutscene : MonoBehaviour
 	[SerializeField] private GameObject _cutScene;
 	[SerializeField] private InitiateDialogue _initiateDialogue;
 	[SerializeField] private GameObject _dialogue;
+    [SerializeField] private Transition _transition;
 
 
 	public ViewportHandler ViewportHandler;
@@ -42,7 +43,8 @@ public class Cutscene : MonoBehaviour
 		{
 			if (HasDialogueOpened)
 			{
-				SceneManager.LoadScene(1);
+			    _transition.CanFadeToBlack = true;
+				
 			}
 			IsMoveZoomingCamera = false;
 			HasDialogueOpened = true;
