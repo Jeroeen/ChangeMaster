@@ -10,12 +10,13 @@ public class Infoscreen : MonoBehaviour
     public Button SettingsButton;
     public CanvasGroup InfoScreen;
     public GameObject Panel;
-    public CanvasGroup blockingPanel;
+    public CanvasGroup BlockingPanel;
     public Text Function;
     public Text Skills;
+    public Text Name;
     public GameObject Player;
 
-    private PlayerScript p;
+    private PlayerScript player;
     private List<Sprite> images = new List<Sprite>();
     private Vector2 position = new Vector2(0.0f, -5.0f);
     private ScrollRect infoScrollview;
@@ -29,7 +30,7 @@ public class Infoscreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        p = Player.GetComponent<PlayerScript>();
+        player = Player.GetComponent<PlayerScript>();
 
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
@@ -83,14 +84,14 @@ public class Infoscreen : MonoBehaviour
     {
         if(InfoScreen.interactable)
         {
-            blockingPanel.blocksRaycasts = false;
+            BlockingPanel.blocksRaycasts = false;
             InfoScreen.interactable = false;
             InfoScreen.alpha = 0;
             InfoScreen.blocksRaycasts = false;
         }
         else
         {
-            blockingPanel.blocksRaycasts = true;
+            BlockingPanel.blocksRaycasts = true;
             InfoScreen.interactable = true;
             InfoScreen.alpha = 1;
             InfoScreen.blocksRaycasts = true;
@@ -108,6 +109,7 @@ public class Infoscreen : MonoBehaviour
         + "Creatief " + PlayerScript.Creatief + "\n"
         + "Kennis van veranderkunde " + PlayerScript.Veranderkunde_Kennis;
 
-        Function.text = "Functie: " + p.GetPlayerTitle();
+        Name.text = player.naam;
+        Function.text = "Functie: " + player.GetPlayerTitle();
     }
 }

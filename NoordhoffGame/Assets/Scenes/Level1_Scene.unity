@@ -335,9 +335,10 @@ MonoBehaviour:
   SettingsButton: {fileID: 604335224}
   InfoScreen: {fileID: 178738460}
   Panel: {fileID: 6215425419815126512, guid: 94fb500f8132c754cb09200743b8a128, type: 3}
-  blockingPanel: {fileID: 1956844455}
+  BlockingPanel: {fileID: 1956844455}
   Function: {fileID: 968438577}
   Skills: {fileID: 6381581}
+  Name: {fileID: 555544056}
   Player: {fileID: 418306475}
 --- !u!225 &178738460
 CanvasGroup:
@@ -710,9 +711,9 @@ MonoBehaviour:
   Interventionscreen: {fileID: 362864485}
   Text: {fileID: 5416837157748592240, guid: aea35f00488d80e49871d80f7c149240, type: 3}
   Button: {fileID: 7703157438557406637, guid: 83135aa65b77dc54e990dbd0e6c3bbe2, type: 3}
-  EventSystem: {fileID: 0}
+  EventSystem: {fileID: 832951952}
   BlockingPanel: {fileID: 1956844455}
-  Player: {fileID: 0}
+  Player: {fileID: 418306475}
 --- !u!225 &362864485
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -868,6 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinAmount: {fileID: 1875076423}
+  naam: I.J.S. Beerasd
 --- !u!1 &475555191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Naam: I.J.S. Beer'
+  m_Text: 
 --- !u!222 &555544057
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1408,7 +1410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 60.000244, y: 0}
+  m_AnchoredPosition: {x: 60.00049, y: 0}
   m_SizeDelta: {x: 384, y: 216}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &679767666
@@ -2576,7 +2578,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1545152295}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.499225
+  m_Size: 0.99834275
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2816,7 +2818,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 201868998}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.42751324
+  m_Size: 0.85493475
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6210,7 +6212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 85.60637, y: 359.0001}
+  m_AnchoredPosition: {x: 1.8499118, y: 358.99997}
   m_SizeDelta: {x: 2386.7, y: 718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1556024075
@@ -6712,7 +6714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -842.0002, y: -96.89911}
+  m_AnchoredPosition: {x: -841.99994, y: -68.50002}
   m_SizeDelta: {x: 1684, y: 945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1730224307
@@ -7815,11 +7817,11 @@ PrefabInstance:
     - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
       propertyPath: InfoButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 679767667}
     - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
       propertyPath: SettingButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 604335224}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
 --- !u!1001 &7330838476101051068
