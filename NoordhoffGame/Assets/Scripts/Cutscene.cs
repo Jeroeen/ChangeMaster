@@ -18,7 +18,7 @@ public class Cutscene : MonoBehaviour
 	[SerializeField] private GameObject _cutScene;
 	[SerializeField] private InitiateDialogue _initiateDialogue;
 	[SerializeField] private GameObject _dialogue;
-    [SerializeField] private Transition _transition;
+	[SerializeField] private Transition _transition;
 
 
 	public ViewportHandler ViewportHandler;
@@ -39,19 +39,28 @@ public class Cutscene : MonoBehaviour
 
 	void Update()
 	{
-		if (_destinations.Count == 0 && transform.position == _destination && _dialogue.activeSelf == false)
+		if (_destinations.Count == 0 && transform.position == _destination && !_dialogue.activeSelf)
 		{
-           
 			if (HasDialogueOpened)
 			{
-				
-			}
-			IsMoveZoomingCamera = false;
-			HasDialogueOpened = true;
+				if (!_transition.FadeOut())
+				{
+					_dialogue.SetActive(false);
+					return;
+				}
 
-			_dialogue.SetActive(true);
-			_initiateDialogue.Initialize("Kapitein", 0, -1);
-			return;
+				SceneManager.LoadScene(1);
+			}
+
+			if (!HasDialogueOpened)
+			{
+				IsMoveZoomingCamera = false;
+				HasDialogueOpened = true;
+
+				_dialogue.SetActive(true);
+				_initiateDialogue.Initialize("Kapitein", 0, -1);
+				return;
+			}
 		}
 
 		if (!IsMoveZoomingCamera)

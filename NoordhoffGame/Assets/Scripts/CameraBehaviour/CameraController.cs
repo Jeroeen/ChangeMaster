@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
 {
 	private float _zoomValue;
 	private bool _canFreeRoam;
+	public bool CanUse;
+
 
 	[SerializeField] private float zoomSpeed = 2f;
 	[SerializeField] private int minZoom = 16;
@@ -22,17 +24,16 @@ public class CameraController : MonoBehaviour
 
 	void Start()
 	{
-		_zoomValue = ViewportHandler.UnitsSize;
-
-		// Comment the following three lines to start cutscene first
 		_canFreeRoam = true;
 		transform.position = new Vector3(transform.position.x, transform.position.y + 3.5f, transform.position.z);
 		_zoomValue = minZoom;
+
+		ViewportHandler.UnitsSize = _zoomValue;
 	}
 
 	void Update()
 	{
-		if (Checker.IsPointerOverUI)
+		if (Checker.IsPointerOverUI || !CanUse)
 		{
 			return;
 		}
