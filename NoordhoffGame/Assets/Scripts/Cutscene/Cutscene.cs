@@ -8,9 +8,9 @@ public class Cutscene : MonoBehaviour
 {
 	private float _zoomValue;
 	private Vector3 _destination = Vector3.zero;
-	private Queue<Transform> _destinations = new Queue<Transform>();
-	private bool IsMoveZoomingCamera;
-	private bool HasDialogueOpened;
+	private readonly Queue<Transform> _destinations = new Queue<Transform>();
+	private bool _isMoveZoomingCamera;
+	private bool _hasDialogueOpened;
 
 	[SerializeField] private float _zoomSpeed;
 	[SerializeField] private float _moveSpeed;
@@ -34,14 +34,14 @@ public class Cutscene : MonoBehaviour
 		_destination = new Vector3(destination.x, destination.y, transform.position.z);
 
 		_zoomValue = ViewportHandler.UnitsSize;
-		IsMoveZoomingCamera = true;
+		_isMoveZoomingCamera = true;
 	}
 
 	void Update()
 	{
 		if (_destinations.Count == 0 && transform.position == _destination && !_dialogue.activeSelf)
 		{
-			if (HasDialogueOpened)
+			if (_hasDialogueOpened)
 			{
 				if (!_transition.FadeOut())
 				{
@@ -52,10 +52,10 @@ public class Cutscene : MonoBehaviour
 				SceneManager.LoadScene(1);
 			}
 
-			if (!HasDialogueOpened)
+			if (!_hasDialogueOpened)
 			{
-				IsMoveZoomingCamera = false;
-				HasDialogueOpened = true;
+				_isMoveZoomingCamera = false;
+				_hasDialogueOpened = true;
 
 				_dialogue.SetActive(true);
 				_initiateDialogue.Initialize("Kapitein", 0, -1);
@@ -63,7 +63,7 @@ public class Cutscene : MonoBehaviour
 			}
 		}
 
-		if (!IsMoveZoomingCamera)
+		if (!_isMoveZoomingCamera)
 		{
 			return;
 		}

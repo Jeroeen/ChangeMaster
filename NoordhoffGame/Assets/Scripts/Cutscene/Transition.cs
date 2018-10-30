@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class Transition : MonoBehaviour
 {
-	[SerializeField] private Image image;
+	[SerializeField] private Image _image;
 	private float _alpha;
 	private float _fadeSpeed = 0.02f;
 
 
 	void Start()
 	{
-		_alpha = image.color.a;
+		_alpha = _image.color.a;
 	}
 
 	public bool FadeIn()
@@ -21,7 +21,7 @@ public class Transition : MonoBehaviour
 		if (_alpha > 0)
 		{
 			_alpha -= _fadeSpeed;
-			image.color = new Color(image.color.r, image.color.g, image.color.b, _alpha);
+			_image.color = new Color(_image.color.r, _image.color.g, _image.color.b, _alpha);
 			return false;
 		}
 
@@ -33,7 +33,7 @@ public class Transition : MonoBehaviour
 		if (_alpha < 1)
 		{
 			_alpha += _fadeSpeed;
-			image.color = new Color(image.color.r, image.color.g, image.color.b, _alpha);
+			_image.color = new Color(_image.color.r, _image.color.g, _image.color.b, _alpha);
 			return false;
 		}
 
