@@ -13,6 +13,7 @@ public class InterventionScreen : MonoBehaviour
     public GameObject Button;
     public EventSystem EventSystem;
     public CanvasGroup BlockingPanel;
+    public GameObject Player;
 
     private Vector2 position = new Vector2(0.0f, 0.0f);
     private int textCount = 0;
@@ -62,7 +63,7 @@ public class InterventionScreen : MonoBehaviour
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             int ID = i;
-            entry.callback.AddListener((eventData) => { ClickAdvice(ID); });
+            entry.callback.AddListener((eventData) => {ClickAdvice(ID); });
             trigger.triggers.Add(entry);
             textCount++;
             elementLimit = scrollviewContent.sizeDelta.x /textboxSizeX;
@@ -116,6 +117,7 @@ public class InterventionScreen : MonoBehaviour
     //function to fill the scrollview with the screen for a finished level 
     private void ShowFinished(int selected)
     {
+
         //delete all the current elements
         foreach (GameObject g in panels)
         {
@@ -123,6 +125,16 @@ public class InterventionScreen : MonoBehaviour
         }
         //create a variable for the intervention the player selected
         Intervention selectedIntervention = interventions.Interventions[selected];
+
+        PlayerScript.Analytisch += selectedIntervention.Analytisch;
+        PlayerScript.Enthousiasmerend += selectedIntervention.Enthousiasmerend;
+        PlayerScript.Besluitvaardig += selectedIntervention.Besluitvaardig;
+        PlayerScript.Empathisch += selectedIntervention.Empathisch;
+        PlayerScript.Overtuigend += selectedIntervention.Overtuigend;
+        PlayerScript.Creatief += selectedIntervention.Creatief;
+        PlayerScript.Veranderkunde_Kennis += selectedIntervention.Kennis_veranderkunde;
+
+
         //create the standard text element that will be used to instantiate all other text elements in this function
         GameObject aText = Instantiate(Text);
         panels.Add(aText);
@@ -133,10 +145,12 @@ public class InterventionScreen : MonoBehaviour
         //create the text that will tell the player what changed with their skills
         GameObject ChosenText = Instantiate(aText, interventionScroll.content.transform);
         panels.Add(ChosenText);
+        PlayerScript p =  Player.GetComponent<PlayerScript>();
         RectTransform cTextPos = ChosenText.GetComponent<RectTransform>();
         cTextPos.anchoredPosition = new Vector2(newPos.x /2, newPos.y);
         Text chosenText = ChosenText.GetComponentInChildren<Text>();
-        chosenText.text = "je hebt level 1 gehaald daarbij heb je de volgende skills gehaald \n"
+        chosenText.text = "gefeliciteerd " + p.GetPlayerTitle() + " \n"
+            + "je hebt level 1 gehaald daarbij heb je de volgende skills gehaald \n"
             + "Analytisch  " + selectedIntervention.Analytisch + "\n"
             + "Enthousiasmerend " + selectedIntervention.Enthousiasmerend + "\n"
             + "Besluitvaardig " + selectedIntervention.Besluitvaardig + "\n"
@@ -144,6 +158,25 @@ public class InterventionScreen : MonoBehaviour
             + "Overtuigend " + selectedIntervention.Overtuigend + "\n"
             + "Creatief " + selectedIntervention.Creatief + "\n"
             + "Kennis van veranderkunde " + selectedIntervention.Kennis_veranderkunde;
+
+
+
+        //determine the standard position of all assets
+        newPos = new Vector2(newPos.x + textboxSizeX, newPos.y);
+        //create the text that will tell the player what changed with their skills
+        GameObject pChosenText = Instantiate(aText, interventionScroll.content.transform);
+        panels.Add(pChosenText);
+        RectTransform pTextPos = pChosenText.GetComponent<RectTransform>();
+        pTextPos.anchoredPosition = new Vector2(newPos.x, newPos.y);
+        Text playerText = pChosenText.GetComponentInChildren<Text>();
+        playerText.text = "je hebt nu de volgende skills \n"
+            + "Analytisch  " + PlayerScript.Analytisch + "\n"
+            + "Enthousiasmerend " + PlayerScript.Enthousiasmerend + "\n"
+            + "Besluitvaardig " + PlayerScript.Besluitvaardig + "\n"
+            + "Empathisch " + PlayerScript.Empathisch + "\n"
+            + "Overtuigend " + PlayerScript.Overtuigend + "\n"
+            + "Creatief " + PlayerScript.Creatief + "\n"
+            + "Kennis van veranderkunde " + PlayerScript.Veranderkunde_Kennis;
     }
     //a function that will enable or disable the menu 
     public void ShowMenu()

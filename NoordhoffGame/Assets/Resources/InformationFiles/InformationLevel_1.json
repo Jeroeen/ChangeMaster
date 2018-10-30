@@ -2,7 +2,7 @@
   "InformationList": 
 	[
 		 {
-		"Image":"kapitein",
+		"Image":"Kapitein",
 		"Text":"Ik ben het er niet mee eens"
 		},{
 		"Image":"ijsbeertje",
@@ -11,6 +11,10 @@
 		{
 		"Image":"muntjes",
 		"Text":"waarom sta ik hier, ik ben een stapel muntjes, ik kan niet praten"
+ 
+		},{
+		"Image":"Schoonmaakster",
+		"Text":"Ik ben er nog niet uit"
  
 		}
 	]

@@ -10,17 +10,28 @@ public class Infoscreen : MonoBehaviour
     public Button SettingsButton;
     public CanvasGroup InfoScreen;
     public GameObject Panel;
-    public CanvasGroup blockingPanel;
+    public CanvasGroup BlockingPanel;
+    public Text Function;
+    public Text Skills;
+    public Text Name;
+    public GameObject Player;
 
+    private PlayerScript player;
     private List<Sprite> images = new List<Sprite>();
     private Vector2 position = new Vector2(0.0f, -5.0f);
     private ScrollRect infoScrollview;
     private RetrieveJson json;
 
+    //on startup set the view to the list of stakeholders
+    //have the button for stakeholders greyed out, and a button for character info
+    //when you press the button for character info, load the character info and 
+
 
     // Start is called before the first frame update
     void Start()
     {
+        player = Player.GetComponent<PlayerScript>();
+
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
         InfoList information = json.LoadJsonInformation(1);
@@ -36,9 +47,9 @@ public class Infoscreen : MonoBehaviour
         infoScrollview = InfoScreen.GetComponentInChildren<ScrollRect>();
         //a list that contains all the UI elements that i'll be making
         List<GameObject> Panels = new List<GameObject>();
-        //set the content element of the scrollview to the position 0,0 since, for some reason, sometimes it moves away from that position
+        //set the content element of the scrollview to the position of the x to  0 since, for some reason, sometimes it moves away from that position
         RectTransform scrollviewContent = infoScrollview.content.GetComponent<RectTransform>();
-        scrollviewContent.anchoredPosition = new Vector2(0.0f, 0.0f);
+        scrollviewContent.anchoredPosition = new Vector2(0.0f, scrollviewContent.anchoredPosition.y);
         //get the RectTransform of the scrollview content
         RectTransform infoScrollviewRect = infoScrollview.content.GetComponent<RectTransform>();
         for (int i = 0; i < images.Count; i++)
@@ -55,12 +66,12 @@ public class Infoscreen : MonoBehaviour
             //set the position
             RectTransform[] infoRectTransform = Panels[i].GetComponents<RectTransform>();
             infoRectTransform[0].anchoredPosition = position;
-            float elementLimit = scrollviewContent.sizeDelta.y / panelSizeY;
+            float elementLimit = scrollviewContent.sizeDelta.y / (panelSizeY + 15);
             //if there are more than 3 elements, make the content element from the scrollview bigger and set it to the correct position 
-            if (i >= elementLimit - 1) 
+            if (i >= elementLimit) 
             {
-                infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y +(panelSizeY + 10));
-                infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x, infoScrollviewRect.anchoredPosition.y -((0.5f* panelSizeY) + 10));
+                infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y +(panelSizeY + 15));
+                infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x, infoScrollviewRect.anchoredPosition.y -((0.5f* panelSizeY) + 15));
             }
             // set the position for the next element
             position = new Vector2(position.x, position.y - (panelSizeY + 10.0f));
@@ -73,18 +84,32 @@ public class Infoscreen : MonoBehaviour
     {
         if(InfoScreen.interactable)
         {
-            blockingPanel.blocksRaycasts = false;
+            BlockingPanel.blocksRaycasts = false;
             InfoScreen.interactable = false;
             InfoScreen.alpha = 0;
             InfoScreen.blocksRaycasts = false;
         }
         else
         {
-            blockingPanel.blocksRaycasts = true;
+            BlockingPanel.blocksRaycasts = true;
             InfoScreen.interactable = true;
             InfoScreen.alpha = 1;
             InfoScreen.blocksRaycasts = true;
         }
         SettingsButton.interactable = !SettingsButton.IsInteractable();       
+    }
+    public void fillCharacterInfo()
+    {
+        Skills.text = "je hebt nu de volgende skills \n"
+        + "Analytisch  " + PlayerScript.Analytisch + "\n"
+        + "Enthousiasmerend " + PlayerScript.Enthousiasmerend + "\n"
+        + "Besluitvaardig " + PlayerScript.Besluitvaardig + "\n"
+        + "Empathisch " + PlayerScript.Empathisch + "\n"
+        + "Overtuigend " + PlayerScript.Overtuigend + "\n"
+        + "Creatief " + PlayerScript.Creatief + "\n"
+        + "Kennis van veranderkunde " + PlayerScript.Veranderkunde_Kennis;
+
+        Name.text = player.naam;
+        Function.text = "Functie: " + player.GetPlayerTitle();
     }
 }
