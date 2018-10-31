@@ -29,7 +29,7 @@ public class Infoscreen : MonoBehaviour
 
     //on startup set the view to the list of stakeholders
     //have the button for stakeholders greyed out, and a button for character info
-    //when you press the button for character info, load the character info and 
+    //when you press the button for character info, load the character info and show it on screen
 
 
     // Start is called before the first frame update

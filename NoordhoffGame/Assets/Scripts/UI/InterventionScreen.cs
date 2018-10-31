@@ -133,6 +133,9 @@ public class InterventionScreen : MonoBehaviour
         PlayerScript.Creative += selectedIntervention.Creative;
         PlayerScript.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
 
+        
+
+
 
         //create the standard text element that will be used to instantiate all other text elements in this function
         GameObject aText = Instantiate(Text);
@@ -147,8 +150,8 @@ public class InterventionScreen : MonoBehaviour
         RectTransform cTextPos = ChosenText.GetComponent<RectTransform>();
         cTextPos.anchoredPosition = new Vector2(newPos.x /2, newPos.y);
         Text chosenText = ChosenText.GetComponentInChildren<Text>();
-        chosenText.text = "gefeliciteerd " + Player.GetPlayerTitle() + " \n"
-            + "je hebt level 1 gehaald daarbij heb je de volgende skills gehaald \n"
+        chosenText.text = "congratulations " + Player.GetPlayerTitle() + " \n"
+            + "You made level 1 and earned these skills \n"
             + "Analytisch  " + selectedIntervention.Analytic + "\n"
             + "Enthousiasmerend " + selectedIntervention.Enthusiasm + "\n"
             + "Besluitvaardig " + selectedIntervention.Decisive + "\n"
@@ -167,7 +170,7 @@ public class InterventionScreen : MonoBehaviour
         RectTransform pTextPos = pChosenText.GetComponent<RectTransform>();
         pTextPos.anchoredPosition = new Vector2(newPos.x, newPos.y);
         Text playerText = pChosenText.GetComponentInChildren<Text>();
-        playerText.text = "je hebt nu de volgende skills \n"
+        playerText.text = "Your skills are now: \n"
             + "Analytisch  " + PlayerScript.Analytic + "\n"
             + "Enthousiasmerend " + PlayerScript.Enthusiasm + "\n"
             + "Besluitvaardig " + PlayerScript.Decisive + "\n"
