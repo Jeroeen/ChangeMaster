@@ -17,6 +17,10 @@ public class PlayerScript : MonoBehaviour
 
     public string naam = "I.J.S. Beer";
 
+    public void AddSkill()
+    {
+        Veranderkunde_Kennis++;
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -9,14 +9,19 @@ public class Infoscreen : MonoBehaviour
 {
     public Button SettingsButton;
     public CanvasGroup InfoScreen;
-    public GameObject Panel;
+    public GameObject StakeholderPanel;
     public CanvasGroup BlockingPanel;
     public Text Function;
-    public Text Skills;
     public Text Name;
-    public GameObject Player;
+    public Text Analytisch;
+    public Text Besluitvaardig;
+    public Text Creatief;
+    public Text Empatisch;
+    public Text Enthousiasmerend;
+    public Text Overtuigend;
+    public Text Kennis_Veranderkunde;
 
-    private PlayerScript player;
+    public PlayerScript player;
     private List<Sprite> images = new List<Sprite>();
     private Vector2 position = new Vector2(0.0f, -5.0f);
     private ScrollRect infoScrollview;
@@ -30,7 +35,6 @@ public class Infoscreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = Player.GetComponent<PlayerScript>();
 
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
@@ -41,7 +45,7 @@ public class Infoscreen : MonoBehaviour
             images.Add(RetrieveAsset.GetSpriteByName(information.InformationList[i].Image));
         }
         //get the height of the panel, this will be used later
-        RectTransform panelRect = Panel.GetComponent<RectTransform>();
+        RectTransform panelRect = StakeholderPanel.GetComponent<RectTransform>();
         float panelSizeY = panelRect.sizeDelta.y;
         //get the Scrollview component from the Canvasgroup containing it
         infoScrollview = InfoScreen.GetComponentInChildren<ScrollRect>();
@@ -55,7 +59,7 @@ public class Infoscreen : MonoBehaviour
         for (int i = 0; i < images.Count; i++)
         {
             //add the created UI element to the Panels list
-            Panels.Add(Instantiate(Panel, infoScrollview.content.transform));
+            Panels.Add(Instantiate(StakeholderPanel, infoScrollview.content.transform));
             //create a panel, containing a text element, an image of the person who's talking and set the position of that panel.
             //create the text element
             Text[] infoText = Panels[i].GetComponentsInChildren<Text>();
@@ -100,14 +104,22 @@ public class Infoscreen : MonoBehaviour
     }
     public void fillCharacterInfo()
     {
-        Skills.text = "je hebt nu de volgende skills \n"
-        + "Analytisch  " + PlayerScript.Analytisch + "\n"
-        + "Enthousiasmerend " + PlayerScript.Enthousiasmerend + "\n"
-        + "Besluitvaardig " + PlayerScript.Besluitvaardig + "\n"
-        + "Empathisch " + PlayerScript.Empathisch + "\n"
-        + "Overtuigend " + PlayerScript.Overtuigend + "\n"
-        + "Creatief " + PlayerScript.Creatief + "\n"
-        + "Kennis van veranderkunde " + PlayerScript.Veranderkunde_Kennis;
+        //Skills.text = "je hebt nu de volgende skills \n"
+        //+ "Analytisch  " + PlayerScript.Analytisch + "\n"
+        //+ "Enthousiasmerend " + PlayerScript.Enthousiasmerend + "\n"
+        //+ "Besluitvaardig " + PlayerScript.Besluitvaardig + "\n"
+        //+ "Empathisch " + PlayerScript.Empathisch + "\n"
+        //+ "Overtuigend " + PlayerScript.Overtuigend + "\n"
+        //+ "Creatief " + PlayerScript.Creatief + "\n"
+        //+ "Kennis van veranderkunde " + PlayerScript.Veranderkunde_Kennis;
+
+        Analytisch.text = PlayerScript.Analytisch.ToString();
+        Enthousiasmerend.text = PlayerScript.Enthousiasmerend.ToString();
+        Besluitvaardig.text = PlayerScript.Besluitvaardig.ToString();
+        Empatisch.text = PlayerScript.Empathisch.ToString();
+        Overtuigend.text = PlayerScript.Overtuigend.ToString();
+        Creatief.text = PlayerScript.Creatief.ToString();
+        Kennis_Veranderkunde.text = PlayerScript.Veranderkunde_Kennis.ToString();
 
         Name.text = player.naam;
         Function.text = "Functie: " + player.GetPlayerTitle();

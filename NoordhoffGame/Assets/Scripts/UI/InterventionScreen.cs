@@ -11,9 +11,8 @@ public class InterventionScreen : MonoBehaviour
     public CanvasGroup Interventionscreen;
     public GameObject Text;
     public GameObject Button;
-    public EventSystem EventSystem;
     public CanvasGroup BlockingPanel;
-    public GameObject Player;
+    public PlayerScript Player;
 
     private Vector2 position = new Vector2(0.0f, 0.0f);
     private int textCount = 0;
@@ -145,11 +144,10 @@ public class InterventionScreen : MonoBehaviour
         //create the text that will tell the player what changed with their skills
         GameObject ChosenText = Instantiate(aText, interventionScroll.content.transform);
         panels.Add(ChosenText);
-        PlayerScript p =  Player.GetComponent<PlayerScript>();
         RectTransform cTextPos = ChosenText.GetComponent<RectTransform>();
         cTextPos.anchoredPosition = new Vector2(newPos.x /2, newPos.y);
         Text chosenText = ChosenText.GetComponentInChildren<Text>();
-        chosenText.text = "gefeliciteerd " + p.GetPlayerTitle() + " \n"
+        chosenText.text = "gefeliciteerd " + Player.GetPlayerTitle() + " \n"
             + "je hebt level 1 gehaald daarbij heb je de volgende skills gehaald \n"
             + "Analytisch  " + selectedIntervention.Analytisch + "\n"
             + "Enthousiasmerend " + selectedIntervention.Enthousiasmerend + "\n"
