@@ -17,7 +17,6 @@ namespace Assets.Scripts.GameSaveLoad.Player
 		private int _changeKnowledge;
 
 		#region Getters and setters of skills. Every time a different value is set, the property is saved.
-
 		public string Name
 		{
 			get => _name;
@@ -37,7 +36,6 @@ namespace Assets.Scripts.GameSaveLoad.Player
 				PlayerPrefs.SetInt("PlayerCoins", value);
 			}
 		}
-
 
 		public int Analytic
 		{
@@ -108,7 +106,6 @@ namespace Assets.Scripts.GameSaveLoad.Player
 				PlayerPrefs.SetInt("SkillChangeKnowledge", value);
 			}
 		}
-
 		#endregion
 
 		private Player()
@@ -133,13 +130,12 @@ namespace Assets.Scripts.GameSaveLoad.Player
 
 		public int AddCoin()
 		{
-			_coins++;
-			return _coins;
+			return ++_coins;
 		}
 
 		public int AddCoins(int amount)
 		{
-			_coins = _coins + amount;
+			_coins += amount;
 			return _coins;
 		}
 

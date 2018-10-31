@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class UpdateName : MonoBehaviour
 {
-	public InputField field;
+	[SerializeField] private InputField _field;
 
 	public void CreateName()
 	{
-		PlayerPrefs.SetString("PlayerName", field.text);
+		PlayerPrefs.SetString("PlayerName", _field.text);
 		SceneManager.LoadScene(3);
 	}
 }

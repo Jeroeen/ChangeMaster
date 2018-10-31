@@ -11,7 +11,7 @@ public class InitializeScene : MonoBehaviour
 	[SerializeField]
 	private CameraController _controller;
 
-	private bool _faded;
+	private bool _isFaded;
 
 	void Start()
 	{
@@ -21,7 +21,7 @@ public class InitializeScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    if (_faded)
+	    if (_isFaded)
 	    {
 		    return;
 	    }
@@ -30,7 +30,7 @@ public class InitializeScene : MonoBehaviour
 	    {
 		    _controller.CanUse = true;
 		    Destroy(_transition.gameObject, 0.01f);
-		    _faded = true;
+		    _isFaded = true;
 	    }
     }
 }
