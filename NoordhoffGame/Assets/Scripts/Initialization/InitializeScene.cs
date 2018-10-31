@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InitializeScene : MonoBehaviour
 {
@@ -11,7 +12,12 @@ public class InitializeScene : MonoBehaviour
 	private CameraController _controller;
 
 	private bool _faded;
-	
+
+	void Start()
+	{
+		PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
+	}
+
     // Update is called once per frame
     void Update()
     {

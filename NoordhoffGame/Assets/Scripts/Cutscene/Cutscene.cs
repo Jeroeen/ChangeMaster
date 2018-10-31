@@ -49,7 +49,7 @@ public class Cutscene : MonoBehaviour
 					return;
 				}
 
-				SceneManager.LoadScene(1);
+				SceneManager.LoadScene(2);
 			}
 
 			if (!_hasDialogueOpened)
