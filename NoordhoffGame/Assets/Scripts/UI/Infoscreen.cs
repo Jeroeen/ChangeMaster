@@ -23,7 +23,7 @@ public class Infoscreen : MonoBehaviour
     public Text ChangeKnowledge;
 
 	private Player _player;
-	private readonly List<Sprite> _images = new List<Sprite>();
+	private readonly List<Sprite> images = new List<Sprite>();
     private Vector2 position = new Vector2(0.0f, -5.0f);
     private ScrollRect infoScrollview;
     private RetrieveJson json;
@@ -38,13 +38,13 @@ public class Infoscreen : MonoBehaviour
 	{
 		_player = Player.GetPlayer();
 
-		for (int i = 0; i < _images.Count; i++)
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
         InfoList information = json.LoadJsonInformation(1);
         RetrieveAsset.RetrieveAssets();
         for (int i = 0; i < information.InformationList.Length; i++)
         {
+            images.Add(RetrieveAsset.GetSpriteByName(information.InformationList[i].Image));
         }
         //get the height of the panel, this will be used later
         RectTransform panelRect = StakeholderPanel.GetComponent<RectTransform>();
@@ -84,10 +84,9 @@ public class Infoscreen : MonoBehaviour
         }
         
     }
-            images.Add(RetrieveAsset.GetSpriteByName(information.InformationList[i].Image));
 
     //a function that will enable or disable the menu 
-    public void enableInfo()
+    public void EnableInfo()
     {
         if(InfoScreen.interactable)
         {
@@ -107,46 +106,17 @@ public class Infoscreen : MonoBehaviour
     }
     public void fillCharacterInfo()
     {
-        Analytic.text = PlayerScript.Analytic.ToString();
-        Enthusiasm.text = PlayerScript.Enthusiasm.ToString();
-        Decisive.text = PlayerScript.Decisive.ToString();
-        Empatic.text = PlayerScript.Empatic.ToString();
-        Convincing.text = PlayerScript.Convincing.ToString();
-        Creative.text = PlayerScript.Creative.ToString();
-        ChangeKnowledge.text = PlayerScript.ChangeKnowledge.ToString();
 
-	//a function that will enable or disable the menu 
-	public void EnableInfo()
-	{
-		if (InfoScreen.interactable)
-		{
-			BlockingPanel.blocksRaycasts = false;
-			InfoScreen.interactable = false;
-			InfoScreen.alpha = 0;
-			InfoScreen.blocksRaycasts = false;
-		}
-		else
-		{
-			BlockingPanel.blocksRaycasts = true;
-			InfoScreen.interactable = true;
-			InfoScreen.alpha = 1;
-			InfoScreen.blocksRaycasts = true;
-		}
-		SettingsButton.interactable = !SettingsButton.IsInteractable();
-	}
+        Analytic.text = _player.Analytic.ToString();
+        Enthusiasm.text = _player.Enthousiasm.ToString();
+        Decisive.text = _player.Decisive.ToString();
+        Empatic.text = _player.Empathic.ToString();
+        Convincing.text = _player.Convincing.ToString();
+        Creative.text = _player.Creative.ToString();
+        ChangeKnowledge.text = _player.ChangeKnowledge.ToString();
 
-	public void FillCharacterInfo()
-	{
-		Skills.text = "je hebt nu de volgende skills \n"
-		+ "Analytisch  " + _player.Analytic + "\n"
-		+ "Enthousiasmerend " + _player.Enthousiasm + "\n"
-		+ "Besluitvaardig " + _player.Decisive + "\n"
-		+ "Empathisch " + _player.Empathic + "\n"
-		+ "Overtuigend " + _player.Convincing + "\n"
-		+ "Creatief " + _player.Creative + "\n"
-		+ "Kennis van veranderkunde " + _player.ChangeKnowledge;
+        Name.text = "Naam: " + _player.Name;
 
-		Name.text = "Naam: " + _player.Name;
-		Function.text = "Functie: " + _player.GetPlayerTitle();
-	}
+        Function.text = "Functie: " + _player.GetPlayerTitle();
+    }
 }
