@@ -19,8 +19,7 @@ public class Cutscene : MonoBehaviour
 	[SerializeField] private InitiateDialogue _initiateDialogue;
 	[SerializeField] private GameObject _dialogue;
 	[SerializeField] private Transition _transition;
-
-
+	
 	public ViewportHandler ViewportHandler;
 
 	void Start()

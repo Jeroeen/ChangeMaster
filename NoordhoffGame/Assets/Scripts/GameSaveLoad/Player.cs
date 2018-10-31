@@ -5,7 +5,7 @@ namespace Assets.Scripts.GameSaveLoad.Player
 	public class Player
 	{
 		private static Player _player;
-		
+
 		private string _name;
 		private int _coins;
 		private int _analytic;
@@ -16,7 +16,7 @@ namespace Assets.Scripts.GameSaveLoad.Player
 		private int _creative;
 		private int _changeKnowledge;
 
-		#region getters and setters of skills. Every time a different value is set, the property is saved.
+		#region Getters and setters of skills. Every time a different value is set, the property is saved.
 
 		public string Name
 		{
@@ -37,7 +37,7 @@ namespace Assets.Scripts.GameSaveLoad.Player
 				PlayerPrefs.SetInt("PlayerCoins", value);
 			}
 		}
-		
+
 
 		public int Analytic
 		{
@@ -59,7 +59,8 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			}
 		}
 
-		public int Decisive {
+		public int Decisive
+		{
 			get => _decisive;
 			set
 			{
@@ -68,7 +69,8 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			}
 		}
 
-		public int Empathic {
+		public int Empathic
+		{
 			get => _empathic;
 			set
 			{
@@ -77,7 +79,8 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			}
 		}
 
-		public int Convincing {
+		public int Convincing
+		{
 			get => _convincing;
 			set
 			{
@@ -86,7 +89,8 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			}
 		}
 
-		public int Creative {
+		public int Creative
+		{
 			get => _creative;
 			set
 			{
@@ -95,7 +99,8 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			}
 		}
 
-		public int ChangeKnowledge {
+		public int ChangeKnowledge
+		{
 			get => _changeKnowledge;
 			set
 			{
@@ -128,19 +133,33 @@ namespace Assets.Scripts.GameSaveLoad.Player
 
 		public int AddCoin()
 		{
-			Coins++;
-			return Coins;
+			_coins++;
+			return _coins;
 		}
 
 		public int AddCoins(int amount)
 		{
-			Coins = Coins + amount;
-			return Coins;
+			_coins = _coins + amount;
+			return _coins;
 		}
 
 		public string GetPlayerTitle()
 		{
-			return ChangeKnowledge >= 1 ? "veranderkundige" : "junior veranderkundige";
+			switch (ChangeKnowledge)
+			{
+				case 0: return "Rookie";
+				case 1: return "Junior veranderkundige";
+				case 2: return "Adviseur";
+				case 3: return "Mentor";
+				case 4: return "Coach";
+				case 5: return "Teamcoach";
+				case 6: return "Herstructureerder";
+				case 7: return "Herorganisator";
+				case 8: return "Organisatiecoach";
+				case 9: return "Cultuurveranderaar";
+
+				default: return "Changemaster";
+			}
 		}
 	}
 }
