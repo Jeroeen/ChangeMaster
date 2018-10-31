@@ -339,7 +339,7 @@ MonoBehaviour:
   Function: {fileID: 968438577}
   Skills: {fileID: 6381581}
   Name: {fileID: 555544056}
-  Player: {fileID: 418306475}
+  PlayerObject: {fileID: 418306475}
 --- !u!225 &178738460
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -713,7 +713,7 @@ MonoBehaviour:
   Button: {fileID: 7703157438557406637, guid: 83135aa65b77dc54e990dbd0e6c3bbe2, type: 3}
   EventSystem: {fileID: 832951952}
   BlockingPanel: {fileID: 1956844455}
-  Player: {fileID: 418306475}
+  PlayerObject: {fileID: 418306475}
 --- !u!225 &362864485
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -869,7 +869,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinAmount: {fileID: 1875076423}
-  naam: I.J.S. Beerasd
 --- !u!1 &475555191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1054,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.732899
+  orthographic size: 8.255173
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1410,7 +1409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 60.00049, y: 0}
+  m_AnchoredPosition: {x: 60.000473, y: 0}
   m_SizeDelta: {x: 384, y: 216}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &679767666
@@ -1473,7 +1472,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 178738459}
-        m_MethodName: enableInfo
+        m_MethodName: EnableInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1535,7 +1534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -60, y: 0}
+  m_AnchoredPosition: {x: -59.999985, y: 0}
   m_SizeDelta: {x: 384, y: 216}
   m_Pivot: {x: 0, y: 0}
 --- !u!212 &718416861 stripped
@@ -2059,7 +2058,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 178738459}
-        m_MethodName: fillCharacterInfo
+        m_MethodName: FillCharacterInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2578,7 +2577,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1545152295}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99834275
+  m_Size: 0.95765716
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2818,7 +2817,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 201868998}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.85493475
+  m_Size: 0.82009363
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6062,7 +6061,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 178738459}
-        m_MethodName: enableInfo
+        m_MethodName: EnableInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6212,7 +6211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8499118, y: 358.99997}
+  m_AnchoredPosition: {x: 2.6803112, y: 358.99994}
   m_SizeDelta: {x: 2386.7, y: 718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1556024075
@@ -6714,7 +6713,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -841.99994, y: -68.50002}
+  m_AnchoredPosition: {x: -841.99994, y: -68.781586}
   m_SizeDelta: {x: 1684, y: 945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1730224307
