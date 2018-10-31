@@ -10,16 +10,16 @@ public class Intervention
     public int Analytic { get; set; }
     public int Enthusiasm { get; set; }
     public int Decisive { get; set; }
-    public int Empatic { get; set; }
+    public int Empathic { get; set; }
     public int Convincing { get; set; }
     public int Creative { get; set; }
     public int ChangeKnowledge { get; set; }
 
-    public Intervention()
-    {}
-    public Intervention(string Text, string Advice)
+    public Intervention() {}
+
+    public Intervention(string text, string advice)
     {
-        InterventionText = Text;
-        this.Advice = Advice;
+        InterventionText = text;
+        this.Advice = advice;
     }
 }
