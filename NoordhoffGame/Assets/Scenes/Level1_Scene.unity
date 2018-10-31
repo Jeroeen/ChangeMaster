@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 17711914}
   - component: {fileID: 17711913}
   m_Layer: 5
-  m_Name: Enthousiasmerend
+  m_Name: Enthusiasm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,13 +412,13 @@ MonoBehaviour:
   BlockingPanel: {fileID: 1956844455}
   Function: {fileID: 968438577}
   Name: {fileID: 555544056}
-  Analytisch: {fileID: 2091345924}
-  Besluitvaardig: {fileID: 1292630583}
-  Creatief: {fileID: 678284590}
-  Empatisch: {fileID: 1018032885}
-  Enthousiasmerend: {fileID: 1991448986}
-  Overtuigend: {fileID: 328702852}
-  Kennis_Veranderkunde: {fileID: 424127390}
+  Analytic: {fileID: 2091345924}
+  Decisive: {fileID: 1292630583}
+  Creative: {fileID: 678284590}
+  Empatic: {fileID: 1018032885}
+  Enthusiasm: {fileID: 1991448986}
+  Convincing: {fileID: 328702852}
+  ChangeKnowledge: {fileID: 424127390}
   player: {fileID: 418306479}
 --- !u!225 &178738460
 CanvasGroup:
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 303849481}
   - component: {fileID: 303849480}
   m_Layer: 5
-  m_Name: Kennis van Veranderkunde
+  m_Name: ChangeKnowledge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -900,7 +900,7 @@ GameObject:
   - component: {fileID: 328702853}
   - component: {fileID: 328702852}
   m_Layer: 5
-  m_Name: TextOvertuigend
+  m_Name: ConvincingScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1239,7 +1239,7 @@ GameObject:
   - component: {fileID: 424127391}
   - component: {fileID: 424127390}
   m_Layer: 5
-  m_Name: TextVeranderkunde
+  m_Name: ChangeKnowledgeScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1932,7 +1932,7 @@ GameObject:
   - component: {fileID: 678284591}
   - component: {fileID: 678284590}
   m_Layer: 5
-  m_Name: TextCreatief
+  m_Name: CreativeScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2565,7 +2565,7 @@ GameObject:
   - component: {fileID: 907880605}
   - component: {fileID: 907880604}
   m_Layer: 5
-  m_Name: Analytisch
+  m_Name: Analytic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3081,7 +3081,7 @@ GameObject:
   - component: {fileID: 1018032886}
   - component: {fileID: 1018032885}
   m_Layer: 5
-  m_Name: TextEmpatisch
+  m_Name: EmpaticScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3793,7 +3793,7 @@ GameObject:
   - component: {fileID: 1292630584}
   - component: {fileID: 1292630583}
   m_Layer: 5
-  m_Name: TextBesluitvaardig
+  m_Name: DecisiveScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7404,7 +7404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8497314, y: 0.000030517578}
+  m_AnchoredPosition: {x: 1.8497314, y: 0.000061035156}
   m_SizeDelta: {x: 2386.7, y: 718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1556024075
@@ -7979,7 +7979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5001221, y: -68.50002}
+  m_AnchoredPosition: {x: -0.5001221, y: -68.500015}
   m_SizeDelta: {x: 1684, y: 945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1730224307
@@ -8127,7 +8127,7 @@ GameObject:
   - component: {fileID: 1838904712}
   - component: {fileID: 1838904711}
   m_Layer: 5
-  m_Name: Overtuigend
+  m_Name: Convincing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8475,7 +8475,7 @@ GameObject:
   - component: {fileID: 1875542748}
   - component: {fileID: 1875542747}
   m_Layer: 5
-  m_Name: Creatief
+  m_Name: Creative
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8882,7 +8882,7 @@ GameObject:
   - component: {fileID: 1991448987}
   - component: {fileID: 1991448986}
   m_Layer: 5
-  m_Name: TextEnthousiasmerend
+  m_Name: EnthusiasmScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8960,7 +8960,7 @@ GameObject:
   - component: {fileID: 2014809575}
   - component: {fileID: 2014809574}
   m_Layer: 5
-  m_Name: Empatisch
+  m_Name: Empatic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9117,7 +9117,7 @@ GameObject:
   - component: {fileID: 2077626612}
   - component: {fileID: 2077626611}
   m_Layer: 5
-  m_Name: Besluitvaardig
+  m_Name: Decisive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9227,7 +9227,7 @@ GameObject:
   - component: {fileID: 2091345925}
   - component: {fileID: 2091345924}
   m_Layer: 5
-  m_Name: TextAnalytisch
+  m_Name: AnalyticScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

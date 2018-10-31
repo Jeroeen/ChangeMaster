@@ -13,13 +13,13 @@ public class Infoscreen : MonoBehaviour
     public CanvasGroup BlockingPanel;
     public Text Function;
     public Text Name;
-    public Text Analytisch;
-    public Text Besluitvaardig;
-    public Text Creatief;
-    public Text Empatisch;
-    public Text Enthousiasmerend;
-    public Text Overtuigend;
-    public Text Kennis_Veranderkunde;
+    public Text Analytic;
+    public Text Decisive;
+    public Text Creative;
+    public Text Empatic;
+    public Text Enthusiasm;
+    public Text Convincing;
+    public Text ChangeKnowledge;
 
     public PlayerScript player;
     private List<Sprite> images = new List<Sprite>();
@@ -104,22 +104,13 @@ public class Infoscreen : MonoBehaviour
     }
     public void fillCharacterInfo()
     {
-        //Skills.text = "je hebt nu de volgende skills \n"
-        //+ "Analytisch  " + PlayerScript.Analytisch + "\n"
-        //+ "Enthousiasmerend " + PlayerScript.Enthousiasmerend + "\n"
-        //+ "Besluitvaardig " + PlayerScript.Besluitvaardig + "\n"
-        //+ "Empathisch " + PlayerScript.Empathisch + "\n"
-        //+ "Overtuigend " + PlayerScript.Overtuigend + "\n"
-        //+ "Creatief " + PlayerScript.Creatief + "\n"
-        //+ "Kennis van veranderkunde " + PlayerScript.Veranderkunde_Kennis;
-
-        Analytisch.text = PlayerScript.Analytisch.ToString();
-        Enthousiasmerend.text = PlayerScript.Enthousiasmerend.ToString();
-        Besluitvaardig.text = PlayerScript.Besluitvaardig.ToString();
-        Empatisch.text = PlayerScript.Empathisch.ToString();
-        Overtuigend.text = PlayerScript.Overtuigend.ToString();
-        Creatief.text = PlayerScript.Creatief.ToString();
-        Kennis_Veranderkunde.text = PlayerScript.Veranderkunde_Kennis.ToString();
+        Analytic.text = PlayerScript.Analytic.ToString();
+        Enthusiasm.text = PlayerScript.Enthusiasm.ToString();
+        Decisive.text = PlayerScript.Decisive.ToString();
+        Empatic.text = PlayerScript.Empatic.ToString();
+        Convincing.text = PlayerScript.Convincing.ToString();
+        Creative.text = PlayerScript.Creative.ToString();
+        ChangeKnowledge.text = PlayerScript.ChangeKnowledge.ToString();
 
         Name.text = player.naam;
         Function.text = "Functie: " + player.GetPlayerTitle();

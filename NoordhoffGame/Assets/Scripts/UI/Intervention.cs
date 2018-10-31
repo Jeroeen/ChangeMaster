@@ -7,13 +7,13 @@ public class Intervention
     
     public string InterventionText { get; set; }
     public string Advice { get; set; }
-    public int Analytisch { get; set; }
-    public int Enthousiasmerend { get; set; }
-    public int Besluitvaardig { get; set; }
-    public int Empathisch { get; set; }
-    public int Overtuigend { get; set; }
-    public int Creatief { get; set; }
-    public int Kennis_veranderkunde { get; set; }
+    public int Analytic { get; set; }
+    public int Enthusiasm { get; set; }
+    public int Decisive { get; set; }
+    public int Empatic { get; set; }
+    public int Convincing { get; set; }
+    public int Creative { get; set; }
+    public int ChangeKnowledge { get; set; }
 
     public Intervention()
     {}

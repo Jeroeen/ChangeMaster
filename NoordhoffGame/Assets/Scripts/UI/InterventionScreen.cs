@@ -125,13 +125,13 @@ public class InterventionScreen : MonoBehaviour
         //create a variable for the intervention the player selected
         Intervention selectedIntervention = interventions.Interventions[selected];
 
-        PlayerScript.Analytisch += selectedIntervention.Analytisch;
-        PlayerScript.Enthousiasmerend += selectedIntervention.Enthousiasmerend;
-        PlayerScript.Besluitvaardig += selectedIntervention.Besluitvaardig;
-        PlayerScript.Empathisch += selectedIntervention.Empathisch;
-        PlayerScript.Overtuigend += selectedIntervention.Overtuigend;
-        PlayerScript.Creatief += selectedIntervention.Creatief;
-        PlayerScript.Veranderkunde_Kennis += selectedIntervention.Kennis_veranderkunde;
+        PlayerScript.Analytic += selectedIntervention.Analytic;
+        PlayerScript.Enthusiasm += selectedIntervention.Enthusiasm;
+        PlayerScript.Decisive += selectedIntervention.Decisive;
+        PlayerScript.Empatic += selectedIntervention.Empatic;
+        PlayerScript.Convincing += selectedIntervention.Convincing;
+        PlayerScript.Creative += selectedIntervention.Creative;
+        PlayerScript.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
 
 
         //create the standard text element that will be used to instantiate all other text elements in this function
@@ -149,13 +149,13 @@ public class InterventionScreen : MonoBehaviour
         Text chosenText = ChosenText.GetComponentInChildren<Text>();
         chosenText.text = "gefeliciteerd " + Player.GetPlayerTitle() + " \n"
             + "je hebt level 1 gehaald daarbij heb je de volgende skills gehaald \n"
-            + "Analytisch  " + selectedIntervention.Analytisch + "\n"
-            + "Enthousiasmerend " + selectedIntervention.Enthousiasmerend + "\n"
-            + "Besluitvaardig " + selectedIntervention.Besluitvaardig + "\n"
-            + "Empathisch " + selectedIntervention.Empathisch + "\n"
-            + "Overtuigend " + selectedIntervention.Overtuigend + "\n"
-            + "Creatief " + selectedIntervention.Creatief + "\n"
-            + "Kennis van veranderkunde " + selectedIntervention.Kennis_veranderkunde;
+            + "Analytisch  " + selectedIntervention.Analytic + "\n"
+            + "Enthousiasmerend " + selectedIntervention.Enthusiasm + "\n"
+            + "Besluitvaardig " + selectedIntervention.Decisive + "\n"
+            + "Empathisch " + selectedIntervention.Empatic + "\n"
+            + "Overtuigend " + selectedIntervention.Convincing + "\n"
+            + "Creatief " + selectedIntervention.Creative + "\n"
+            + "Kennis van veranderkunde " + selectedIntervention.ChangeKnowledge;
 
 
 
@@ -168,13 +168,13 @@ public class InterventionScreen : MonoBehaviour
         pTextPos.anchoredPosition = new Vector2(newPos.x, newPos.y);
         Text playerText = pChosenText.GetComponentInChildren<Text>();
         playerText.text = "je hebt nu de volgende skills \n"
-            + "Analytisch  " + PlayerScript.Analytisch + "\n"
-            + "Enthousiasmerend " + PlayerScript.Enthousiasmerend + "\n"
-            + "Besluitvaardig " + PlayerScript.Besluitvaardig + "\n"
-            + "Empathisch " + PlayerScript.Empathisch + "\n"
-            + "Overtuigend " + PlayerScript.Overtuigend + "\n"
-            + "Creatief " + PlayerScript.Creatief + "\n"
-            + "Kennis van veranderkunde " + PlayerScript.Veranderkunde_Kennis;
+            + "Analytisch  " + PlayerScript.Analytic + "\n"
+            + "Enthousiasmerend " + PlayerScript.Enthusiasm + "\n"
+            + "Besluitvaardig " + PlayerScript.Decisive + "\n"
+            + "Empathisch " + PlayerScript.Empatic + "\n"
+            + "Overtuigend " + PlayerScript.Convincing + "\n"
+            + "Creatief " + PlayerScript.Creative + "\n"
+            + "Kennis van veranderkunde " + PlayerScript.ChangeKnowledge;
     }
     //a function that will enable or disable the menu 
     public void ShowMenu()

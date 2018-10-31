@@ -7,19 +7,19 @@ public class PlayerScript : MonoBehaviour
 {
     public Text CoinAmount;
     public static int Coins = 0;
-    public static int Analytisch = 0;
-    public static int Enthousiasmerend = 0;
-    public static int Besluitvaardig = 0;
-    public static int Empathisch = 0;
-    public static int Overtuigend = 0;
-    public static int Creatief = 0;
-    public static int Veranderkunde_Kennis = 0;
+    public static int Analytic = 0;
+    public static int Enthusiasm = 0;
+    public static int Decisive = 0;
+    public static int Empatic = 0;
+    public static int Convincing = 0;
+    public static int Creative = 0;
+    public static int ChangeKnowledge = 0;
 
     public string naam = "I.J.S. Beer";
 
     public void AddSkill()
     {
-        Veranderkunde_Kennis++;
+        ChangeKnowledge++;
     }
 
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class PlayerScript : MonoBehaviour
     }
     public string GetPlayerTitle()
     {
-        if(Veranderkunde_Kennis >= 1)
+        if(ChangeKnowledge >= 1)
         {
             return "veranderkundige";
         }

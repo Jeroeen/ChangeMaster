@@ -3,18 +3,18 @@
 	[
 		 {
 		"Image":"Kapitein",
-		"Text":"Ik ben het er niet mee eens"
+		"Text":"I disagree."
 		},{
 		"Image":"ijsbeertje",
-		"Text":"Ik ben het er wel mee eens"
+		"Text":"I agree."
 		},
 		{
 		"Image":"muntjes",
-		"Text":"waarom sta ik hier, ik ben een stapel muntjes, ik kan niet praten"
+		"Text":"Why am I here, I'm just a pile of coins, I can't talk."
  
 		},{
 		"Image":"Schoonmaakster",
-		"Text":"Ik ben er nog niet uit"
+		"Text":"I don't know yet."
  
 		}
 	]
