@@ -54,7 +54,7 @@ public class OpenDialogue : MonoBehaviour
         InitiateDialogue dialogue = Dialogue.GetComponent<InitiateDialogue>();
 
 		CharModel characterModel = hit.transform.gameObject.GetComponentInChildren<CharModel>();
-		dialogue.Initialize(hit.transform.name, characterModel.Level, characterModel.DialogueCount);
+		dialogue.Initialize(hit.transform.name, characterModel.Stage, characterModel.DialogueCount);
 
 		if (characterModel.DialogueCount >= 0 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
 		{

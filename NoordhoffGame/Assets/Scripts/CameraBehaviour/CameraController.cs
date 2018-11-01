@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
 	void Start()
 	{
 		_canFreeRoam = true;
-		transform.position = new Vector3(transform.position.x, transform.position.y + 3.5f, transform.position.z);
+		transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
 		_zoomValue = _minZoom;
 
 		ViewportHandler.UnitsSize = _zoomValue;
@@ -39,7 +39,6 @@ public class CameraController : MonoBehaviour
 		}
 
 		ExecuteFreeRoam();
-
 
 		_zoomValue = Mathf.Clamp(_zoomValue, _minZoom, _maxZoom);
 		ViewportHandler.UnitsSize = _zoomValue;

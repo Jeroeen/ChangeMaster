@@ -19,12 +19,12 @@ public class InitiateDialogue : MonoBehaviour
     public Button SettingButton;
     public Button InfoButton;
 
-    public void Initialize(string nameOfPartner, int level, int dialogueCount)
+    public void Initialize(string nameOfPartner, string stage, int dialogueCount)
 	{
 		RetrieveAsset.RetrieveAssets();
 
 		_json = new RetrieveJson();
-		_dialogue = _json.LoadJson(nameOfPartner, level, dialogueCount);
+		_dialogue = _json.LoadJson(nameOfPartner, stage, dialogueCount);
 
 		NextButton.GetComponentInChildren<Text>().text = _dialogue.NextButtonText;
 		PrevButton.GetComponentInChildren<Text>().text = _dialogue.PreviousButtonText;

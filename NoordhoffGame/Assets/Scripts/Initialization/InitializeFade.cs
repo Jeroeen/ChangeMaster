@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InitializeScene : MonoBehaviour
+public class InitializeFade : MonoBehaviour
 {
 	[SerializeField]
 	private Transition _transition;
@@ -23,6 +23,8 @@ public class InitializeScene : MonoBehaviour
 	    if (_transition.FadeIn())
 	    {
 		    _controller.CanUse = true;
+
+            
 		    Destroy(_transition.gameObject, 0.01f);
 		    _faded = true;
 	    }

@@ -58,7 +58,7 @@ public class Cutscene : MonoBehaviour
 				_hasDialogueOpened = true;
 
 				_dialogue.SetActive(true);
-				_initiateDialogue.Initialize("Kapitein", 0, -1);
+				_initiateDialogue.Initialize("Kapitein", "0", -1);
 				return;
 			}
 		}
