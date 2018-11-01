@@ -19,10 +19,12 @@ public class InitializeBaseview : MonoBehaviour
 
     private bool hasOpenedDialogue;
     
-
     void Update()
     {
-        if (dialogue.activeSelf || !hasOpenedDialogue) return;
+        if (dialogue.activeSelf || !hasOpenedDialogue)
+        {
+            return;
+        }
 
         if (!transition.transform.gameObject.activeSelf)
         {
@@ -45,6 +47,4 @@ public class InitializeBaseview : MonoBehaviour
         dialogue.SetActive(true);
         hasOpenedDialogue = true;
     }
-
-   
 }

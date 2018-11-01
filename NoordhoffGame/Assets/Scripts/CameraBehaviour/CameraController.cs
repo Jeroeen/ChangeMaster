@@ -10,8 +10,7 @@ public class CameraController : MonoBehaviour
 {
 	private float zoomValue;
 	public bool CanUse;
-
-
+    
 	[SerializeField] private float zoomSpeed = 2f;
 	[SerializeField] private int minZoom = 16;
 	[SerializeField] private int maxZoom = 33;
@@ -41,9 +40,7 @@ public class CameraController : MonoBehaviour
 		zoomValue = Mathf.Clamp(zoomValue, minZoom, maxZoom);
 		ViewportHandler.UnitsSize = zoomValue;
 	}
-
-
-
+    
 	private void ExecuteFreeRoam()
 	{
 #if UNITY_EDITOR
