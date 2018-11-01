@@ -3,18 +3,18 @@
 	[
 		 {
 		"Image":"Kapitein",
-		"Text":"Ik ben het er niet mee eens"
+		"Text":"ik ben het er niet mee eens"
 		},{
 		"Image":"ijsbeertje",
-		"Text":"Ik ben het er wel mee eens"
+		"Text":"ik ben het er mee eens"
 		},
 		{
 		"Image":"muntjes",
-		"Text":"waarom sta ik hier, ik ben een stapel muntjes, ik kan niet praten"
+		"Text":"Waarom ben ik hier, ik ben een stapel muntjes, ik kan niet praten."
  
 		},{
 		"Image":"Schoonmaakster",
-		"Text":"Ik ben er nog niet uit"
+		"Text":"ik weet het nog niet"
  
 		}
 	]
