@@ -12,7 +12,7 @@ public class Settingscript : MonoBehaviour
     public void ShowMenu()
     {
 
-        SettingsScreen.SetActive(!SettingsScreen.gameObject.activeSelf);
+        SettingsScreen.SetActive(!SettingsScreen.activeSelf);
         BlockingPanel.blocksRaycasts = !BlockingPanel.blocksRaycasts;
         InfoButton.interactable = !InfoButton.IsInteractable();
         
