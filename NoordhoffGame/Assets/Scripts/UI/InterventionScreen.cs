@@ -9,14 +9,13 @@ public class InterventionScreen : MonoBehaviour
 {
     public Button InfoButton;
     public Button SettingsButton;
-    public CanvasGroup Interventionscreen;
+    public GameObject Interventionscreen;
     public GameObject Text;
     public GameObject Button;
     public CanvasGroup BlockingPanel;
 
     private Player player;
     private Vector2 position = new Vector2(0.0f, 0.0f);
-
     private int textCount = 0;
     private ScrollRect interventionScroll;
     private RectTransform scrollviewContent;
@@ -187,7 +186,7 @@ public class InterventionScreen : MonoBehaviour
     //a function that will enable or disable the menu 
     public void ShowMenu()
     {
-        Interventionscreen.gameObject.SetActive(!Interventionscreen.gameObject.activeSelf);
+        Interventionscreen.SetActive(!Interventionscreen.gameObject.activeSelf);
         BlockingPanel.blocksRaycasts = !BlockingPanel.blocksRaycasts;
 
         InfoButton.interactable = !InfoButton.IsInteractable();

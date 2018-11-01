@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Infoscreen : MonoBehaviour
 {
     public Button SettingsButton;
-    public CanvasGroup InfoScreen;
+    public GameObject InfoScreen;
     public GameObject StakeholderPanel;
     public CanvasGroup BlockingPanel;
     public Text Function;
@@ -88,7 +88,7 @@ public class Infoscreen : MonoBehaviour
     //a function that will enable or disable the menu 
     public void EnableInfo()
     {
-        InfoScreen.gameObject.SetActive(!InfoScreen.gameObject.activeSelf);
+        InfoScreen.SetActive(!InfoScreen.activeSelf);
         BlockingPanel.blocksRaycasts = !BlockingPanel.blocksRaycasts;
         SettingsButton.interactable = !SettingsButton.IsInteractable();
         fillCharacterInfo();
