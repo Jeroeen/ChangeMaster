@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eadbbde965eae242abe6833401936de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transition: {fileID: 552989447}
-  _controller: {fileID: 519420033}
+  transition: {fileID: 552989447}
+  controller: {fileID: 519420033}
 --- !u!4 &330024204
 Transform:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ Camera:
   far clip plane: 500
   field of view: 60
   orthographic: 1
-  orthographic size: 8.004177
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
