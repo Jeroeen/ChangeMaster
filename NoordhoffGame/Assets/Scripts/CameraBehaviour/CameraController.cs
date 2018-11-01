@@ -8,14 +8,13 @@ using UnityEngineInternal;
 
 public class CameraController : MonoBehaviour
 {
-	private float _zoomValue;
-	private bool _canFreeRoam;
+	private float zoomValue;
 	public bool CanUse;
 
 
-	[SerializeField] private float _zoomSpeed = 2f;
-	[SerializeField] private int _minZoom = 16;
-	[SerializeField] private int _maxZoom = 33;
+	[SerializeField] private float zoomSpeed = 2f;
+	[SerializeField] private int minZoom = 16;
+	[SerializeField] private int maxZoom = 33;
 
 	public ViewportHandler ViewportHandler;
 	public TilemapHandler TilemapHandler;
@@ -24,11 +23,10 @@ public class CameraController : MonoBehaviour
 
 	void Start()
 	{
-		_canFreeRoam = true;
 		transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
-		_zoomValue = _minZoom;
+		zoomValue = minZoom;
 
-		ViewportHandler.UnitsSize = _zoomValue;
+		ViewportHandler.UnitsSize = zoomValue;
 	}
 
 	void Update()
@@ -40,8 +38,8 @@ public class CameraController : MonoBehaviour
 
 		ExecuteFreeRoam();
 
-		_zoomValue = Mathf.Clamp(_zoomValue, _minZoom, _maxZoom);
-		ViewportHandler.UnitsSize = _zoomValue;
+		zoomValue = Mathf.Clamp(zoomValue, minZoom, maxZoom);
+		ViewportHandler.UnitsSize = zoomValue;
 	}
 
 
@@ -61,16 +59,16 @@ public class CameraController : MonoBehaviour
 	{
 		if (Input.GetMouseButton(0))
 		{
-			transform.position -= new Vector3(Input.GetAxis("Mouse X") * _zoomValue * Time.deltaTime, Input.GetAxis("Mouse Y") * _zoomValue * Time.deltaTime, 0);
+			transform.position -= new Vector3(Input.GetAxis("Mouse X") * zoomValue * Time.deltaTime, Input.GetAxis("Mouse Y") * zoomValue * Time.deltaTime, 0);
 		}
 
 		if (Input.GetKey("up"))
 		{
-			_zoomValue += _zoomSpeed * 6 * Time.deltaTime;
+			zoomValue += zoomSpeed * 6 * Time.deltaTime;
 		}
 		else if (Input.GetKey("down"))
 		{
-			_zoomValue -= _zoomSpeed * 6 * Time.deltaTime;
+			zoomValue -= zoomSpeed * 6 * Time.deltaTime;
 		}
 	}
 
@@ -81,7 +79,7 @@ public class CameraController : MonoBehaviour
 		{
 			// The best speed for 16 zoomValue is 0.4, for 32 zoomValue it's double that (0.8)
 			// 16 / 0.4 = 40, 32 / 0.8 = 40
-			float speed = _zoomValue / 40f;
+			float speed = zoomValue / 40f;
 
 			Vector2 deltaPos = Input.GetTouch(0).deltaPosition;
 			transform.Translate(-deltaPos.x * speed * Time.deltaTime,
@@ -100,16 +98,16 @@ public class CameraController : MonoBehaviour
 			float touchesPrevPosDifference = (firstTouchPrevPos - secondTouchPrevPos).magnitude;
 			float touchesCurPosDifference = (firstTouch.position - secondTouch.position).magnitude;
 
-			float zoomModifier = (firstTouch.deltaPosition - secondTouch.deltaPosition).magnitude * _zoomSpeed;
+			float zoomModifier = (firstTouch.deltaPosition - secondTouch.deltaPosition).magnitude * zoomSpeed;
 
 			if (touchesPrevPosDifference > touchesCurPosDifference)
 			{
-				_zoomValue += zoomModifier * Time.deltaTime;
+				zoomValue += zoomModifier * Time.deltaTime;
 			}
 
 			if (touchesPrevPosDifference < touchesCurPosDifference)
 			{
-				_zoomValue -= zoomModifier * Time.deltaTime;
+				zoomValue -= zoomModifier * Time.deltaTime;
 			}
 		}
 	}

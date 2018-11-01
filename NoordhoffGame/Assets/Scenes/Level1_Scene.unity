@@ -1055,7 +1055,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.25
+  orthographic size: 8.245802
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1098,9 +1098,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanUse: 0
-  _zoomSpeed: 2
-  _minZoom: 16
-  _maxZoom: 33
+  zoomSpeed: 2
+  minZoom: 16
+  maxZoom: 33
   ViewportHandler: {fileID: 519420030}
   TilemapHandler: {fileID: 1395098297}
   Camera: {fileID: 519420031}
@@ -2578,7 +2578,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1545152295}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99844986
+  m_Size: 0.99844974
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2818,7 +2818,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 201868998}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.42751324
+  m_Size: 0.8550265
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6212,7 +6212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8498535, y: 359}
+  m_AnchoredPosition: {x: 1.8499756, y: 358.99997}
   m_SizeDelta: {x: 2386.7, y: 718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1556024075
@@ -6714,7 +6714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -842, y: -84.297386}
+  m_AnchoredPosition: {x: -842, y: -68.5}
   m_SizeDelta: {x: 1684, y: 945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1730224307

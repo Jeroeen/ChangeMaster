@@ -20,18 +20,17 @@ public class InitializeBaseview : MonoBehaviour
 
     void Update()
     {
-        if (!dialogue.activeSelf)
+        if (dialogue.activeSelf) return;
+
+        if (!transition.transform.gameObject.activeSelf)
         {
-            if (!transition.transform.gameObject.activeSelf)
+            transition.transform.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (transition.FadeOut())
             {
-                transition.transform.gameObject.SetActive(true);
-            }
-            else
-            {
-                if (transition.FadeOut())
-                {
-                    SceneManager.LoadScene(2);
-                }
+                SceneManager.LoadScene(2);
             }
         }
     }
