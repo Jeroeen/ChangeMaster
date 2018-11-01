@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class InitializeBaseview : MonoBehaviour
@@ -12,15 +14,15 @@ public class InitializeBaseview : MonoBehaviour
 
     [SerializeField] private Transition transition;
 
-    void Start()
-    {
-        initiateDialogue.Initialize(charModel.NameOfPartner, charModel.Stage, charModel.DialogueCount);
-        dialogue.SetActive(true);
-    }
+    [SerializeField] private Button infoButton;
+    [SerializeField] private Button settingsButton;
+
+    private bool hasOpenedDialogue;
+    
 
     void Update()
     {
-        if (dialogue.activeSelf) return;
+        if (dialogue.activeSelf || !hasOpenedDialogue) return;
 
         if (!transition.transform.gameObject.activeSelf)
         {
@@ -30,8 +32,19 @@ public class InitializeBaseview : MonoBehaviour
         {
             if (transition.FadeOut())
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
     }
+
+    public void ShowDialogCaptain()
+    {
+        infoButton.interactable = !infoButton.IsInteractable();
+        settingsButton.interactable = !settingsButton.IsInteractable();
+        initiateDialogue.Initialize(charModel.NameOfPartner, charModel.Stage, charModel.DialogueCount);
+        dialogue.SetActive(true);
+        hasOpenedDialogue = true;
+    }
+
+   
 }
