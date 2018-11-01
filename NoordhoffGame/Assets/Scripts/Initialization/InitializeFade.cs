@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InitializeFade : MonoBehaviour
 {
@@ -10,12 +11,17 @@ public class InitializeFade : MonoBehaviour
 	[SerializeField]
 	private CameraController _controller;
 
-	private bool _faded;
-	
+	private bool _isFaded;
+
+	void Start()
+	{
+		PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
+	}
+
     // Update is called once per frame
     void Update()
     {
-	    if (_faded)
+	    if (_isFaded)
 	    {
 		    return;
 	    }
@@ -26,7 +32,7 @@ public class InitializeFade : MonoBehaviour
 
             
 		    Destroy(_transition.gameObject, 0.01f);
-		    _faded = true;
+		    _isFaded = true;
 	    }
     }
 }

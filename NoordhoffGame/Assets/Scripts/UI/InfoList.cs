@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct info
+public struct Info
 {
     public string Image;
     public string Text;
@@ -10,14 +10,14 @@ public struct info
 
 public class InfoList
 {
-    public info[] InformationList;
+    public Info[] InformationList;
 
     public InfoList()
     {
 
     }
 
-    public InfoList(info[] Information)
+    public InfoList(Info[] Information)
     {
         InformationList = Information;
     }
