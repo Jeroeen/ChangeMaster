@@ -22,7 +22,7 @@ public class Infoscreen : MonoBehaviour
     public Text Convincing;
     public Text ChangeKnowledge;
 
-	private Player _player;
+	private Player player;
 	private readonly List<Sprite> images = new List<Sprite>();
     private Vector2 position = new Vector2(0.0f, -5.0f);
     private ScrollRect infoScrollview;
@@ -36,7 +36,7 @@ public class Infoscreen : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		_player = Player.GetPlayer();
+
 
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
@@ -52,7 +52,7 @@ public class Infoscreen : MonoBehaviour
         //get the Scrollview component from the Canvasgroup containing it
         infoScrollview = InfoScreen.GetComponentInChildren<ScrollRect>();
         //a list that contains all the UI elements that i'll be making
-        List<GameObject> Panels = new List<GameObject>();
+        List<GameObject> panels = new List<GameObject>();
         //set the content element of the scrollview to the position of the x to  0 since, for some reason, sometimes it moves away from that position
         RectTransform scrollviewContent = infoScrollview.content.GetComponent<RectTransform>();
         scrollviewContent.anchoredPosition = new Vector2(0.0f, scrollviewContent.anchoredPosition.y);
@@ -61,16 +61,16 @@ public class Infoscreen : MonoBehaviour
         for (int i = 0; i < images.Count; i++)
         {
             //add the created UI element to the Panels list
-            Panels.Add(Instantiate(StakeholderPanel, infoScrollview.content.transform));
+            panels.Add(Instantiate(StakeholderPanel, infoScrollview.content.transform));
             //create a panel, containing a text element, an image of the person who's talking and set the position of that panel.
             //create the text element
-            Text[] infoText = Panels[i].GetComponentsInChildren<Text>();
+            Text[] infoText = panels[i].GetComponentsInChildren<Text>();
             infoText[0].text = information.InformationList[i].Text;
             //create the image
-            Image[] infoImage = Panels[i].GetComponentsInChildren<Image>();
+            Image[] infoImage = panels[i].GetComponentsInChildren<Image>();
             infoImage[1].sprite = images[i];
             //set the position
-            RectTransform[] infoRectTransform = Panels[i].GetComponents<RectTransform>();
+            RectTransform[] infoRectTransform = panels[i].GetComponents<RectTransform>();
             infoRectTransform[0].anchoredPosition = position;
             float elementLimit = scrollviewContent.sizeDelta.y / (panelSizeY + 15);
             //if there are more than 3 elements, make the content element from the scrollview bigger and set it to the correct position 
@@ -88,35 +88,25 @@ public class Infoscreen : MonoBehaviour
     //a function that will enable or disable the menu 
     public void EnableInfo()
     {
-        if(InfoScreen.interactable)
-        {
-            BlockingPanel.blocksRaycasts = false;
-            InfoScreen.interactable = false;
-            InfoScreen.alpha = 0;
-            InfoScreen.blocksRaycasts = false;
-        }
-        else
-        {
-            BlockingPanel.blocksRaycasts = true;
-            InfoScreen.interactable = true;
-            InfoScreen.alpha = 1;
-            InfoScreen.blocksRaycasts = true;
-        }
-        SettingsButton.interactable = !SettingsButton.IsInteractable();       
+        InfoScreen.gameObject.SetActive(!InfoScreen.gameObject.activeSelf);
+        BlockingPanel.blocksRaycasts = !BlockingPanel.blocksRaycasts;
+        SettingsButton.interactable = !SettingsButton.IsInteractable();
+        fillCharacterInfo();
     }
     public void fillCharacterInfo()
     {
+        player = Player.GetPlayer();
 
-        Analytic.text = _player.Analytic.ToString();
-        Enthusiasm.text = _player.Enthousiasm.ToString();
-        Decisive.text = _player.Decisive.ToString();
-        Empatic.text = _player.Empathic.ToString();
-        Convincing.text = _player.Convincing.ToString();
-        Creative.text = _player.Creative.ToString();
-        ChangeKnowledge.text = _player.ChangeKnowledge.ToString();
+        Analytic.text = player.Analytic.ToString();
+        Enthusiasm.text = player.Enthousiasm.ToString();
+        Decisive.text = player.Decisive.ToString();
+        Empatic.text = player.Empathic.ToString();
+        Convincing.text = player.Convincing.ToString();
+        Creative.text = player.Creative.ToString();
+        ChangeKnowledge.text = player.ChangeKnowledge.ToString();
 
-        Name.text = "Naam: " + _player.Name;
+        Name.text = "Naam: " + player.Name;
 
-        Function.text = "Functie: " + _player.GetPlayerTitle();
+        Function.text = "Functie: " + player.GetPlayerTitle();
     }
 }

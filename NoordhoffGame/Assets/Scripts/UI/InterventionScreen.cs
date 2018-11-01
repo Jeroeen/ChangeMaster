@@ -14,7 +14,7 @@ public class InterventionScreen : MonoBehaviour
     public GameObject Button;
     public CanvasGroup BlockingPanel;
 
-    private Player _player;
+    private Player player;
     private Vector2 position = new Vector2(0.0f, 0.0f);
 
     private int textCount = 0;
@@ -31,7 +31,7 @@ public class InterventionScreen : MonoBehaviour
     {
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
-        _player = Player.GetPlayer();
+        player = Player.GetPlayer();
         interventions = json.LoadJsonInterventions(1);
         //interventionScroll is the ScrollRect that contains the list of interventions to choose from
         interventionScroll = Interventionscreen.GetComponentInChildren<ScrollRect>();
@@ -129,13 +129,13 @@ public class InterventionScreen : MonoBehaviour
         //create a variable for the intervention the player selected
         Intervention selectedIntervention = interventions.Interventions[selected];
 
-        _player.Analytic += selectedIntervention.Analytic;
-        _player.Enthousiasm += selectedIntervention.Enthusiasm;
-        _player.Decisive += selectedIntervention.Decisive;
-        _player.Empathic += selectedIntervention.Empathic;
-        _player.Convincing += selectedIntervention.Convincing;
-        _player.Creative += selectedIntervention.Creative;
-        _player.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
+        player.Analytic += selectedIntervention.Analytic;
+        player.Enthousiasm += selectedIntervention.Enthusiasm;
+        player.Decisive += selectedIntervention.Decisive;
+        player.Empathic += selectedIntervention.Empathic;
+        player.Convincing += selectedIntervention.Convincing;
+        player.Creative += selectedIntervention.Creative;
+        player.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
 
         //create the standard text element that will be used to instantiate all other text elements in this function
         GameObject aText = Instantiate(Text);
@@ -156,8 +156,8 @@ public class InterventionScreen : MonoBehaviour
         cTextPos.anchoredPosition = new Vector2(newPos.x / 2, newPos.y);
         Text chosenText = ChosenText.GetComponentInChildren<Text>();
 
-        chosenText.text = "congratulations " + _player.GetPlayerTitle() + " \n"
-            + "You made level 1 and earned these skills \n"
+        chosenText.text = "Gefeliciteerd" + player.GetPlayerTitle() + " \n"
+            + "Je hebt level 1 gehaald en daarbij de volgende skills gehaald \n"
             + "Analytisch  " + selectedIntervention.Analytic + "\n"
             + "Enthousiasmerend " + selectedIntervention.Enthusiasm + "\n"
             + "Besluitvaardig " + selectedIntervention.Decisive + "\n"
@@ -175,32 +175,21 @@ public class InterventionScreen : MonoBehaviour
         RectTransform pTextPos = pChosenText.GetComponent<RectTransform>();
         pTextPos.anchoredPosition = new Vector2(newPos.x, newPos.y);
         Text playerText = pChosenText.GetComponentInChildren<Text>();
-        playerText.text = "Your skills are now: \n"
-            + "Analytisch  " + _player.Analytic + "\n"
-            + "Enthousiasmerend " + _player.Enthousiasm + "\n"
-            + "Besluitvaardig " + _player.Decisive + "\n"
-            + "Empathisch " + _player.Empathic + "\n"
-            + "Overtuigend " + _player.Convincing + "\n"
-            + "Creatief " + _player.Creative + "\n"
-            + "Kennis van veranderkunde " + _player.ChangeKnowledge;
+        playerText.text = "Je skills zijn nu \n"
+            + "Analytisch  " + player.Analytic + "\n"
+            + "Enthousiasmerend " + player.Enthousiasm + "\n"
+            + "Besluitvaardig " + player.Decisive + "\n"
+            + "Empathisch " + player.Empathic + "\n"
+            + "Overtuigend " + player.Convincing + "\n"
+            + "Creatief " + player.Creative + "\n"
+            + "Kennis van veranderkunde " + player.ChangeKnowledge;
     }
     //a function that will enable or disable the menu 
     public void ShowMenu()
     {
-        if (Interventionscreen.interactable)
-        {
-            BlockingPanel.blocksRaycasts = false;
-            Interventionscreen.interactable = false;
-            Interventionscreen.alpha = 0;
-            Interventionscreen.blocksRaycasts = false;
-        }
-        else
-        {
-            BlockingPanel.blocksRaycasts = true;
-            Interventionscreen.interactable = true;
-            Interventionscreen.alpha = 1;
-            Interventionscreen.blocksRaycasts = true;
-        }
+        Interventionscreen.gameObject.SetActive(!Interventionscreen.gameObject.activeSelf);
+        BlockingPanel.blocksRaycasts = !BlockingPanel.blocksRaycasts;
+
         InfoButton.interactable = !InfoButton.IsInteractable();
         SettingsButton.interactable = !SettingsButton.IsInteractable();
     }
@@ -217,12 +206,12 @@ public class InterventionScreen : MonoBehaviour
 
     public void resetskills()
     {
-        _player.Analytic = 0;
-        _player.Enthousiasm = 0;
-        _player.Decisive = 0;
-        _player.Empathic = 0;
-        _player.Convincing = 0;
-        _player.Creative = 0;
-        _player.ChangeKnowledge = 0;
+        player.Analytic = 0;
+        player.Enthousiasm = 0;
+        player.Decisive = 0;
+        player.Empathic = 0;
+        player.Convincing = 0;
+        player.Creative = 0;
+        player.ChangeKnowledge = 0;
     }                          
 }
