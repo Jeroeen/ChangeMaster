@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CharModel : MonoBehaviour
 {
-	public int Level;
+	public string Stage;
 	public int DialogueCount;
 	public int AmountOfDialogues;
+    public string NameOfPartner;
 }

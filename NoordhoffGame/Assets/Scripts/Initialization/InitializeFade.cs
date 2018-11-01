@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InitializeScene : MonoBehaviour
+public class InitializeFade : MonoBehaviour
 {
 	[SerializeField]
-	private Transition _transition;
+	private Transition transition;
 
 	[SerializeField]
-	private CameraController _controller;
+	private CameraController controller;
 
-	private bool _isFaded;
+	private bool isFaded;
 
 	void Start()
 	{
@@ -21,16 +21,17 @@ public class InitializeScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    if (_isFaded)
+	    if (isFaded)
 	    {
 		    return;
 	    }
 
-	    if (_transition.FadeIn())
+	    if (transition.FadeIn())
 	    {
-		    _controller.CanUse = true;
-		    Destroy(_transition.gameObject, 0.01f);
-		    _isFaded = true;
+		    controller.CanUse = true;
+            
+		    Destroy(transition.gameObject, 0.01f);
+		    isFaded = true;
 	    }
     }
 }

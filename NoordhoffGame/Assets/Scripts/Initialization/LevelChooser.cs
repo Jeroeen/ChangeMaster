@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
@@ -14,7 +15,7 @@ namespace Assets.Scripts
 			{
 				levelName = "Opening Cutscene"; //the default scene that should be loaded when you play for the first time
 			}
-			Application.LoadLevel(levelName);
+			SceneManager.LoadScene(levelName);
 		}
 	}
 }

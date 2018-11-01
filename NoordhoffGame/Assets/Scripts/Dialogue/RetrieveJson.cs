@@ -7,18 +7,18 @@ using UnityEngine;
 
 public class RetrieveJson
 {
-    public DialogueItem LoadJson(string nameOfPartner, int level, int dialogueCount)
+    public DialogueItem LoadJson(string nameOfPartner, string stage, int dialogueCount)
     {
         string path;
         if (dialogueCount < 0)
         {
-            path = "DialogueFiles/" + nameOfPartner + "-" + level;
+            path = "DialogueFiles/" + nameOfPartner + "-" + stage;
         }
         else
         {
-            path = "DialogueFiles/" + nameOfPartner + "-" + level + "-" + dialogueCount;
+            path = "DialogueFiles/" + nameOfPartner + "-" + stage + "-" + dialogueCount;
         }
-
+        
         TextAsset asset = Resources.Load(path) as TextAsset;
         string jsonString = asset.ToString();
 
