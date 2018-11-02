@@ -418,7 +418,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 28.125
+  orthographic size: 24.978165
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -460,13 +460,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d543e98aa126745848e5ab4e781706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zoomSpeed: 10.5
-  _moveSpeed: 4.75
-  _minZoom: 12
-  _cutScene: {fileID: 954274351}
-  _initiateDialogue: {fileID: 114940373}
-  _dialogue: {fileID: 114940371}
-  _transition: {fileID: 1081126244}
+  zoomSpeed: 11
+  moveSpeed: 5
+  minZoom: 12
+  cutScene: {fileID: 954274351}
+  initiateDialogue: {fileID: 114940373}
+  dialogue: {fileID: 114940371}
+  transition: {fileID: 1081126244}
   ViewportHandler: {fileID: 519420030}
 --- !u!4 &531130398 stripped
 Transform:
@@ -1988,9 +1988,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96cb59873e0fa9469319b281558cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 1
+  Stage: 
   DialogueCount: 0
   AmountOfDialogues: 2
+  NameOfPartner: 
 --- !u!212 &1899222746
 SpriteRenderer:
   m_ObjectHideFlags: 0
