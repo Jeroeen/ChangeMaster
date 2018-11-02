@@ -8,20 +8,20 @@ using UnityEngine.UI;
 
 public class Infoscreen : MonoBehaviour
 {
-    [SerializeField] private Button SettingsButton;
-    [SerializeField] private Button StakeholdersButton;
-    [SerializeField] private GameObject InfoScreen;
-    [SerializeField] private GameObject StakeholderPanel;
-    [SerializeField] private CanvasGroup BlockingPanel;
-    [SerializeField] private Text Function;
-    [SerializeField] private Text Name;
-    [SerializeField] private Text Analytic;
-    [SerializeField] private Text Decisive;
-    [SerializeField] private Text Creative;
-    [SerializeField] private Text Empatic;
-    [SerializeField] private Text Enthusiasm;
-    [SerializeField] private Text Convincing;
-    [SerializeField] private Text ChangeKnowledge;
+    [SerializeField] private Button settingsButton;
+    [SerializeField] private Button stakeholdersButton;
+    [SerializeField] private GameObject infoScreen;
+    [SerializeField] private GameObject stakeholderPanel;
+    [SerializeField] private CanvasGroup blockingPanel;
+    [SerializeField] private Text function;
+    [SerializeField] private Text playerName;
+    [SerializeField] private Text analytic;
+    [SerializeField] private Text decisive;
+    [SerializeField] private Text creative;
+    [SerializeField] private Text empatic;
+    [SerializeField] private Text enthusiasm;
+    [SerializeField] private Text convincing;
+    [SerializeField] private Text changeKnowledge;
 
 	private Player player;
 	private readonly List<Sprite> images = new List<Sprite>();
@@ -38,7 +38,7 @@ public class Infoscreen : MonoBehaviour
 	void Start()
 	{
 
-        StakeholdersButton.interactable = false;
+        stakeholdersButton.interactable = false;
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
         InfoList information = json.LoadJsonInformation(1);
@@ -48,10 +48,10 @@ public class Infoscreen : MonoBehaviour
             images.Add(RetrieveAsset.GetSpriteByName(information.InformationList[i].Image));
         }
         //get the height of the panel, this will be used later
-        RectTransform panelRect = StakeholderPanel.GetComponent<RectTransform>();
+        RectTransform panelRect = stakeholderPanel.GetComponent<RectTransform>();
         float panelSizeY = panelRect.sizeDelta.y;
         //get the Scrollview component from the Canvasgroup containing it
-        infoScrollview = InfoScreen.GetComponentInChildren<ScrollRect>();
+        infoScrollview = infoScreen.GetComponentInChildren<ScrollRect>();
         //a list that contains all the UI elements that i'll be making
         List<GameObject> panels = new List<GameObject>();
         //set the content element of the scrollview to the position of the x to  0 since, for some reason, sometimes it moves away from that position
@@ -62,7 +62,7 @@ public class Infoscreen : MonoBehaviour
         for (int i = 0; i < images.Count; i++)
         {
             //add the created UI element to the Panels list
-            panels.Add(Instantiate(StakeholderPanel, infoScrollview.content.transform));
+            panels.Add(Instantiate(stakeholderPanel, infoScrollview.content.transform));
             //create a panel, containing a text element, an image of the person who's talking and set the position of that panel.
             Text[] infoText = panels[i].GetComponentsInChildren<Text>();
             infoText[0].text = information.InformationList[i].Text;
@@ -88,25 +88,25 @@ public class Infoscreen : MonoBehaviour
     //a function that will enable or disable the menu 
     public void EnableInfo()
     {
-        InfoScreen.SetActive(!InfoScreen.activeSelf);
-        BlockingPanel.blocksRaycasts = !BlockingPanel.blocksRaycasts;
-        SettingsButton.interactable = !SettingsButton.IsInteractable();
+        infoScreen.SetActive(!infoScreen.activeSelf);
+        blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
+        settingsButton.interactable = !settingsButton.IsInteractable();
         fillCharacterInfo();
     }
     public void fillCharacterInfo()
     {
         player = Player.GetPlayer();
 
-        Analytic.text = player.Analytic.ToString();
-        Enthusiasm.text = player.Enthousiasm.ToString();
-        Decisive.text = player.Decisive.ToString();
-        Empatic.text = player.Empathic.ToString();
-        Convincing.text = player.Convincing.ToString();
-        Creative.text = player.Creative.ToString();
-        ChangeKnowledge.text = player.ChangeKnowledge.ToString();
+        analytic.text = player.Analytic.ToString();
+        enthusiasm.text = player.Enthousiasm.ToString();
+        decisive.text = player.Decisive.ToString();
+        empatic.text = player.Empathic.ToString();
+        convincing.text = player.Convincing.ToString();
+        creative.text = player.Creative.ToString();
+        changeKnowledge.text = player.ChangeKnowledge.ToString();
 
-        Name.text = "Naam: " + player.Name;
+        playerName.text = "Naam: " + player.Name;
 
-        Function.text = "Functie: " + player.GetPlayerTitle();
+        function.text = "Functie: " + player.GetPlayerTitle();
     }
 }

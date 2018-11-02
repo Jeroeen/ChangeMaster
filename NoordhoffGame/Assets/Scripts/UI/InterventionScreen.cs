@@ -8,13 +8,13 @@ using Assets.Scripts;
 
 public class InterventionScreen : MonoBehaviour
 {
-    [SerializeField] private Button InfoButton;
-    [SerializeField] private Button SettingsButton;
-    [SerializeField] private GameObject Interventionscreen;
-    [SerializeField] private GameObject Text;
-    [SerializeField] private GameObject Button;
-    [SerializeField] private GameObject SkillPanel;
-    [SerializeField] private CanvasGroup BlockingPanel;
+    [SerializeField] private Button infoButton;
+    [SerializeField] private Button settingsButton;
+    [SerializeField] private GameObject interventionscreen;
+    [SerializeField] private GameObject text;
+    [SerializeField] private GameObject button;
+    [SerializeField] private GameObject skillPanel;
+    [SerializeField] private CanvasGroup blockingPanel;
 
     private Player player;
     private Vector2 position = new Vector2(0.0f, 0.0f);
@@ -35,12 +35,12 @@ public class InterventionScreen : MonoBehaviour
         player = Player.GetPlayer();
         interventions = json.LoadJsonInterventions(1);
         //interventionScroll is the ScrollRect that contains the list of interventions to choose from
-        interventionScroll = Interventionscreen.GetComponentInChildren<ScrollRect>();
+        interventionScroll = interventionscreen.GetComponentInChildren<ScrollRect>();
         //set the content element of the scrollview to the position 0,0 since, for some reason, sometimes it moves away from that position
         scrollviewContent = interventionScroll.content.GetComponent<RectTransform>();
         scrollviewContent.anchoredPosition = new Vector2(0.0f, 0.0f);
         //get the size of the text box for use further in the file
-        RectTransform textRect = Text.GetComponent<RectTransform>();
+        RectTransform textRect = text.GetComponent<RectTransform>();
         textboxSizeX = textRect.sizeDelta.x;
         position = new Vector2(textboxSizeX / 8, -textboxSizeX / 8);
         FillScrollView();
@@ -53,7 +53,7 @@ public class InterventionScreen : MonoBehaviour
         for (int i = 0; i < interventions.Interventions.Length; i++)
         {
             //instantiate the text element and add it to the list that holds all the UI elements
-            panels.Add(Instantiate(Text, interventionScroll.content.transform));
+            panels.Add(Instantiate(text, interventionScroll.content.transform));
 
             InitiateTextObject(panels[i], interventions.Interventions[i].InterventionText, position);
             position = new Vector2(position.x + textboxSizeX + 5.0f, position.y);
@@ -89,7 +89,7 @@ public class InterventionScreen : MonoBehaviour
             Destroy(g);
         }
         //create the standard text element that will be used to instantiate all other text elements in this function
-        GameObject aText = Instantiate(Text);
+        GameObject aText = Instantiate(text);
         panels.Add(aText);
         RectTransform textRect = aText.GetComponent<RectTransform>();
         textRect.sizeDelta = new Vector2(textRect.sizeDelta.x * 2, textRect.sizeDelta.y + (textRect.sizeDelta.y / 4));
@@ -110,7 +110,7 @@ public class InterventionScreen : MonoBehaviour
         panels.Add(AdviceText);
         InitiateTextObject(AdviceText, "Het volgende advies hoort bij je gekozen interventie: \n" + interventions.Interventions[selected].Advice, new Vector2(newPos.x + textboxSizeX, newPos.y));
         //create a button with an onclick that will execute showFinished()
-        GameObject NextButton = Instantiate(Button, interventionScroll.content.transform);
+        GameObject NextButton = Instantiate(button, interventionScroll.content.transform);
         RectTransform NextButtonTransform = NextButton.GetComponent<RectTransform>();
         panels.Add(NextButton);
         InitiateTextObject(NextButton, "Doorgaan", new Vector2(newPos.x, -(0.5f * scrollviewContent.sizeDelta.y) + NextButtonTransform.sizeDelta.y));
@@ -138,11 +138,10 @@ public class InterventionScreen : MonoBehaviour
         player.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
 
         //create the standard text element that will be used to instantiate all other text elements in this function
-        GameObject aText = Instantiate(Text);
+        GameObject aText = Instantiate(text);
         panels.Add(aText);
         RectTransform textRect = aText.GetComponent<RectTransform>();
         textRect.sizeDelta = new Vector2(textRect.sizeDelta.x * 2, textRect.sizeDelta.y /1.5f);
-
 
         //determine the standard position of all assets
         Vector2 newPos = new Vector2(position.x - ((textboxSizeX / 2) * textCount), position.y);
@@ -162,14 +161,14 @@ public class InterventionScreen : MonoBehaviour
         List<GameObject> scorePanels = new List<GameObject>();
         for (int i = 0; i < 3; i++)
         {
-            scorePanels.Add(Instantiate(SkillPanel, interventionScroll.content.transform));
+            scorePanels.Add(Instantiate(skillPanel, interventionScroll.content.transform));
             InitiateTextObject(scorePanels[i*2], selectedIntervention.ChangeKnowledge.ToString(), skillpos);
             skillpos.x += scorePanels[i*2].GetComponent<RectTransform>().sizeDelta.x;
             Image[] infoImage = scorePanels[(i * 2)].GetComponentsInChildren<Image>();
 
             infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[(i * 2)]);
 
-            scorePanels.Add(Instantiate(SkillPanel, interventionScroll.content.transform));
+            scorePanels.Add(Instantiate(skillPanel, interventionScroll.content.transform));
             InitiateTextObject(scorePanels[((i * 2) + 1)], selectedIntervention.ChangeKnowledge.ToString(), skillpos);
             skillpos.y -= scorePanels[(i * 2) + 1].GetComponent<RectTransform>().sizeDelta.y* 1.5f;
             skillpos.x -= scorePanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
@@ -177,7 +176,7 @@ public class InterventionScreen : MonoBehaviour
             infoImage = scorePanels[(i * 2) + 1].GetComponentsInChildren<Image>();
             infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[(i * 2) + 1]);
         }
-        GameObject Skillpanel = Instantiate(SkillPanel, interventionScroll.content.transform);
+        GameObject Skillpanel = Instantiate(skillPanel, interventionScroll.content.transform);
 
         InitiateTextObject(Skillpanel, selectedIntervention.ChangeKnowledge.ToString(), new Vector2(skillpos.x + (2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x), skillpos.y + (scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3)));
         Text[] infoText = Skillpanel.GetComponentsInChildren<Text>();
@@ -188,8 +187,7 @@ public class InterventionScreen : MonoBehaviour
         veranderkundeImage[1].sprite = RetrieveAsset.GetSpriteByName("Kennis van veranderkunde");
 
         chosenText.text = "Gefeliciteerd " + player.GetPlayerTitle() + "! \n"
-            + "Je hebt level 1 gehaald en daarbij de volgende skills gehaald";
-        
+            + "Je hebt level 1 gehaald en daarbij de volgende skills gehaald";  
 
         //determine the standard position of all assets
         newPos = new Vector2(newPos.x + textboxSizeX, newPos.y);
@@ -209,14 +207,14 @@ public class InterventionScreen : MonoBehaviour
         int[] scores = new int[] { player.Analytic, player.Enthousiasm, player.Decisive, player.Empathic, player.Convincing, player.Creative, player.ChangeKnowledge };
         for (int i = 0; i < 3; i++)
         {
-            skillPanels.Add(Instantiate(SkillPanel, interventionScroll.content.transform));
+            skillPanels.Add(Instantiate(skillPanel, interventionScroll.content.transform));
             InitiateTextObject(skillPanels[i * 2], scores[i*2].ToString(), skillpos);
             skillpos.x += skillPanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
             Image[] infoImage = skillPanels[(i * 2)].GetComponentsInChildren<Image>();
 
             infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[(i * 2)]);
 
-            skillPanels.Add(Instantiate(SkillPanel, interventionScroll.content.transform));
+            skillPanels.Add(Instantiate(skillPanel, interventionScroll.content.transform));
             InitiateTextObject(skillPanels[((i * 2) + 1)], scores[i * 2].ToString(), skillpos);
             skillpos.y -= skillPanels[(i * 2) + 1].GetComponent<RectTransform>().sizeDelta.y * 1.5f;
             skillpos.x -= skillPanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
@@ -225,7 +223,7 @@ public class InterventionScreen : MonoBehaviour
             infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[(i * 2) + 1]);
         }
 
-        GameObject veranderkundepanel = Instantiate(SkillPanel, interventionScroll.content.transform);
+        GameObject veranderkundepanel = Instantiate(skillPanel, interventionScroll.content.transform);
 
         InitiateTextObject(veranderkundepanel, scores[6].ToString(), new Vector2(skillpos.x + (2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x), skillpos.y + (scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3)));
         Text veranderkundeScore = Skillpanel.GetComponentInChildren<Text>();
@@ -234,17 +232,16 @@ public class InterventionScreen : MonoBehaviour
 
         veranderkundeImage = veranderkundepanel.GetComponentsInChildren<Image>();
         veranderkundeImage[1].sprite = RetrieveAsset.GetSpriteByName("Kennis van veranderkunde");
-
-
+        
     }
     //a function that will enable or disable the menu 
     public void ShowMenu()
     {
-        Interventionscreen.SetActive(!Interventionscreen.gameObject.activeSelf);
-        BlockingPanel.blocksRaycasts = !BlockingPanel.blocksRaycasts;
+        interventionscreen.SetActive(!interventionscreen.gameObject.activeSelf);
+        blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
 
-        InfoButton.interactable = !InfoButton.IsInteractable();
-        SettingsButton.interactable = !SettingsButton.IsInteractable();
+        infoButton.interactable = !infoButton.IsInteractable();
+        settingsButton.interactable = !settingsButton.IsInteractable();
     }
     //a function to easily set the text and position of a textobject
     private void InitiateTextObject(GameObject initiate, string text, Vector2 position)
@@ -255,16 +252,5 @@ public class InterventionScreen : MonoBehaviour
         //set the positionof the textObject
         RectTransform cTextPos = initiate.GetComponent<RectTransform>();
         cTextPos.anchoredPosition = position;
-    }
-
-    public void resetskills()
-    {
-        player.Analytic = 0;
-        player.Enthousiasm = 0;
-        player.Decisive = 0;
-        player.Empathic = 0;
-        player.Convincing = 0;
-        player.Creative = 0;
-        player.ChangeKnowledge = 0;
-    }                          
+    }          
 }
