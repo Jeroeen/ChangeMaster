@@ -93,7 +93,7 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_creative = value;
-				PlayerPrefs.SetInt("SkillConvincing", value);
+				PlayerPrefs.SetInt("SkillCreative", value);
 			}
 		}
 

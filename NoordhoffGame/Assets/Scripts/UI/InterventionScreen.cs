@@ -4,15 +4,17 @@ using Assets.Scripts.GameSaveLoad.Player;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Assets.Scripts;
 
 public class InterventionScreen : MonoBehaviour
 {
-    public Button InfoButton;
-    public Button SettingsButton;
-    public GameObject Interventionscreen;
-    public GameObject Text;
-    public GameObject Button;
-    public CanvasGroup BlockingPanel;
+    [SerializeField] private Button InfoButton;
+    [SerializeField] private Button SettingsButton;
+    [SerializeField] private GameObject Interventionscreen;
+    [SerializeField] private GameObject Text;
+    [SerializeField] private GameObject Button;
+    [SerializeField] private GameObject SkillPanel;
+    [SerializeField] private CanvasGroup BlockingPanel;
 
     private Player player;
     private Vector2 position = new Vector2(0.0f, 0.0f);
@@ -91,7 +93,6 @@ public class InterventionScreen : MonoBehaviour
         panels.Add(aText);
         RectTransform textRect = aText.GetComponent<RectTransform>();
         textRect.sizeDelta = new Vector2(textRect.sizeDelta.x * 2, textRect.sizeDelta.y + (textRect.sizeDelta.y / 4));
-        //textRect.sizeDelta = new Vector2(textRect.sizeDelta.x * 2, textRect.sizeDelta.y * 2);
 
         //resize the scrollview's content element;
         scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - ((textboxSizeX + 10.0f) * (textCount - 4)), scrollviewContent.sizeDelta.y);
@@ -140,48 +141,101 @@ public class InterventionScreen : MonoBehaviour
         GameObject aText = Instantiate(Text);
         panels.Add(aText);
         RectTransform textRect = aText.GetComponent<RectTransform>();
-        textRect.sizeDelta = new Vector2(textRect.sizeDelta.x * 2, textRect.sizeDelta.y * 2);
+        textRect.sizeDelta = new Vector2(textRect.sizeDelta.x * 2, textRect.sizeDelta.y /1.5f);
 
 
         //determine the standard position of all assets
         Vector2 newPos = new Vector2(position.x - ((textboxSizeX / 2) * textCount), position.y);
 
-        //create the text that will tell the player what changed with their skills
-
+        //create the text that will tell the player by how much their skills will rise
         GameObject ChosenText = Instantiate(aText, interventionScroll.content.transform);
         panels.Add(ChosenText);
 
-        RectTransform cTextPos = ChosenText.GetComponent<RectTransform>();
-        cTextPos.anchoredPosition = new Vector2(newPos.x / 2, newPos.y);
+        RectTransform chosenTextPos = ChosenText.GetComponent<RectTransform>();
+        chosenTextPos.anchoredPosition = new Vector2(newPos.x / 2, newPos.y);
         Text chosenText = ChosenText.GetComponentInChildren<Text>();
 
-        chosenText.text = "Gefeliciteerd" + player.GetPlayerTitle() + " \n"
-            + "Je hebt level 1 gehaald en daarbij de volgende skills gehaald \n"
-            + "Analytisch  " + selectedIntervention.Analytic + "\n"
-            + "Enthousiasmerend " + selectedIntervention.Enthusiasm + "\n"
-            + "Besluitvaardig " + selectedIntervention.Decisive + "\n"
-            + "Empathisch " + selectedIntervention.Empathic + "\n"
-            + "Overtuigend " + selectedIntervention.Convincing + "\n"
-            + "Creatief " + selectedIntervention.Creative + "\n"
-            + "Kennis van veranderkunde " + selectedIntervention.ChangeKnowledge;
+        //add the 7 panels that will tell the player by how much their skills will rise
+        Vector2 skillpos = new Vector2(newPos.x, newPos.y - chosenTextPos.sizeDelta.y - 10);
+        RetrieveAsset.RetrieveAssets();
+        string[] skillSpriteNames = new string[] {"Analytisch","Enthousiasmerend","Besluitvaardig","Empatisch","Overtuigend","Creatief","Kennis van veranderkunde" };
+        List<GameObject> scorePanels = new List<GameObject>();
+        for (int i = 0; i < 3; i++)
+        {
+            scorePanels.Add(Instantiate(SkillPanel, interventionScroll.content.transform));
+            InitiateTextObject(scorePanels[i*2], selectedIntervention.ChangeKnowledge.ToString(), skillpos);
+            skillpos.x += scorePanels[i*2].GetComponent<RectTransform>().sizeDelta.x;
+            Image[] infoImage = scorePanels[(i * 2)].GetComponentsInChildren<Image>();
+
+            infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[(i * 2)]);
+
+            scorePanels.Add(Instantiate(SkillPanel, interventionScroll.content.transform));
+            InitiateTextObject(scorePanels[((i * 2) + 1)], selectedIntervention.ChangeKnowledge.ToString(), skillpos);
+            skillpos.y -= scorePanels[(i * 2) + 1].GetComponent<RectTransform>().sizeDelta.y* 1.5f;
+            skillpos.x -= scorePanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
+
+            infoImage = scorePanels[(i * 2) + 1].GetComponentsInChildren<Image>();
+            infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[(i * 2) + 1]);
+        }
+        GameObject Skillpanel = Instantiate(SkillPanel, interventionScroll.content.transform);
+
+        InitiateTextObject(Skillpanel, selectedIntervention.ChangeKnowledge.ToString(), new Vector2(skillpos.x + (2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x), skillpos.y + (scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3)));
+        Text[] infoText = Skillpanel.GetComponentsInChildren<Text>();
+        infoText[0].text = selectedIntervention.ChangeKnowledge.ToString();
+        RetrieveAsset.RetrieveAssets();
+
+        Image[] veranderkundeImage = Skillpanel.GetComponentsInChildren<Image>();
+        veranderkundeImage[1].sprite = RetrieveAsset.GetSpriteByName("Kennis van veranderkunde");
+
+        chosenText.text = "Gefeliciteerd " + player.GetPlayerTitle() + "! \n"
+            + "Je hebt level 1 gehaald en daarbij de volgende skills gehaald";
         
 
         //determine the standard position of all assets
         newPos = new Vector2(newPos.x + textboxSizeX, newPos.y);
-        //create the text that will tell the player what changed with their skills
+        //create the text that will tell the player what changed with their skills and set that textbox to the correct position
         GameObject pChosenText = Instantiate(aText, interventionScroll.content.transform);
         panels.Add(pChosenText);
         RectTransform pTextPos = pChosenText.GetComponent<RectTransform>();
         pTextPos.anchoredPosition = new Vector2(newPos.x, newPos.y);
         Text playerText = pChosenText.GetComponentInChildren<Text>();
-        playerText.text = "Je skills zijn nu \n"
-            + "Analytisch  " + player.Analytic + "\n"
-            + "Enthousiasmerend " + player.Enthousiasm + "\n"
-            + "Besluitvaardig " + player.Decisive + "\n"
-            + "Empathisch " + player.Empathic + "\n"
-            + "Overtuigend " + player.Convincing + "\n"
-            + "Creatief " + player.Creative + "\n"
-            + "Kennis van veranderkunde " + player.ChangeKnowledge;
+        playerText.text = "Je skills zijn nu zo hoog \n";
+
+        //put pictures from the 7 different skills on the screen and how high the player has trained those skills
+        skillpos = new Vector2(newPos.x, newPos.y - chosenTextPos.sizeDelta.y - 10);
+
+        List<GameObject> skillPanels = new List<GameObject>();
+
+        int[] scores = new int[] { player.Analytic, player.Enthousiasm, player.Decisive, player.Empathic, player.Convincing, player.Creative, player.ChangeKnowledge };
+        for (int i = 0; i < 3; i++)
+        {
+            skillPanels.Add(Instantiate(SkillPanel, interventionScroll.content.transform));
+            InitiateTextObject(skillPanels[i * 2], scores[i*2].ToString(), skillpos);
+            skillpos.x += skillPanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
+            Image[] infoImage = skillPanels[(i * 2)].GetComponentsInChildren<Image>();
+
+            infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[(i * 2)]);
+
+            skillPanels.Add(Instantiate(SkillPanel, interventionScroll.content.transform));
+            InitiateTextObject(skillPanels[((i * 2) + 1)], scores[i * 2].ToString(), skillpos);
+            skillpos.y -= skillPanels[(i * 2) + 1].GetComponent<RectTransform>().sizeDelta.y * 1.5f;
+            skillpos.x -= skillPanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
+
+            infoImage = skillPanels[(i * 2) + 1].GetComponentsInChildren<Image>();
+            infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[(i * 2) + 1]);
+        }
+
+        GameObject veranderkundepanel = Instantiate(SkillPanel, interventionScroll.content.transform);
+
+        InitiateTextObject(veranderkundepanel, scores[6].ToString(), new Vector2(skillpos.x + (2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x), skillpos.y + (scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3)));
+        Text veranderkundeScore = Skillpanel.GetComponentInChildren<Text>();
+        veranderkundeScore.text = selectedIntervention.ChangeKnowledge.ToString();
+        RetrieveAsset.RetrieveAssets();
+
+        veranderkundeImage = veranderkundepanel.GetComponentsInChildren<Image>();
+        veranderkundeImage[1].sprite = RetrieveAsset.GetSpriteByName("Kennis van veranderkunde");
+
+
     }
     //a function that will enable or disable the menu 
     public void ShowMenu()

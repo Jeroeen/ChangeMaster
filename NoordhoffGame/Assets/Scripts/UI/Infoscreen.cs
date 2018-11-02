@@ -8,19 +8,20 @@ using UnityEngine.UI;
 
 public class Infoscreen : MonoBehaviour
 {
-    public Button SettingsButton;
-    public GameObject InfoScreen;
-    public GameObject StakeholderPanel;
-    public CanvasGroup BlockingPanel;
-    public Text Function;
-    public Text Name;
-    public Text Analytic;
-    public Text Decisive;
-    public Text Creative;
-    public Text Empatic;
-    public Text Enthusiasm;
-    public Text Convincing;
-    public Text ChangeKnowledge;
+    [SerializeField] private Button SettingsButton;
+    [SerializeField] private Button StakeholdersButton;
+    [SerializeField] private GameObject InfoScreen;
+    [SerializeField] private GameObject StakeholderPanel;
+    [SerializeField] private CanvasGroup BlockingPanel;
+    [SerializeField] private Text Function;
+    [SerializeField] private Text Name;
+    [SerializeField] private Text Analytic;
+    [SerializeField] private Text Decisive;
+    [SerializeField] private Text Creative;
+    [SerializeField] private Text Empatic;
+    [SerializeField] private Text Enthusiasm;
+    [SerializeField] private Text Convincing;
+    [SerializeField] private Text ChangeKnowledge;
 
 	private Player player;
 	private readonly List<Sprite> images = new List<Sprite>();
@@ -37,7 +38,7 @@ public class Infoscreen : MonoBehaviour
 	void Start()
 	{
 
-
+        StakeholdersButton.interactable = false;
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
         InfoList information = json.LoadJsonInformation(1);
@@ -63,18 +64,17 @@ public class Infoscreen : MonoBehaviour
             //add the created UI element to the Panels list
             panels.Add(Instantiate(StakeholderPanel, infoScrollview.content.transform));
             //create a panel, containing a text element, an image of the person who's talking and set the position of that panel.
-            //create the text element
             Text[] infoText = panels[i].GetComponentsInChildren<Text>();
             infoText[0].text = information.InformationList[i].Text;
-            //create the image
+
             Image[] infoImage = panels[i].GetComponentsInChildren<Image>();
             infoImage[1].sprite = images[i];
-            //set the position
+
             RectTransform[] infoRectTransform = panels[i].GetComponents<RectTransform>();
             infoRectTransform[0].anchoredPosition = position;
             float elementLimit = scrollviewContent.sizeDelta.y / (panelSizeY + 15);
             //if there are more than 3 elements, make the content element from the scrollview bigger and set it to the correct position 
-            if (i >= elementLimit) 
+            if (i > elementLimit) 
             {
                 infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y +(panelSizeY + 15));
                 infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x, infoScrollviewRect.anchoredPosition.y -((0.5f* panelSizeY) + 15));

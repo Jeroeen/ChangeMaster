@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Settingscript : MonoBehaviour
 {
-    public Button InfoButton;
-    public GameObject SettingsScreen;
-    public CanvasGroup BlockingPanel;
+    [SerializeField] private Button InfoButton;
+    [SerializeField] private GameObject SettingsScreen;
+    [SerializeField] private CanvasGroup BlockingPanel;
     //a function that will enable or disable the menu
     public void ShowMenu()
     {
