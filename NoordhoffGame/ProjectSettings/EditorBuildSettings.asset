@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Baseview.unity
     guid: da7f8888820de76488cd58ffe5674d37
   - enabled: 1
-    path: Assets/Scenes/Level1_Scene.unity
+    path: Assets/Scenes/Level1Scene.unity
+    guid: 4e144b264a8600a46959fa5be730cedd
+  - enabled: 1
+    path: Assets/Scenes/Demo_Scene.unity
     guid: d6ff33cf0077e344194d7de9daab0631
   m_configObjects: {}
