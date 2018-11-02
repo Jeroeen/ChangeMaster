@@ -1,7 +1,7 @@
 {
-  "speaker": "Kapitein Iglo",
-  "lines": [ "Welkom veranderaar, fijn dat je er bent! Fijn dat je zo snel kon komen.", "Kom aan boord en kom mee naar de brug.", "Dan leg ik uit wat je te doen staat.", "We hebben een flinke uitdaging voor je." ],
+  "speaker": "Kapitein",
+  "lines": [ "In deze ruimte werken dagelijks 4 animatiemedewerkers en een teamleider en die zijn nodig ook.", " Het is druk en er wordt in ploegen gewerkt van 6 uur 's morgens tot 9 uur 's avonds.", "Maar 2 animatiemedewerkers hebben zich vandaag ziek hebben gemeld. Wat nu?" ],
   "previousButtonText": "Vorige",
   "nextButtonText": "Volgende",
-  "confirmButtonText": "Bevestigen"
+  "confirmButtonText": "Afsluiten"
 }
