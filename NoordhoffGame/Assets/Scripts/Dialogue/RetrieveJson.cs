@@ -19,8 +19,6 @@ public class RetrieveJson
             path = "DialogueFiles/" + nameOfPartner + "-" + stage + "-" + dialogueCount;
         }
 
-		Debug.Log(path);
-
         TextAsset asset = Resources.Load(path) as TextAsset;
         string jsonString = asset.ToString();
 
