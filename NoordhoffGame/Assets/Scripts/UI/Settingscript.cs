@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class Settingscript : MonoBehaviour
 {
-    public Button InfoButton;
-    public GameObject SettingsScreen;
-    public CanvasGroup BlockingPanel;
+    [SerializeField] private Button infoButton;
+    [SerializeField] private GameObject settingsScreen;
+    [SerializeField] private CanvasGroup blockingPanel;
     //a function that will enable or disable the menu
     public void ShowMenu()
     {
 
-        SettingsScreen.SetActive(!SettingsScreen.activeSelf);
-        BlockingPanel.blocksRaycasts = !BlockingPanel.blocksRaycasts;
-        InfoButton.interactable = !InfoButton.IsInteractable();
+        settingsScreen.SetActive(!settingsScreen.activeSelf);
+        blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
+        infoButton.interactable = !infoButton.IsInteractable();
         
     }
 }
