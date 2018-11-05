@@ -42,11 +42,6 @@ public class Infoscreen : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        
-    }
-
     public void ShowStakeholders()
     {
         stakeholdersButton.interactable = false;
