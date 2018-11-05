@@ -37,18 +37,23 @@ public class InitiateDialogue : MonoBehaviour
 		PrevButton.interactable = false;
 	}
 
+	public void CloseDialogue()
+	{
+		gameObject.SetActive(false);
+		OpenDialogue.IsActive = false;
+		if (InfoButton != null && SettingButton != null)
+		{
+			InfoButton.interactable = true;
+			SettingButton.interactable = true;
+		}
+	}
+
 	public void NextLine()
 	{
 		// Final page of slide, so close dialogue screen
 		if (_dialogue.IsEndOfDialogue())
 		{
-			gameObject.SetActive(false);
-			OpenDialogue.IsActive = false;
-		    if (InfoButton != null && SettingButton != null)
-		    {
-		        InfoButton.interactable = true;
-		        SettingButton.interactable = true;
-		    }
+			CloseDialogue();
 
 		    return;
 		}
