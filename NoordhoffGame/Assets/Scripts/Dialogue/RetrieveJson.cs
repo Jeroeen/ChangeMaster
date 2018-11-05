@@ -23,6 +23,7 @@ public class RetrieveJson
         string jsonString = asset.ToString();
 
         DialogueItem item = JsonMapper.ToObject<DialogueItem>(jsonString);
+        item.ReplaceName();
 
         return item;
     }
