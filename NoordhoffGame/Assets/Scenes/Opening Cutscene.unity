@@ -476,7 +476,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 28.125
+  orthographic size: 24.984226
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2326,7 +2326,6 @@ GameObject:
   - component: {fileID: 1899222747}
   - component: {fileID: 1899222746}
   - component: {fileID: 1899222748}
-  - component: {fileID: 1899222745}
   m_Layer: 0
   m_Name: Kapitein
   m_TagString: Character
@@ -2334,22 +2333,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1899222745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899222744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb59873e0fa9469319b281558cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stage: 
-  DialogueCount: 0
-  AmountOfDialogues: 2
-  NameOfPartner: 
 --- !u!212 &1899222746
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LitJson;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -52,5 +53,17 @@ namespace Assets.Scripts
 		{
 			return CurrentPage <= 0;
 		}
+
+	    public void ReplaceName()
+	    {
+	        for (var index = 0; index < DialogueLines.Count; index++)
+	        {
+	            string s = DialogueLines[index];
+	            if (s.Contains("[Naam]"))
+	            {
+                    DialogueLines[index] = s.Replace("[Naam]", PlayerPrefs.GetString("PlayerName"));
+	            }
+	        }
+	    }
 	}
 }
