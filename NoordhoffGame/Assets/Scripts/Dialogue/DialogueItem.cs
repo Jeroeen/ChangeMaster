@@ -56,12 +56,12 @@ namespace Assets.Scripts
 
 	    public void ReplaceName()
 	    {
-	        for (int index = 0; index < DialogueLines.Count; index++)
+	        for (int i = 0; i < DialogueLines.Count; i++)
 	        {
-	            string s = DialogueLines[index];
+	            string s = DialogueLines[i];
 	            if (s.Contains("[Naam]"))
 	            {
-                    DialogueLines[index] = s.Replace("[Naam]", PlayerPrefs.GetString("PlayerName"));
+                    DialogueLines[i] = s.Replace("[Naam]", PlayerPrefs.GetString("PlayerName"));
 	            }
 	        }
 	    }
