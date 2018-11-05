@@ -43,7 +43,7 @@ public class InitializeBaseview : MonoBehaviour
     {
         infoButton.interactable = !infoButton.IsInteractable();
         settingsButton.interactable = !settingsButton.IsInteractable();
-        initiateDialogue.Initialize(charModel.NameOfPartner, charModel.Stage, charModel.DialogueCount);
+        initiateDialogue.Initialize(charModel);
         dialogue.SetActive(true);
         hasOpenedDialogue = true;
     }

@@ -57,7 +57,13 @@ public class Cutscene : MonoBehaviour
 				hasDialogueOpened = true;
 
 				dialogue.SetActive(true);
-				initiateDialogue.Initialize("Kapitein", "0", -1);
+				CharModel model = new CharModel()
+				{
+					NameOfPartner = "Kapitein",
+					Stage = "0",
+					AmountOfDialogues = -1,
+				};
+				initiateDialogue.Initialize(model);
 				return;
 			}
 		}
