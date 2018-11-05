@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class InitiateDialogue : MonoBehaviour
 {
-	private RetrieveJson _json;
-    private DialogueItem _dialogue;
+	private RetrieveJson json;
+    private DialogueItem dialogue;
+	private CharModel charModel;
 
 	public SpriteRenderer Partner;
 	public Text PartnerName;
@@ -19,59 +20,67 @@ public class InitiateDialogue : MonoBehaviour
     public Button SettingButton;
     public Button InfoButton;
 
-    public void Initialize(string nameOfPartner, string stage, int dialogueCount)
-	{
+    public void Initialize(CharModel model)
+    {
+	    charModel = model;
 		RetrieveAsset.RetrieveAssets();
 
-		_json = new RetrieveJson();
-		_dialogue = _json.LoadJson(nameOfPartner, stage, dialogueCount);
+		json = new RetrieveJson();
+		dialogue = json.LoadJson(model.NameOfPartner, model.Stage, model.DialogueCount);
 
-		NextButton.GetComponentInChildren<Text>().text = _dialogue.NextButtonText;
-		PrevButton.GetComponentInChildren<Text>().text = _dialogue.PreviousButtonText;
+		NextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
+		PrevButton.GetComponentInChildren<Text>().text = dialogue.PreviousButtonText;
 
-		PartnerName.text = _dialogue.NameOfSpeaker;
-		DialogueText.text = _dialogue.DialogueLines[0];
+		PartnerName.text = dialogue.NameOfSpeaker;
+		DialogueText.text = dialogue.DialogueLines[0];
 
-		Partner.sprite = RetrieveAsset.GetSpriteByName(nameOfPartner);
+		Partner.sprite = RetrieveAsset.GetSpriteByName(model.NameOfPartner);
 
 		PrevButton.interactable = false;
+	}
+
+	public void CloseDialogue()
+	{
+		gameObject.SetActive(false);
+		OpenDialogue.IsActive = false;
+		if (InfoButton != null && SettingButton != null)
+		{
+			InfoButton.interactable = true;
+			SettingButton.interactable = true;
+		}
 	}
 
 	public void NextLine()
 	{
 		// Final page of slide, so close dialogue screen
-		if (_dialogue.IsEndOfDialogue())
+		if (dialogue.IsEndOfDialogue())
 		{
-			gameObject.SetActive(false);
-			OpenDialogue.IsActive = false;
-		    if (InfoButton != null && SettingButton != null)
-		    {
-		        InfoButton.interactable = true;
-		        SettingButton.interactable = true;
-		    }
-
-		    return;
+			CloseDialogue();
+			if (charModel.DialogueCount > -1)
+			{
+				charModel.DialogueCount++;
+			}
+			
+			return;
 		}
 
-		DialogueText.text = _dialogue.NextLine();
+		DialogueText.text = dialogue.NextLine();
 		PrevButton.interactable = true;
 
 		// Next page is final page of slide
-		if (_dialogue.IsEndOfDialogue())
+		if (dialogue.IsEndOfDialogue())
 		{
-
-			NextButton.GetComponentInChildren<Text>().text = _dialogue.ConfirmButtonText;
+			NextButton.GetComponentInChildren<Text>().text = dialogue.ConfirmButtonText;
 		}
-
 	}
 
 	public void PreviousLine()
 	{
-		DialogueText.text = _dialogue.PreviousLine();
+		DialogueText.text = dialogue.PreviousLine();
 		NextButton.interactable = true;
 
-		NextButton.GetComponentInChildren<Text>().text = _dialogue.NextButtonText;
-		if (_dialogue.IsBeginningOfDialogue())
+		NextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
+		if (dialogue.IsBeginningOfDialogue())
 		{
 			PrevButton.interactable = false;
 		}
