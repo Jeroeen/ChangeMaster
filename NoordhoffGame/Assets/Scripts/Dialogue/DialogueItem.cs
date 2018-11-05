@@ -56,7 +56,7 @@ namespace Assets.Scripts
 
 	    public void ReplaceName()
 	    {
-	        for (var index = 0; index < DialogueLines.Count; index++)
+	        for (int index = 0; index < DialogueLines.Count; index++)
 	        {
 	            string s = DialogueLines[index];
 	            if (s.Contains("[Naam]"))
