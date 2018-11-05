@@ -19,7 +19,7 @@ public class OpenDialogue : MonoBehaviour
 	    SettingsButton.interactable = false;
 	    InfoButton.interactable = false;
         InitiateDialogue dialogue = Dialogue.GetComponent<InitiateDialogue>();
-		dialogue.Initialize(charModel.NameOfPartner, charModel.Stage, charModel.DialogueCount);
+		dialogue.Initialize(charModel);
 		Dialogue.SetActive(true);
 	}
 }
