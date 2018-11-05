@@ -62,6 +62,7 @@ public class Cutscene : MonoBehaviour
 					NameOfPartner = "Kapitein",
 					Stage = "0",
 					AmountOfDialogues = -1,
+                    DialogueCount = -1
 				};
 				initiateDialogue.Initialize(model);
 				return;
