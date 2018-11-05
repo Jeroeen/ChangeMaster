@@ -11,7 +11,7 @@ public class Settingscript : MonoBehaviour
     //a function that will enable or disable the menu
     public void ShowMenu()
     {
-        Debug.Log("Pipo");
+
         settingsScreen.SetActive(!settingsScreen.activeSelf);
         blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
         infoButton.interactable = !infoButton.IsInteractable();
