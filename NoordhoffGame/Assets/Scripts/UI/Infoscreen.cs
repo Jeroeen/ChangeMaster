@@ -38,6 +38,17 @@ public class Infoscreen : MonoBehaviour
 	void Start()
 	{
 
+        ShowStakeholders();
+        
+    }
+
+    void Update()
+    {
+        
+    }
+
+    public void ShowStakeholders()
+    {
         stakeholdersButton.interactable = false;
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
         json = new RetrieveJson();
@@ -45,6 +56,7 @@ public class Infoscreen : MonoBehaviour
         RetrieveAsset.RetrieveAssets();
         for (int i = 0; i < information.InformationList.Length; i++)
         {
+            if(information.InformationList[i].Found)    
             images.Add(RetrieveAsset.GetSpriteByName(information.InformationList[i].Image));
         }
         //get the height of the panel, this will be used later
@@ -74,15 +86,14 @@ public class Infoscreen : MonoBehaviour
             infoRectTransform[0].anchoredPosition = position;
             float elementLimit = scrollviewContent.sizeDelta.y / (panelSizeY + 15);
             //if there are more than 3 elements, make the content element from the scrollview bigger and set it to the correct position 
-            if (i > elementLimit) 
+            if (i > elementLimit)
             {
-                infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y +(panelSizeY + 15));
-                infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x, infoScrollviewRect.anchoredPosition.y -((0.5f* panelSizeY) + 15));
+                infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y + (panelSizeY + 15));
+                infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x, infoScrollviewRect.anchoredPosition.y - ((0.5f * panelSizeY) + 15));
             }
             // set the position for the next element
             position = new Vector2(position.x, position.y - (panelSizeY + 10.0f));
         }
-        
     }
 
     //a function that will enable or disable the menu 

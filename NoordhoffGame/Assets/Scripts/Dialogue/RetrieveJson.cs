@@ -46,7 +46,10 @@ public class RetrieveJson
         TextAsset asset = Resources.Load(path) as TextAsset;
         string jsonString = asset.ToString();
         InfoList item = JsonMapper.ToObject<InfoList>(jsonString);
-
+        for (int i = 0; i < item.InformationList.Length; i++)
+        {
+            item.InformationList[i].Found = false;
+        }
         return item;
     }
 
