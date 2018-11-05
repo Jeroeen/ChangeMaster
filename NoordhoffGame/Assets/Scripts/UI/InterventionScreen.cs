@@ -264,9 +264,6 @@ public class InterventionScreen : MonoBehaviour
 
 		GameObject confirmButton = Instantiate(button, interventionScroll.content.transform);
 		RectTransform confirmButtonTransform = confirmButton.GetComponent<RectTransform>();
-		Vector2 sizeDelta = confirmButtonTransform.sizeDelta;
-		sizeDelta.x = 1;
-		sizeDelta.y = 1;
 
 		panels.Add(confirmButton);
 		InitiateTextObject(confirmButton, "Afronden", new Vector2(newPos.x - 200, -(0.6f * scrollviewContent.sizeDelta.y) + confirmButtonTransform.sizeDelta.y));
