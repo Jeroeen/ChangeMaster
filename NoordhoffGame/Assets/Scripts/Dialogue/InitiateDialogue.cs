@@ -60,8 +60,7 @@ public class InitiateDialogue : MonoBehaviour
 			{
 				charModel.DialogueCount++;
 			}
-
-
+			
 			return;
 		}
 
@@ -73,7 +72,6 @@ public class InitiateDialogue : MonoBehaviour
 		{
 			NextButton.GetComponentInChildren<Text>().text = dialogue.ConfirmButtonText;
 		}
-
 	}
 
 	public void PreviousLine()
