@@ -1509,8 +1509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stage: 1
-  DialogueCount: -1
-  AmountOfDialogues: -1
+  DialogueCount: 0
+  AmountOfDialogues: 2
   NameOfPartner: Teamleider
 --- !u!61 &665212121
 BoxCollider2D:
