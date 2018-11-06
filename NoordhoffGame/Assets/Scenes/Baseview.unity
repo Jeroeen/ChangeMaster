@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 330024204}
   - component: {fileID: 330024203}
   - component: {fileID: 330024206}
-  - component: {fileID: 330024205}
   m_Layer: 0
   m_Name: Initializer
   m_TagString: Untagged
@@ -170,22 +169,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &330024205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330024202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb59873e0fa9469319b281558cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stage: B
-  DialogueCount: -1
-  AmountOfDialogues: -1
-  NameOfPartner: Kapitein
 --- !u!114 &330024206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,8 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05a8cbde2a229d4f8579c1c35b64ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charModel: {fileID: 330024205}
-  initiateDialogue: {fileID: 780742647}
+  _dialogueHandler: {fileID: 780742647}
   dialogue: {fileID: 780742645}
   transition: {fileID: 714881147}
   infoButton: {fileID: 1743357750}
@@ -426,7 +408,7 @@ Camera:
   far clip plane: 500
   field of view: 60
   orthographic: 1
-  orthographic size: 7.9949527
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -547,7 +529,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 780742645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a94d32d38c4c8284d8a611f37c00a66e, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7ba0e4ffa66be4eaa1e0d09d7f98aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &832951950
@@ -4560,6 +4542,7 @@ GameObject:
   - component: {fileID: 1899222746}
   - component: {fileID: 1899222748}
   - component: {fileID: 1899222745}
+  - component: {fileID: 1899222749}
   m_Layer: 0
   m_Name: Kapitein
   m_TagString: Character
@@ -4586,10 +4569,10 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 330024206}
           m_MethodName: ShowDialogCaptain
-          m_Mode: 1
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1899222749}
+            m_ObjectArgumentAssemblyTypeName: Assets.Scripts.Dialogue.Models.CharacterModel, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4685,6 +4668,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5868502, y: 9.662362}
   m_EdgeRadius: 0
+--- !u!114 &1899222749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899222744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb40959aceee84a40a45c0522bf01a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stage: B
+  DialogueCount: -1
+  AmountOfDialogues: -1
+  NameOfPartner: Kapitein
 --- !u!114 &1932699383 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3271173702868092994, guid: 46d28c437f06a544ca385c1acd88bfb5, type: 3}

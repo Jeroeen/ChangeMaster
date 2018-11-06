@@ -1,97 +1,101 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Dialogue;
+using Assets.Scripts.Dialogue.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Cutscene : MonoBehaviour
+namespace Assets.Scripts.Cutscene
 {
-	private float zoomValue;
-	private Vector3 destination = Vector3.zero;
-	private readonly Queue<Transform> destinations = new Queue<Transform>();
-	private bool isMoveZoomingCamera;
-	private bool hasDialogueOpened;
-
-	[SerializeField] private float zoomSpeed;
-	[SerializeField] private float moveSpeed;
-	[SerializeField] private int minZoom;
-	[SerializeField] private GameObject cutScene;
-	[SerializeField] private InitiateDialogue initiateDialogue;
-	[SerializeField] private GameObject dialogue;
-	[SerializeField] private Transition transition;
-	
-	public ViewportHandler ViewportHandler;
-
-	void Start()
+	public class Cutscene : MonoBehaviour
 	{
-		foreach (Transform obj in cutScene.transform)
+		private float zoomValue;
+		private Vector3 destination = Vector3.zero;
+		private readonly Queue<Transform> destinations = new Queue<Transform>();
+		private bool isMoveZoomingCamera;
+		private bool hasDialogueOpened;
+
+		[SerializeField] private float zoomSpeed;
+		[SerializeField] private float moveSpeed;
+		[SerializeField] private int minZoom;
+		[SerializeField] private GameObject cutScene;
+		[SerializeField] private DialogueHandler dialogueHandler;
+		[SerializeField] private GameObject dialogue;
+		[SerializeField] private Transition transition;
+	
+		public ViewportHandler ViewportHandler;
+
+		void Start()
 		{
-			destinations.Enqueue(obj);
+			foreach (Transform obj in cutScene.transform)
+			{
+				destinations.Enqueue(obj);
+			}
+
+			Vector3 destination = destinations.Dequeue().position;
+			this.destination = new Vector3(destination.x, destination.y, transform.position.z);
+
+			zoomValue = ViewportHandler.UnitsSize;
+			isMoveZoomingCamera = true;
 		}
 
-		Vector3 destination = destinations.Dequeue().position;
-		this.destination = new Vector3(destination.x, destination.y, transform.position.z);
-
-		zoomValue = ViewportHandler.UnitsSize;
-		isMoveZoomingCamera = true;
-	}
-
-	void Update()
-	{
-		if (destinations.Count == 0 && transform.position == destination && !dialogue.activeSelf)
+		void Update()
 		{
-			if (hasDialogueOpened)
+			if (destinations.Count == 0 && transform.position == destination && !dialogue.activeSelf)
 			{
-				if (!transition.FadeOut())
+				if (hasDialogueOpened)
 				{
-					dialogue.SetActive(false);
-					return;
+					if (!transition.FadeOut())
+					{
+						dialogue.SetActive(false);
+						return;
+					}
+
+					SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
 				}
 
-				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+				if (!hasDialogueOpened)
+				{
+					isMoveZoomingCamera = false;
+					hasDialogueOpened = true;
+
+					dialogue.SetActive(true);
+					CharacterModel model = new CharacterModel()
+					{
+						NameOfPartner = "Kapitein",
+						Stage = "0",
+						AmountOfDialogues = -1,
+						DialogueCount = -1
+					};
+					dialogueHandler.Initialize(model);
+					return;
+				}
 			}
 
-			if (!hasDialogueOpened)
+			if (!isMoveZoomingCamera)
 			{
-				isMoveZoomingCamera = false;
-				hasDialogueOpened = true;
-
-				dialogue.SetActive(true);
-				CharModel model = new CharModel()
-				{
-					NameOfPartner = "Kapitein",
-					Stage = "0",
-					AmountOfDialogues = -1,
-                    DialogueCount = -1
-				};
-				initiateDialogue.Initialize(model);
 				return;
 			}
+
+			MoveZoomCamera();
+			ViewportHandler.UnitsSize = zoomValue;
 		}
 
-		if (!isMoveZoomingCamera)
+		private void MoveZoomCamera()
 		{
-			return;
+			if (transform.position == destination)
+			{
+				var destination = destinations.Dequeue().position;
+				this.destination = new Vector3(destination.x, destination.y, transform.position.z);
+			}
+
+			transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
+
+			if ((int)Math.Ceiling(zoomValue) != minZoom)
+			{
+				zoomValue -= zoomSpeed * Time.deltaTime;
+			}
+
 		}
-
-		MoveZoomCamera();
-		ViewportHandler.UnitsSize = zoomValue;
-	}
-
-	private void MoveZoomCamera()
-	{
-		if (transform.position == destination)
-		{
-			var destination = destinations.Dequeue().position;
-			this.destination = new Vector3(destination.x, destination.y, transform.position.z);
-		}
-
-		transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
-
-		if ((int)Math.Ceiling(zoomValue) != minZoom)
-		{
-			zoomValue -= zoomSpeed * Time.deltaTime;
-		}
-
 	}
 }
