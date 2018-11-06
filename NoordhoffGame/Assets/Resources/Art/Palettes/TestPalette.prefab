@@ -188,7 +188,7 @@ Tilemap:
     second:
       m_TileIndex: 2
       m_TileSpriteIndex: 14
-      m_TileMatrixIndex: 1
+      m_TileMatrixIndex: 14
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
@@ -197,7 +197,7 @@ Tilemap:
     second:
       m_TileIndex: 3
       m_TileSpriteIndex: 6
-      m_TileMatrixIndex: 1
+      m_TileMatrixIndex: 14
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
@@ -640,24 +640,24 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 2
+  - m_RefCount: 0
     m_Data:
-      e00: 0.09
-      e01: 0
-      e02: 0
-      e03: 0
+      e00: 8.787296e-39
+      e01: 8.790469e-39
+      e02: 798.47363
+      e03: 8.790558e-39
       e10: 0
-      e11: 0.09
-      e12: 0
+      e11: 0
+      e12: 1e-45
       e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
+      e20: 811.0156
+      e21: 2569936
+      e22: 1.5373541e-33
+      e23: 3.992155e-36
+      e30: 1e-45
       e31: 0
       e32: 0
-      e33: 1
+      e33: 0
   - m_RefCount: 2
     m_Data:
       e00: 0.12
@@ -874,16 +874,16 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 1
+  - m_RefCount: 3
     m_Data:
-      e00: 0.14
+      e00: 1
       e01: 0
       e02: 0
       e03: 0
       e10: 0
-      e11: 0.14
+      e11: 1
       e12: 0
-      e13: 0
+      e13: 0.46
       e20: 0
       e21: 0
       e22: 1
@@ -1002,20 +1002,20 @@ Tilemap:
       e33: 1
   - m_RefCount: 0
     m_Data:
-      e00: 8.785738e-39
-      e01: 0
-      e02: NaN
-      e03: 0
+      e00: 8.787296e-39
+      e01: 8.790469e-39
+      e02: 798.47363
+      e03: 8.790558e-39
       e10: 0
       e11: 0
-      e12: NaN
+      e12: 1e-45
       e13: 0
-      e20: 802.7671
-      e21: 3.3977406
-      e22: 8.785827e-39
-      e23: 2.2684064e-38
+      e20: 811.0156
+      e21: 2258000
+      e22: 1.5373541e-33
+      e23: 3.9920747e-36
       e30: 1e-45
-      e31: 1e-45
+      e31: 0
       e32: 0
       e33: 0
   - m_RefCount: 1
