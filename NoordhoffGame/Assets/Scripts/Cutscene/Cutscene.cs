@@ -85,8 +85,8 @@ namespace Assets.Scripts.Cutscene
 		{
 			if (transform.position == destination)
 			{
-				var destination = destinations.Dequeue().position;
-				this.destination = new Vector3(destination.x, destination.y, transform.position.z);
+				Vector3 nextDestination = destinations.Dequeue().position;
+				destination = new Vector3(nextDestination.x, nextDestination.y, transform.position.z);
 			}
 
 			transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);

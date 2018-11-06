@@ -1239,17 +1239,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5850628913498139565, guid: 47e8cfd2cc4229e4a86629593aa2d27f, type: 3}
   m_PrefabInstance: {fileID: 9159483}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &344151725 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5850628913498139560, guid: 47e8cfd2cc4229e4a86629593aa2d27f, type: 3}
-  m_PrefabInstance: {fileID: 9159483}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9dd59036c51a124990110e61d5ca0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &406538980 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6814556150312706665, guid: c2116d32358fa6645aee00327193a61b, type: 3}
@@ -5258,7 +5247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3409634404496620425, guid: 84bcc60d350949045bdd74af4f9856df, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -60.00049
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 3409634404496620425, guid: 84bcc60d350949045bdd74af4f9856df, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5707,13 +5696,13 @@ RectTransform:
   m_Children:
   - {fileID: 765009928}
   - {fileID: 780742646}
-  - {fileID: 2117968257}
   - {fileID: 32320919}
   - {fileID: 2052513751}
   - {fileID: 1046134163}
   - {fileID: 1109455774}
-  - {fileID: 552989444}
+  - {fileID: 2117968257}
   - {fileID: 344151724}
+  - {fileID: 552989444}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6437,6 +6426,18 @@ PrefabInstance:
       propertyPath: SettingButton
       value: 
       objectReference: {fileID: 32320916}
+    - target: {fileID: 1775280821052964549, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40.69922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: settingButton
+      value: 
+      objectReference: {fileID: 32320916}
+    - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: infoButton
+      value: 
+      objectReference: {fileID: 2052513748}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
 --- !u!1001 &7330838476101051068
@@ -6476,7 +6477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492856, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492856, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

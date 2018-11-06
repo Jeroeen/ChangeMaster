@@ -4955,6 +4955,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 1775280821052964549, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40.69995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: settingButton
+      value: 
+      objectReference: {fileID: 1963229804}
+    - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: infoButton
+      value: 
+      objectReference: {fileID: 1743357750}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
 --- !u!1001 &7330838476101051068

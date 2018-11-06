@@ -531,13 +531,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7ba0e4ffa66be4eaa1e0d09d7f98aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Partner: {fileID: 2389692713228283534}
-  PartnerName: {fileID: 2389692714385141132}
-  DialogueText: {fileID: 2389692713954080651}
-  PrevButton: {fileID: 2389692713178042409}
-  NextButton: {fileID: 2389692715058636284}
-  SettingButton: {fileID: 0}
-  InfoButton: {fileID: 0}
+  partner: {fileID: 2389692713228283534}
+  partnerName: {fileID: 2389692714385141132}
+  dialogueText: {fileID: 2389692713954080651}
+  prevButton: {fileID: 2389692713178042409}
+  nextButton: {fileID: 2389692715058636284}
+  settingButton: {fileID: 0}
+  infoButton: {fileID: 0}
 --- !u!1 &2389692714356299186
 GameObject:
   m_ObjectHideFlags: 0

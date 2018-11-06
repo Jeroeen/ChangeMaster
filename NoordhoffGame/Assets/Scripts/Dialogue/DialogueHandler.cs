@@ -10,14 +10,14 @@ namespace Assets.Scripts.Dialogue
 		private DialogueItem dialogue;
 		private CharacterModel characterModel;
 
-		public SpriteRenderer Partner;
-		public Text PartnerName;
-		public Text DialogueText;
+		[SerializeField] private SpriteRenderer partner;
+		[SerializeField] private Text partnerName;
+		[SerializeField] private Text dialogueText;
 
-		public Button PrevButton;
-		public Button NextButton;
-		public Button SettingButton;
-		public Button InfoButton;
+		[SerializeField] private Button prevButton;
+		[SerializeField] private Button nextButton;
+		[SerializeField] private Button settingButton;
+		[SerializeField] private Button infoButton;
 
 		public void Initialize(CharacterModel model)
 		{
@@ -27,25 +27,25 @@ namespace Assets.Scripts.Dialogue
 			json = new RetrieveJson();
 			dialogue = json.LoadJsonDialogue(model.NameOfPartner, model.Stage, model.DialogueCount);
 
-			NextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
-			PrevButton.GetComponentInChildren<Text>().text = dialogue.PreviousButtonText;
+			nextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
+			prevButton.GetComponentInChildren<Text>().text = dialogue.PreviousButtonText;
 
-			PartnerName.text = dialogue.NameOfSpeaker;
-			DialogueText.text = dialogue.DialogueLines[0];
+			partnerName.text = dialogue.NameOfSpeaker;
+			dialogueText.text = dialogue.DialogueLines[0];
 
-			Partner.sprite = RetrieveAsset.GetSpriteByName(model.NameOfPartner);
+			partner.sprite = RetrieveAsset.GetSpriteByName(model.NameOfPartner);
 
-			PrevButton.interactable = false;
+			prevButton.interactable = false;
 		}
 
 		public void CloseDialogue()
 		{
 			gameObject.SetActive(false);
 			OpenPopUp.IsActive = false;
-			if (InfoButton != null && SettingButton != null)
+			if (infoButton != null && settingButton != null)
 			{
-				InfoButton.interactable = true;
-				SettingButton.interactable = true;
+				infoButton.interactable = true;
+				settingButton.interactable = true;
 			}
 		}
 
@@ -63,25 +63,25 @@ namespace Assets.Scripts.Dialogue
 				return;
 			}
 
-			DialogueText.text = dialogue.NextLine();
-			PrevButton.interactable = true;
+			dialogueText.text = dialogue.NextLine();
+			prevButton.interactable = true;
 
 			// Next page is final page of slide
 			if (dialogue.IsEndOfDialogue())
 			{
-				NextButton.GetComponentInChildren<Text>().text = dialogue.ConfirmButtonText;
+				nextButton.GetComponentInChildren<Text>().text = dialogue.ConfirmButtonText;
 			}
 		}
 
 		public void PreviousLine()
 		{
-			DialogueText.text = dialogue.PreviousLine();
-			NextButton.interactable = true;
+			dialogueText.text = dialogue.PreviousLine();
+			nextButton.interactable = true;
 
-			NextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
+			nextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
 			if (dialogue.IsBeginningOfDialogue())
 			{
-				PrevButton.interactable = false;
+				prevButton.interactable = false;
 			}
 		}
 	}
