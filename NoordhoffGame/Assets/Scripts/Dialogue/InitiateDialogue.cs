@@ -7,11 +7,13 @@ using UnityEngine.UI;
 
 public class InitiateDialogue : MonoBehaviour
 {
-	private RetrieveJson json;
+    [SerializeField] private Infoscreen infoscreen;
+
+    private RetrieveJson json;
     private DialogueItem dialogue;
 	private CharModel charModel;
 
-	public SpriteRenderer Partner;
+    public SpriteRenderer Partner;
 	public Text PartnerName;
 	public Text DialogueText;
 
@@ -19,6 +21,7 @@ public class InitiateDialogue : MonoBehaviour
 	public Button NextButton;
     public Button SettingButton;
     public Button InfoButton;
+
 
     public void Initialize(CharModel model)
     {
@@ -30,7 +33,7 @@ public class InitiateDialogue : MonoBehaviour
 
 		NextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
 		PrevButton.GetComponentInChildren<Text>().text = dialogue.PreviousButtonText;
-
+        
 		PartnerName.text = dialogue.NameOfSpeaker;
 		DialogueText.text = dialogue.DialogueLines[0];
 
@@ -41,6 +44,7 @@ public class InitiateDialogue : MonoBehaviour
 
 	public void CloseDialogue()
 	{
+
 		gameObject.SetActive(false);
 		OpenDialogue.IsActive = false;
 		if (InfoButton != null && SettingButton != null)
@@ -55,7 +59,8 @@ public class InitiateDialogue : MonoBehaviour
 		// Final page of slide, so close dialogue screen
 		if (dialogue.IsEndOfDialogue())
 		{
-			CloseDialogue();
+            infoscreen.ShowStakeholder(charModel.NameOfPartner);
+            CloseDialogue();
 			if (charModel.DialogueCount > -1)
 			{
 				charModel.DialogueCount++;

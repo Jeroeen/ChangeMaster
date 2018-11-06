@@ -5,18 +5,27 @@
 		"Image":"Kapitein",
 		"Text":"ik ben het er niet mee eens"
 		},{
-		"Image":"ijsbeertje",
-		"Text":"ik ben het er mee eens"
+		"Image":"Animatiemedewerker",
+		"Text":"Ik weet dat die andere niet echt ziek zijn, maar ze zijn onze teamleider zat. Hoorde je haar schreeuwen. Dat doet zij anders nog harder, De teamleider kan niet zo goed opschieten met deze 2 medewerkers en ze worden gepest door haar."
 		},
 		{
-		"Image":"muntjes",
-		"Text":"Waarom ben ik hier, ik ben een stapel muntjes, ik kan niet praten."
- 
-		},{
-		"Image":"Schoonmaakster",
-		"Text":"ik weet het nog niet"
- 
+		"Image":"Boekenkast",
+		"Text":"Waarom ben ik hier, ik ben een Boekenkast, ik kan niet praten."
+		},
+		{
+		"Image":"Animatiemedewerker_ziek",
+		"Text":"Waarom ben ik hier, ik ben ziek"
+		},
+		{
+		"Image":"Roosteroverzicht",
+		"Text":"Waarom ben ik hier, ik ben een roosteroverzicht"
+		},
+		{
+		"Image":"Teamleider",
+		"Text":"Waarom ben ik hier, ik ben een Teamleider"
 		}
+		
 	]
+	
     
 }
