@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 2389692713228283535}
   - component: {fileID: 2389692713228283534}
   m_Layer: 5
-  m_Name: DialogueCharacter
+  m_Name: Partner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,16 +528,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2389692714126047438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a94d32d38c4c8284d8a611f37c00a66e, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7ba0e4ffa66be4eaa1e0d09d7f98aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Partner: {fileID: 2389692713228283534}
-  PartnerName: {fileID: 2389692714385141132}
-  DialogueText: {fileID: 2389692713954080651}
-  PrevButton: {fileID: 2389692713178042409}
-  NextButton: {fileID: 2389692715058636284}
-  SettingButton: {fileID: 0}
-  InfoButton: {fileID: 0}
+  partner: {fileID: 2389692713228283534}
+  partnerName: {fileID: 2389692714385141132}
+  dialogueText: {fileID: 2389692713954080651}
+  prevButton: {fileID: 2389692713178042409}
+  nextButton: {fileID: 2389692715058636284}
+  settingButton: {fileID: 0}
+  infoButton: {fileID: 0}
 --- !u!1 &2389692714356299186
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 2389692714385141123}
   - component: {fileID: 2389692714385141132}
   m_Layer: 5
-  m_Name: Speaker
+  m_Name: PartnerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
