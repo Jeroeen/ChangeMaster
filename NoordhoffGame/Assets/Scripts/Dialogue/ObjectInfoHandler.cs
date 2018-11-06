@@ -18,8 +18,6 @@ namespace Assets.Scripts.Dialogue
 		{
 			RetrieveAsset.RetrieveAssets();
 			spriteRenderer.sprite = RetrieveAsset.GetSpriteByName(objectModel.Sprite);
-			Debug.Log(objectModel.Sprite);
-			Debug.Log(spriteRenderer.sprite.name);
 		}
 
 		public void CloseInfo()

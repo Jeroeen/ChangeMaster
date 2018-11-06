@@ -14,7 +14,7 @@ namespace Assets.Scripts.Cutscene
 		private readonly Queue<Transform> destinations = new Queue<Transform>();
 		private bool isMoveZoomingCamera;
 		private bool hasDialogueOpened;
-
+		
 		[SerializeField] private float zoomSpeed;
 		[SerializeField] private float moveSpeed;
 		[SerializeField] private int minZoom;
@@ -60,7 +60,7 @@ namespace Assets.Scripts.Cutscene
 					hasDialogueOpened = true;
 
 					dialogue.SetActive(true);
-					CharacterModel model = new CharacterModel()
+					CharacterModel model = new CharacterModel
 					{
 						NameOfPartner = "Kapitein",
 						Stage = "0",
