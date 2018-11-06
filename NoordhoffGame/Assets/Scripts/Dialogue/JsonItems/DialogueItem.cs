@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using LitJson;
+using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Dialogue
 {
 	public class DialogueItem
 	{
@@ -52,5 +49,17 @@ namespace Assets.Scripts
 		{
 			return CurrentPage <= 0;
 		}
+
+	    public void ReplaceName()
+	    {
+	        for (int i = 0; i < DialogueLines.Count; i++)
+	        {
+	            string s = DialogueLines[i];
+	            if (s.Contains("[Naam]"))
+	            {
+                    DialogueLines[i] = s.Replace("[Naam]", PlayerPrefs.GetString("PlayerName"));
+	            }
+	        }
+	    }
 	}
 }

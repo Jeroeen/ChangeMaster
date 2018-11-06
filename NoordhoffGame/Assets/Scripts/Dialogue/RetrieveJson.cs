@@ -3,11 +3,12 @@ using LitJson;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Assets.Scripts.Dialogue;
 using UnityEngine;
 
 public class RetrieveJson
 {
-    public DialogueItem LoadJson(string nameOfPartner, string stage, int dialogueCount)
+    public DialogueItem LoadJsonDialogue(string nameOfPartner, string stage, int dialogueCount)
     {
         string path;
         if (dialogueCount < 0)
@@ -23,9 +24,11 @@ public class RetrieveJson
         string jsonString = asset.ToString();
 
         DialogueItem item = JsonMapper.ToObject<DialogueItem>(jsonString);
+        item.ReplaceName();
 
         return item;
     }
+	
 
     public InterventionList LoadJsonInterventions(int level)
     {
