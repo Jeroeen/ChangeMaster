@@ -4686,22 +4686,6 @@ MonoBehaviour:
   DialogueCount: -1
   AmountOfDialogues: -1
   NameOfPartner: Kapitein
---- !u!114 &1932699383 stripped
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899222744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb40959aceee84a40a45c0522bf01a9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stage: B
-  DialogueCount: -1
-  AmountOfDialogues: -1
-  NameOfPartner: Kapitein
 --- !u!1001 &5557334827466282485
 PrefabInstance:
   m_ObjectHideFlags: 0
