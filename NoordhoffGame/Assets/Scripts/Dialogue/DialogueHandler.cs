@@ -55,7 +55,10 @@ namespace Assets.Scripts.Dialogue
 			// Final page of slide, so close dialogue screen
 			if (dialogue.IsEndOfDialogue())
 			{
-                infoscreen.ShowStakeholder(characterModel.NameOfPartner);
+                if (infoscreen != null)
+                {
+                    infoscreen.ShowStakeholder(characterModel.NameOfPartner);
+                }
                 CloseDialogue();
 				if (characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
 				{

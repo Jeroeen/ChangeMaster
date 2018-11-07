@@ -20,7 +20,11 @@ namespace Assets.Scripts.Dialogue
 		{
 			RetrieveAsset.RetrieveAssets();
 			spriteRenderer.sprite = RetrieveAsset.GetSpriteByName(objectModel.Sprite);
-            infoscreen.ShowStakeholder(objectModel.Sprite);
+            if (infoscreen != null)
+            {
+                infoscreen.ShowStakeholder(objectModel.Sprite);
+            }
+            
         }
 
 		public void CloseInfo()
