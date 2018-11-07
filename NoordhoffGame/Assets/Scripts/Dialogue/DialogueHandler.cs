@@ -55,7 +55,7 @@ namespace Assets.Scripts.Dialogue
 			if (dialogue.IsEndOfDialogue())
 			{
 				CloseDialogue();
-				if (characterModel.DialogueCount > -1)
+				if (characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
 				{
 					characterModel.DialogueCount++;
 				}
