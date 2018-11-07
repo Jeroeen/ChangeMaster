@@ -10,7 +10,8 @@ namespace Assets.Scripts.Dialogue
 		private DialogueItem dialogue;
 		private CharacterModel characterModel;
 
-		[SerializeField] private SpriteRenderer partner;
+        [SerializeField] private Infoscreen infoscreen;
+        [SerializeField] private SpriteRenderer partner;
 		[SerializeField] private Text partnerName;
 		[SerializeField] private Text dialogueText;
 
@@ -42,7 +43,7 @@ namespace Assets.Scripts.Dialogue
 		{
 			gameObject.SetActive(false);
 			OpenPopUp.IsActive = false;
-			if (infoButton != null && settingButton != null)
+            if (infoButton != null && settingButton != null)
 			{
 				infoButton.interactable = true;
 				settingButton.interactable = true;
@@ -54,7 +55,8 @@ namespace Assets.Scripts.Dialogue
 			// Final page of slide, so close dialogue screen
 			if (dialogue.IsEndOfDialogue())
 			{
-				CloseDialogue();
+                infoscreen.ShowStakeholder(characterModel.NameOfPartner);
+                CloseDialogue();
 				if (characterModel.DialogueCount > -1)
 				{
 					characterModel.DialogueCount++;

@@ -13,18 +13,21 @@ namespace Assets.Scripts.Dialogue
 		private Button settingButton;
 		[SerializeField]
 		private Button infoButton;
+        [SerializeField]
+        private Infoscreen infoscreen;
 
-		public void Initialize(ObjectModel objectModel)
+        public void Initialize(ObjectModel objectModel)
 		{
 			RetrieveAsset.RetrieveAssets();
 			spriteRenderer.sprite = RetrieveAsset.GetSpriteByName(objectModel.Sprite);
-		}
+            infoscreen.ShowStakeholder(objectModel.Sprite);
+        }
 
 		public void CloseInfo()
 		{
 			gameObject.SetActive(false);
 			OpenPopUp.IsActive = false;
-			if (infoButton != null && settingButton != null)
+            if (infoButton != null && settingButton != null)
 			{
 				infoButton.interactable = true;
 				settingButton.interactable = true;

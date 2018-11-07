@@ -45,11 +45,12 @@ public class Infoscreen : MonoBehaviour
 
         stakeholdersButton.interactable = false;
         json = new RetrieveJson();
-        RetrieveAsset.RetrieveAssets();
         if (information == null)
         {
             information = json.LoadJsonInformation(1);
         }
+        
+        RetrieveAsset.RetrieveAssets();
         images.Clear();
         for (int i = 0; i < information.InformationList.Length; i++)
         {
