@@ -40,9 +40,13 @@ namespace Assets.Scripts.Initialization
 
 		public void ShowDialogCaptain(CharacterModel characterModel)
 		{
-			infoButton.interactable = !infoButton.IsInteractable();
-			settingsButton.interactable = !settingsButton.IsInteractable();
-			_dialogueHandler.Initialize(characterModel);
+		    if (infoButton != null && settingsButton != null)
+		    {
+		        infoButton.interactable = !infoButton.IsInteractable();
+		        settingsButton.interactable = !settingsButton.IsInteractable();
+		    }
+
+		    _dialogueHandler.Initialize(characterModel);
 			dialogue.SetActive(true);
 			hasOpenedDialogue = true;
 		}
