@@ -688,7 +688,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.28125
+  orthographic size: 8.252257
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3941,6 +3941,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tilemap: {fileID: 1112453707}
+--- !u!114 &1138819032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1027381260309673576, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+  m_PrefabInstance: {fileID: 5824235579272914444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb9e1857aea02f4fb9e097defb5039f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1207778322 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7330838475554492857, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
@@ -5069,6 +5080,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1335184720721879945, guid: d4d841f5c4ab2bd4f9fe9d1c9e729669, type: 3}
+      propertyPath: infoscreen
+      value: 
+      objectReference: {fileID: 1138819032}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4d841f5c4ab2bd4f9fe9d1c9e729669, type: 3}
 --- !u!1001 &5557334827466282485
@@ -5210,6 +5225,10 @@ PrefabInstance:
       propertyPath: infoButton
       value: 
       objectReference: {fileID: 2052513748}
+    - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: infoscreen
+      value: 
+      objectReference: {fileID: 1138819032}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
 --- !u!1001 &5824235579272914444
@@ -5359,6 +5378,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 85
       objectReference: {fileID: 0}
+    - target: {fileID: 9188085461350629720, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -57.999878
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
 --- !u!224 &5969080459379769749 stripped
@@ -5467,7 +5490,7 @@ PrefabInstance:
       objectReference: {fileID: 1207778322}
     - target: {fileID: 7330838475554492863, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492856, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_LocalScale.x

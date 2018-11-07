@@ -6,6 +6,7 @@ public struct Info
 {
     public string Image;
     public string Text;
+    public bool Found;
 }
 
 public class InfoList
