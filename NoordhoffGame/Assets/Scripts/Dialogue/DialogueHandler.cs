@@ -57,7 +57,7 @@ namespace Assets.Scripts.Dialogue
 			{
                 infoscreen.ShowStakeholder(characterModel.NameOfPartner);
                 CloseDialogue();
-				if (characterModel.DialogueCount > -1)
+				if (characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
 				{
 					characterModel.DialogueCount++;
 				}
