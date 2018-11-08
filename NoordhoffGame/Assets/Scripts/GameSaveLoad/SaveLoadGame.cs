@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine;
 using Assets.Scripts.GameSaveLoad.Player;
 
-public static class GameSaveLoad
+public static class SaveLoadGame
 {
     public static Game SavedGame;
 

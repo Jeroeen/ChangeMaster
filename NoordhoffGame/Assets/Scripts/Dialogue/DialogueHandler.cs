@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Dialogue.Models;
+using Assets.Scripts.Dialogue.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -58,6 +58,7 @@ namespace Assets.Scripts.Dialogue
                 if (infoscreen != null)
                 {
                     infoscreen.ShowStakeholder(characterModel.NameOfPartner);
+                    infoscreen.SaveInformation();
                 }
                 CloseDialogue();
 				if (characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)

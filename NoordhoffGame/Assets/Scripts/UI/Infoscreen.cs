@@ -39,13 +39,13 @@ public class Infoscreen : MonoBehaviour
 	void Start()
     {
         json = new RetrieveJson();
-        GameSaveLoad.Load();
-        if(Game.GetGame().information == null)
+        SaveLoadGame.Load();
+        if (Game.GetGame().information == null)
         {
             Game.GetGame().information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
         }
         information = Game.GetGame().information;
-        
+
         ShowStakeholders();
     }
 
@@ -138,12 +138,6 @@ public class Infoscreen : MonoBehaviour
     //a function that will enable or disable the menu 
     public void EnableInfo()
     {
-
-        if (infoScreen.activeSelf)
-        {
-            Game.GetGame().information = information;
-            GameSaveLoad.Save();
-        }
         infoScreen.SetActive(!infoScreen.activeSelf);
         blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
         settingsButton.interactable = !settingsButton.IsInteractable();
@@ -169,5 +163,17 @@ public class Infoscreen : MonoBehaviour
         playerName.text = "Naam: " + player.Name;
 
         function.text = "Functie: " + player.GetPlayerTitle();
+    }
+
+    public void SaveInformation()
+    {
+        Game.GetGame().information = information;
+        SaveLoadGame.Save();
+    }
+
+    public void clearInformation()
+    {
+        Game.GetGame().information = null;
+        SaveLoadGame.Save();
     }
 }
