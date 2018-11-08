@@ -168,10 +168,9 @@ public class Infoscreen : MonoBehaviour
     public void SaveInformation()
     {
         Game.GetGame().information = information;
-        SaveLoadGame.Save();
     }
 
-    public void clearInformation()
+    public void ClearInformation()
     {
         Game.GetGame().information = null;
         SaveLoadGame.Save();

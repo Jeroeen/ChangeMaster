@@ -16,7 +16,6 @@ public class Game
     private Game()
     {
         RetrieveJson json = new RetrieveJson();
-        //information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
     }
     public static void setGame(Game game)
     {
@@ -27,7 +26,6 @@ public class Game
         // if currentGame is null, make a new Game and return it. Otherwise return the existing Game
         return currentGame ?? (currentGame = new Game());
     }
-
     public static void clearGame()
     {
         currentGame = new Game();
