@@ -276,6 +276,7 @@ MonoBehaviour:
   objectInfo: {fileID: 765009927}
   settingsButton: {fileID: 32320916}
   infoButton: {fileID: 2052513748}
+  interventionButton: {fileID: 1132068617}
 --- !u!4 &212539101
 Transform:
   m_ObjectHideFlags: 0
@@ -3721,6 +3722,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tilemap: {fileID: 1112453707}
+--- !u!114 &1132068617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5824235579578861454, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+  m_PrefabInstance: {fileID: 5824235579272914444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1138819032 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1027381260309673576, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
@@ -4644,17 +4656,6 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
---- !u!114 &1750223596 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5824235579578861454, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
-  m_PrefabInstance: {fileID: 5824235579272914444}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1809395795 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5557334826740217157, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
@@ -5093,7 +5094,7 @@ PrefabInstance:
     - target: {fileID: 1658599544136022531, guid: 325bb3035890ded4cac8efbb4e24d520, type: 3}
       propertyPath: interventionButton
       value: 
-      objectReference: {fileID: 1750223596}
+      objectReference: {fileID: 1132068617}
     - target: {fileID: 1658599544136022543, guid: 325bb3035890ded4cac8efbb4e24d520, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5251,6 +5252,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -59
       objectReference: {fileID: 0}
+    - target: {fileID: 5557334827172231692, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: interventionButton
+      value: 
+      objectReference: {fileID: 1132068617}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
 --- !u!1001 &5824235579272914444

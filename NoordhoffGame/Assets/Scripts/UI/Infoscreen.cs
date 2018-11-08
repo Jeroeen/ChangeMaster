@@ -5,9 +5,13 @@ using System.IO;
 using Assets.Scripts.GameSaveLoad.Player;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Infoscreen : MonoBehaviour
 {
+    [SerializeField] private Button interventionButton;
+    [SerializeField] private Button infoButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button stakeholdersButton;
     [SerializeField] private GameObject infoScreen;
@@ -33,7 +37,7 @@ public class Infoscreen : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start()
-	{
+    {
         ShowStakeholders();
         
     }
@@ -130,6 +134,8 @@ public class Infoscreen : MonoBehaviour
         infoScreen.SetActive(!infoScreen.activeSelf);
         blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
         settingsButton.interactable = !settingsButton.IsInteractable();
+        interventionButton.interactable = !interventionButton.IsInteractable();
+        infoButton.interactable = !infoButton.IsInteractable();
         FillCharacterInfo();
     }
 
