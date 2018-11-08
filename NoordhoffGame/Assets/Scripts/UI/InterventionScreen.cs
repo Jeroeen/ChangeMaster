@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class InterventionScreen : MonoBehaviour
 {
-	[SerializeField] private Button infoButton;
+    [SerializeField] private Button interventionButton;
+    [SerializeField] private Button infoButton;
 	[SerializeField] private Button settingsButton;
 	[SerializeField] private GameObject interventionscreen;
 	[SerializeField] private GameObject text;
@@ -33,7 +34,7 @@ public class InterventionScreen : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		//retrieve the list of interventions for this lvl(level 1) from the associated Json file
+        //retrieve the list of interventions for this lvl(level 1) from the associated Json file
 		json = new RetrieveJson();
 		player = Player.GetPlayer();
 		interventions = json.LoadJsonInterventions(1);
@@ -278,12 +279,13 @@ public class InterventionScreen : MonoBehaviour
 	//a function that will enable or disable the menu 
 	public void ShowMenu()
 	{
-		interventionscreen.SetActive(!interventionscreen.gameObject.activeSelf);
-		blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
 
-		infoButton.interactable = !infoButton.IsInteractable();
-		settingsButton.interactable = !settingsButton.IsInteractable();
-	}
+        interventionscreen.SetActive(!interventionscreen.gameObject.activeSelf);
+        blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
+        settingsButton.interactable = !settingsButton.IsInteractable();
+        infoButton.interactable = !infoButton.IsInteractable();
+        interventionButton.interactable = !interventionButton.IsInteractable();
+    }
 	//a function to easily set the text and position of a textobject
 	private void InitiateTextObject(GameObject initiate, string text, Vector2 position)
 	{

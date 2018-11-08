@@ -1,10 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!224 &9058529132092102698 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3380842021714903425, guid: 46d28c437f06a544ca385c1acd88bfb5, type: 3}
-  m_PrefabInstance: {fileID: 6007086844073171371}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &217933842397571079
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb9e1857aea02f4fb9e097defb5039f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interventionButton: {fileID: 5824235579578861454}
+  infoButton: {fileID: 9188085461350629723}
   settingsButton: {fileID: 2220617832961469807}
   stakeholdersButton: {fileID: 1027381260037833128}
   infoScreen: {fileID: 1027381260309673577}
@@ -2152,7 +2149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f4cab9a0a364d4f8851f184d2930cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interventionButton: {fileID: 5824235579578861454}
   infoButton: {fileID: 9188085461350629723}
+  settingsButton: {fileID: 2220617832961469807}
   settingsScreen: {fileID: 1027381260721643500}
   blockingPanel: {fileID: 1027381260570003959}
 --- !u!225 &1027381260721643499
@@ -3572,6 +3571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1705b15e872904f9b2651c8f1c1ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interventionButton: {fileID: 5824235579578861454}
   infoButton: {fileID: 9188085461350629723}
   settingsButton: {fileID: 2220617832961469807}
   interventionscreen: {fileID: 1027381261354390537}
@@ -5318,6 +5318,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Interventionscreen
+--- !u!224 &9058529132092102698 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3380842021714903425, guid: 46d28c437f06a544ca385c1acd88bfb5, type: 3}
+  m_PrefabInstance: {fileID: 6007086844073171371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9188085461350629700
 GameObject:
   m_ObjectHideFlags: 0
