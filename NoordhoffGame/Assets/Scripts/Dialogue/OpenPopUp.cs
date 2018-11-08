@@ -10,8 +10,9 @@ namespace Assets.Scripts.Dialogue
 		[SerializeField] private GameObject objectInfo;
 		[SerializeField] private Button settingsButton;
 		[SerializeField] private Button infoButton;
+	    [SerializeField] private Button interventionButton;
 
-		public static bool IsActive { get; set; }
+        public static bool IsActive { get; set; }
 	
 
 		public void StartDialogue(CharacterModel characterModel)
@@ -34,6 +35,8 @@ namespace Assets.Scripts.Dialogue
 		{
 			settingsButton.interactable = false;
 			infoButton.interactable = false;
+		    interventionButton.interactable = false;
+
 		}
 	}
 }

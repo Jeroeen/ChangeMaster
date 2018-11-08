@@ -19,8 +19,9 @@ namespace Assets.Scripts.Dialogue
 		[SerializeField] private Button nextButton;
 		[SerializeField] private Button settingButton;
 		[SerializeField] private Button infoButton;
+	    [SerializeField] private Button interventionButton;
 
-		public void Initialize(CharacterModel model)
+        public void Initialize(CharacterModel model)
 		{
 			characterModel = model;
 			RetrieveAsset.RetrieveAssets();
@@ -47,6 +48,8 @@ namespace Assets.Scripts.Dialogue
 			{
 				infoButton.interactable = true;
 				settingButton.interactable = true;
+			    interventionButton.interactable = true;
+
 			}
 		}
 
