@@ -38,8 +38,6 @@ public class Infoscreen : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        Debug.Log("dinges");
-        Debug.Log(SceneManager.GetActiveScene().name);
         ShowStakeholders();
         
     }
