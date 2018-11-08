@@ -274,7 +274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 875319056}
   objectInfo: {fileID: 765009927}
-  sceneSwitcher: {fileID: 0}
   settingsButton: {fileID: 32320916}
   infoButton: {fileID: 2052513748}
 --- !u!4 &212539101
@@ -5095,6 +5094,10 @@ PrefabInstance:
       propertyPath: interventionButton
       value: 
       objectReference: {fileID: 1750223596}
+    - target: {fileID: 1658599544136022543, guid: 325bb3035890ded4cac8efbb4e24d520, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 325bb3035890ded4cac8efbb4e24d520, type: 3}
 --- !u!1001 &5557334827466282485
@@ -5240,6 +5243,14 @@ PrefabInstance:
       propertyPath: infoscreen
       value: 
       objectReference: {fileID: 1138819032}
+    - target: {fileID: 8924141166953601890, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775280821052964549, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -59
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
 --- !u!1001 &5824235579272914444
@@ -5393,6 +5404,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -58
       objectReference: {fileID: 0}
+    - target: {fileID: 1027381260721643500, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578377892283781092, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741742336832028483, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027381260570003913, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
 --- !u!224 &5969080459379769749 stripped
@@ -5413,7 +5440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492863, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492856, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_LocalPosition.x

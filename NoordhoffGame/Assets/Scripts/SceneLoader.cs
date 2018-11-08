@@ -9,7 +9,7 @@ namespace Assets.Scripts
 		private bool isFading;
 
 		[SerializeField] private Transition transition;
-		[SerializeField] private string SceneToLoad;
+		[SerializeField] private string sceneToLoad;
 
 		[SerializeField] private Button settingsButton;
 		[SerializeField] private Button infoButton;
@@ -31,10 +31,10 @@ namespace Assets.Scripts
 
 			if (!transition.FadeOut()) return;
 
-			if (!string.IsNullOrWhiteSpace(SceneToLoad))
+			if (!string.IsNullOrWhiteSpace(sceneToLoad))
 			{
 				// Load specific scene
-				SceneManager.LoadScene(SceneToLoad);
+				SceneManager.LoadScene(sceneToLoad);
 			}
 			// Load bridge
 			SceneManager.LoadScene(3);
@@ -55,9 +55,7 @@ namespace Assets.Scripts
 		public void Close()
 		{
 			ChangeInteractability(true);
-
 			gameObject.SetActive(false);
 		}
-			
 	}
 }
