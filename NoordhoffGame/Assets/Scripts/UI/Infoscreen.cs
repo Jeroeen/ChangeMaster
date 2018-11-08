@@ -1,4 +1,4 @@
-﻿using Assets.Scripts;
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -38,8 +38,15 @@ public class Infoscreen : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        ShowStakeholders();
+        json = new RetrieveJson();
+        GameSaveLoad.Load();
+        if(Game.GetGame().information == null)
+        {
+            Game.GetGame().information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
+        }
+        information = Game.GetGame().information;
         
+        ShowStakeholders();
     }
 
     //a function that will fill the stakeholders menu with the stakeholders and their opinion on the current problem
@@ -51,7 +58,7 @@ public class Infoscreen : MonoBehaviour
         json = new RetrieveJson();
         if (information == null)
         {
-            information = json.LoadJsonInformation(1);
+            information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
         }
         
         RetrieveAsset.RetrieveAssets();
@@ -115,7 +122,7 @@ public class Infoscreen : MonoBehaviour
         json = new RetrieveJson();
         if (information == null)
         {
-            information = json.LoadJsonInformation(1);
+            information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
         }
 
         for (int i = 0; i < information.InformationList.Length; i++)
@@ -131,12 +138,19 @@ public class Infoscreen : MonoBehaviour
     //a function that will enable or disable the menu 
     public void EnableInfo()
     {
+
+        if (infoScreen.activeSelf)
+        {
+            Game.GetGame().information = information;
+            GameSaveLoad.Save();
+        }
         infoScreen.SetActive(!infoScreen.activeSelf);
         blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
         settingsButton.interactable = !settingsButton.IsInteractable();
         interventionButton.interactable = !interventionButton.IsInteractable();
         infoButton.interactable = !infoButton.IsInteractable();
         FillCharacterInfo();
+
     }
 
     //a function that will fill the character info menu

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public struct Info
 {
     public string Image;
@@ -9,6 +10,7 @@ public struct Info
     public bool Found;
 }
 
+[System.Serializable]
 public class InfoList
 {
     public Info[] InformationList;

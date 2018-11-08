@@ -37,7 +37,7 @@ public class InterventionScreen : MonoBehaviour
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
 		json = new RetrieveJson();
 		player = Player.GetPlayer();
-		interventions = json.LoadJsonInterventions(1);
+		interventions = json.LoadJsonInterventions(SceneManager.GetActiveScene().name);
 		//interventionScroll is the ScrollRect that contains the list of interventions to choose from
 		interventionScroll = interventionscreen.GetComponentInChildren<ScrollRect>();
 		//set the content element of the scrollview to the position 0,0 since, for some reason, sometimes it moves away from that position
