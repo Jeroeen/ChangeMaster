@@ -66,7 +66,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cbdd21bab595e7b43af62ac188cdc050, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82ece6db51a09074c85102add799df77, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2c7fa4f1c6c5d6b40a884101cce675ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40e08bded5aab47409ec870b3e152a49, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7ba0e4ffa66be4eaa1e0d09d7f98aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infoscreen: {fileID: 0}
   partner: {fileID: 2389692713228283534}
   partnerName: {fileID: 2389692714385141132}
   dialogueText: {fileID: 2389692713954080651}
@@ -760,7 +761,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cbdd21bab595e7b43af62ac188cdc050, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82ece6db51a09074c85102add799df77, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
