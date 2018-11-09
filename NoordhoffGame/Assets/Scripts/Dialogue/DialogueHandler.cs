@@ -49,7 +49,6 @@ namespace Assets.Scripts.Dialogue
 				infoButton.interactable = true;
 				settingButton.interactable = true;
 			    interventionButton.interactable = true;
-
 			}
 		}
 
@@ -63,7 +62,7 @@ namespace Assets.Scripts.Dialogue
                     infoscreen.ShowStakeholder(characterModel.NameOfPartner);
                 }
                 CloseDialogue();
-				if (characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
+				if (characterModel.AmountOfDialogues >= 0 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
 				{
 					characterModel.DialogueCount++;
 				}

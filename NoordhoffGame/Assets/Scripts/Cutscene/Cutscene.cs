@@ -65,7 +65,6 @@ namespace Assets.Scripts.Cutscene
 						NameOfPartner = "Kapitein",
 						Stage = "0",
 						AmountOfDialogues = -1,
-						DialogueCount = -1
 					};
 					dialogueHandler.Initialize(model);
 					return;

@@ -18,13 +18,11 @@ namespace Assets.Scripts.Dialogue
 
         public void Initialize(ObjectModel objectModel)
 		{
-			RetrieveAsset.RetrieveAssets();
-			spriteRenderer.sprite = RetrieveAsset.GetSpriteByName(objectModel.Sprite);
+			spriteRenderer.sprite = objectModel.Sprite;
             if (infoscreen != null)
             {
-                infoscreen.ShowStakeholder(objectModel.Sprite);
+                infoscreen.ShowStakeholder(objectModel.Sprite.name);
             }
-            
         }
 
 		public void CloseInfo()

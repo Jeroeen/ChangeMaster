@@ -13,12 +13,14 @@ public class RetrieveJson
         string path;
         if (dialogueCount < 0)
         {
-            path = "DialogueFiles/" + nameOfPartner + "-" + stage;
+            path = "DialogueFiles/" + stage + "/" + nameOfPartner;
         }
         else
         {
-            path = "DialogueFiles/" + nameOfPartner + "-" + stage + "-" + dialogueCount;
+            path = "DialogueFiles/" + stage + "/" + nameOfPartner + "-" + dialogueCount;
         }
+
+        Debug.Log(dialogueCount);
 
         TextAsset asset = Resources.Load(path) as TextAsset;
         string jsonString = asset.ToString();
