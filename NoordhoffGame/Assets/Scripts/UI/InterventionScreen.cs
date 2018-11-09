@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Assets.Scripts;
+using Assets.Scripts.Dialogue;
 using UnityEngine.SceneManagement;
 
 public class InterventionScreen : MonoBehaviour
