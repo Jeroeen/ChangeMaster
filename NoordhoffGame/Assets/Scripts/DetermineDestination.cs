@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
 	public class DetermineDestination : MonoBehaviour
 	{
-		public void DestinationClick(GameObject destination)
+		[SerializeField] private Text text;
+
+		public void DestinationClick()
 		{
-			Debug.Log("x");
-			Debug.Log(destination.name);
+			Debug.Log(gameObject.name);
 		}
 	}
 }
