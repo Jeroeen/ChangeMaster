@@ -33,6 +33,14 @@ public static class SaveLoadGame
             return false;
         }
     }
+
+    public static void DeleteSave()
+    {
+        if (File.Exists(Application.persistentDataPath + "/SavedGame.gd"))
+        {
+            File.Delete(Application.persistentDataPath + "/SavedGame.gd");
+        }
+    }
 }
 
 

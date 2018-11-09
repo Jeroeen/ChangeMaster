@@ -6,6 +6,7 @@ public class DeletePlayerPrefs : MonoBehaviour
 {
     public void DeletePrefs()
     {
+        SaveLoadGame.DeleteSave();
 	    PlayerPrefs.DeleteAll();
     }
 }
