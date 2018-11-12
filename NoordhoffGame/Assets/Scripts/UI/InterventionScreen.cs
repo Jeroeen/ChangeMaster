@@ -33,10 +33,16 @@ public class InterventionScreen : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start()
-	{
+    {
+        SaveLoadGame.Load();
+        if (Game.GetGame().player == null)
+        {
+            Game.GetGame().player = Player.GetPlayer();
+            SaveLoadGame.Save();
+        }
+        player = Player.GetPlayer();
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
-		json = new RetrieveJson();
-		player = Player.GetPlayer();
+        json = new RetrieveJson();
 		interventions = json.LoadJsonInterventions(SceneManager.GetActiveScene().name);
 		//interventionScroll is the ScrollRect that contains the list of interventions to choose from
 		interventionScroll = interventionscreen.GetComponentInChildren<ScrollRect>();
@@ -162,6 +168,8 @@ public class InterventionScreen : MonoBehaviour
 		player.Convincing += selectedIntervention.Convincing;
 		player.Creative += selectedIntervention.Creative;
 		player.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
+        Game.GetGame().player = player;
+        SaveLoadGame.Save();
 
 		//create the standard text element that will be used to instantiate all other text elements in this function
 		GameObject aText = Instantiate(text);
@@ -273,6 +281,7 @@ public class InterventionScreen : MonoBehaviour
 
 	public void FinishLevel()
 	{
+        Game.GetGame().addlevel();
 		isFading = true;
 	}
 

@@ -26,6 +26,16 @@ public static class SaveLoadGame
             FileStream file = File.Open(Application.persistentDataPath + "/SavedGame.gd", FileMode.Open);
             Game.setGame((Game)bf.Deserialize(file));
             file.Close();
+            
+            Player.GetPlayer().Enthousiasm = Game.GetGame().player.Enthousiasm;
+            Player.GetPlayer().Analytic = Game.GetGame().player.Analytic;
+            Player.GetPlayer().ChangeKnowledge = Game.GetGame().player.ChangeKnowledge;
+            Player.GetPlayer().Convincing = Game.GetGame().player.Convincing;
+            Player.GetPlayer().Creative = Game.GetGame().player.Creative;
+            Player.GetPlayer().Empathic = Game.GetGame().player.Empathic;
+            Player.GetPlayer().Decisive = Game.GetGame().player.Decisive;
+            Player.GetPlayer().Coins = Game.GetGame().player.Coins;
+            Player.GetPlayer().Name = PlayerPrefs.GetString("PlayerName");
             return true;
         }
         else

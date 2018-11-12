@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.GameSaveLoad.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,16 +7,22 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class Game
 {
-    private static Game currentGame;
+    public static Game currentGame {  set; private get; }
 
-    public static int test = 0;
+    public Player player; 
     public InfoList information;
     public int levelfinishedlast;
 
+    public void addlevel()
+    {
+        levelfinishedlast++;
+        information = null;
+    }
 
     private Game()
     {
-        RetrieveJson json = new RetrieveJson();
+        player = Player.GetPlayer();
+        levelfinishedlast = -1;
     }
     public static void setGame(Game game)
     {

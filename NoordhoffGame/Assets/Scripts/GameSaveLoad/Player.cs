@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Assets.Scripts.GameSaveLoad.Player
 {
+    [System.Serializable]
 	public class Player
 	{
 		private static Player _player;
@@ -23,7 +24,6 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_name = value;
-				PlayerPrefs.SetString("PlayerName", value);
 			}
 		}
 
@@ -33,7 +33,6 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_coins = value;
-				PlayerPrefs.SetInt("PlayerCoins", value);
 			}
 		}
 
@@ -43,9 +42,8 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_analytic = value;
-				PlayerPrefs.SetInt("SkillAnalytic", value);
-			}
-		}
+            }
+        }
 
 		public int Enthousiasm
 		{
@@ -53,9 +51,9 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_enthusiasm = value;
-				PlayerPrefs.SetInt("SkillEnthusiasm", value);
-			}
-		}
+
+            }
+        }
 
 		public int Decisive
 		{
@@ -63,9 +61,9 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_decisive = value;
-				PlayerPrefs.SetInt("SkillDecisive", value);
-			}
-		}
+
+            }
+        }
 
 		public int Empathic
 		{
@@ -73,9 +71,9 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_empathic = value;
-				PlayerPrefs.SetInt("SkillEmpathic", value);
-			}
-		}
+
+            }
+        }
 
 		public int Convincing
 		{
@@ -83,9 +81,9 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_convincing = value;
-				PlayerPrefs.SetInt("SkillConvincing", value);
-			}
-		}
+
+            }
+        }
 
 		public int Creative
 		{
@@ -93,9 +91,9 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_creative = value;
-				PlayerPrefs.SetInt("SkillCreative", value);
-			}
-		}
+
+            }
+        }
 
 		public int ChangeKnowledge
 		{
@@ -103,23 +101,20 @@ namespace Assets.Scripts.GameSaveLoad.Player
 			set
 			{
 				_changeKnowledge = value;
-				PlayerPrefs.SetInt("SkillChangeKnowledge", value);
-			}
-		}
+
+            }
+        }
 		#endregion
+
+        void start()
+        {
+            _name = PlayerPrefs.GetString("PlayerName");
+
+        }
 
 		private Player()
 		{
-			_name = PlayerPrefs.GetString("PlayerName");
-
-			_coins = PlayerPrefs.GetInt("PlayerCoins");
-			_analytic = PlayerPrefs.GetInt("SkillAnalytic");
-			_enthusiasm = PlayerPrefs.GetInt("SkillEnthusiasm");
-			_decisive = PlayerPrefs.GetInt("SkillDecisive");
-			_empathic = PlayerPrefs.GetInt("SkillEmpathic");
-			_convincing = PlayerPrefs.GetInt("SkillConvincing");
-			_creative = PlayerPrefs.GetInt("SkillCreative");
-			_changeKnowledge = PlayerPrefs.GetInt("SkillChangeKnowledge");
+			
 		}
 
 		public static Player GetPlayer()
