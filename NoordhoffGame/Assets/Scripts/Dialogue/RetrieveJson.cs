@@ -19,7 +19,11 @@ public class RetrieveJson
         {
             path = "DialogueFiles/" + nameOfPartner + "-" + stage + "-" + dialogueCount;
         }
-
+        if (!Game.GetGame().dialogueRead.ContainsKey(nameOfPartner + stage + dialogueCount))
+        {
+            Game.GetGame().dialogueRead.Add(nameOfPartner + stage + dialogueCount, false);
+        }
+        SaveLoadGame.Save();
         TextAsset asset = Resources.Load(path) as TextAsset;
         string jsonString = asset.ToString();
 

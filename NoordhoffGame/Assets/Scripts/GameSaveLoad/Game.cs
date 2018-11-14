@@ -12,17 +12,20 @@ public class Game
     public Player player; 
     public InfoList information;
     public int levelfinishedlast;
+    public Dictionary<string, bool> dialogueRead;
 
     public void addlevel()
     {
         levelfinishedlast++;
         information = null;
+        dialogueRead = new Dictionary<string, bool>();
     }
 
     private Game()
     {
         player = Player.GetPlayer();
         levelfinishedlast = -1;
+        dialogueRead = new Dictionary<string, bool>();
     }
     public static void setGame(Game game)
     {
