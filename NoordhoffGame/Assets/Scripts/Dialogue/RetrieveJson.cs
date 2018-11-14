@@ -19,9 +19,9 @@ namespace Assets.Scripts.Dialogue
 			}
 
             SaveLoadGame.Save();
-            if (!Game.GetGame().dialogueRead.ContainsKey(nameOfPartner + stage + dialogueCount))
+            if (!Game.GetGame().DialogueRead.ContainsKey(nameOfPartner + stage + dialogueCount))
             {
-                Game.GetGame().dialogueRead.Add(nameOfPartner + stage + dialogueCount, false);
+                Game.GetGame().DialogueRead.Add(nameOfPartner + stage + dialogueCount, false);
             }
 			string jsonString = GetJsonString(path);
 

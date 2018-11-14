@@ -24,24 +24,23 @@ public static class SaveLoadGame
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/SavedGame.gd", FileMode.Open);
-            Game.setGame((Game)bf.Deserialize(file));
+            Game.SetGame((Game)bf.Deserialize(file));
             file.Close();
-            
-            Player.GetPlayer().Enthousiasm = Game.GetGame().player.Enthousiasm;
-            Player.GetPlayer().Analytic = Game.GetGame().player.Analytic;
-            Player.GetPlayer().ChangeKnowledge = Game.GetGame().player.ChangeKnowledge;
-            Player.GetPlayer().Convincing = Game.GetGame().player.Convincing;
-            Player.GetPlayer().Creative = Game.GetGame().player.Creative;
-            Player.GetPlayer().Empathic = Game.GetGame().player.Empathic;
-            Player.GetPlayer().Decisive = Game.GetGame().player.Decisive;
-            Player.GetPlayer().Coins = Game.GetGame().player.Coins;
-            Player.GetPlayer().Name = PlayerPrefs.GetString("PlayerName");
+            Player player = Player.GetPlayer();
+            Game game = Game.GetGame();
+
+            player.Enthousiasm = game.Player.Enthousiasm;
+            player.Analytic = game.Player.Analytic;
+            player.ChangeKnowledge = game.Player.ChangeKnowledge;
+            player.Convincing = game.Player.Convincing;
+            player.Creative = game.Player.Creative;
+            player.Empathic = game.Player.Empathic;
+            player.Decisive = game.Player.Decisive;
+            player.Coins = game.Player.Coins;
+            player.Name = PlayerPrefs.GetString("PlayerName");
             return true;
         }
-        else
-        {
             return false;
-        }
     }
 
     public static void DeleteSave()

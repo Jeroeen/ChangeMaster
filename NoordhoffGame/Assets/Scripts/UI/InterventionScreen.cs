@@ -31,14 +31,16 @@ public class InterventionScreen : MonoBehaviour
 	private float textboxSizeX;
 	private float elementLimit;
 	private bool isFading;
+    private Game game;
 
 	// Start is called before the first frame update
 	void Start()
     {
         SaveLoadGame.Load();
-        if (Game.GetGame().player == null)
+        game = Game.GetGame();
+        if (game.Player == null)
         {
-            Game.GetGame().player = Player.GetPlayer();
+            game.Player = Player.GetPlayer();
             SaveLoadGame.Save();
         }
         player = Player.GetPlayer();
@@ -169,7 +171,7 @@ public class InterventionScreen : MonoBehaviour
 		player.Convincing += selectedIntervention.Convincing;
 		player.Creative += selectedIntervention.Creative;
 		player.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
-        Game.GetGame().player = player;
+        game.Player = player;
         SaveLoadGame.Save();
 
 		//create the standard text element that will be used to instantiate all other text elements in this function
@@ -282,7 +284,7 @@ public class InterventionScreen : MonoBehaviour
 
 	public void FinishLevel()
 	{
-        Game.GetGame().addlevel();
+        game.AddLevel();
 		isFading = true;
 	}
 

@@ -41,11 +41,11 @@ public class Infoscreen : MonoBehaviour
     {
         json = new RetrieveJson();
         SaveLoadGame.Load();
-        if (Game.GetGame().information == null)
+        if (Game.GetGame().Information == null)
         {
-            Game.GetGame().information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
+            Game.GetGame().Information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
         }
-        information = Game.GetGame().information;
+        information = Game.GetGame().Information;
 
         ShowStakeholders();
     }
@@ -168,12 +168,12 @@ public class Infoscreen : MonoBehaviour
 
     public void SaveInformation()
     {
-        Game.GetGame().information = information;
+        Game.GetGame().Information = information;
     }
 
     public void ClearInformation()
     {
-        Game.GetGame().information = null;
+        Game.GetGame().Information = null;
         SaveLoadGame.Save();
     }
 }

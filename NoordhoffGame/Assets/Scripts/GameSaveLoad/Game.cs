@@ -8,35 +8,37 @@ using UnityEngine.SceneManagement;
 public class Game
 {
     public static Game currentGame {  set; private get; }
-
-    public Player player; 
-    public InfoList information;
-    public int levelfinishedlast;
-    public Dictionary<string, bool> dialogueRead;
-
-    public void addlevel()
-    {
-        levelfinishedlast++;
-        information = null;
-        dialogueRead = new Dictionary<string, bool>();
-    }
+    public Player Player { get; set; }
+    public InfoList Information { get; set; }
+    public int lastLevelfinished { get; set; }
+    public Dictionary<string, bool> DialogueRead { get; set; }
 
     private Game()
     {
-        player = Player.GetPlayer();
-        levelfinishedlast = -1;
-        dialogueRead = new Dictionary<string, bool>();
+        Player = Player.GetPlayer();
+        lastLevelfinished = -1;
+        DialogueRead = new Dictionary<string, bool>();
     }
-    public static void setGame(Game game)
+
+    public void AddLevel()
+    {
+        lastLevelfinished++;
+        Information = null;
+        DialogueRead = new Dictionary<string, bool>();
+    }
+
+    public static void SetGame(Game game)
     {
         currentGame = game;
     }
+
     public static Game GetGame()
     {
         // if currentGame is null, make a new Game and return it. Otherwise return the existing Game
         return currentGame ?? (currentGame = new Game());
     }
-    public static void clearGame()
+
+    public static void ClearGame()
     {
         currentGame = new Game();
     }

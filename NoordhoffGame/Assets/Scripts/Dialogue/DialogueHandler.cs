@@ -30,10 +30,10 @@ namespace Assets.Scripts.Dialogue
 
 			json = new RetrieveJson();
 
-            if (Game.GetGame().dialogueRead.ContainsKey(model.NameOfPartner + model.Stage + model.DialogueCount))
+            if (Game.GetGame().DialogueRead.ContainsKey(model.NameOfPartner + model.Stage + model.DialogueCount))
             {
-                while(Game.GetGame().dialogueRead[model.NameOfPartner + model.Stage + model.DialogueCount] && 
-                    (characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1))
+                while(Game.GetGame().DialogueRead[model.NameOfPartner + model.Stage + model.DialogueCount] && 
+                    characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
                 {
                     characterModel.DialogueCount++;
                 }
@@ -70,7 +70,7 @@ namespace Assets.Scripts.Dialogue
 			// Final page of slide, so close dialogue screen
 			if (dialogue.IsEndOfDialogue())
 			{
-                Game.GetGame().dialogueRead[characterModel.NameOfPartner + characterModel.Stage + characterModel.DialogueCount] = true;
+                Game.GetGame().DialogueRead[characterModel.NameOfPartner + characterModel.Stage + characterModel.DialogueCount] = true;
                 SaveLoadGame.Save();
                 if (infoscreen != null)
                 {
