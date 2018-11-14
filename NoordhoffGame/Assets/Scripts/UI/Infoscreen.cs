@@ -2,6 +2,7 @@ using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Assets.Scripts.Dialogue;
 using Assets.Scripts.GameSaveLoad.Player;
 using UnityEngine;
 using UnityEngine.UI;
