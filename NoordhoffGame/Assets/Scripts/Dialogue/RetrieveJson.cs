@@ -18,6 +18,11 @@ namespace Assets.Scripts.Dialogue
 				path += nameOfPartner + "-" + stage + "-" + dialogueCount;
 			}
 
+            SaveLoadGame.Save();
+            if (!Game.GetGame().DialogueRead.ContainsKey(nameOfPartner + stage + dialogueCount))
+            {
+                Game.GetGame().DialogueRead.Add(nameOfPartner + stage + dialogueCount, false);
+            }
 			string jsonString = GetJsonString(path);
 
 			DialogueItem item = JsonMapper.ToObject<DialogueItem>(jsonString);
@@ -27,9 +32,9 @@ namespace Assets.Scripts.Dialogue
 		}
 	
 
-		public InterventionList LoadJsonInterventions(int level)
+		public InterventionList LoadJsonInterventions(string level)
 		{
-			string path = "InterventionFiles/InterventionsLevel_" + level;
+			string path = "InterventionFiles/Interventions" + level;
 
 			string jsonString = GetJsonString(path);
 
@@ -38,9 +43,9 @@ namespace Assets.Scripts.Dialogue
 			return item;
 		}
 
-		public InfoList LoadJsonInformation(int level)
+		public InfoList LoadJsonInformation(string level)
 		{
-			string path = "InformationFiles/InformationLevel_" + level;
+			string path = "InformationFiles/Information" + level;
 
 			string jsonString = GetJsonString(path);
 
