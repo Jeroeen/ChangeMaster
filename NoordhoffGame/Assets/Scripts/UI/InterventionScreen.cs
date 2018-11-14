@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Assets.Scripts;
+using Assets.Scripts.Dialogue;
 using UnityEngine.SceneManagement;
 
 public class InterventionScreen : MonoBehaviour
@@ -30,14 +31,22 @@ public class InterventionScreen : MonoBehaviour
 	private float textboxSizeX;
 	private float elementLimit;
 	private bool isFading;
+    private Game game;
 
 	// Start is called before the first frame update
 	void Start()
-	{
+    {
+        SaveLoadGame.Load();
+        game = Game.GetGame();
+        if (game.Player == null)
+        {
+            game.Player = Player.GetPlayer();
+            SaveLoadGame.Save();
+        }
+        player = Player.GetPlayer();
         //retrieve the list of interventions for this lvl(level 1) from the associated Json file
-		json = new RetrieveJson();
-		player = Player.GetPlayer();
-		interventions = json.LoadJsonInterventions(1);
+        json = new RetrieveJson();
+		interventions = json.LoadJsonInterventions(SceneManager.GetActiveScene().name);
 		//interventionScroll is the ScrollRect that contains the list of interventions to choose from
 		interventionScroll = interventionscreen.GetComponentInChildren<ScrollRect>();
 		//set the content element of the scrollview to the position 0,0 since, for some reason, sometimes it moves away from that position
@@ -162,6 +171,8 @@ public class InterventionScreen : MonoBehaviour
 		player.Convincing += selectedIntervention.Convincing;
 		player.Creative += selectedIntervention.Creative;
 		player.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
+        game.Player = player;
+        SaveLoadGame.Save();
 
 		//create the standard text element that will be used to instantiate all other text elements in this function
 		GameObject aText = Instantiate(text);
@@ -273,6 +284,7 @@ public class InterventionScreen : MonoBehaviour
 
 	public void FinishLevel()
 	{
+        game.AddLevel();
 		isFading = true;
 	}
 

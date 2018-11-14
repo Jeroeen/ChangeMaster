@@ -19,7 +19,8 @@ public class PlayerScript : MonoBehaviour
 	public void AddCoin()
 	{
 		CoinAmount.text = player.AddCoin().ToString();
-	}
+        Game.GetGame().Player.AddCoin();
+    }
 
 	public void AddCoins(int amount)
 	{

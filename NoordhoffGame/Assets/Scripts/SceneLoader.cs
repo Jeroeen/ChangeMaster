@@ -37,7 +37,8 @@ namespace Assets.Scripts
 				return;
 			}
 
-			if (!string.IsNullOrWhiteSpace(sceneToLoad))
+            SaveLoadGame.Save();
+            if (!string.IsNullOrWhiteSpace(sceneToLoad))
 			{
 				// Load specific scene
 				SceneManager.LoadScene(sceneToLoad);

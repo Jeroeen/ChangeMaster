@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Dialogue.Models;
+using Assets.Scripts.Dialogue.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,13 +23,25 @@ namespace Assets.Scripts.Dialogue
 
         public void Initialize(CharacterModel model)
 		{
-			characterModel = model;
+            SaveLoadGame.Load();
+
+            characterModel = model;
 			RetrieveAsset.RetrieveAssets();
 
 			json = new RetrieveJson();
-			dialogue = json.LoadJsonDialogue(model.NameOfPartner, model.Stage, model.DialogueCount);
 
-			nextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
+            if (Game.GetGame().DialogueRead.ContainsKey(model.NameOfPartner + model.Stage + model.DialogueCount))
+            {
+                while(Game.GetGame().DialogueRead[model.NameOfPartner + model.Stage + model.DialogueCount] && 
+                    characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
+                {
+                    characterModel.DialogueCount++;
+                }
+            }
+
+            dialogue = json.LoadJsonDialogue(model.NameOfPartner, model.Stage, model.DialogueCount);
+
+            nextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
 			prevButton.GetComponentInChildren<Text>().text = dialogue.PreviousButtonText;
 
 			partnerName.text = dialogue.NameOfSpeaker;
@@ -58,9 +70,12 @@ namespace Assets.Scripts.Dialogue
 			// Final page of slide, so close dialogue screen
 			if (dialogue.IsEndOfDialogue())
 			{
+                Game.GetGame().DialogueRead[characterModel.NameOfPartner + characterModel.Stage + characterModel.DialogueCount] = true;
+                SaveLoadGame.Save();
                 if (infoscreen != null)
                 {
                     infoscreen.ShowStakeholder(characterModel.NameOfPartner);
+                    infoscreen.SaveInformation();
                 }
                 CloseDialogue();
 				if (characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)

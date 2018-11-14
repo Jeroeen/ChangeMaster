@@ -1,7 +1,8 @@
-﻿using Assets.Scripts;
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Assets.Scripts.Dialogue;
 using Assets.Scripts.GameSaveLoad.Player;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,8 +39,15 @@ public class Infoscreen : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+        json = new RetrieveJson();
+        SaveLoadGame.Load();
+        if (Game.GetGame().Information == null)
+        {
+            Game.GetGame().Information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
+        }
+        information = Game.GetGame().Information;
+
         ShowStakeholders();
-        
     }
 
     //a function that will fill the stakeholders menu with the stakeholders and their opinion on the current problem
@@ -51,7 +59,7 @@ public class Infoscreen : MonoBehaviour
         json = new RetrieveJson();
         if (information == null)
         {
-            information = json.LoadJsonInformation(1);
+            information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
         }
         
         RetrieveAsset.RetrieveAssets();
@@ -115,7 +123,7 @@ public class Infoscreen : MonoBehaviour
         json = new RetrieveJson();
         if (information == null)
         {
-            information = json.LoadJsonInformation(1);
+            information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
         }
 
         for (int i = 0; i < information.InformationList.Length; i++)
@@ -137,6 +145,7 @@ public class Infoscreen : MonoBehaviour
         interventionButton.interactable = !interventionButton.IsInteractable();
         infoButton.interactable = !infoButton.IsInteractable();
         FillCharacterInfo();
+
     }
 
     //a function that will fill the character info menu
@@ -155,5 +164,16 @@ public class Infoscreen : MonoBehaviour
         playerName.text = "Naam: " + player.Name;
 
         function.text = "Functie: " + player.GetPlayerTitle();
+    }
+
+    public void SaveInformation()
+    {
+        Game.GetGame().Information = information;
+    }
+
+    public void ClearInformation()
+    {
+        Game.GetGame().Information = null;
+        SaveLoadGame.Save();
     }
 }
