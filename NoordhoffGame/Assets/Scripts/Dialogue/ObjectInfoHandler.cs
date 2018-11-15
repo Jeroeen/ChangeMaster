@@ -22,6 +22,7 @@ namespace Assets.Scripts.Dialogue
             if (infoscreen != null)
             {
                 infoscreen.ShowStakeholder(objectModel.Sprite.name);
+                infoscreen.SaveInformation();
             }
         }
 
