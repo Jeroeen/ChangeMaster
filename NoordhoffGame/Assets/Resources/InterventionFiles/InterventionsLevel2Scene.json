@@ -1,0 +1,92 @@
+{
+  "Interventions": [
+    {
+      "InterventionText": "Er komt een tweede kwaliteitscontroleur bij die alleen het zwembad doet en ook verantwoordelijk is voor alle acties.",
+      "Advice": "Dit kan leiden tot minder problemen, maar het kost het schip wel  extra geld wat niet terugverdient wordt.",
+      "Analytic": 1,
+      "Enthusiasm": 0,
+      "Decisive": 1,
+      "Empathic": 0,
+      "Convincing": -1,
+      "Creative": 0,
+      "ChangeKnowledge": -1
+    },
+    {
+      "InterventionText": "De supervisor haalt alle medewerkers bij elkaar voor een vergadering en daarin worden de procedures nog eens doorgenomen en de medewerkers worden aan gesproken zich hier beter aan te houden.",
+      "Advice": "De kern van het probleem wordt hier niet mee opgelost. Wellicht zal de badmeester elk uur een monster nemen, maar de analyse kan niet gedaan worden. Ook de medewerker catering weet niet hoe ze dit het beste op kan lossen. De externe druk kan zo wel verhoogd worden, maar medewerkers kunnen de verandering niet doorvoeren.",
+      "Analytic": -1,
+      "Enthusiasm": -1,
+      "Decisive": -1,
+      "Empathic": 0,
+      "Convincing": -1,
+      "Creative": 0,
+      "ChangeKnowledge": -1
+    },
+    {
+      "InterventionText": "De kwaliteitscontroleur krijgt mobiele testapparatuur, (kosten USD 30.000 per jaar voor aanschaf en onderhoud).",
+      "Advice": "Kijkend naar het proces, dan is volgens de theory of constraints, dit het eerste probleem. Door een mobiele testapparaat te geven, hoeft de kwaliteitscontroleur niet zoveel te lopen. Hij kan dan op tijd zijn. Maar hij moet nog wel alles zelf doen. Dus is het een marginale oplossing.",
+      "Analytic": 1,
+      "Enthusiasm": 0,
+      "Decisive": 1,
+      "Empathic": 1,
+      "Convincing": 1,
+      "Creative": 0,
+      "ChangeKnowledge": 1
+    },
+    {
+      "InterventionText": "De badmeester wordt aangesproken om meer regie te pakken en zelf acties te ondernemen als hij denkt dat het nodig is. Er wordt uitgegaan van het professionalisme van deze persoon, die weet wanneer hij/zij iets moet doen. Waar nodig krijgt hij een extra training.",
+      "Advice": "Door in te spelen op de taakverantwoordelijkheid van medewerkers, komen mensen in hun kracht. De badmeester wil waarschijnlijk wel, maar heeft kan het niet omdat hij/zij weinig invloed heeft op de kwaliteit van het water. Dus hij moet iets doen, wat hij niet kan. Training helpt daar niet bij.",
+      "Analytic": -1,
+      "Enthusiasm": -1,
+      "Decisive": 0,
+      "Empathic": 0,
+      "Convincing": 0,
+      "Creative": 0,
+      "ChangeKnowledge": 0
+    },
+    {
+      "InterventionText": "De mevrouw van de catering krijgt een training hoe ze klantvriendelijk, maar toch dwingend zorgt dat het er netter uit komt te zien.",
+      "Advice": "Het zal een kleine bijdrage leveren, maar is niet het kernprobleem. Alleen deze keuze, zorgt ervoor dat zij de schuld krijgt.",
+      "Analytic": -1,
+      "Enthusiasm": -1,
+      "Decisive": 0,
+      "Empathic": -1,
+      "Convincing": -1,
+      "Creative": 0,
+      "ChangeKnowledge": 0
+    },
+    {
+      "InterventionText": "Er komen meer bordjes waarop komt te staan, dat mensen hun afval moeten weggooien. Je speelt in op de volwassenheid van je klanten en probeert ze op te voeden.",
+      "Advice": "Dat is maar een klein deel van het probleem. En afval weggooien is iets in de publieke ruimte erg lastig is. En als er al afval ligt, zijn mensen minder geneigd het zelf weg te gooien.",
+      "Analytic": -1,
+      "Enthusiasm": -1,
+      "Decisive": 0,
+      "Empathic": -1,
+      "Convincing": 0,
+      "Creative": 1,
+      "ChangeKnowledge": -1
+    },
+    {
+      "InterventionText": "Er wordt een nieuw systeem aangeschaft en geïnstalleerd waarmee de kwaliteitscontroleur niets meer hoeft te doen. Het water wordt automatisch  schoon gemaakt. De badmeester wordt getraind in het gebruik er van.",
+      "Advice": "Dit is een forse investering, maar omdat de kwaliteitscontroleur niet meer nodig is, bespaar je kosten. De kwaliteit van het water verbeterd sterk, waardoor klanttevredenheid om hoog gaat. Door automatische toediening van chloor en Ph, wordt er minder gebruikt. Deze investering kost geld, maar verdient zich terug.",
+      "Analytic": 1,
+      "Enthusiasm": 1,
+      "Decisive": 1,
+      "Empathic": -1,
+      "Convincing": 1,
+      "Creative": 1,
+      "ChangeKnowledge": 1
+    },
+    {
+      "InterventionText": "Het proceshandboek wordt aangepast met heldere taken, bevoegdheden en verantwoordelijkheden die aansluit bij de werkelijkheid.",
+      "Advice": "Dat lost het probleem niet op. Het probleem blijft, maar er is geen verschil meer tussen het handboek en de praktijk.",
+      "Analytic": 1,
+      "Enthusiasm": 1,
+      "Decisive": 1,
+      "Empathic": -1,
+      "Convincing": 1,
+      "Creative": 1,
+      "ChangeKnowledge": 1
+    }
+  ]
+}
