@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Assets.Scripts.GameSaveLoad;
 using UnityEngine;
 using Assets.Scripts.GameSaveLoad.Player;
 
