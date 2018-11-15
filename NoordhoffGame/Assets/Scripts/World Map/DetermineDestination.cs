@@ -7,7 +7,7 @@ namespace Assets.Scripts
 	public class DetermineDestination : MonoBehaviour
 	{
 		private bool isFading;
-		private GameObject destionationObject;
+		private GameObject destinationObject;
 
 		[SerializeField] private Text textObject;
 		[SerializeField] private GameObject confirmDialogue;
@@ -16,8 +16,8 @@ namespace Assets.Scripts
 
 		public void DestinationClick(GameObject obj)
 		{
-			destionationObject = obj;
-			textObject.text = destionationObject.name;
+			destinationObject = obj;
+			textObject.text = destinationObject.name;
 			confirmDialogue.SetActive(true);
 		}
 
@@ -43,10 +43,9 @@ namespace Assets.Scripts
 				// This will load the next scene once saving and loading the game is implemented
 				// Must also save the next destination so it can be used in the future.
 				var game = GameSaveLoad.Game.GetGame();
-				game.CurrentDestination = destionationObject.name;
-				Debug.Log(game.CurrentDestination);
+				game.CurrentDestination = destinationObject.name;
 
-				SceneManager.LoadScene(game.LastLevelFinished + 1);
+				SceneManager.LoadScene(game.LastFinishedLevel + 1);
 			}
 
 		}

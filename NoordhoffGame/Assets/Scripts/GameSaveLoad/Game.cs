@@ -8,7 +8,7 @@ namespace Assets.Scripts.GameSaveLoad
 		public static Game CurrentGame {  set; private get; }
 		public Player.Player Player { get; set; }
 		public InfoList Information { get; set; }
-		public int LastLevelFinished { get; set; }
+		public int LastFinishedLevel { get; set; }
 		public Dictionary<string, bool> DialogueRead { get; set; }
 		public string CurrentDestination { get; set; }
 		public string CurrentLocation { get; set; }
@@ -16,7 +16,9 @@ namespace Assets.Scripts.GameSaveLoad
 		private Game()
 		{
 			Player = GameSaveLoad.Player.Player.GetPlayer();
-			LastLevelFinished = -1;
+			// This must be changed to 2 once level 0 is implemented
+			// Base is 4 because of the StageChooser-Opening Cutscene-Character Creation-Bridge
+			LastFinishedLevel = 3;
 			DialogueRead = new Dictionary<string, bool>();
 		}
 
@@ -24,7 +26,7 @@ namespace Assets.Scripts.GameSaveLoad
 		{
 			CurrentLocation = CurrentDestination;
 			CurrentDestination = null;
-			LastLevelFinished++;
+			LastFinishedLevel++;
 			Information = null;
 			DialogueRead = new Dictionary<string, bool>();
 		}
