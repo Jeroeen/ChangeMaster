@@ -22,7 +22,9 @@ public class CameraController : MonoBehaviour
 
 	void Start()
 	{
-		transform.position = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
+		float cameraOffset = 1.5f;
+
+		transform.position = new Vector3(transform.position.x, transform.position.y + cameraOffset, transform.position.z);
 		zoomValue = minZoom;
 
 		ViewportHandler.UnitsSize = zoomValue;
@@ -56,16 +58,20 @@ public class CameraController : MonoBehaviour
 	{
 		if (Input.GetMouseButton(0))
 		{
-			transform.position -= new Vector3(Input.GetAxis("Mouse X") * zoomValue * Time.deltaTime, Input.GetAxis("Mouse Y") * zoomValue * Time.deltaTime, 0);
+			transform.position -= new Vector3(Input.GetAxis("Mouse X") * zoomValue * Time.deltaTime,
+											  Input.GetAxis("Mouse Y") * zoomValue * Time.deltaTime,
+											  0);
 		}
+
+		const int pcZoomMultiplier = 6;
 
 		if (Input.GetKey("up"))
 		{
-			zoomValue += zoomSpeed * 6 * Time.deltaTime;
+			zoomValue += zoomSpeed * pcZoomMultiplier * Time.deltaTime;
 		}
 		else if (Input.GetKey("down"))
 		{
-			zoomValue -= zoomSpeed * 6 * Time.deltaTime;
+			zoomValue -= zoomSpeed * pcZoomMultiplier * Time.deltaTime;
 		}
 	}
 
@@ -92,17 +98,17 @@ public class CameraController : MonoBehaviour
 			Vector2 firstTouchPrevPos = firstTouch.position - firstTouch.deltaPosition;
 			Vector2 secondTouchPrevPos = secondTouch.position - secondTouch.deltaPosition;
 
-			float touchesPrevPosDifference = (firstTouchPrevPos - secondTouchPrevPos).magnitude;
-			float touchesCurPosDifference = (firstTouch.position - secondTouch.position).magnitude;
+			float prevPosDifference = (firstTouchPrevPos - secondTouchPrevPos).magnitude;
+			float curPosDifference = (firstTouch.position - secondTouch.position).magnitude;
 
 			float zoomModifier = (firstTouch.deltaPosition - secondTouch.deltaPosition).magnitude * zoomSpeed;
 
-			if (touchesPrevPosDifference > touchesCurPosDifference)
+			if (prevPosDifference > curPosDifference)
 			{
 				zoomValue += zoomModifier * Time.deltaTime;
 			}
 
-			if (touchesPrevPosDifference < touchesCurPosDifference)
+			if (prevPosDifference < curPosDifference)
 			{
 				zoomValue -= zoomModifier * Time.deltaTime;
 			}
