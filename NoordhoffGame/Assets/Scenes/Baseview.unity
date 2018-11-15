@@ -1544,7 +1544,7 @@ Camera:
   far clip plane: 500
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 8.005876
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1590,6 +1590,7 @@ MonoBehaviour:
   zoomSpeed: 2
   minZoom: 16
   maxZoom: 33
+  startPosition: {fileID: 1899222747}
   ViewportHandler: {fileID: 519420030}
   TilemapHandler: {fileID: 1395098297}
   Camera: {fileID: 519420031}
@@ -7054,7 +7055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stage: B
-  DialogueCount: -1
   AmountOfDialogues: -1
   NameOfPartner: Kapitein
 --- !u!1001 &5557334827466282485

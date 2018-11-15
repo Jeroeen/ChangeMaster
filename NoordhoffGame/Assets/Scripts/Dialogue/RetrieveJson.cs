@@ -12,11 +12,11 @@ namespace Assets.Scripts.Dialogue
 			string path = "DialogueFiles/";
 			if (dialogueCount < 0)
 			{
-				path += nameOfPartner + "-" + stage;
+				path += stage + "/" + nameOfPartner;
 			}
 			else
 			{
-				path += nameOfPartner + "-" + stage + "-" + dialogueCount;
+				path += stage + "/" + nameOfPartner + "-" + dialogueCount;
 			}
 
             SaveLoadGame.Save();

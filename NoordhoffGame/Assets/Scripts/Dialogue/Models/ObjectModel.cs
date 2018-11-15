@@ -9,6 +9,6 @@ namespace Assets.Scripts.Dialogue.Models
 {
 	public class ObjectModel : MonoBehaviour
 	{
-		public string Sprite;
+		public Sprite Sprite;
 	}
 }

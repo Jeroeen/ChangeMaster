@@ -15,17 +15,17 @@ namespace Assets.Scripts.Dialogue
 		private Button infoButton;
         [SerializeField]
         private Infoscreen infoscreen;
+        [SerializeField]
+        private Button interventionButton;
 
         public void Initialize(ObjectModel objectModel)
 		{
-			RetrieveAsset.RetrieveAssets();
-			spriteRenderer.sprite = RetrieveAsset.GetSpriteByName(objectModel.Sprite);
+			spriteRenderer.sprite = objectModel.Sprite;
             if (infoscreen != null)
             {
-                infoscreen.ShowStakeholder(objectModel.Sprite);
+                infoscreen.ShowStakeholder(objectModel.Sprite.name);
                 infoscreen.SaveInformation();
             }
-            
         }
 
 		public void CloseInfo()
@@ -36,6 +36,9 @@ namespace Assets.Scripts.Dialogue
 			{
 				infoButton.interactable = true;
 				settingButton.interactable = true;
+			    interventionButton.interactable = true;
+
+
 			}
 		}
 	}

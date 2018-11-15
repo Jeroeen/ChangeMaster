@@ -1,31 +1,35 @@
 {
-  "InformationList": 
-	[
-		 {
-		"Image":"Kapitein",
-		"Text":"ik ben het er niet mee eens"
-		},{
-		"Image":"Animatiemedewerker",
-		"Text":"Ik weet dat die andere niet echt ziek zijn, maar ze zijn onze teamleider zat. Hoorde je haar schreeuwen. Dat doet zij anders nog harder, De teamleider kan niet zo goed opschieten met deze 2 medewerkers en ze worden gepest door haar."
-		},
-		{
-		"Image":"Verzuimgrafiek",
-		"Text":"Waarom ben ik hier, ik ben een Boekenkast, ik kan niet praten."
-		},
-		{
-		"Image":"Animatiemedewerker_ziek",
-		"Text":"Waarom ben ik hier, ik ben ziek"
-		},
-		{
-		"Image":"Roostercloseup",
-		"Text":"Waarom ben ik hier, ik ben een roosteroverzicht"
-		},
-		{
-		"Image":"Teamleider",
-		"Text":"Waarom ben ik hier, ik ben een Teamleider"
-		}
-		
-	]
+  "InformationList": [
+    {
+      "Image": "Kapitein",
+      "Text": "Twee animatiemedewerkers die veel uren werken hebben zich ziek gemeld."
+    },
+    {
+      "Image": "Animatiemedewerker1",
+      "Text": "De animatiemedewerkers zijn niet echt ziek."
+    },
+    {
+      "Image": "Animatiemedewerker2",
+      "Text": "De animatiemedewerkers worden gepest door hun teamleider."
+    },
+    {
+      "Image": "Verzuimgrafiek",
+      "Text": "Het ziekteverzuim is in de laatste maanden 8,5%. Normaal is dat 2,5%."
+    },
+    {
+      "Image": "Animatiemedewerker_ziek",
+      "Text": "Wij doen graag ons werk als wij niet gepest worden."
+    },
+    {
+      "Image": "Roostercloseup",
+      "Text": "De animatiemedewerkers werken gebroken diensten."
+    },
+    {
+      "Image": "Teamleider",
+      "Text": "Ik heb gehoord dat de animatiemedewerkers mij weg willen hebben."
+    }
+
+  ]
 	
     
 }

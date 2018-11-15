@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
 	[SerializeField] private int minZoom = 16;
 	[SerializeField] private int maxZoom = 33;
 
+    [SerializeField] private Transform startPosition;
+
 	public ViewportHandler ViewportHandler;
 	public TilemapHandler TilemapHandler;
 	public Camera Camera;
@@ -22,10 +24,9 @@ public class CameraController : MonoBehaviour
 
 	void Start()
 	{
-		float cameraOffset = 1.5f;
+	    transform.position = new Vector3(startPosition.position.x, startPosition.position.y, transform.position.z);
 
-		transform.position = new Vector3(transform.position.x, transform.position.y + cameraOffset, transform.position.z);
-		zoomValue = minZoom;
+        zoomValue = minZoom;
 
 		ViewportHandler.UnitsSize = zoomValue;
 	}

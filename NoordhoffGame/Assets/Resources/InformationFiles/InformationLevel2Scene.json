@@ -1,0 +1,34 @@
+{
+  "InformationList": [
+    {
+      "Image": "Kapitein",
+      "Text": "Er zijn veel klachten over het water, los het maar op!"
+    },
+    {
+      "Image": "Badmeester",
+      "Text": "Ik neem testmonsters, maar analyseer ze niet"
+    },
+    {
+      "Image": "Catering",
+      "Text": "De gasten maken er een rommel van, maar ik mag er niets aan doen!"
+    },
+    {
+      "Image": "Kwaliteitscontroleur",
+      "Text": "Ik moet hier testen, maar ook in de sauna. Ik moet de hele tijd heen en weer rennen en de badmeester doet niets!"
+    },
+    {
+      "Image": "Schoonmaakster",
+      "Text": "Ik moet elke 4 uur het zwembad schoonmaken. De catering mag wel wat extra doen."
+    },
+    {
+      "Image": "Supervisor",
+      "Text": "Er moet een nieuwe stillere pomp komen!"
+    },
+    {
+      "Image": "Zwembadgast",
+      "Text": "Dat water is vies, ik ga er niet meer in!"
+    }
+  ]
+	
+    
+}
