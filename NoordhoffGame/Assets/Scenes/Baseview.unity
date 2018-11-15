@@ -982,11 +982,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05a8cbde2a229d4f8579c1c35b64ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueHandler: {fileID: 780742647}
+  dialogueHandler: {fileID: 780742647}
   dialogue: {fileID: 780742645}
-  transition: {fileID: 714881147}
-  infoButton: {fileID: 0}
-  settingsButton: {fileID: 0}
 --- !u!1 &343999721
 GameObject:
   m_ObjectHideFlags: 0
