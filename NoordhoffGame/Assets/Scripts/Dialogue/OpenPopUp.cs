@@ -21,8 +21,6 @@ namespace Assets.Scripts.Dialogue
 			DialogueHandler component = dialogue.GetComponent<DialogueHandler>();
 			component.Initialize(characterModel);
 			dialogue.SetActive(true);
-
-            Debug.Log(characterModel.DialogueCount);
 		}
 
 		public void StartObjectInfo(ObjectModel objectModel)

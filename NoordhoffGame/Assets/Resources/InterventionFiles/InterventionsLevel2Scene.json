@@ -2,7 +2,7 @@
   "Interventions": [
     {
       "InterventionText": "Er komt een tweede kwaliteitscontroleur bij die alleen het zwembad doet en ook verantwoordelijk is voor alle acties.",
-      "Advice": "Dit kan leiden tot minder problemen, maar het kost het schip wel  extra geld wat niet terugverdient wordt.",
+      "Advice": "Dit kan leiden tot minder problemen, maar het kost het schip wel extra geld wat niet terugverdient wordt.",
       "Analytic": 1,
       "Enthusiasm": 0,
       "Decisive": 1,
@@ -12,7 +12,7 @@
       "ChangeKnowledge": -1
     },
     {
-      "InterventionText": "De supervisor haalt alle medewerkers bij elkaar voor een vergadering en daarin worden de procedures nog eens doorgenomen en de medewerkers worden aan gesproken zich hier beter aan te houden.",
+      "InterventionText": "De supervisor haalt alle medewerkers bij elkaar voor een vergadering en daarin worden de procedures nog eens doorgenomen en de medewerkers worden aangesproken zich hier beter aan te houden.",
       "Advice": "De kern van het probleem wordt hier niet mee opgelost. Wellicht zal de badmeester elk uur een monster nemen, maar de analyse kan niet gedaan worden. Ook de medewerker catering weet niet hoe ze dit het beste op kan lossen. De externe druk kan zo wel verhoogd worden, maar medewerkers kunnen de verandering niet doorvoeren.",
       "Analytic": -1,
       "Enthusiasm": -1,
@@ -24,7 +24,7 @@
     },
     {
       "InterventionText": "De kwaliteitscontroleur krijgt mobiele testapparatuur, (kosten USD 30.000 per jaar voor aanschaf en onderhoud).",
-      "Advice": "Kijkend naar het proces, dan is volgens de theory of constraints, dit het eerste probleem. Door een mobiele testapparaat te geven, hoeft de kwaliteitscontroleur niet zoveel te lopen. Hij kan dan op tijd zijn. Maar hij moet nog wel alles zelf doen. Dus is het een marginale oplossing.",
+      "Advice": "Dit is het eerste probleem volgens de theory of constraints als je naar het proces kijkt. Door een mobiele testapparaat te geven, hoeft de kwaliteitscontroleur niet zoveel te lopen. Hij kan dan op tijd zijn, maar hij moet nog wel alles zelf doen. Dus is het een marginale oplossing.",
       "Analytic": 1,
       "Enthusiasm": 0,
       "Decisive": 1,
@@ -67,8 +67,8 @@
       "ChangeKnowledge": -1
     },
     {
-      "InterventionText": "Er wordt een nieuw systeem aangeschaft en geïnstalleerd waarmee de kwaliteitscontroleur niets meer hoeft te doen. Het water wordt automatisch  schoon gemaakt. De badmeester wordt getraind in het gebruik er van.",
-      "Advice": "Dit is een forse investering, maar omdat de kwaliteitscontroleur niet meer nodig is, bespaar je kosten. De kwaliteit van het water verbeterd sterk, waardoor klanttevredenheid om hoog gaat. Door automatische toediening van chloor en Ph, wordt er minder gebruikt. Deze investering kost geld, maar verdient zich terug.",
+      "InterventionText": "Er wordt een nieuw systeem aangeschaft en geïnstalleerd waarmee de kwaliteitscontroleur niets meer hoeft te doen. Het water wordt automatisch schoon gemaakt. De badmeester wordt getraind in het gebruik er van.",
+      "Advice": "Dit is een forse investering, maar omdat de kwaliteitscontroleur niet meer nodig is, bespaar je kosten. De kwaliteit van het water verbetert sterk, waardoor klanttevredenheid om hoog gaat. Door automatische toediening van chloor en Ph, wordt er minder gebruikt. Deze investering kost geld, maar verdient zich terug.",
       "Analytic": 1,
       "Enthusiasm": 1,
       "Decisive": 1,

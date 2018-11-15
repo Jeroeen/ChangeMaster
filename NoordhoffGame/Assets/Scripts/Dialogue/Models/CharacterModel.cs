@@ -4,9 +4,9 @@ namespace Assets.Scripts.Dialogue.Models
 {
 	public class CharacterModel : MonoBehaviour
 	{
-		public string Stage;
-
 	    private int dialogueCount;
+
+        public string Stage;
 
 	    [HideInInspector]
 	    public int DialogueCount
