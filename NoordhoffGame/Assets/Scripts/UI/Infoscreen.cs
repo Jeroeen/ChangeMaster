@@ -49,14 +49,15 @@ public class Infoscreen : MonoBehaviour
         information = Game.GetGame().Information;
 
         ShowStakeholders();
+        stakeholdersButton.interactable = false;
+        infoScreen.SetActive(false);
     }
 
     //a function that will fill the stakeholders menu with the stakeholders and their opinion on the current problem
     private void ShowStakeholders()
     {
         position = new Vector2(0.0f, -5.0f);
-
-        stakeholdersButton.interactable = false;
+        
         json = new RetrieveJson();
         if (information == null)
         {

@@ -11,7 +11,7 @@ namespace Assets.Scripts.Dialogue.Models
 	    [HideInInspector]
 	    public int DialogueCount
 	    {
-	        get => AmountOfDialogues > 1 ? 0 : -1;
+	        get => AmountOfDialogues > 1 ? dialogueCount : -1;
 	        set => dialogueCount = value;
 	    }
 
