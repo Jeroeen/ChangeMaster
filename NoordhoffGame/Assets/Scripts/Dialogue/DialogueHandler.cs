@@ -1,4 +1,5 @@
 using Assets.Scripts.Dialogue.Models;
+using Assets.Scripts.GameSaveLoad;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +33,8 @@ namespace Assets.Scripts.Dialogue
 
             if (Game.GetGame().DialogueRead.ContainsKey(model.NameOfPartner + model.Stage + model.DialogueCount))
             {
-                while(Game.GetGame().DialogueRead[model.NameOfPartner + model.Stage + model.DialogueCount] && 
+                while(Game.GetGame().DialogueRead.ContainsKey(model.NameOfPartner + model.Stage + model.DialogueCount) &&
+                    Game.GetGame().DialogueRead[model.NameOfPartner + model.Stage + model.DialogueCount] && 
                     characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
                 {
                     characterModel.DialogueCount++;

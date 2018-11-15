@@ -22,14 +22,20 @@ namespace Assets.Scripts
 
 		void Update()
 		{
-			if (!isFading) return;
+			if (!isFading)
+			{
+				return;
+			}
 
 			if (!transition.transform.gameObject.activeSelf)
 			{
 				transition.transform.gameObject.SetActive(true);
 			}
 
-			if (!transition.FadeOut()) return;
+			if (!transition.FadeOut())
+			{
+				return;
+			}
 
             SaveLoadGame.Save();
             if (!string.IsNullOrWhiteSpace(sceneToLoad))

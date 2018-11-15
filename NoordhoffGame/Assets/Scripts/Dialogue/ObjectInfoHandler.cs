@@ -15,6 +15,8 @@ namespace Assets.Scripts.Dialogue
 		private Button infoButton;
         [SerializeField]
         private Infoscreen infoscreen;
+        [SerializeField]
+        private Button interventionButton;
 
         public void Initialize(ObjectModel objectModel)
 		{
@@ -34,6 +36,9 @@ namespace Assets.Scripts.Dialogue
 			{
 				infoButton.interactable = true;
 				settingButton.interactable = true;
+			    interventionButton.interactable = true;
+
+
 			}
 		}
 	}
