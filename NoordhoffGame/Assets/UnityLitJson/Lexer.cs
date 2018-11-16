@@ -6,11 +6,10 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace LitJson {
+namespace Assets.UnityLitJson {
 
 internal class FsmContext {
 	public Lexer L;

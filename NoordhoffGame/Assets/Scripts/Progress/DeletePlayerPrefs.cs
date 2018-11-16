@@ -1,12 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.GameSaveLoad;
 using UnityEngine;
 
-public class DeletePlayerPrefs : MonoBehaviour
+namespace Assets.Scripts.Progress
 {
-    public void DeletePrefs()
-    {
-        SaveLoadGame.DeleteSave();
-	    PlayerPrefs.DeleteAll();
-    }
+	public class DeletePlayerPrefs : MonoBehaviour
+	{
+		public void DeletePrefs()
+		{
+			SaveLoadGame.DeleteSave();
+			PlayerPrefs.DeleteAll();
+		}
+	}
 }
