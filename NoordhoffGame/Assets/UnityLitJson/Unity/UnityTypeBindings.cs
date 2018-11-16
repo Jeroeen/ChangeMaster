@@ -1,12 +1,9 @@
 ﻿#if !JSON_STANDALONE
 
-using UnityEngine;
 using System;
-using System.Collections;
+using UnityEngine;
 
-using LitJson.Extensions;
-
-namespace LitJson {
+namespace Assets.UnityLitJson.Unity {
 
 	#if UNITY_EDITOR
 	[UnityEditor.InitializeOnLoad]

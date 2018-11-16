@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public struct Info
+namespace Assets.Scripts.UI
 {
-    public string Image;
-    public string Text;
-    public bool Found;
-}
+	[System.Serializable]
+	public struct Info
+	{
+		public string Image;
+		public string Text;
+		public bool Found;
+	}
 
-[System.Serializable]
-public class InfoList
-{
-    public Info[] InformationList;
+	[System.Serializable]
+	public class InfoList
+	{
+		public Info[] InformationList;
 
-    public InfoList()
-    {
+		public InfoList()
+		{
 
-    }
+		}
 
-    public InfoList(Info[] Information)
-    {
-        InformationList = Information;
-    }
+		public InfoList(Info[] Information)
+		{
+			InformationList = Information;
+		}
+	}
 }

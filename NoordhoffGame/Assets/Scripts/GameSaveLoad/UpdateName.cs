@@ -1,25 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UpdateName : MonoBehaviour
+namespace Assets.Scripts.GameSaveLoad
 {
-    [SerializeField] private InputField field;
-    [SerializeField] private Text errorMessage;
+	public class UpdateName : MonoBehaviour
+	{
+		[SerializeField] private InputField field;
+		[SerializeField] private Text errorMessage;
 
-    public void CreateName()
-    {
-        if (field.text.Length <= 15)
-        {
-            errorMessage.text = "";
-            PlayerPrefs.SetString("PlayerName", field.text);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else
-        {
-            errorMessage.text = "De ingevulde naam is te lang, maximaal 15 tekens is toegestaan.";
-        }
-    }
+		public void CreateName()
+		{
+			if (field.text.Length <= 15)
+			{
+				errorMessage.text = "";
+				PlayerPrefs.SetString("PlayerName", field.text);
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			}
+			else
+			{
+				errorMessage.text = "De ingevulde naam is te lang, maximaal 15 tekens is toegestaan.";
+			}
+		}
+	}
 }

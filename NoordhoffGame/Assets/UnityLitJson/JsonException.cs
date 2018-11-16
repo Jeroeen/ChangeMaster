@@ -7,7 +7,7 @@
 
 using System;
 
-namespace LitJson {
+namespace Assets.UnityLitJson {
 
 	/// <summary>
 	/// Base class throwed by LitJSON when a parsing error occurs.

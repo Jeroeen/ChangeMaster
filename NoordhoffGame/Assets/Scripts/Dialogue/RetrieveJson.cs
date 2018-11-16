@@ -1,6 +1,8 @@
 ﻿using System;
+using Assets.Scripts.Dialogue.JsonItems;
 using Assets.Scripts.GameSaveLoad;
-using LitJson;
+using Assets.Scripts.UI;
+using Assets.UnityLitJson;
 using UnityEngine;
 
 namespace Assets.Scripts.Dialogue

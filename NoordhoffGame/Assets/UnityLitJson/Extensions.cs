@@ -1,7 +1,4 @@
-using UnityEngine;
-using System.Collections;
-
-namespace LitJson.Extensions
+namespace Assets.UnityLitJson
 {
 
     public static class Extensions

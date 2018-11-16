@@ -1436,7 +1436,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.25
+  orthographic size: 8.2401905
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1844,6 +1844,11 @@ RectTransform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5557334827172231683, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
   m_PrefabInstance: {fileID: 5557334827466282485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &783240179 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3312885523979047636, guid: b31388bb84950dc40a1980d240f0d3d0, type: 3}
+  m_PrefabInstance: {fileID: 1685248011}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &832951950
 GameObject:
@@ -7377,13 +7382,16 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 3312885523979047636, guid: b31388bb84950dc40a1980d240f0d3d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 22.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312885523979047636, guid: b31388bb84950dc40a1980d240f0d3d0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31388bb84950dc40a1980d240f0d3d0, type: 3}
---- !u!4 &1685248012 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 478198710630758069, guid: b31388bb84950dc40a1980d240f0d3d0, type: 3}
-  m_PrefabInstance: {fileID: 1685248011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1721911398 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1658599544136022543, guid: 39add28fd5e530145a099e05a5e39182, type: 3}
@@ -7427,7 +7435,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1685248012}
+  - {fileID: 783240179}
   - {fileID: 1899222747}
   - {fileID: 6371112}
   - {fileID: 54258446}
@@ -8201,7 +8209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -792.99994
+      value: -793
       objectReference: {fileID: 0}
     - target: {fileID: 217933842397571079, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_IsActive

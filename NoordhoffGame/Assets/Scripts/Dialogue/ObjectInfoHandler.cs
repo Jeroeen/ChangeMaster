@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Dialogue.Models;
+using Assets.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 

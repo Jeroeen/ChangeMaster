@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 
-namespace LitJson {
+namespace Assets.UnityLitJson {
 
 /// <summary>
 /// Generic type to hold JSON data (objects, arrays, and so on).

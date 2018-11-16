@@ -11,7 +11,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace LitJson {
+namespace Assets.UnityLitJson {
 
 internal enum Condition {
 	InArray,
