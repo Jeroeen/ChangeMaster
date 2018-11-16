@@ -8,7 +8,7 @@
 using System.Collections;
 using System.Collections.Specialized;
 
-namespace LitJson {
+namespace Assets.UnityLitJson {
 
 /// <summary>
 /// This enum contains the possible types a JSON value can have.

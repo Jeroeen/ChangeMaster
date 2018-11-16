@@ -10,10 +10,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Reflection;
 using System.Linq;
+using System.Reflection;
 
-namespace LitJson {
+namespace Assets.UnityLitJson {
 
 internal struct PropertyMetadata {
 	public Type Type { get; set; }

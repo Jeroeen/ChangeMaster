@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Cutscene;
+using Assets.Scripts.GameSaveLoad;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.World_Map
 {
 	public class DetermineDestination : MonoBehaviour
 	{
@@ -13,6 +15,14 @@ namespace Assets.Scripts
 		[SerializeField] private GameObject confirmDialogue;
 		[SerializeField] private GameObject uiElements;
 		[SerializeField] private Transition transition;
+
+		public void Activate()
+		{
+			if (!Game.GetGame().InLevel)
+			{
+				gameObject.SetActive(true);
+			}
+		}
 
 		public void DestinationClick(GameObject obj)
 		{
@@ -40,11 +50,13 @@ namespace Assets.Scripts
 			}
 			else if (transition.FadeOut())
 			{
-				var game = GameSaveLoad.Game.GetGame();
+				var game = Game.GetGame();
 				game.CurrentDestination = destinationObject.name;
+				game.InLevel = true;
+				SaveLoadGame.Save();
 
 				// Load next level
-				SceneManager.LoadScene(game.LastFinishedLevel + 1);
+				SceneManager.LoadScene(game.CurrentLevelIndex);
 			}
 		}
 	}

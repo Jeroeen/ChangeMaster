@@ -393,7 +393,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1658599544136022531}
-        m_MethodName: StartFading
+        m_MethodName: StartFadingToBridge
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

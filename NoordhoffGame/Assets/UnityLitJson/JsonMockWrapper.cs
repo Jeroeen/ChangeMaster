@@ -9,7 +9,7 @@ using System;
 using System.Collections;
 using System.Collections.Specialized;
 
-namespace LitJson
+namespace Assets.UnityLitJson
 {
 
     /// <summary>

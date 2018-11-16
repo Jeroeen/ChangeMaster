@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Cutscene;
+using Assets.Scripts.GameSaveLoad;
+using Assets.Scripts.Utility;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -6,29 +9,50 @@ namespace Assets.Scripts
 {
 	public class SceneLoader : MonoBehaviour
 	{
-		private bool isFading;
+		private bool isFadingToBridge;
+		private bool isFadingToLevel;
 
 		[SerializeField] private Transition transition;
-		[SerializeField] private string sceneToLoad;
-
+		[SerializeField] private Text uiText;
 		[SerializeField] private Button settingsButton;
 		[SerializeField] private Button infoButton;
 		[SerializeField] private Button interventionButton;
+		[SerializeField] private GameObject uiElements;
+
+		public void Activate()
+		{
+			if (Game.GetGame().InLevel)
+			{
+				gameObject.SetActive(true);
+			}
+		}
 
 		void Start()
 		{
-			ChangeInteractability(false);
+			// Level to Bridge
+			if (settingsButton != null && infoButton != null && interventionButton != null)
+			{
+				ChangeInteractability(false);
+			}
+			else // Bridge to level
+			{
+				uiText.text += Game.GetGame().CurrentLevelNumber + "?";
+			}
 		}
 
 		void Update()
 		{
-			if (!isFading)
+			if (!isFadingToBridge && !isFadingToLevel)
 			{
 				return;
 			}
 
 			if (!transition.transform.gameObject.activeSelf)
 			{
+				if (uiElements)
+				{
+					uiElements.SetActive(false);
+				}
 				transition.transform.gameObject.SetActive(true);
 			}
 
@@ -38,18 +62,28 @@ namespace Assets.Scripts
 			}
 
             SaveLoadGame.Save();
-            if (!string.IsNullOrWhiteSpace(sceneToLoad))
+			
+			if (isFadingToBridge)
 			{
-				// Load specific scene
-				SceneManager.LoadScene(sceneToLoad);
+				// Load bridge
+				SceneManager.LoadScene(GlobalVariablesHelper.BRIDGE_SCENE_INDEX);
 			}
-			// Load bridge
-			SceneManager.LoadScene(3);
+			else // Fading to level
+			{
+				// Load current level
+				Game game = Game.GetGame();
+				SceneManager.LoadScene(game.CurrentLevelIndex);
+			}
 		}
 
-		public void StartFading()
+		public void StartFadingToBridge()
 		{
-			isFading = true;
+			isFadingToBridge = true;
+		}
+
+		public void StartFadingToLevel()
+		{
+			isFadingToLevel = true;
 		}
 
 		private void ChangeInteractability(bool boolean)
