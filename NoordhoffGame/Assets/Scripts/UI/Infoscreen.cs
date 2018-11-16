@@ -135,6 +135,7 @@ public class Infoscreen : MonoBehaviour
                 information.InformationList[i].Found = true;
             }
         }
+        Game.GetGame().Information = information;
         ShowStakeholders();
     }
 

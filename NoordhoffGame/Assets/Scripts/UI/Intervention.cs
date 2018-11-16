@@ -5,6 +5,7 @@ using UnityEngine;
 public class Intervention
 {
     
+    public string InterventionImage { get; set; }
     public string InterventionText { get; set; }
     public string Advice { get; set; }
     public int Analytic { get; set; }
