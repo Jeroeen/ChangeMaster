@@ -65,7 +65,6 @@ namespace Assets.Scripts.UI
             {
                 if (!game.Information.InformationList[i].Found)
                 {
-                    Debug.Log("Hallodielo");
                     ShowWarning();
                     break;
                 }
