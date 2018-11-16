@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.GameSaveLoad.Player;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using Assets.Scripts;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Cutscene;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.GameSaveLoad;
+using Assets.Scripts.Utility;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class InterventionScreen : MonoBehaviour
+namespace Assets.Scripts.UI
 {
     [SerializeField] private Button interventionButton;
     [SerializeField] private Button infoButton;

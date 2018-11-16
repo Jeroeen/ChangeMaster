@@ -1,37 +1,42 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.CameraBehaviour;
+using Assets.Scripts.Cutscene;
+using Assets.Scripts.GameSaveLoad;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InitializeFade : MonoBehaviour
+namespace Assets.Scripts.Initialization
 {
-	[SerializeField]
-	private Transition transition;
-
-	[SerializeField]
-	private CameraController controller;
-
-	private bool isFaded;
-
-	void Start()
+	public class InitializeFade : MonoBehaviour
 	{
-		PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
-	}
+		[SerializeField]
+		private Transition transition;
 
-    // Update is called once per frame
-    void Update()
-    {
-	    if (isFaded)
-	    {
-		    return;
-	    }
+		[SerializeField]
+		private CameraController controller;
 
-	    if (transition.FadeIn())
-	    {
-		    controller.CanUse = true;
+		private bool isFaded;
+
+		void Start()
+		{
+			PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
+			SaveLoadGame.Load();
+		}
+
+		// Update is called once per frame
+		void Update()
+		{
+			if (isFaded)
+			{
+				return;
+			}
+
+			if (transition.FadeIn())
+			{
+				controller.CanUse = true;
             
-		    Destroy(transition.gameObject, 0.01f);
-		    isFaded = true;
-	    }
-    }
+				Destroy(transition.gameObject, 0.01f);
+				isFaded = true;
+			}
+		}
+	}
 }

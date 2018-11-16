@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Intervention
+﻿namespace Assets.Scripts.UI
 {
+	public class Intervention
+	{
     
     public string InterventionImage { get; set; }
     public string InterventionText { get; set; }
@@ -16,11 +14,12 @@ public class Intervention
     public int Creative { get; set; }
     public int ChangeKnowledge { get; set; }
 
-    public Intervention() {}
+		public Intervention() {}
 
-    public Intervention(string text, string advice)
-    {
-        InterventionText = text;
-        this.Advice = advice;
-    }
+		public Intervention(string text, string advice)
+		{
+			InterventionText = text;
+			this.Advice = advice;
+		}
+	}
 }

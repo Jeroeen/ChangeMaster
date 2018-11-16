@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using Color = UnityEngine.Color;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Pathfinding
 {
     public class Path
     {
@@ -16,9 +10,9 @@ namespace Assets.Scripts
         //private World myWorld;
         private Graph graph;
         const int distANodes = 1;
-        private Tilemap tileMap;
+        private UnityEngine.Tilemaps.Tilemap tileMap;
 
-        public Path(Graph graph, Tilemap tilemap)
+        public Path(Graph graph, UnityEngine.Tilemaps.Tilemap tilemap)
         {
             this.graph = graph;
             tileMap = tilemap;

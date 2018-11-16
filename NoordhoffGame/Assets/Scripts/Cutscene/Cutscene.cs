@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.Dialogue.Models;
 using UnityEngine;

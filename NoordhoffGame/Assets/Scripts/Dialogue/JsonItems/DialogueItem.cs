@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using LitJson;
+using Assets.UnityLitJson;
 using UnityEngine;
 
-namespace Assets.Scripts.Dialogue
+namespace Assets.Scripts.Dialogue.JsonItems
 {
 	public class DialogueItem
 	{

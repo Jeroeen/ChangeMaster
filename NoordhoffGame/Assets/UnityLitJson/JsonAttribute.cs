@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace LitJson {
+namespace Assets.UnityLitJson {
 
 [Flags]
 public enum JsonIgnoreWhen {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LitJson;
+using Assets.UnityLitJson;
 
 namespace Assets.Scripts.Dialogue.JsonItems
 {

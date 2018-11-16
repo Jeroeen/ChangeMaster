@@ -1,43 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Transition : MonoBehaviour
+namespace Assets.Scripts.Cutscene
 {
-	[SerializeField] private Image _image;
-	private float _alpha;
-	private float _fadeSpeed = 0.02f;
-
-
-	void Start()
+	public class Transition : MonoBehaviour
 	{
-		_alpha = _image.color.a;
-	}
+		[SerializeField] private Image _image;
+		private float _alpha;
+		private float _fadeSpeed = 0.02f;
 
-	public bool FadeIn()
-	{
-		if (_alpha > 0)
+
+		void Start()
 		{
-			_alpha -= _fadeSpeed;
-			_image.color = new Color(_image.color.r, _image.color.g, _image.color.b, _alpha);
-			return false;
+			_alpha = _image.color.a;
 		}
 
-		return true;
-	}
-
-	public bool FadeOut()
-	{
-		if (_alpha < 1)
+		public bool FadeIn()
 		{
-			_alpha += _fadeSpeed;
-			_image.color = new Color(_image.color.r, _image.color.g, _image.color.b, _alpha);
-			return false;
+			if (_alpha > 0)
+			{
+				_alpha -= _fadeSpeed;
+				_image.color = new Color(_image.color.r, _image.color.g, _image.color.b, _alpha);
+				return false;
+			}
+
+			return true;
 		}
 
-		return true;
-	}
+		public bool FadeOut()
+		{
+			if (_alpha < 1)
+			{
+				_alpha += _fadeSpeed;
+				_image.color = new Color(_image.color.r, _image.color.g, _image.color.b, _alpha);
+				return false;
+			}
 
+			return true;
+		}
+
+	}
 }
