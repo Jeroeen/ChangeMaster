@@ -54,7 +54,7 @@ namespace Assets.Scripts.UI
 		//a function that will fill the stakeholders menu with the stakeholders and their opinion on the current problem
 		private void ShowStakeholders()
 		{
-			position = new Vector2(0.0f, -5.0f);
+			position = new Vector2();
         
 			json = new RetrieveJson();
 			if (information == null)
@@ -105,15 +105,18 @@ namespace Assets.Scripts.UI
 
 				RectTransform[] infoRectTransform = panels[i].GetComponents<RectTransform>();
 				infoRectTransform[0].anchoredPosition = position;
-				float elementLimit = scrollviewContent.sizeDelta.y / (panelSizeY + 15);
+				float elementLimit = scrollviewContent.sizeDelta.y / (panelSizeY);
 
 				if (i > elementLimit)
 				{
-					infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y + (panelSizeY + 15));
-					infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x, infoScrollviewRect.anchoredPosition.y - ((0.5f * panelSizeY) + 15));
+					infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y + (panelSizeY));
+                    //when infoScrollviewRect is made bigger, we have to compensate the position, 
+                    //so we make it 1/2 the size of panelSizeY to the bottom, so it's correct now
+                    infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x, 
+                                                                      infoScrollviewRect.anchoredPosition.y - ((panelSizeY/2)));
 				}
 
-				position = new Vector2(position.x, position.y - (panelSizeY + 10.0f));
+				position = new Vector2(position.x, position.y - (panelSizeY));
 			}
 		}
 
