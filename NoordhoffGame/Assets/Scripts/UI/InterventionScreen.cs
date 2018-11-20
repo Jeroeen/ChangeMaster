@@ -24,6 +24,7 @@ namespace Assets.Scripts.UI
 		[SerializeField] private Transition transition;
 		[SerializeField] private GameObject interventionWarning;
 		[SerializeField] private GameObject confirmInterventionGameObject;
+		[SerializeField] private SpriteRenderer chosenInterventionSprite;
 
 		private int clickedElementId;
 		private Player player;
@@ -113,8 +114,8 @@ namespace Assets.Scripts.UI
 				EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
 
 
-				clickedElementId = i;
-				entry.callback.AddListener(eventData => { Confirm(); });
+				int id = i;
+				entry.callback.AddListener(eventData => { Confirm(id); });
 				trigger.triggers.Add(entry);
 
 				textCount++;
@@ -133,14 +134,20 @@ namespace Assets.Scripts.UI
 			}
 		}
 
-		private void Confirm()
+		private void Confirm(int id)
 		{
+			clickedElementId = id;
+			Debug.Log(clickedElementId);
+			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
+			Debug.Log(interventionSprite.name);
+			chosenInterventionSprite.sprite = interventionSprite;
 			confirmInterventionGameObject.SetActive(true);
 		}
 
 		public void ConfirmInterventionChoice()
 		{
 			confirmInterventionGameObject.SetActive(false);
+			
 			ClickAdvice(clickedElementId);
 		}
 
@@ -249,8 +256,6 @@ namespace Assets.Scripts.UI
 
 			skillpos = new Vector2(newStandardPosition.x, newStandardPosition.y - chosenTextPos.sizeDelta.y);
 
-			List<GameObject> skillPanels = new List<GameObject>();
-
 			int[] playerScores =
 			{
 				player.Analytic, player.Enthousiasm, player.Decisive, player.Empathic, player.Convincing, player.Creative,
@@ -297,23 +302,26 @@ namespace Assets.Scripts.UI
 				skillImage = scorePanels[j + 1].GetComponentsInChildren<Image>();
 				skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j + 1]);
 			}
+
 			//if there is an uneven amount of rows, add one more, 
-			if (rows % 2 != 0)
+			if (rows % 2 == 0)
 			{
-				j += 2;
-				GameObject skillpanel = Instantiate(skillPanel, interventionScrollView.content.transform);
-
-				InitiateTextObject(skillpanel, skillNumbers[j].ToString(),
-					new Vector2(basePosition.x + 2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x,
-						basePosition.y + scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3));
-
-				Text infoText = skillpanel.GetComponentInChildren<Text>();
-				infoText.text = skillNumbers[j].ToString();
-				RetrieveAsset.RetrieveAssets();
-
-				Image[] changemanagementImage = skillpanel.GetComponentsInChildren<Image>();
-				changemanagementImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j]);
+				return;
 			}
+
+			j += 2;
+			GameObject skillpanel = Instantiate(skillPanel, interventionScrollView.content.transform);
+
+			InitiateTextObject(skillpanel, skillNumbers[j].ToString(),
+				new Vector2(basePosition.x + 2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x,
+					basePosition.y + scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3));
+
+			Text infoText = skillpanel.GetComponentInChildren<Text>();
+			infoText.text = skillNumbers[j].ToString();
+			RetrieveAsset.RetrieveAssets();
+
+			Image[] changemanagementImage = skillpanel.GetComponentsInChildren<Image>();
+			changemanagementImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j]);
 		}
 
 		public void FinishLevel()
