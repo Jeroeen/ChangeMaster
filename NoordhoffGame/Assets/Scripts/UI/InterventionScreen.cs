@@ -137,10 +137,9 @@ namespace Assets.Scripts.UI
 		private void Confirm(int id)
 		{
 			clickedElementId = id;
-			Debug.Log(clickedElementId);
 			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
-			Debug.Log(interventionSprite.name);
 			chosenInterventionSprite.sprite = interventionSprite;
+
 			confirmInterventionGameObject.SetActive(true);
 		}
 
