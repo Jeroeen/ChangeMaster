@@ -60,12 +60,8 @@ namespace Assets.Scripts.UI
             RectTransform textRect = textImagePrefab.GetComponent<RectTransform>();
             textboxSizeX = textRect.sizeDelta.x;
             textboxSizeY = textRect.sizeDelta.y;
-            //TODOMAGIC
-            position = new Vector2(textboxSizeX / 8, -textboxSizeX / 8);
-            //TODOMAGIC
-            textboxSizeX += textboxSizeX / 8;
-            textboxSizeY += textboxSizeX / 8;
-
+  
+            position = new Vector2(textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER, -textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER);
 
             FillScrollView();
         }
@@ -105,7 +101,8 @@ namespace Assets.Scripts.UI
                 //[0] is the image from  the panel containing it
                 objectImage[1].sprite = interventionIcon;
 
-                position = new Vector2(position.x + textboxSizeX, position.y);
+
+                position = new Vector2(position.x + textboxSizeX + textboxSizeX/ GlobalVariablesHelper.TEXTBOX_DIVIDER, position.y);
                 uiElements[i].name = "button " + i;
 
                 EventTrigger trigger = uiElements[i].GetComponent<EventTrigger>();
@@ -123,8 +120,10 @@ namespace Assets.Scripts.UI
                 if (i >= elementLimit - 1)
                 {
                     scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x + textboxSizeX, scrollviewContent.sizeDelta.y);
-                    //TODOMAGIC
-                    scrollviewContent.anchoredPosition = new Vector2(scrollviewContent.anchoredPosition.x + textboxSizeX / 2, scrollviewContent.anchoredPosition.y);
+                    //when scrollviewContent is made bigger, we have to compensate the position, 
+                    //so we put it 1/2 the size of textboxSizeX to the right, so it's correct now
+                    scrollviewContent.anchoredPosition = new Vector2(scrollviewContent.anchoredPosition.x + textboxSizeX / 2, 
+                                                                     scrollviewContent.anchoredPosition.y);
                 }
             }
         }
@@ -136,33 +135,37 @@ namespace Assets.Scripts.UI
                 Destroy(g);
             }
             RectTransform textRect = textPrefab.GetComponent<RectTransform>();
-            //TODOMAGIC
-            textRect.sizeDelta = new Vector2(textboxSizeX * 2, textboxSizeY + textboxSizeY / 4);
+            
+            textRect.sizeDelta = new Vector2(textboxSizeX * GlobalVariablesHelper.ADVICE_TEXT_X_MULTIPLIER, 
+                                             textboxSizeY + textboxSizeY / GlobalVariablesHelper.ADVICE_TEXT_Y_DIVIDER);
 
-            scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - (textboxSizeX) * (textCount - 4), 
+            scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - textboxSizeX * (textCount - GlobalVariablesHelper.TEXT_PREFABS_ON_SCREEN), 
                                                       scrollviewContent.sizeDelta.y);
-            scrollviewContent.anchoredPosition = new Vector2(10.0f, 0.0f);
+            scrollviewContent.anchoredPosition = new Vector2();
             interventionScrollView.horizontal = false;
+            
 
-            Vector2 newPos = new Vector2(position.x - (textboxSizeX) * textCount, position.y);
-            //TODOMAGIC
-            textboxSizeX = textboxSizeX * 2;
+            Vector2 newPos = new Vector2(textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER, position.y);
+            textboxSizeX = textboxSizeX * GlobalVariablesHelper.ADVICE_TEXT_X_MULTIPLIER;
 
             GameObject chosenText = Instantiate(textPrefab, interventionScrollView.content.transform);
             uiElements.Add(chosenText);
             InitiateTextObject(chosenText, "Je hebt gekozen voor de interventie: \n\n" 
-                             + interventions.Interventions[selected].InterventionText, newPos);
+                             + interventions.Interventions[selected].InterventionText,
+                             new Vector2(newPos.x + textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER, newPos.y));
 
             GameObject adviceText = Instantiate(textPrefab, interventionScrollView.content.transform);
             uiElements.Add(adviceText);
-            InitiateTextObject(adviceText, "Het volgende advies hoort bij je gekozen interventie: \n" 
-                             + interventions.Interventions[selected].Advice, new Vector2(newPos.x + textboxSizeX, newPos.y));
+            InitiateTextObject(adviceText, "Het volgende advies hoort bij je gekozen interventie: \n"
+                             + interventions.Interventions[selected].Advice,
+                             new Vector2(newPos.x + textboxSizeX + textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER, newPos.y));
 
             GameObject nextButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
             RectTransform nextButtonTransform = nextButton.GetComponent<RectTransform>();
             uiElements.Add(nextButton);
-            //TODOMAGIC
-            InitiateTextObject(nextButton, "Doorgaan", new Vector2(-nextButtonTransform.sizeDelta.x *1.5f, nextButtonTransform.sizeDelta.y * 1.5f));
+            
+            InitiateTextObject(nextButton, "Doorgaan", new Vector2(-nextButtonTransform.sizeDelta.x * GlobalVariablesHelper.BUTTON_MULTIPLIER, 
+                                                                    nextButtonTransform.sizeDelta.y * GlobalVariablesHelper.BUTTON_MULTIPLIER));
             nextButton.GetComponent<Button>().onClick.AddListener(delegate { ShowFinished(selected); });
         }
 
@@ -187,22 +190,18 @@ namespace Assets.Scripts.UI
 
             RectTransform textRect = textPrefab.GetComponent<RectTransform>();
 
-            //TODOMAGIC
-            textRect.sizeDelta = new Vector2(textboxSizeX, textboxSizeY / 4);
+            textRect.sizeDelta = new Vector2(textboxSizeX, textboxSizeY / GlobalVariablesHelper.FINISH_TEXT_Y_DIVIDER);
 
-            //TODOMAGIC
-            Vector2 newStandardPosition = new Vector2(150.0f, position.y);
+            Vector2 newStandardPosition = new Vector2(GlobalVariablesHelper.FINISH_STANDARD_POSITION_X, position.y);
 
             GameObject chosenTextObject = Instantiate(textPrefab, interventionScrollView.content.transform);
             uiElements.Add(chosenTextObject);
 
             RectTransform chosenTextPos = chosenTextObject.GetComponent<RectTransform>();
-            //TODOMAGIC
-            chosenTextPos.anchoredPosition = new Vector2(newStandardPosition.x / 2, newStandardPosition.y);
+            chosenTextPos.anchoredPosition = new Vector2(newStandardPosition.x, newStandardPosition.y);
             Text chosenText = chosenTextObject.GetComponentInChildren<Text>();
 
-            //TODOMAGIC
-            Vector2 skillpos = new Vector2(newStandardPosition.x, newStandardPosition.y - chosenTextPos.sizeDelta.y - 10);
+            Vector2 skillpos = new Vector2(newStandardPosition.x, newStandardPosition.y - chosenTextPos.sizeDelta.y);
             RetrieveAsset.RetrieveAssets();
 
             string[] skillSpriteNames = { "Analytisch", "Enthousiasmerend", "Besluitvaardig",
@@ -229,8 +228,7 @@ namespace Assets.Scripts.UI
             Text playerText = pChosenText.GetComponentInChildren<Text>();
             playerText.text = "Je skills zijn nu zo hoog \n";
 
-            //TODOMAGIC
-            skillpos = new Vector2(newStandardPosition.x, newStandardPosition.y - chosenTextPos.sizeDelta.y - 10);
+            skillpos = new Vector2(newStandardPosition.x, newStandardPosition.y - chosenTextPos.sizeDelta.y);
 
             List<GameObject> skillPanels = new List<GameObject>();
 
@@ -242,7 +240,9 @@ namespace Assets.Scripts.UI
             RectTransform confirmButtonTransform = confirmButton.GetComponent<RectTransform>();
 
             uiElements.Add(confirmButton);
-            InitiateTextObject(confirmButton, "Afronden", new Vector2(-confirmButtonTransform.sizeDelta.x * 1.5f, confirmButtonTransform.sizeDelta.y * 1.5f));
+            InitiateTextObject(confirmButton, "Afronden", 
+                               new Vector2(-confirmButtonTransform.sizeDelta.x * GlobalVariablesHelper.BUTTON_MULTIPLIER, 
+                                            confirmButtonTransform.sizeDelta.y * GlobalVariablesHelper.BUTTON_MULTIPLIER));
             confirmButton.GetComponent<Button>().onClick.AddListener(FinishLevel);
         }
 
@@ -251,7 +251,7 @@ namespace Assets.Scripts.UI
             int j = new int();
             List<GameObject> scorePanels = new List<GameObject>();
             
-            //TODOMAGIC
+            //divide the rows by 2 because we will be adding 2 skills each loop
             for (int i = 0; i < rows / 2; i++)
             {
                 j = i * 2;
@@ -266,13 +266,14 @@ namespace Assets.Scripts.UI
 
                 scorePanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
                 InitiateTextObject(scorePanels[j + 1], skillNumbers[j + 1].ToString(), basePosition);
-                //TODOMAGIC
-                basePosition.y -= scorePanels[j + 1].GetComponent<RectTransform>().sizeDelta.y * 1.5f;
+
+                basePosition.y -= scorePanels[j + 1].GetComponent<RectTransform>().sizeDelta.y * GlobalVariablesHelper.SKILL_POSITION_MULTIPIER;
                 basePosition.x -= scorePanels[j].GetComponent<RectTransform>().sizeDelta.x;
 
                 skillImage = scorePanels[j + 1].GetComponentsInChildren<Image>();
                 skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j + 1]);
             }
+            //if there is an uneven amount of rows, add one more, 
             if (rows % 2 != 0)
             {
                 j += 2;
