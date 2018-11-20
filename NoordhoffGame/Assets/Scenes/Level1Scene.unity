@@ -563,7 +563,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.244895
+  orthographic size: 8.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4628,6 +4628,10 @@ PrefabInstance:
       propertyPath: interventionButton
       value: 
       objectReference: {fileID: 1132068617}
+    - target: {fileID: 1658599543395028540, guid: 39add28fd5e530145a099e05a5e39182, type: 3}
+      propertyPath: m_Text
+      value: Weet je zeker dat je terug wilt gaan naar de brug? Je progressie binnen dit level wordt onthouden.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39add28fd5e530145a099e05a5e39182, type: 3}
 --- !u!1 &1699144975 stripped
@@ -5541,7 +5545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188085461350629720, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -58.000015
+      value: -58
       objectReference: {fileID: 0}
     - target: {fileID: 1027381260721643500, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_IsActive
@@ -5617,7 +5621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.712413
+      value: 0.0012716638
       objectReference: {fileID: 0}
     - target: {fileID: 2220617832961469804, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
