@@ -227,7 +227,7 @@ namespace Assets.Scripts.UI
 			showSkills(skillSpriteNames.Length, skillSpriteNames, interventionScores, skillpos);
 
 			chosenText.text = "Gefeliciteerd " + player.GetPlayerTitle() + "! \n"
-				+ "Je hebt level " + (game.LastFinishedLevel + 1) + " gehaald en daarbij de volgende skills gehaald";
+				+ "Je hebt level " + game.CurrentLevelNumber + " gehaald en daarbij de volgende skills gehaald";
 
 			newStandardPosition = new Vector2(newStandardPosition.x + textboxSizeX, newStandardPosition.y);
 
@@ -358,7 +358,7 @@ namespace Assets.Scripts.UI
 			//calculate percentage of stakeholders found
 			int percentageFound = stakeholdersFound * 100 / amountofStakeholders;
 			Text warningText = interventionWarning.GetComponentInChildren<Text>();
-			warningText.text = "Weet je zeker dat je een interventie wilt kiezen? je hebt nog maar: " + percentageFound + "% van de stakeholders gevonden";
+			warningText.text = "Weet je zeker dat je een interventie wilt kiezen? Je hebt nog maar " + percentageFound + "% van de stakeholders gevonden.";
 			CanvasGroup warningGroup = interventionWarning.GetComponent<CanvasGroup>();
 			warningGroup.blocksRaycasts = true;
 			interventionWarning.SetActive(true);

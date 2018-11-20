@@ -1130,6 +1130,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5557334827172231680, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
   m_PrefabInstance: {fileID: 5557334827466282485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1093442678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1973399519046857369, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+  m_PrefabInstance: {fileID: 5824235579272914444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1101843427 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5557334827838678834, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
@@ -4847,6 +4852,17 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!114 &1769388436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1027381261354390583, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+  m_PrefabInstance: {fileID: 5824235579272914444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1705b15e872904f9b2651c8f1c1ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1809395795 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5557334826740217157, guid: 6520fa782bc1f254bb7aa9f9c5503159, type: 3}
@@ -5617,11 +5633,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -793
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0012716638
+      value: -0.000014405698
       objectReference: {fileID: 0}
     - target: {fileID: 2220617832961469804, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5703,6 +5719,22 @@ PrefabInstance:
       propertyPath: textimage
       value: 
       objectReference: {fileID: 8040825388452543801, guid: 81f8795a76b0861459417ffb82752210, type: 3}
+    - target: {fileID: 1973399518776406795, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1769388436}
+    - target: {fileID: 1973399518776406795, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ConfirmInterventionChoice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027381261354390583, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: confirmInterventionGameObject
+      value: 
+      objectReference: {fileID: 1093442678}
+    - target: {fileID: 1973399519404373213, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: m_Text
+      value: Weet je zeker dat je deze interventie wilt kiezen?
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
 --- !u!224 &5969080459379769749 stripped
