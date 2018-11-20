@@ -42,6 +42,7 @@ namespace Assets.Scripts.UI
 			if (Game.GetGame().Information == null)
 			{
 				Game.GetGame().Information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
+                SaveLoadGame.Save();
 			}
 			information = Game.GetGame().Information;
 
@@ -125,15 +126,16 @@ namespace Assets.Scripts.UI
 				information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
 			}
 
-			for (int i = 0; i < information.InformationList.Length; i++)
-			{
-				if (information.InformationList[i].Image == Name)
-				{
-					information.InformationList[i].Found = true;
-				}
-			}
-			ShowStakeholders();
-		}
+        for (int i = 0; i < information.InformationList.Length; i++)
+        {
+            if (information.InformationList[i].Image == Name)
+            {
+                information.InformationList[i].Found = true;
+            }
+        }
+        Game.GetGame().Information = information;
+        ShowStakeholders();
+    }
 
 		//a function that will enable or disable the menu 
 		public void EnableInfo()

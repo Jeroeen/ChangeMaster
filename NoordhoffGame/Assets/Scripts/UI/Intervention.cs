@@ -3,15 +3,16 @@
 	public class Intervention
 	{
     
-		public string InterventionText { get; set; }
-		public string Advice { get; set; }
-		public int Analytic { get; set; }
-		public int Enthusiasm { get; set; }
-		public int Decisive { get; set; }
-		public int Empathic { get; set; }
-		public int Convincing { get; set; }
-		public int Creative { get; set; }
-		public int ChangeKnowledge { get; set; }
+    public string InterventionImage { get; set; }
+    public string InterventionText { get; set; }
+    public string Advice { get; set; }
+    public int Analytic { get; set; }
+    public int Enthusiasm { get; set; }
+    public int Decisive { get; set; }
+    public int Empathic { get; set; }
+    public int Convincing { get; set; }
+    public int Creative { get; set; }
+    public int ChangeKnowledge { get; set; }
 
 		public Intervention() {}
 
