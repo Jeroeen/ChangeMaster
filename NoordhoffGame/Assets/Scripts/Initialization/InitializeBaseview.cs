@@ -1,8 +1,6 @@
 ﻿using Assets.Scripts.Dialogue;
 using Assets.Scripts.Dialogue.Models;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Initialization
 {
