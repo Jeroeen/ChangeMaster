@@ -121,7 +121,7 @@ namespace Assets.Scripts.UI
                 {
                     scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x + textboxSizeX, scrollviewContent.sizeDelta.y);
                     //when scrollviewContent is made bigger, we have to compensate the position, 
-                    //so we put it 1/2 the size of textboxSizeX to the right, so it's correct now
+                    //so we make it 1/2 the size of textboxSizeX to the right, so it's correct now
                     scrollviewContent.anchoredPosition = new Vector2(scrollviewContent.anchoredPosition.x + textboxSizeX / 2, 
                                                                      scrollviewContent.anchoredPosition.y);
                 }

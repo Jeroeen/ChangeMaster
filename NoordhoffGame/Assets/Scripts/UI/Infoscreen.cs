@@ -54,7 +54,7 @@ namespace Assets.Scripts.UI
 		//a function that will fill the stakeholders menu with the stakeholders and their opinion on the current problem
 		private void ShowStakeholders()
 		{
-			position = new Vector2(0.0f, 0.0f);
+			position = new Vector2();
         
 			json = new RetrieveJson();
 			if (information == null)
@@ -111,7 +111,7 @@ namespace Assets.Scripts.UI
 				{
 					infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y + (panelSizeY));
                     //when infoScrollviewRect is made bigger, we have to compensate the position, 
-                    //so we put it 1/2 the size of panelSizeY to the bottom, so it's correct now
+                    //so we make it 1/2 the size of panelSizeY to the bottom, so it's correct now
                     infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x, 
                                                                       infoScrollviewRect.anchoredPosition.y - ((panelSizeY/2)));
 				}
