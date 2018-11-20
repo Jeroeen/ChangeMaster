@@ -16,23 +16,24 @@ namespace Assets.Scripts.UI
         [SerializeField] private Button infoButton;
         [SerializeField] private Button settingsButton;
         [SerializeField] private GameObject interventionscreen;
-        [SerializeField] private GameObject text;
-        [SerializeField] private GameObject textimage;
-        [SerializeField] private GameObject button;
+        [SerializeField] private GameObject textPrefab;
+        [SerializeField] private GameObject textImagePrefab;
+        [SerializeField] private GameObject buttonPrefab;
         [SerializeField] private GameObject skillPanel;
         [SerializeField] private CanvasGroup blockingPanel;
         [SerializeField] private Transition transition;
         [SerializeField] private GameObject interventionWarning;
 
         private Player player;
-        private Vector2 position = new Vector2(0.0f, 0.0f);
-        private int textCount = 0;
-        private ScrollRect interventionScroll;
+        private Vector2 position = new Vector2();
+        private int textCount = new int();
+        private ScrollRect interventionScrollView;
         private RectTransform scrollviewContent;
-        private List<GameObject> panels = new List<GameObject>();
+        private List<GameObject> uiElements = new List<GameObject>();
         private InterventionList interventions;
         private RetrieveJson json;
         private float textboxSizeX;
+        private float textboxSizeY;
         private float elementLimit;
         private bool isFading;
         private Game game;
@@ -42,36 +43,31 @@ namespace Assets.Scripts.UI
         {
             SaveLoadGame.Load();
             game = Game.GetGame();
+
             if (game.Player == null)
             {
                 game.Player = Player.GetPlayer();
                 SaveLoadGame.Save();
             }
 
-            //retrieve the list of interventions for this lvl(level 1) from the associated Json file
             json = new RetrieveJson();
             interventions = json.LoadJsonInterventions(SceneManager.GetActiveScene().name);
-            //interventionScroll is the ScrollRect that contains the list of interventions to choose from
-            interventionScroll = interventionscreen.GetComponentInChildren<ScrollRect>();
-            //set the content element of the scrollview to the position 0,0 since, for some reason, sometimes it moves away from that position
-            scrollviewContent = interventionScroll.content.GetComponent<RectTransform>();
-            scrollviewContent.anchoredPosition = new Vector2(0.0f, 0.0f);
-            //get the size of the text box for use further in the file
-            RectTransform textRect = textimage.GetComponent<RectTransform>();
+
+            interventionScrollView = interventionscreen.GetComponentInChildren<ScrollRect>();
+            scrollviewContent = interventionScrollView.content.GetComponent<RectTransform>();
+            scrollviewContent.anchoredPosition = new Vector2();
+
+            RectTransform textRect = textImagePrefab.GetComponent<RectTransform>();
             textboxSizeX = textRect.sizeDelta.x;
+            textboxSizeY = textRect.sizeDelta.y;
+            //TODOMAGIC
             position = new Vector2(textboxSizeX / 8, -textboxSizeX / 8);
+            //TODOMAGIC
             textboxSizeX += textboxSizeX / 8;
-            for (int i = 0; i < game.Information.InformationList.Length; i++)
-            {
-                if (!game.Information.InformationList[i].Found)
-                {
-                    ShowWarning();
-                    break;
-                }
-            }
+            textboxSizeY += textboxSizeX / 8;
+
 
             FillScrollView();
-
         }
 
         void Update()
@@ -86,107 +82,98 @@ namespace Assets.Scripts.UI
             {
                 if (transition.FadeOut())
                 {
-                    SceneManager.LoadScene("Baseview");
+                    SceneManager.LoadScene(GlobalVariablesHelper.BRIDGE_SCENE_INDEX);
                 }
             }
         }
 
-        //function to fill the scroll view for the first time
         private void FillScrollView()
         {
             player = Player.GetPlayer();
 
-
-            //add as much interventions as are in the array that we retrieved using "LoadJsonInterventions"
             for (int i = 0; i < interventions.Interventions.Length; i++)
             {
-                //instantiate the text element and add it to the list that holds all the UI elements
-                panels.Add(Instantiate(textimage, interventionScroll.content.transform));
+                uiElements.Add(Instantiate(textImagePrefab, interventionScrollView.content.transform));
+                InitiateTextObject(uiElements[i], interventions.Interventions[i].InterventionText, position);
 
-                InitiateTextObject(panels[i], interventions.Interventions[i].InterventionText, position);
-                //initiate image
                 RetrieveAsset.RetrieveAssets();
                 Sprite interventionIcon = RetrieveAsset.GetSpriteByName(interventions.Interventions[i].InterventionImage);
 
-                Image[] objectImage = panels[i].GetComponentsInChildren<Image>();
+                Image[] objectImage = uiElements[i].GetComponentsInChildren<Image>();
+
+                //objectimage[1] is the image element that is contained within the panel, the one i want to change, 
+                //[0] is the image from  the panel containing it
                 objectImage[1].sprite = interventionIcon;
 
                 position = new Vector2(position.x + textboxSizeX, position.y);
-                //set the name of the button that we'll later be using to see what intervention was selected
-                panels[i].name = "button " + i;
+                uiElements[i].name = "button " + i;
 
-                //add an eventListener that triggers when the user clicks the text element and then executes clickAdvice() 
-                //with the correct ID for the current Intervention
-                EventTrigger trigger = panels[i].GetComponent<EventTrigger>();
+                EventTrigger trigger = uiElements[i].GetComponent<EventTrigger>();
                 EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
+
+                
                 int id = i;
                 entry.callback.AddListener((eventData) => { ClickAdvice(id); });
                 trigger.triggers.Add(entry);
 
-                //count the amount of text elements
                 textCount++;
                 elementLimit = scrollviewContent.sizeDelta.x / textboxSizeX;
 
-
-                if (i >= elementLimit)
+                //i starts at 0, so to compensate we subtract 1 from the elementlimit
+                if (i >= elementLimit - 1)
                 {
                     scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x + textboxSizeX, scrollviewContent.sizeDelta.y);
+                    //TODOMAGIC
                     scrollviewContent.anchoredPosition = new Vector2(scrollviewContent.anchoredPosition.x + textboxSizeX / 2, scrollviewContent.anchoredPosition.y);
                 }
             }
         }
 
-        // function to execute when the player clicks an intervention
         private void ClickAdvice(int selected)
         {
-            //delete all the current elements
-            foreach (GameObject g in panels)
+            foreach (GameObject g in uiElements)
             {
                 Destroy(g);
             }
-            //create the standard text element that will be used to instantiate all other text elements in this function
-            GameObject aText = Instantiate(text);
-            panels.Add(aText);
-            RectTransform textRect = aText.GetComponent<RectTransform>();
-            textRect.sizeDelta = new Vector2(textRect.sizeDelta.x * 2, textRect.sizeDelta.y + textRect.sizeDelta.y / 4);
+            RectTransform textRect = textPrefab.GetComponent<RectTransform>();
+            //TODOMAGIC
+            textRect.sizeDelta = new Vector2(textboxSizeX * 2, textboxSizeY + textboxSizeY / 4);
 
-            //resize the scrollview's content element;
-            scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - (textboxSizeX + 10.0f) * (textCount - 4), scrollviewContent.sizeDelta.y);
-            scrollviewContent.anchoredPosition = new Vector2(5.0f, 0.0f);
-            interventionScroll.horizontal = false;
+            scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - (textboxSizeX) * (textCount - 4), 
+                                                      scrollviewContent.sizeDelta.y);
+            scrollviewContent.anchoredPosition = new Vector2(10.0f, 0.0f);
+            interventionScrollView.horizontal = false;
 
-            //determine the standard position of all assets
-            Vector2 newPos = new Vector2(position.x - (textboxSizeX + 5.0f) * textCount, position.y - 10);
+            Vector2 newPos = new Vector2(position.x - (textboxSizeX) * textCount, position.y);
+            //TODOMAGIC
             textboxSizeX = textboxSizeX * 2;
 
-            //create the text that tells the player the intervention they have chosen
-            GameObject chosenText = Instantiate(aText, interventionScroll.content.transform);
-            panels.Add(chosenText);
-            InitiateTextObject(chosenText, "Je hebt gekozen voor de interventie: \n\n" + interventions.Interventions[selected].InterventionText, newPos);
+            GameObject chosenText = Instantiate(textPrefab, interventionScrollView.content.transform);
+            uiElements.Add(chosenText);
+            InitiateTextObject(chosenText, "Je hebt gekozen voor de interventie: \n\n" 
+                             + interventions.Interventions[selected].InterventionText, newPos);
 
-            //create the text that tells the player the advice concerning the intervention they have chosen
-            GameObject adviceText = Instantiate(aText, interventionScroll.content.transform);
-            panels.Add(adviceText);
-            InitiateTextObject(adviceText, "Het volgende advies hoort bij je gekozen interventie: \n" + interventions.Interventions[selected].Advice, new Vector2(newPos.x + textboxSizeX, newPos.y));
+            GameObject adviceText = Instantiate(textPrefab, interventionScrollView.content.transform);
+            uiElements.Add(adviceText);
+            InitiateTextObject(adviceText, "Het volgende advies hoort bij je gekozen interventie: \n" 
+                             + interventions.Interventions[selected].Advice, new Vector2(newPos.x + textboxSizeX, newPos.y));
 
-            //create a button with an onclick that will execute showFinished()
-            GameObject nextButton = Instantiate(button, interventionScroll.content.transform);
+            GameObject nextButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
             RectTransform nextButtonTransform = nextButton.GetComponent<RectTransform>();
-            panels.Add(nextButton);
-            InitiateTextObject(nextButton, "Doorgaan", new Vector2(0.0f, nextButtonTransform.sizeDelta.y * 1.5f));
+            uiElements.Add(nextButton);
+            //TODOMAGIC
+            InitiateTextObject(nextButton, "Doorgaan", new Vector2(-nextButtonTransform.sizeDelta.x *1.5f, nextButtonTransform.sizeDelta.y * 1.5f));
             nextButton.GetComponent<Button>().onClick.AddListener(delegate { ShowFinished(selected); });
         }
 
         //function to fill the scrollview with the screen for a finished level 
         private void ShowFinished(int selected)
         {
-            //delete all the current elements
-            foreach (GameObject g in panels)
+            foreach (GameObject g in uiElements)
             {
                 Destroy(g);
             }
 
-            //create a variable for the intervention the player selected
             Intervention selectedIntervention = interventions.Interventions[selected];
 
             player.Analytic += selectedIntervention.Analytic;
@@ -198,112 +185,110 @@ namespace Assets.Scripts.UI
             player.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
             SaveLoadGame.Save();
 
-            //create the standard text element that will be used to instantiate all other text elements in this function
-            GameObject aText = Instantiate(text);
-            panels.Add(aText);
-            RectTransform textRect = aText.GetComponent<RectTransform>();
-            textRect.sizeDelta = new Vector2(textRect.sizeDelta.x * 2, textRect.sizeDelta.y / 1.5f);
+            RectTransform textRect = textPrefab.GetComponent<RectTransform>();
 
-            //determine the standard position of all assets
-            Vector2 newPos = new Vector2(position.x - textboxSizeX / 2 * textCount, position.y);
+            //TODOMAGIC
+            textRect.sizeDelta = new Vector2(textboxSizeX, textboxSizeY / 4);
 
-            //create the text that will tell the player by how much their skills will rise
-            GameObject chosenTextObject = Instantiate(aText, interventionScroll.content.transform);
-            panels.Add(chosenTextObject);
+            //TODOMAGIC
+            Vector2 newStandardPosition = new Vector2(150.0f, position.y);
+
+            GameObject chosenTextObject = Instantiate(textPrefab, interventionScrollView.content.transform);
+            uiElements.Add(chosenTextObject);
 
             RectTransform chosenTextPos = chosenTextObject.GetComponent<RectTransform>();
-            chosenTextPos.anchoredPosition = new Vector2(newPos.x / 2, newPos.y);
+            //TODOMAGIC
+            chosenTextPos.anchoredPosition = new Vector2(newStandardPosition.x / 2, newStandardPosition.y);
             Text chosenText = chosenTextObject.GetComponentInChildren<Text>();
 
-            //add the 7 panels that will tell the player by how much their skills will rise
-            Vector2 skillpos = new Vector2(newPos.x, newPos.y - chosenTextPos.sizeDelta.y - 10);
+            //TODOMAGIC
+            Vector2 skillpos = new Vector2(newStandardPosition.x, newStandardPosition.y - chosenTextPos.sizeDelta.y - 10);
             RetrieveAsset.RetrieveAssets();
 
-            string[] skillSpriteNames = { "Analytisch", "Enthousiasmerend", "Besluitvaardig", "Empatisch", "Overtuigend", "Creatief", "Kennis van veranderkunde" };
+            string[] skillSpriteNames = { "Analytisch", "Enthousiasmerend", "Besluitvaardig",
+                                          "Empatisch", "Overtuigend", "Creatief", "Kennis van veranderkunde" };
+
+            int[] interventionScores = { selectedIntervention.Analytic, selectedIntervention.Enthusiasm, selectedIntervention.Decisive, selectedIntervention.Empathic,
+                             selectedIntervention.Convincing, selectedIntervention.Creative, selectedIntervention.ChangeKnowledge };
+
             List<GameObject> scorePanels = new List<GameObject>();
-            for (int i = 0; i < 3; i++)
-            {
-                scorePanels.Add(Instantiate(skillPanel, interventionScroll.content.transform));
-                InitiateTextObject(scorePanels[i * 2], selectedIntervention.ChangeKnowledge.ToString(), skillpos);
-                skillpos.x += scorePanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
-                Image[] infoImage = scorePanels[i * 2].GetComponentsInChildren<Image>();
-
-                infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[i * 2]);
-
-                scorePanels.Add(Instantiate(skillPanel, interventionScroll.content.transform));
-                InitiateTextObject(scorePanels[i * 2 + 1], selectedIntervention.ChangeKnowledge.ToString(), skillpos);
-                skillpos.y -= scorePanels[i * 2 + 1].GetComponent<RectTransform>().sizeDelta.y * 1.5f;
-                skillpos.x -= scorePanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
-
-                infoImage = scorePanels[i * 2 + 1].GetComponentsInChildren<Image>();
-                infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[i * 2 + 1]);
-            }
-            GameObject skillpanel = Instantiate(skillPanel, interventionScroll.content.transform);
-
-            InitiateTextObject(skillpanel, selectedIntervention.ChangeKnowledge.ToString(), new Vector2(skillpos.x + 2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x, skillpos.y + scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3));
-            Text[] infoText = skillpanel.GetComponentsInChildren<Text>();
-            infoText[0].text = selectedIntervention.ChangeKnowledge.ToString();
-            RetrieveAsset.RetrieveAssets();
-
-            Image[] veranderkundeImage = skillpanel.GetComponentsInChildren<Image>();
-            veranderkundeImage[1].sprite = RetrieveAsset.GetSpriteByName("Kennis van veranderkunde");
-
+             
+            showSkills(skillSpriteNames.Length, skillSpriteNames, interventionScores, skillpos);
+            
             chosenText.text = "Gefeliciteerd " + player.GetPlayerTitle() + "! \n"
-                + "Je hebt level 1 gehaald en daarbij de volgende skills gehaald";
+                + "Je hebt level " + (game.LastFinishedLevel + 1) + " gehaald en daarbij de volgende skills gehaald";
 
-            //determine the standard position of all assets
-            newPos = new Vector2(newPos.x + textboxSizeX, newPos.y);
-            //create the text that will tell the player what changed with their skills and set that textbox to the correct position
-            GameObject pChosenText = Instantiate(aText, interventionScroll.content.transform);
-            panels.Add(pChosenText);
+            newStandardPosition = new Vector2(newStandardPosition.x + textboxSizeX, newStandardPosition.y);
+
+            GameObject pChosenText = Instantiate(textPrefab, interventionScrollView.content.transform);
+            uiElements.Add(pChosenText);
 
             RectTransform pTextPos = pChosenText.GetComponent<RectTransform>();
-            pTextPos.anchoredPosition = new Vector2(newPos.x, newPos.y);
+            pTextPos.anchoredPosition = new Vector2(newStandardPosition.x, newStandardPosition.y);
 
             Text playerText = pChosenText.GetComponentInChildren<Text>();
             playerText.text = "Je skills zijn nu zo hoog \n";
 
-            //put pictures from the 7 different skills on the screen and how high the player has trained those skills
-            skillpos = new Vector2(newPos.x, newPos.y - chosenTextPos.sizeDelta.y - 10);
+            //TODOMAGIC
+            skillpos = new Vector2(newStandardPosition.x, newStandardPosition.y - chosenTextPos.sizeDelta.y - 10);
 
             List<GameObject> skillPanels = new List<GameObject>();
 
-            int[] scores = { player.Analytic, player.Enthousiasm, player.Decisive, player.Empathic, player.Convincing, player.Creative, player.ChangeKnowledge };
+            int[] playerScores = { player.Analytic, player.Enthousiasm, player.Decisive, player.Empathic, player.Convincing, player.Creative, player.ChangeKnowledge };
+            showSkills(skillSpriteNames.Length, skillSpriteNames, playerScores, skillpos);
+          
 
-            for (int i = 0; i < 3; i++)
-            {
-                skillPanels.Add(Instantiate(skillPanel, interventionScroll.content.transform));
-                InitiateTextObject(skillPanels[i * 2], scores[i * 2].ToString(), skillpos);
-                skillpos.x += skillPanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
-                Image[] infoImage = skillPanels[i * 2].GetComponentsInChildren<Image>();
-
-                infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[i * 2]);
-
-                skillPanels.Add(Instantiate(skillPanel, interventionScroll.content.transform));
-                InitiateTextObject(skillPanels[i * 2 + 1], scores[i * 2].ToString(), skillpos);
-                skillpos.y -= skillPanels[i * 2 + 1].GetComponent<RectTransform>().sizeDelta.y * 1.5f;
-                skillpos.x -= skillPanels[i * 2].GetComponent<RectTransform>().sizeDelta.x;
-
-                infoImage = skillPanels[i * 2 + 1].GetComponentsInChildren<Image>();
-                infoImage[1].sprite = RetrieveAsset.GetSpriteByName(skillSpriteNames[i * 2 + 1]);
-            }
-
-            GameObject veranderkundepanel = Instantiate(skillPanel, interventionScroll.content.transform);
-
-            InitiateTextObject(veranderkundepanel, scores[6].ToString(), new Vector2(skillpos.x + 2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x, skillpos.y + scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3));
-            Text veranderkundeScore = skillpanel.GetComponentInChildren<Text>();
-            veranderkundeScore.text = selectedIntervention.ChangeKnowledge.ToString();
-            RetrieveAsset.RetrieveAssets();
-
-            veranderkundeImage = veranderkundepanel.GetComponentsInChildren<Image>();
-            veranderkundeImage[1].sprite = RetrieveAsset.GetSpriteByName("Kennis van veranderkunde");
-
-            GameObject confirmButton = Instantiate(button, interventionScroll.content.transform);
+            GameObject confirmButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
             RectTransform confirmButtonTransform = confirmButton.GetComponent<RectTransform>();
 
-            panels.Add(confirmButton);
-            InitiateTextObject(confirmButton, "Afronden", new Vector2(0.0f, confirmButtonTransform.sizeDelta.y * 1.5f));
+            uiElements.Add(confirmButton);
+            InitiateTextObject(confirmButton, "Afronden", new Vector2(-confirmButtonTransform.sizeDelta.x * 1.5f, confirmButtonTransform.sizeDelta.y * 1.5f));
             confirmButton.GetComponent<Button>().onClick.AddListener(FinishLevel);
+        }
+
+        public void showSkills(int rows, string[] spriteNames, int[] skillNumbers,  Vector2 basePosition)
+        {
+            int j = new int();
+            List<GameObject> scorePanels = new List<GameObject>();
+            
+            //TODOMAGIC
+            for (int i = 0; i < rows / 2; i++)
+            {
+                j = i * 2;
+
+                scorePanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
+                InitiateTextObject(scorePanels[j], skillNumbers[j].ToString(), basePosition);
+
+                Image[] skillImage = scorePanels[j].GetComponentsInChildren<Image>();
+                skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j]);
+
+                basePosition.x += scorePanels[j].GetComponent<RectTransform>().sizeDelta.x;
+
+                scorePanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
+                InitiateTextObject(scorePanels[j + 1], skillNumbers[j + 1].ToString(), basePosition);
+                //TODOMAGIC
+                basePosition.y -= scorePanels[j + 1].GetComponent<RectTransform>().sizeDelta.y * 1.5f;
+                basePosition.x -= scorePanels[j].GetComponent<RectTransform>().sizeDelta.x;
+
+                skillImage = scorePanels[j + 1].GetComponentsInChildren<Image>();
+                skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j + 1]);
+            }
+            if (rows % 2 != 0)
+            {
+                j += 2;
+                GameObject skillpanel = Instantiate(skillPanel, interventionScrollView.content.transform);
+
+                InitiateTextObject(skillpanel, skillNumbers[j].ToString(), 
+                                   new Vector2(basePosition.x + 2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x, 
+                                               basePosition.y + scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3));
+
+                Text infoText = skillpanel.GetComponentInChildren<Text>();
+                infoText.text = skillNumbers[j].ToString();
+                RetrieveAsset.RetrieveAssets();
+
+                Image[] changemanagementImage = skillpanel.GetComponentsInChildren<Image>();
+                changemanagementImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j]);
+            }
         }
 
         public void FinishLevel()
@@ -312,17 +297,15 @@ namespace Assets.Scripts.UI
             isFading = true;
         }
 
-        //a function that will enable or disable the menu 
         public void ShowMenu()
         {
             game = Game.GetGame();
-            if (game != null && !interventionscreen.activeSelf)
+            if (game.Information != null && !interventionscreen.activeSelf)
             {
                 for (int i = 0; i < game.Information.InformationList.Length; i++)
                 {
                     if (!game.Information.InformationList[i].Found)
                     {
-                        Debug.Log("Hallodielo");
                         ShowWarning();
                         break;
                     }
@@ -334,7 +317,7 @@ namespace Assets.Scripts.UI
             infoButton.interactable = !infoButton.IsInteractable();
             interventionButton.interactable = !interventionButton.IsInteractable();
         }
-        //a function to easily set the text and position of a textobject
+
         private void InitiateTextObject(GameObject initiate, string text, Vector2 position)
         {
             //set the text of the textObject
@@ -347,8 +330,8 @@ namespace Assets.Scripts.UI
 
         public void ShowWarning()
         {
-            float AmountofStakeholders = game.Information.InformationList.Length;
-            float StakeholdersFound = 0.0f;
+            int AmountofStakeholders = game.Information.InformationList.Length;
+            int StakeholdersFound = new int();
 
             for (int i = 0; i < AmountofStakeholders; i++)
             {
@@ -358,10 +341,10 @@ namespace Assets.Scripts.UI
                 }
             }
 
-            float PercentageFound = (StakeholdersFound / AmountofStakeholders) * 100.0f;
-
+            //calculate percentage of stakeholders found
+            int PercentageFound = (StakeholdersFound * 100) / AmountofStakeholders;
             Text WarningText = interventionWarning.GetComponentInChildren<Text>();
-            WarningText.text = "Weet je zeker dat je een interventie wilt kiezen? je hebt nog maar: " + (int)PercentageFound + "% van de stakeholders gevonden";
+            WarningText.text = "Weet je zeker dat je een interventie wilt kiezen? je hebt nog maar: " + PercentageFound + "% van de stakeholders gevonden";
             CanvasGroup WarningGroup = interventionWarning.GetComponent<CanvasGroup>();
             WarningGroup.blocksRaycasts = true;
             interventionWarning.SetActive(true);

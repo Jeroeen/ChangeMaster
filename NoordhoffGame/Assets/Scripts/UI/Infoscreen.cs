@@ -42,6 +42,7 @@ namespace Assets.Scripts.UI
 			if (Game.GetGame().Information == null)
 			{
 				Game.GetGame().Information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
+                SaveLoadGame.Save();
 			}
 			information = Game.GetGame().Information;
 
