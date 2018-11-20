@@ -1,7 +1,10 @@
 {
   "speaker": "Kapitein",
-  "lines": [ "Welkom veranderaar, fijn dat je er bent! Fijn dat je zo snel kon komen.", "Kom aan boord en kom mee naar de brug.", "Dan leg ik uit wat je te doen staat.", "We hebben een flinke uitdaging voor je." ],
+  "lines": [
+    "Hej noob dit is de tutorial.",
+    "Ik heb hier op de brug iemand staan."
+  ],
   "previousButtonText": "Vorige",
   "nextButtonText": "Volgende",
-  "confirmButtonText": "Bevestigen"
+  "confirmButtonText": "Afsluiten"
 }
