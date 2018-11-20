@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Assets.Scripts.UI
+﻿namespace Assets.Scripts.UI
 {
 	[System.Serializable]
 	public struct Info
