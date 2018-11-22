@@ -149,6 +149,8 @@ namespace Assets.Scripts.UI
 
         private void Showhint(int id)
         {
+            CanvasGroup hintCanvas = hint.GetComponent<CanvasGroup>();
+            hintCanvas.blocksRaycasts = true;
             Text hintText= hint.GetComponentInChildren<Text>();
             hintText.text = interventions.Interventions[id].Hint;
             hint.SetActive(true);
