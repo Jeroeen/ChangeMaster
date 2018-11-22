@@ -1436,7 +1436,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.2401905
+  orthographic size: 8.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1478,14 +1478,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1665a2306d5187f4d8108e98e686c09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanUse: 0
-  zoomSpeed: 2
-  minZoom: 16
-  maxZoom: 33
-  startPosition: {fileID: 1899222747}
+  ZoomSpeed: 2
+  MinZoom: 16
+  MaxZoom: 33
   ViewportHandler: {fileID: 519420030}
-  TilemapHandler: {fileID: 1444625861}
   Camera: {fileID: 519420031}
+  CanUse: 0
+  startPosition: {fileID: 1899222747}
+  TilemapHandler: {fileID: 1444625861}
   Checker: {fileID: 475555192}
 --- !u!114 &519420034
 MonoBehaviour:
@@ -7845,6 +7845,22 @@ PrefabInstance:
       propertyPath: interventionButton
       value: 
       objectReference: {fileID: 5824235579272914445}
+    - target: {fileID: 2160243243762101872, guid: d4d841f5c4ab2bd4f9fe9d1c9e729669, type: 3}
+      propertyPath: viewportHandler
+      value: 
+      objectReference: {fileID: 519420030}
+    - target: {fileID: 2160243243762101872, guid: d4d841f5c4ab2bd4f9fe9d1c9e729669, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 2160243243762101872, guid: d4d841f5c4ab2bd4f9fe9d1c9e729669, type: 3}
+      propertyPath: ViewportHandler
+      value: 
+      objectReference: {fileID: 519420030}
+    - target: {fileID: 2160243243762101872, guid: d4d841f5c4ab2bd4f9fe9d1c9e729669, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4d841f5c4ab2bd4f9fe9d1c9e729669, type: 3}
 --- !u!1001 &5557334827466282485
@@ -8185,7 +8201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000025180549
+      value: 0.0000022268982
       objectReference: {fileID: 0}
     - target: {fileID: 1027381260751473145, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8209,7 +8225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -793
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 217933842397571079, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_IsActive

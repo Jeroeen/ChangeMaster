@@ -27,7 +27,8 @@ namespace Assets.Scripts.Dialogue
                 infoscreen.ShowStakeholder(objectModel.Sprite.name);
                 infoscreen.SaveInformation();
             }
-        }
+            
+		}
 
 		public void CloseInfo()
 		{

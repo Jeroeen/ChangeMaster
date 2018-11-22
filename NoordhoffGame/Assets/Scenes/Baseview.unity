@@ -1544,7 +1544,7 @@ Camera:
   far clip plane: 500
   field of view: 60
   orthographic: 1
-  orthographic size: 7.990488
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1586,14 +1586,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1665a2306d5187f4d8108e98e686c09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanUse: 0
-  zoomSpeed: 2
-  minZoom: 16
-  maxZoom: 33
-  startPosition: {fileID: 1899222747}
+  ZoomSpeed: 2
+  MinZoom: 16
+  MaxZoom: 33
   ViewportHandler: {fileID: 519420030}
-  TilemapHandler: {fileID: 1395098297}
   Camera: {fileID: 519420031}
+  CanUse: 0
+  startPosition: {fileID: 1899222747}
+  TilemapHandler: {fileID: 1395098297}
   Checker: {fileID: 475555192}
 --- !u!114 &519420034
 MonoBehaviour:

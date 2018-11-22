@@ -26,7 +26,7 @@ namespace Assets.Scripts.Dialogue
 		public void StartObjectInfo(ObjectModel objectModel)
 		{
 			DisableInteractables();
-			ObjectInfoHandler component = objectInfo.GetComponent<ObjectInfoHandler>();
+            ObjectInfoHandler component = objectInfo.GetComponent<ObjectInfoHandler>();
 			component.Initialize(objectModel);
 			objectInfo.SetActive(true);
 		}
