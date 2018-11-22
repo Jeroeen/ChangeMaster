@@ -19,7 +19,8 @@ namespace Assets.Scripts.UI
 		[SerializeField] private GameObject textPrefab;
 		[SerializeField] private GameObject textImagePrefab;
 		[SerializeField] private GameObject buttonPrefab;
-		[SerializeField] private GameObject skillPanel;
+        [SerializeField] private GameObject hint;
+        [SerializeField] private GameObject skillPanel;
 		[SerializeField] private CanvasGroup blockingPanel;
 		[SerializeField] private Transition transition;
 		[SerializeField] private GameObject interventionWarning;
@@ -118,7 +119,11 @@ namespace Assets.Scripts.UI
 				entry.callback.AddListener(eventData => { Confirm(id); });
 				trigger.triggers.Add(entry);
 
-				textCount++;
+                Button hintButton = uiElements[i].GetComponentInChildren<Button>();
+
+                hintButton.onClick.AddListener(delegate () { showhint(id); });
+
+                textCount++;
 				elementLimit = scrollviewContent.sizeDelta.x / textboxSizeX;
 
 				//i starts at 0, so to compensate we subtract 1 from the elementlimit
@@ -139,9 +144,15 @@ namespace Assets.Scripts.UI
 			clickedElementId = id;
 			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
 			chosenInterventionSprite.sprite = interventionSprite;
-
 			confirmInterventionGameObject.SetActive(true);
 		}
+
+        private void showhint(int id)
+        {
+            Text hintText= hint.GetComponentInChildren<Text>();
+            hintText.text = interventions.Interventions[id].Hint;
+            hint.SetActive(true);
+        }
 
 		public void ConfirmInterventionChoice()
 		{
