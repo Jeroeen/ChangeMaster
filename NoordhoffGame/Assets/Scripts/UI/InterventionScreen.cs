@@ -121,7 +121,7 @@ namespace Assets.Scripts.UI
 
                 Button hintButton = uiElements[i].GetComponentInChildren<Button>();
 
-                hintButton.onClick.AddListener(delegate () { showhint(id); });
+                hintButton.onClick.AddListener(delegate () { Showhint(id); });
 
                 textCount++;
 				elementLimit = scrollviewContent.sizeDelta.x / textboxSizeX;
@@ -147,7 +147,7 @@ namespace Assets.Scripts.UI
 			confirmInterventionGameObject.SetActive(true);
 		}
 
-        private void showhint(int id)
+        private void Showhint(int id)
         {
             Text hintText= hint.GetComponentInChildren<Text>();
             hintText.text = interventions.Interventions[id].Hint;
