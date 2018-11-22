@@ -5,6 +5,7 @@
     
     public string InterventionImage { get; set; }
     public string InterventionText { get; set; }
+    public string Hint { get; set; }
     public string Advice { get; set; }
     public int Analytic { get; set; }
     public int Enthusiasm { get; set; }
