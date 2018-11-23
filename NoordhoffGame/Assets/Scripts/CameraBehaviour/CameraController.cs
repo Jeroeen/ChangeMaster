@@ -16,7 +16,7 @@ namespace Assets.Scripts.CameraBehaviour
         {
             transform.position = new Vector3(startPosition.position.x, startPosition.position.y, transform.position.z);
 
-            zoomValue = zinZoom;
+            zoomValue = minZoom;
 
             viewportHandler.UnitsSize = zoomValue;
         }
@@ -33,9 +33,9 @@ namespace Assets.Scripts.CameraBehaviour
             ComputerZoom(x => zoomValue -= x, y => zoomValue += y);
 #elif UNITY_ANDROID
             MobileMovement(x => -x);
-            MobileZoom(x => ZoomValue += x, y => ZoomValue -= y);
+            MobileZoom(x => zoomValue += x, y => zoomValue -= y);
 #endif
-            zoomValue = Mathf.Clamp(zoomValue, zinZoom, zaxZoom);
+            zoomValue = Mathf.Clamp(zoomValue, minZoom, maxZoom);
             viewportHandler.UnitsSize = zoomValue;
 
             RestrictCameraToBoundary();

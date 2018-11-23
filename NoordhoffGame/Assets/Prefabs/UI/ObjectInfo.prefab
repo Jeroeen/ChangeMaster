@@ -548,8 +548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdd8ad64690749498981c4e0be81133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZoomSpeed: 0.2
-  MinZoom: 1
-  MaxZoom: 2
-  ViewportHandler: {fileID: 0}
-  Camera: {fileID: 0}
+  zoomSpeed: 0.2
+  minZoom: 1
+  maxZoom: 2
+  viewportHandler: {fileID: 0}
+  camera: {fileID: 0}

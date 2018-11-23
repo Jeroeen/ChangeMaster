@@ -12,8 +12,8 @@ namespace Assets.Scripts.CameraBehaviour
         protected float zoomValue;
         [SerializeField] protected float zoomSpeed;
 
-        [SerializeField] protected int zinZoom;
-        [SerializeField] protected int zaxZoom;
+        [SerializeField] protected int minZoom;
+        [SerializeField] protected int maxZoom;
 
         [SerializeField] protected ViewportHandler viewportHandler;
 

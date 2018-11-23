@@ -19,9 +19,9 @@ public class ZoomingObject : MoveAndZoom
         ComputerZoom(x => zoomValue += x, y => zoomValue -= y);
 #elif UNITY_ANDROID
         MobileMovement(x => x);
-        MobileZoom(x => ZoomValue += x, y => ZoomValue -= y);
+        MobileZoom(x => zoomValue += x, y => zoomValue -= y);
 #endif
-        zoomValue = Mathf.Clamp(zoomValue, zinZoom, zaxZoom);
+        zoomValue = Mathf.Clamp(zoomValue, minZoom, maxZoom);
         transform.localScale = new Vector3(zoomValue, zoomValue, zoomValue);
 
         RestrictObjectToBoundary();
