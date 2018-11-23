@@ -13,8 +13,8 @@ namespace Assets.Scripts.Dialogue
 		private DialogueItem dialogue;
 		private CharacterModel characterModel;
 
-        [SerializeField] private Infoscreen infoscreen;
-        [SerializeField] private SpriteRenderer partner;
+		[SerializeField] private Infoscreen infoscreen;
+		[SerializeField] private SpriteRenderer partner;
 		[SerializeField] private Text partnerName;
 		[SerializeField] private Text dialogueText;
 
@@ -22,30 +22,34 @@ namespace Assets.Scripts.Dialogue
 		[SerializeField] private Button nextButton;
 		[SerializeField] private Button settingButton;
 		[SerializeField] private Button infoButton;
-	    [SerializeField] private Button interventionButton;
+		[SerializeField] private Button interventionButton;
+		
+		public delegate void DeadCallback(CharacterModel characterModel);
+		
+		public static event DeadCallback OnConversationDoneEvent;
 
-        public void Initialize(CharacterModel model)
+		public void Initialize(CharacterModel model)
 		{
-            SaveLoadGame.Load();
+			SaveLoadGame.Load();
 
-            characterModel = model;
+			characterModel = model;
 			RetrieveAsset.RetrieveAssets();
 
 			json = new RetrieveJson();
 
-            if (Game.GetGame().DialogueRead.ContainsKey(model.NameOfPartner + model.Stage + model.DialogueCount))
-            {
-                while(Game.GetGame().DialogueRead.ContainsKey(model.NameOfPartner + model.Stage + model.DialogueCount) &&
-                    Game.GetGame().DialogueRead[model.NameOfPartner + model.Stage + model.DialogueCount] && 
-                    characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
-                {
-                    characterModel.DialogueCount++;
-                }
-            }
+			if (Game.GetGame().DialogueRead.ContainsKey(model.NameOfPartner + model.Stage + model.DialogueCount))
+			{
+				while (Game.GetGame().DialogueRead.ContainsKey(model.NameOfPartner + model.Stage + model.DialogueCount) &&
+					Game.GetGame().DialogueRead[model.NameOfPartner + model.Stage + model.DialogueCount] &&
+					characterModel.DialogueCount > -1 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
+				{
+					characterModel.DialogueCount++;
+				}
+			}
 
-            dialogue = json.LoadJsonDialogue(model.NameOfPartner, model.Stage, model.DialogueCount);
+			dialogue = json.LoadJsonDialogue(model.NameOfPartner, model.Stage, model.DialogueCount);
 
-            nextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
+			nextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
 			prevButton.GetComponentInChildren<Text>().text = dialogue.PreviousButtonText;
 
 			partnerName.text = dialogue.NameOfSpeaker;
@@ -60,11 +64,11 @@ namespace Assets.Scripts.Dialogue
 		{
 			gameObject.SetActive(false);
 			OpenPopUp.IsActive = false;
-            if (infoButton != null && settingButton != null)
+			if (infoButton != null && settingButton != null)
 			{
 				infoButton.interactable = true;
 				settingButton.interactable = true;
-			    interventionButton.interactable = true;
+				interventionButton.interactable = true;
 			}
 		}
 
@@ -73,19 +77,21 @@ namespace Assets.Scripts.Dialogue
 			// Final page of slide, so close dialogue screen
 			if (dialogue.IsEndOfDialogue())
 			{
-                Game.GetGame().DialogueRead[characterModel.NameOfPartner + characterModel.Stage + characterModel.DialogueCount] = true;
-                SaveLoadGame.Save();
-                if (infoscreen != null)
-                {
-                    infoscreen.ShowStakeholder(characterModel.NameOfPartner);
-                    infoscreen.SaveInformation();
-                }
-                CloseDialogue();
+				OnConversationDoneEvent(characterModel);
+
+				Game.GetGame().DialogueRead[characterModel.NameOfPartner + characterModel.Stage + characterModel.DialogueCount] = true;
+				SaveLoadGame.Save();
+				if (infoscreen != null)
+				{
+					infoscreen.ShowStakeholder(characterModel.NameOfPartner);
+					infoscreen.SaveInformation();
+				}
+				CloseDialogue();
 				if (characterModel.AmountOfDialogues >= 0 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
 				{
 					characterModel.DialogueCount++;
 				}
-			
+
 				return;
 			}
 
