@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.CameraBehaviour
 {
-    public abstract class MoveAndZoom : MonoBehaviour
+    public class MoveAndZoom : MonoBehaviour
     {
         protected float zoomValue;
         [SerializeField] protected float zoomSpeed;
@@ -17,7 +17,7 @@ namespace Assets.Scripts.CameraBehaviour
 
         [SerializeField] protected ViewportHandler viewportHandler;
 
-        [SerializeField] protected Camera camera;
+        [SerializeField] protected new Camera camera;
 
         // Movement of an object or camera while on the computer
         protected void ComputerMovement(Func<Vector3, Vector3> zoomOperate)
