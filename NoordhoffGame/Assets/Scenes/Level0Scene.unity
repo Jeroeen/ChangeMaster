@@ -1860,7 +1860,7 @@ Camera:
   far clip plane: 500
   field of view: 60
   orthographic: 1
-  orthographic size: 7.990488
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1902,15 +1902,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1665a2306d5187f4d8108e98e686c09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanUse: 0
   zoomSpeed: 2
   minZoom: 16
   maxZoom: 33
+  viewportHandler: {fileID: 519420030}
+  camera: {fileID: 519420031}
   startPosition: {fileID: 1899222747}
-  ViewportHandler: {fileID: 519420030}
   TilemapHandler: {fileID: 1395098297}
-  Camera: {fileID: 519420031}
   Checker: {fileID: 475555192}
+  CanUse: 0
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9339,7 +9339,7 @@ PrefabInstance:
       objectReference: {fileID: 1207778322}
     - target: {fileID: 7330838475554492863, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492857, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_Type

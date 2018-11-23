@@ -27,7 +27,7 @@ namespace Assets.Scripts.Dialogue
                 infoscreen.ShowStakeholder(objectModel.Sprite.name);
                 infoscreen.SaveInformation();
             }
-        }
+		}
 
 		public void CloseInfo()
 		{
@@ -38,8 +38,6 @@ namespace Assets.Scripts.Dialogue
 				infoButton.interactable = true;
 				settingButton.interactable = true;
 			    interventionButton.interactable = true;
-
-
 			}
 		}
 	}

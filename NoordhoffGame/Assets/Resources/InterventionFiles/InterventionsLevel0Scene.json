@@ -3,7 +3,8 @@
     {
 	  "InterventionImage": "interventie feedback",
       "InterventionText": "Feedback geven over wat zijn manier van communiceren doet bij de ander.",
-      "Advice": "Een goede keus. Daarmee laat je zien wat de impact is. Je geeft hem zo nog geen handelingsopties, dus hoe hij het anders kan doen. ",
+      "Hint": "Zet een denkproces in werking, maar kan jij het alleen?",
+	  "Advice": "Een goede keus. Daarmee laat je zien wat de impact is. Je geeft hem zo nog geen handelingsopties, dus hoe hij het anders kan doen. ",
       "Analytic": -1,
       "Enthusiasm": -1,
       "Decisive": 1,
@@ -15,6 +16,7 @@
     {
 	  "InterventionImage": "interventie training",
       "InterventionText": "Roerganger bij verlof direct op training sturen over communicatievaardigheden.",
+      "Hint": "Lost training iets op als de persoon er niets mee doet?",
       "Advice": "Goede keus. Heb je nu nog wel last van zijn manier van communiceren. ",
       "Analytic": -1,
       "Enthusiasm": -1,
@@ -27,6 +29,7 @@
     {
 	  "InterventionImage": "interventie feedbackcoaching",
       "InterventionText": "Feedback geven, vertellen hoe het wel moet en bij vallen in oud gedrag, op training/coaching sturen",
+      "Hint": "Kan hij dat toepassen en wat is het effect op het zelfvertrouwen?",
       "Advice": "Feedback geven, vertellen hoe het wel moet en bij vallen in oud gedrag, op training/coaching sturen Kan hij dat toepassen en wat is het effect op het zelfvertrouwen?	Beste keus. Daarmee help je hem te verbeteren. En vind die dat moeilijk, kan hij extern geholpen worden.",
       "Analytic": -1,
       "Enthusiasm": -1,
@@ -39,6 +42,7 @@
     {
 	  "InterventionImage": "interventie promotie",
       "InterventionText": "Promotie geven, zodat hij in een positie komt waarbij hij dit soort bevelen kan geven.",
+      "Hint": "Wat denken de collega’s hiervan?",
       "Advice": "Slechte keus. Daarmee stimuleer je bij de andere medewerkers dat dit het gedrag is dat wenselijk is.",
       "Analytic": 1,
       "Enthusiasm": -1,
@@ -51,6 +55,7 @@
     {
 	  "InterventionImage": "interventie nietzocommuniceren",
       "InterventionText": "Vertellen dat hij nooit meer op die manier moet communiceren omdat dat niet past bij zijn rol.",
+      "Hint": "En hoe moet het anders?",
       "Advice": "Slechte keus. Hij weet dan niet wat hij fout doet en dus wat hij moet veranderen ",
       "Analytic": 1,
       "Enthusiasm": 1,

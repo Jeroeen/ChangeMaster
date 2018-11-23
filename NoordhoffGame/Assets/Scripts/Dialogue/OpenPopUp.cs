@@ -14,7 +14,6 @@ namespace Assets.Scripts.Dialogue
 
         public static bool IsActive { get; set; }
 	
-
 		public void StartDialogue(CharacterModel characterModel)
 		{
 			DisableInteractables();
@@ -26,7 +25,7 @@ namespace Assets.Scripts.Dialogue
 		public void StartObjectInfo(ObjectModel objectModel)
 		{
 			DisableInteractables();
-			ObjectInfoHandler component = objectInfo.GetComponent<ObjectInfoHandler>();
+            ObjectInfoHandler component = objectInfo.GetComponent<ObjectInfoHandler>();
 			component.Initialize(objectModel);
 			objectInfo.SetActive(true);
 		}
@@ -36,7 +35,6 @@ namespace Assets.Scripts.Dialogue
 			settingsButton.interactable = false;
 			infoButton.interactable = false;
 		    interventionButton.interactable = false;
-
 		}
 	}
 }
