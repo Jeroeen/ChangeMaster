@@ -14,7 +14,6 @@ namespace Assets.Scripts.Dialogue
 
         public static bool IsActive { get; set; }
 	
-
 		public void StartDialogue(CharacterModel characterModel)
 		{
 			DisableInteractables();
@@ -36,7 +35,6 @@ namespace Assets.Scripts.Dialogue
 			settingsButton.interactable = false;
 			infoButton.interactable = false;
 		    interventionButton.interactable = false;
-
 		}
 	}
 }

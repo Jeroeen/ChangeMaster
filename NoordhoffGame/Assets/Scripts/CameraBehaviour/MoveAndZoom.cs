@@ -9,22 +9,22 @@ namespace Assets.Scripts.CameraBehaviour
 {
     public abstract class MoveAndZoom : MonoBehaviour
     {
-        protected float ZoomValue;
-        [SerializeField] protected float ZoomSpeed;
+        protected float zoomValue;
+        [SerializeField] protected float zoomSpeed;
 
-        [SerializeField] protected int MinZoom;
-        [SerializeField] protected int MaxZoom;
+        [SerializeField] protected int zinZoom;
+        [SerializeField] protected int zaxZoom;
 
-        [SerializeField] protected ViewportHandler ViewportHandler;
+        [SerializeField] protected ViewportHandler viewportHandler;
 
-        [SerializeField] protected Camera Camera;
+        [SerializeField] protected Camera camera;
 
         // Movement of an object or camera while on the computer
         protected void ComputerMovement(Func<Vector3, Vector3> zoomOperate)
         {
             if (Input.GetMouseButton(0))
             {
-                float speed = ViewportHandler.UnitsSize;
+                float speed = viewportHandler.UnitsSize;
                 zoomOperate(new Vector3(Input.GetAxis("Mouse X") * speed * Time.deltaTime,
                     Input.GetAxis("Mouse Y") * speed * Time.deltaTime,
                     0));
@@ -38,11 +38,11 @@ namespace Assets.Scripts.CameraBehaviour
 
             if (Input.GetKey("up"))
             {
-                zoomUp(ZoomSpeed * pcZoomMultiplier * Time.deltaTime);
+                zoomUp(zoomSpeed * pcZoomMultiplier * Time.deltaTime);
             }
             else if (Input.GetKey("down"))
             {
-                zoomDown(ZoomSpeed * pcZoomMultiplier * Time.deltaTime);
+                zoomDown(zoomSpeed * pcZoomMultiplier * Time.deltaTime);
             }
         }
 
@@ -54,7 +54,7 @@ namespace Assets.Scripts.CameraBehaviour
             {
                 // The best speed for 16 zoomValue is 0.4, for 32 zoomValue it's double that (0.8)
                 // 16 / 0.4 = 40, 32 / 0.8 = 40
-                float speed = ViewportHandler.UnitsSize / 40f;
+                float speed = viewportHandler.UnitsSize / 40f;
 
                 Vector2 deltaPos = Input.GetTouch(0).deltaPosition;
                 transform.Translate(operate(deltaPos.x) * speed * Time.deltaTime,
@@ -77,7 +77,7 @@ namespace Assets.Scripts.CameraBehaviour
                 float prevPosDifference = (firstTouchPrevPos - secondTouchPrevPos).magnitude;
                 float curPosDifference = (firstTouch.position - secondTouch.position).magnitude;
 
-                float zoomModifier = (firstTouch.deltaPosition - secondTouch.deltaPosition).magnitude * ZoomSpeed;
+                float zoomModifier = (firstTouch.deltaPosition - secondTouch.deltaPosition).magnitude * zoomSpeed;
 
                 if (prevPosDifference > curPosDifference)
                 {

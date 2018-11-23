@@ -6,20 +6,19 @@ namespace Assets.Scripts.CameraBehaviour
 {
     public class CameraController : MoveAndZoom
     {
-        public bool CanUse;
-
         [SerializeField] private Transform startPosition;
         
         public TilemapHandler TilemapHandler;
         public MouseChecker Checker;
+        public bool CanUse;
 
         void Start()
         {
             transform.position = new Vector3(startPosition.position.x, startPosition.position.y, transform.position.z);
 
-            ZoomValue = MinZoom;
+            zoomValue = zinZoom;
 
-            ViewportHandler.UnitsSize = ZoomValue;
+            viewportHandler.UnitsSize = zoomValue;
         }
 
         void Update()
@@ -31,21 +30,21 @@ namespace Assets.Scripts.CameraBehaviour
 
 #if UNITY_EDITOR
             ComputerMovement(x => transform.position -= x);
-            ComputerZoom(x => ZoomValue -= x, y => ZoomValue += y);
+            ComputerZoom(x => zoomValue -= x, y => zoomValue += y);
 #elif UNITY_ANDROID
             MobileMovement(x => -x);
             MobileZoom(x => ZoomValue += x, y => ZoomValue -= y);
 #endif
-            ZoomValue = Mathf.Clamp(ZoomValue, MinZoom, MaxZoom);
-            ViewportHandler.UnitsSize = ZoomValue;
+            zoomValue = Mathf.Clamp(zoomValue, zinZoom, zaxZoom);
+            viewportHandler.UnitsSize = zoomValue;
 
             RestrictCameraToBoundary();
         }
 
         private void RestrictCameraToBoundary()
         {
-            float camHeight = 2f * Camera.orthographicSize;
-            float camWidth = camHeight * Camera.aspect;
+            float camHeight = 2f * camera.orthographicSize;
+            float camWidth = camHeight * camera.aspect;
             Vector3 camMin = new Vector3(transform.position.x - camWidth / 2, transform.position.y - camHeight / 2, transform.position.z);
             Vector3 camMax = new Vector3(transform.position.x + camWidth / 2, transform.position.y + camHeight / 2, transform.position.z);
 
