@@ -2,8 +2,8 @@
 {
 	public static class GlobalVariablesHelper
 	{
-        public static readonly int CINEMA_SCENE_INDEX = 0;
-        public static readonly int ARCADE_SCENE_INDEX = 1;
+        public static readonly int CINEMA_SCENE_INDEX = 1;
+        public static readonly int ARCADE_SCENE_INDEX = 2;
 		public static readonly int BASEVIEW_SCENE_INDEX = 6;
 		public static readonly int BASE_LEVEL_INDEX = 5;
 

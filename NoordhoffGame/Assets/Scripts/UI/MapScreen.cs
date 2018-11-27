@@ -133,7 +133,7 @@ public class MapScreen : MonoBehaviour
     }
     public void TravelLevel()
     {
-        if (levels)
+        if (levels && game.CurrentLevelIndex == game.LastFinishedLevel +1)
         {
             levelIndex = game.LastFinishedLevel + 1;
             Debug.Log(levelIndex);
