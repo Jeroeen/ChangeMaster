@@ -133,7 +133,6 @@ namespace Assets.Scripts.UI
         {
             if (information.InformationList[i].Image == Name)
             {
-				Debug.Log(information.InformationList[i].Image);
                 information.InformationList[i].Found = true;
             }
         }
