@@ -39,25 +39,18 @@ public class MapScreen : MonoBehaviour
         {
             case "Baseview":
                 baseview = false;
-                Debug.Log("Baseview");
-
                 player.anchoredPosition = new Vector2(-625.0f, 220.0f);
                 break;
             case "Arcade":
                 arcade = false;
-                Debug.Log("arcade");
-
                 player.anchoredPosition = new Vector2(140.0f, 220.0f);
                 break;
             case "Cinema":
                 cinema = false;
-                Debug.Log("cinema");
                 player.anchoredPosition = new Vector2(-625.0f, -280.0f);
                 break;
             default:
                 levels = false;
-                Debug.Log("levels");
-
                 player.anchoredPosition = new Vector2(140.0f, -280.0f);
                 break;
         }
