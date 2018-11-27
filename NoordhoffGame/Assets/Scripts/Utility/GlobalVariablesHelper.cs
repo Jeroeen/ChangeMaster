@@ -16,6 +16,8 @@
 
 	    public static readonly string CHARACTER_NAME_PLAYERPREFS = "PlayerCharacter";
 
+	    public static readonly int MAX_NAME_LENGTH = 15;
+
 
 	}
 }
