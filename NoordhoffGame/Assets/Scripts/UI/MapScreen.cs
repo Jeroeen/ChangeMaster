@@ -103,7 +103,7 @@ public class MapScreen : MonoBehaviour
     {
         if (baseview)
         {
-            levelIndex = GlobalVariablesHelper.BRIDGE_SCENE_INDEX;
+            levelIndex = GlobalVariablesHelper.BASEVIEW_SCENE_INDEX;
             warningMessage = "Weet je zeker dat je naar de brug wilt reizen";
             warningScreenText.text = warningMessage;
             warningScreen.SetActive(true);
@@ -137,7 +137,7 @@ public class MapScreen : MonoBehaviour
         {
             levelIndex = game.LastFinishedLevel + 1;
             Debug.Log(levelIndex);
-            int currentLevelNr = levelIndex - GlobalVariablesHelper.BRIDGE_SCENE_INDEX;
+            int currentLevelNr = levelIndex - GlobalVariablesHelper.BASEVIEW_SCENE_INDEX;
             warningMessage = "Weet je zeker dat je naar level " + currentLevelNr + " wilt reizen";
             warningScreenText.text = warningMessage;
             warningScreen.SetActive(true);
