@@ -21,7 +21,7 @@ namespace Assets.Scripts
 		[SerializeField] private BoxCollider2D kapitein;
 		[SerializeField] private GameObject worldMap;
 		[SerializeField] private BoxCollider2D roerganger;
-		[SerializeField] private BoxCollider2D wegwijspiet;
+		[SerializeField] private BoxCollider2D uitkijk;
 		[SerializeField] private BoxCollider2D boekenkast;
 		[SerializeField] private GameObject deur;
 		
@@ -43,7 +43,7 @@ namespace Assets.Scripts
 
 		public void InterventionScreenDone()
 		{
-			wegwijspiet.enabled = true;
+			uitkijk.enabled = true;
 			cameraController.CanUse = true;
 
 			infoButton.interactable = true;

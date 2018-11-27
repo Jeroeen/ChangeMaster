@@ -259,11 +259,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -793
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000037135133
+      value: 0.0000019364911
       objectReference: {fileID: 0}
     - target: {fileID: 1973399519404373213, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_Text
@@ -5279,7 +5279,7 @@ MonoBehaviour:
   kapitein: {fileID: 1899222748}
   worldMap: {fileID: 283507320}
   roerganger: {fileID: 1389576148}
-  wegwijspiet: {fileID: 1616059635}
+  uitkijk: {fileID: 1616059635}
   boekenkast: {fileID: 1108857847}
   deur: {fileID: 57553712}
   cameraController: {fileID: 519420033}
