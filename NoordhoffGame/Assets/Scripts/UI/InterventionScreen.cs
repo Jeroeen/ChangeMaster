@@ -83,7 +83,7 @@ namespace Assets.Scripts.UI
 			{
 				if (transition.FadeOut())
 				{
-					SceneManager.LoadScene(GlobalVariablesHelper.BRIDGE_SCENE_INDEX);
+					SceneManager.LoadScene(GlobalVariablesHelper.BASEVIEW_SCENE_INDEX);
 				}
 			}
 		}
