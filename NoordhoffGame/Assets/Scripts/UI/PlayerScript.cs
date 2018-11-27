@@ -10,6 +10,7 @@ namespace Assets.Scripts.UI
 	{
 	    private Player player;
 	    [SerializeField] private SpriteRenderer playerSprite;
+	    [SerializeField] private Image image;
 
         public Text CoinAmount;
 	
@@ -19,7 +20,12 @@ namespace Assets.Scripts.UI
 			player = Player.GetPlayer();
 		    RetrieveAsset.RetrieveAssets();
             playerSprite.sprite = RetrieveAsset.GetSpriteByName(PlayerPrefs.GetString(GlobalVariablesHelper.CHARACTER_NAME_PLAYERPREFS));
-			CoinAmount.text = player.Coins.ToString();
+		    if (image != null)
+		    {
+		        image.sprite = playerSprite.sprite;
+		    }
+
+		    CoinAmount.text = player.Coins.ToString();
 		}
 
 		public void AddCoin()
