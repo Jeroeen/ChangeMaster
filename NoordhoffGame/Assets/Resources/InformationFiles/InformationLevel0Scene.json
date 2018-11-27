@@ -2,34 +2,19 @@
   "InformationList": [
     {
       "Image": "Kapitein",
-      "Text": "Twee animatiemedewerkers die veel uren werken hebben zich ziek gemeld."
+      "Text": "De roerganger is te dominant en communiceert niet prettig."
     },
     {
-      "Image": "Animatiemedewerker1",
-      "Text": "De animatiemedewerkers zijn niet echt ziek."
+      "Image": "Roerganger",
+      "Text": "De kapitein waardeert me niet, wat ik niet durf te zeggen."
     },
     {
-      "Image": "Animatiemedewerker2",
-      "Text": "De animatiemedewerkers worden gepest door hun teamleider."
+      "Image": "Uitkijk",
+      "Text": "Als de roerganger niets vraagt, doe ik niets. De kapitein doet er niets aan."
     },
     {
-      "Image": "Verzuimgrafiek",
-      "Text": "Het ziekteverzuim is in de laatste maanden 8,5%. Normaal is dat 2,5%."
-    },
-    {
-      "Image": "Animatiemedewerker_ziek",
-      "Text": "Wij doen graag ons werk als wij niet gepest worden."
-    },
-    {
-      "Image": "Roostercloseup",
-      "Text": "De animatiemedewerkers werken gebroken diensten."
-    },
-    {
-      "Image": "Teamleider",
-      "Text": "Ik heb gehoord dat de animatiemedewerkers mij weg willen hebben."
+      "Image": "Personeelsdossier",
+      "Text": "De roerganger is sinds een maand in dienst en er wordt geklaagd dat hij onredelijk behandeld."
     }
-
   ]
-	
-    
 }

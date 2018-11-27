@@ -503,9 +503,9 @@ MonoBehaviour:
   viewportHandler: {fileID: 519420030}
   camera: {fileID: 519420031}
   startPosition: {fileID: 1899222747}
+  startZoomValue: 16
   TilemapHandler: {fileID: 1112453708}
   Checker: {fileID: 475555192}
-  CanUse: 0
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5684,11 +5684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -793.00006
+      value: -792.9999
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015939877
+      value: 0.026791174
       objectReference: {fileID: 0}
     - target: {fileID: 2220617832961469804, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6094,6 +6094,10 @@ PrefabInstance:
       propertyPath: chosenInterventionSprite
       value: 
       objectReference: {fileID: 912806381}
+    - target: {fileID: 1027381261891408356, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
+      propertyPath: m_Size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
 --- !u!114 &5824235579272914445 stripped

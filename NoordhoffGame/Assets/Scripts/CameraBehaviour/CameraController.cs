@@ -7,16 +7,18 @@ namespace Assets.Scripts.CameraBehaviour
     public class CameraController : MoveAndZoom
     {
         [SerializeField] private Transform startPosition;
-        
+	    [SerializeField] private float startZoomValue = 16;
+
         public TilemapHandler TilemapHandler;
         public MouseChecker Checker;
-        public bool CanUse;
+        public bool CanUse { get; set; }
+		
 
         void Start()
         {
             transform.position = new Vector3(startPosition.position.x, startPosition.position.y, transform.position.z);
 
-            zoomValue = minZoom;
+            zoomValue = startZoomValue;
 
             viewportHandler.UnitsSize = zoomValue;
         }

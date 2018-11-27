@@ -36,7 +36,7 @@ namespace Assets.Scripts
 			}
 			else // Bridge to level
 			{
-				uiText.text += Game.GetGame().CurrentLevelNumber + "?";
+				uiText.text += Game.GetGame().CurrentLevelNumber-1 + "?";
 			}
 		}
 
@@ -66,7 +66,7 @@ namespace Assets.Scripts
 			if (isFadingToBridge)
 			{
 				// Load bridge
-				SceneManager.LoadScene(GlobalVariablesHelper.BRIDGE_SCENE_INDEX);
+				SceneManager.LoadScene(GlobalVariablesHelper.BASEVIEW_SCENE_INDEX);
 			}
 			else // Fading to level
 			{
