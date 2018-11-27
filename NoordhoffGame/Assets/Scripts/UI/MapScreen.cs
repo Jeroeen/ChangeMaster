@@ -23,12 +23,11 @@ public class MapScreen : MonoBehaviour
 
     private Game game;
     private bool isFading;
-    private bool baseview = true;
-    private bool cinema = true;
-    private bool arcade = true;
-    private bool levels = true;
+    private bool canTravelToBaseview = true;
+    private bool canTravelToCinema = true;
+    private bool canTravelToArcade = true;
+    private bool canTravelToLevels = true;
     private int levelIndex;
-    private string warningMessage;
 
     void Start()
     {
@@ -38,19 +37,19 @@ public class MapScreen : MonoBehaviour
         switch (SceneManager.GetActiveScene().name)
         {
             case "Baseview":
-                baseview = false;
+                canTravelToBaseview = false;
                 player.anchoredPosition = new Vector2(-625.0f, 220.0f);
                 break;
             case "Arcade":
-                arcade = false;
+                canTravelToArcade = false;
                 player.anchoredPosition = new Vector2(140.0f, 220.0f);
                 break;
             case "Cinema":
-                cinema = false;
+                canTravelToCinema = false;
                 player.anchoredPosition = new Vector2(-625.0f, -280.0f);
                 break;
             default:
-                levels = false;
+                canTravelToLevels = false;
                 player.anchoredPosition = new Vector2(140.0f, -280.0f);
                 break;
         }
@@ -74,7 +73,7 @@ public class MapScreen : MonoBehaviour
         }
     }
     
-    public void showMap()
+    public void ShowMap()
     {
 
         mapScreen.SetActive(!mapScreen.gameObject.activeSelf);
@@ -94,45 +93,43 @@ public class MapScreen : MonoBehaviour
 
     public void TravelBaseview()
     {
-        if (baseview)
+        if (canTravelToBaseview)
         {
-            levelIndex = GlobalVariablesHelper.BASEVIEW_SCENE_INDEX;
-            warningMessage = "Weet je zeker dat je naar de brug wilt reizen";
-            warningScreenText.text = warningMessage;
+            levelIndex = GlobalVariablesHelper.BASEVIEW_SCENE_INDEX; 
+            warningScreenText.text = "Weet je zeker dat je naar de brug wilt reizen";
             warningScreen.SetActive(true);
         }
     }
+
     public void TravelArcade()
     {
-        if (arcade)
+        if (canTravelToArcade)
         {
             SaveLoadGame.Load();
             levelIndex = GlobalVariablesHelper.ARCADE_SCENE_INDEX;
-            warningMessage = "Weet je zeker dat je naar de arcadehal wilt reizen";
-            warningScreenText.text = warningMessage;
+            warningScreenText.text = "Weet je zeker dat je naar de arcadehal wilt reizen";
             warningScreen.SetActive(true);
         }
     }
+
     public void TravelCinema()
     {
-        if (cinema)
+        if (canTravelToCinema)
         {
             SaveLoadGame.Load();
             levelIndex = GlobalVariablesHelper.CINEMA_SCENE_INDEX;
-            warningMessage = "Weet je zeker dat je naar de bioscoop wilt reizen";
-            warningScreenText.text = warningMessage;
+            warningScreenText.text = "Weet je zeker dat je naar de bioscoop wilt reizen";
             warningScreen.SetActive(true);
         }
     }
+
     public void TravelLevel()
     {
-        if (levels && game.CurrentLevelIndex == game.LastFinishedLevel +1)
+        if (canTravelToLevels && game.CurrentLevelIndex == game.LastFinishedLevel +1)
         {
             levelIndex = game.LastFinishedLevel + 1;
-            Debug.Log(levelIndex);
             int currentLevelNr = levelIndex - GlobalVariablesHelper.BASEVIEW_SCENE_INDEX;
-            warningMessage = "Weet je zeker dat je naar level " + currentLevelNr + " wilt reizen";
-            warningScreenText.text = warningMessage;
+            warningScreenText.text = "Weet je zeker dat je naar level " + currentLevelNr + " wilt reizen";
             warningScreen.SetActive(true);
             SaveLoadGame.Save();
         }
