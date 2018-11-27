@@ -3,7 +3,9 @@
 	public static class GlobalVariablesHelper
 	{
 		public static readonly int BRIDGE_SCENE_INDEX = 3;
-		public static readonly int BASE_LEVEL_INDEX = 3;
+		public static readonly int BASE_LEVEL_INDEX = 5;
+		public static readonly int CINEMA_SCENE_INDEX = 4;
+		public static readonly int ARCADE_SCENE_INDEX = 5;
 
         public static readonly float BUTTON_MULTIPLIER = 1.5f;
         public static readonly int ADVICE_TEXT_X_MULTIPLIER = 2;

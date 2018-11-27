@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Baseview.unity
     guid: da7f8888820de76488cd58ffe5674d37
   - enabled: 1
+    path: Assets/Scenes/Arcade.unity
+    guid: 24955caaa481c284188d3e8e3f834416
+  - enabled: 1
+    path: Assets/Scenes/Cinema.unity
+    guid: 08ed58cbdbd1d444f9809969c307365a
+  - enabled: 1
     path: Assets/Scenes/Level1Scene.unity
     guid: 4e144b264a8600a46959fa5be730cedd
   - enabled: 1
