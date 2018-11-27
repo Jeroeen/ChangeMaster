@@ -19,7 +19,6 @@ namespace Assets.Scripts.Dialogue
 			spriteRenderer.sprite = objectModel.Sprite;
 			if (infoscreen != null)
 			{
-				Debug.Log(objectModel.Sprite.name);
 				infoscreen.ShowStakeholder(objectModel.Sprite.name);
 				infoscreen.SaveInformation();
 			}
