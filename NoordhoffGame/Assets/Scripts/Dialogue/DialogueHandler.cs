@@ -24,9 +24,9 @@ namespace Assets.Scripts.Dialogue
 		[SerializeField] private Button infoButton;
 		[SerializeField] private Button interventionButton;
 		
-		public delegate void DeadCallback(CharacterModel characterModel);
+		public delegate void DoneCallback(CharacterModel characterModel);
 		
-		public static event DeadCallback OnConversationDoneEvent;
+		public static event DoneCallback OnConversationDoneEvent;
 
 		public void Initialize(CharacterModel model)
 		{
@@ -70,6 +70,7 @@ namespace Assets.Scripts.Dialogue
 				settingButton.interactable = true;
 				interventionButton.interactable = true;
 			}
+			OnConversationDoneEvent?.Invoke(characterModel);
 		}
 
 		public void NextLine()
@@ -77,8 +78,6 @@ namespace Assets.Scripts.Dialogue
 			// Final page of slide, so close dialogue screen
 			if (dialogue.IsEndOfDialogue())
 			{
-				OnConversationDoneEvent(characterModel);
-
 				Game.GetGame().DialogueRead[characterModel.NameOfPartner + characterModel.Stage + characterModel.DialogueCount] = true;
 				SaveLoadGame.Save();
 				if (infoscreen != null)

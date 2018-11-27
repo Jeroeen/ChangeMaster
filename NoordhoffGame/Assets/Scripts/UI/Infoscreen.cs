@@ -133,6 +133,7 @@ namespace Assets.Scripts.UI
         {
             if (information.InformationList[i].Image == Name)
             {
+				Debug.Log(information.InformationList[i].Image);
                 information.InformationList[i].Found = true;
             }
         }
@@ -149,7 +150,6 @@ namespace Assets.Scripts.UI
 			interventionButton.interactable = !interventionButton.IsInteractable();
 			infoButton.interactable = !infoButton.IsInteractable();
 			FillCharacterInfo();
-
 		}
 
 		//a function that will fill the character info menu
