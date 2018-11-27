@@ -1484,8 +1484,23 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8607144771365043190, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: playerImage
+      value: 
+      objectReference: {fileID: 496747928}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+--- !u!114 &496747928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8607144771425672647, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+  m_PrefabInstance: {fileID: 496747927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2193982484095839393, guid: e38f27f248248f846a8a77cd2a2ab1eb, type: 3}
