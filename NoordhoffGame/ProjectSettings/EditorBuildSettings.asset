@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Opening Cutscene.unity
     guid: 9509bd403723f9544a94e3390f442464
   - enabled: 1
-    path: Assets/Scenes/Character_Creation.unity
+    path: Assets/Scenes/Character_Selection.unity
     guid: 0501b6356f228034b8f3da4f24854e11
   - enabled: 1
     path: Assets/Scenes/Baseview.unity

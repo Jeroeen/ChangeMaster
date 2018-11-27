@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.GameSaveLoad;
+﻿using Assets.Scripts.Dialogue;
+using Assets.Scripts.GameSaveLoad;
+using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,13 +8,17 @@ namespace Assets.Scripts.UI
 {
 	public class PlayerScript : MonoBehaviour
 	{
-		public Text CoinAmount;
-		private Player player;
+	    private Player player;
+	    [SerializeField] private SpriteRenderer playerSprite;
+
+        public Text CoinAmount;
 	
 		// Start is called before the first frame update
 		void Start()
 		{
 			player = Player.GetPlayer();
+		    RetrieveAsset.RetrieveAssets();
+            playerSprite.sprite = RetrieveAsset.GetSpriteByName(PlayerPrefs.GetString(GlobalVariablesHelper.CHARACTER_NAME_PLAYERPREFS));
 			CoinAmount.text = player.Coins.ToString();
 		}
 
