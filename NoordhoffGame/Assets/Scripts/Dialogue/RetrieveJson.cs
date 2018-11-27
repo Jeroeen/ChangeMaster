@@ -11,14 +11,11 @@ namespace Assets.Scripts.Dialogue
 	{
 		public DialogueItem LoadJsonDialogue(string nameOfPartner, string stage, int dialogueCount)
 		{
-			string path = "DialogueFiles/";
-			if (dialogueCount < 0)
+			string path = "DialogueFiles/" + stage + "/" + nameOfPartner;
+
+			if (dialogueCount >= 0)
 			{
-				path += stage + "/" + nameOfPartner;
-			}
-			else
-			{
-				path += stage + "/" + nameOfPartner + "-" + dialogueCount;
+				path += "-" + dialogueCount;
 			}
 
             SaveLoadGame.Save();

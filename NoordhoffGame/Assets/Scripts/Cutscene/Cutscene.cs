@@ -64,7 +64,7 @@ namespace Assets.Scripts.Cutscene
 					CharacterModel model = new CharacterModel
 					{
 						NameOfPartner = "Kapitein",
-						Stage = "0",
+						Stage = "C",
 						AmountOfDialogues = -1,
 					};
 					dialogueHandler.Initialize(model);

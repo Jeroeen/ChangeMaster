@@ -149,7 +149,6 @@ namespace Assets.Scripts.UI
 			interventionButton.interactable = !interventionButton.IsInteractable();
 			infoButton.interactable = !infoButton.IsInteractable();
 			FillCharacterInfo();
-
 		}
 
 		//a function that will fill the character info menu
