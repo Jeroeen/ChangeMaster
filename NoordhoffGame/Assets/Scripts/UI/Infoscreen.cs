@@ -107,7 +107,7 @@ namespace Assets.Scripts.UI
 				infoRectTransform[0].anchoredPosition = position;
 				float elementLimit = scrollviewContent.sizeDelta.y / (panelSizeY);
 
-				if (i > elementLimit)
+                if (i > elementLimit - 1) 
 				{
 					infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y + (panelSizeY));
                     //when infoScrollviewRect is made bigger, we have to compensate the position, 
