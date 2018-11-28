@@ -19,12 +19,10 @@ namespace Assets.Scripts.UI
 		[SerializeField] private Text function;
 		[SerializeField] private Text playerName;
 		[SerializeField] private Text analytic;
-		[SerializeField] private Text decisive;
-		[SerializeField] private Text creative;
-		[SerializeField] private Text empatic;
-		[SerializeField] private Text enthusiasm;
-		[SerializeField] private Text convincing;
-		[SerializeField] private Text changeKnowledge;
+		[SerializeField] private Text ownership;
+		[SerializeField] private Text facilitates;
+		[SerializeField] private Text approach;
+        [SerializeField] private Text communication;
 
 		private List<GameObject> panels = new List<GameObject>();
 		private InfoList information;
@@ -157,12 +155,10 @@ namespace Assets.Scripts.UI
 			player = Player.GetPlayer();
 
 			analytic.text = player.Analytic.ToString();
-			enthusiasm.text = player.Enthousiasm.ToString();
-			decisive.text = player.Decisive.ToString();
-			empatic.text = player.Empathic.ToString();
-			convincing.text = player.Convincing.ToString();
-			creative.text = player.Creative.ToString();
-			changeKnowledge.text = player.ChangeKnowledge.ToString();
+			approach.text = player.Approach.ToString();
+			ownership.text = player.Ownership.ToString();
+			facilitates.text = player.Facilitates.ToString();
+			communication.text = player.Communication.ToString();
 
 			playerName.text = "Naam: " + player.Name;
 

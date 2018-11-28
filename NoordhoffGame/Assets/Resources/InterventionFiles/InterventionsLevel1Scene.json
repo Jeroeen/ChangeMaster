@@ -5,39 +5,33 @@
       "InterventionText": "Ontslag van de zieke medewerkers.",
       "Hint": "Je gaat in op een gevolg, niet op de oorzaak.",
       "Advice": "Deze zou kunnen, maar het nadeel is dat het probleem niet bij hun ligt. De keuze is daarom niet de beste optie. ",
-      "Analytic": -1,
-      "Enthusiasm": -1,
-      "Decisive": 1,
-      "Empathic": -1,
-      "Convincing": 0,
-      "Creative": 0,
-      "ChangeKnowledge": 0
+      "Analytic": 0,
+	  "Approach": 0,
+	  "Ownership": 0,
+	  "Facilitates": 0,
+	  "Communication": 0
     },
     {
 	  "InterventionImage": "interventie schoonmaker inzetten",
       "InterventionText": "Medewerkers ziek laten zijn en schoonmaak- personeel inzetten om daar te werken.",
       "Hint": "Je lost het probleem voor vandaag op, maar de oorzaak niet.",
       "Advice": "Kan, maar daarmee los je de oorzaak niet op. Daarnaast creëer je een angstcultuur. Niet de beste keus. ",
-      "Analytic": -1,
-      "Enthusiasm": -1,
-      "Decisive": 0,
-      "Empathic": 0,
-      "Convincing": 0,
-      "Creative": 1,
-      "ChangeKnowledge": 0
+      "Analytic": 0,
+	  "Approach": 0,
+	  "Ownership": 0,
+	  "Facilitates": 0,
+	  "Communication": 0
     },
     {
 	  "InterventionImage": "interventie berisping",
       "InterventionText": "Berisping van de teamleider om normale roosters te maken en ze niet meer te pesten.",
       "Hint": "Dat legt de verantwoordelijkheid alleen neer bij de teamleider.",
       "Advice": "Kan, maar de teamleider doet het ergens om, dus meer zoeken naar de oorzaak en die met elkaar aanpakken",
-      "Analytic": -1,
-      "Enthusiasm": -1,
-      "Decisive": 1,
-      "Empathic": 0,
-      "Convincing": 1,
-      "Creative": 0,
-      "ChangeKnowledge": 0
+      "Analytic": 0,
+	  "Approach": 0,
+	  "Ownership": 0,
+	  "Facilitates": 1,
+	  "Communication": 0
     },
     {
 	  "InterventionImage": "interventie gesprekteamleider",
@@ -45,12 +39,10 @@
       "Hint": "Dat legt de oplossing neer bij de teamleider",
       "Advice": "Kan, maar dat is eenzijdig. Het probleem zit in het team. Niet de beste keus.",
       "Analytic": 1,
-      "Enthusiasm": -1,
-      "Decisive": 1,
-      "Empathic": -1,
-      "Convincing": 0,
-      "Creative": -1,
-      "ChangeKnowledge": 0
+	  "Approach": 0,
+	  "Ownership": 0,
+	  "Facilitates": 1,
+	  "Communication": 1
     },
     {
 	  "InterventionImage": "interventie coaching",
@@ -58,38 +50,32 @@
       "Hint": "Hoe lang duurt zoiets en wat doe je met korte termijn?",
       "Advice": "Beste keus. Duurt iets langer, maar zorgt voor de meest duurzame oplossing van gedrag. Daarin wordt de teamsamenwerking besproken en gekeken naar wat ieder teamlid nodig heeft. ",
       "Analytic": 1,
-      "Enthusiasm": 1,
-      "Decisive": 1,
-      "Empathic": 1,
-      "Convincing": 1,
-      "Creative": 1,
-      "ChangeKnowledge": 1
+	  "Approach": 1,
+	  "Ownership": 1,
+	  "Facilitates": 1,
+	  "Communication": 1
     },
     {
 	  "InterventionImage": "interventie sluiten",
       "InterventionText": "Medewerkers ziek laten zijn en de kinderspeelplek een deel van de dag dicht doen.",
       "Hint": "Oplossing voor vandaag, maar niet de oorzaak?",
       "Advice": "Kan, maar daarmee los je de oorzaak niet op. Tevredenheid bij gasten gaat naar beneden. Niet de beste keus",
-      "Analytic": -1,
-      "Enthusiasm": 0,
-      "Decisive": 1,
-      "Empathic": -1,
-      "Convincing": 0,
-      "Creative": 0,
-      "ChangeKnowledge": 0
+      "Analytic": 0,
+	  "Approach": 0,
+	  "Ownership": 0,
+	  "Facilitates": 0,
+	  "Communication": 1
     },
     {
 	  "InterventionImage": "interventie alleenvoordegroep",
       "InterventionText": "Medewerkers ziek laten zijn en de overige animatiemedewerkers alleen voor de groep te zetten. ",
       "Hint": "Is dat lang houdbaar?",
       "Advice": "Kan, maar de teamleider doet het ergens om, dus meer zoeken naar de oorzaak en die met elkaar aanpakken",
-      "Analytic": -1,
-      "Enthusiasm": -1,
-      "Decisive": 0,
-      "Empathic": -1,
-      "Convincing": 0,
-      "Creative": 0,
-      "ChangeKnowledge": 0
+      "Analytic": 0,
+	  "Approach": 0,
+	  "Ownership": 0,
+	  "Facilitates": 0,
+	  "Communication": 0
     }
   ]
 }

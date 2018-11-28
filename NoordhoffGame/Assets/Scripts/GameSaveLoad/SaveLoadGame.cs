@@ -28,13 +28,11 @@ namespace Assets.Scripts.GameSaveLoad
 				Player player = Player.GetPlayer();
 				Game game = Game.GetGame();
 
-				player.Enthousiasm = game.Player.Enthousiasm;
+				player.Approach = game.Player.Approach;
 				player.Analytic = game.Player.Analytic;
-				player.ChangeKnowledge = game.Player.ChangeKnowledge;
-				player.Convincing = game.Player.Convincing;
-				player.Creative = game.Player.Creative;
-				player.Empathic = game.Player.Empathic;
-				player.Decisive = game.Player.Decisive;
+				player.Communication = game.Player.Communication;
+				player.Facilitates = game.Player.Facilitates;
+				player.Ownership = game.Player.Ownership;
 				player.Coins = game.Player.Coins;
 				player.Name = PlayerPrefs.GetString("PlayerName");
 				return true;
