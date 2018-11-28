@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class AnimationHandler : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    
 
     public void ToggleAnimation()
     {

@@ -230,7 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24237446}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arcades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 163705496}
   - component: {fileID: 163705494}
   - component: {fileID: 163705495}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArcadeRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163705490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.09, y: -0.09000015, z: 10}
+  m_LocalPosition: {x: -8.09, y: -0.09000015, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 24237446}
@@ -623,6 +623,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420035}
   - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
@@ -746,7 +747,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 311
+  m_MaxRayIntersections: 0
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1690312454, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 512
   m_MaxRayIntersections: 0
 --- !u!224 &552989444 stripped
 RectTransform:
@@ -4147,7 +4164,7 @@ GameObject:
   - component: {fileID: 1251567541}
   - component: {fileID: 1251567540}
   - component: {fileID: 1251567539}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArcadeGreen (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4162,7 +4179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251567537}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 13.87, y: -1.1, z: 10}
+  m_LocalPosition: {x: 13.87, y: -1.1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 24237446}
@@ -4332,7 +4349,7 @@ GameObject:
   - component: {fileID: 1276977876}
   - component: {fileID: 1276977875}
   - component: {fileID: 1276977874}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Glijbaan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4414,7 +4431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276977870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.71, y: -0.66, z: -0.78357697}
+  m_LocalPosition: {x: 4.71, y: -0.66, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 2083570937}
@@ -4727,7 +4744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3950969497398894243, guid: b4080def3f3141d41960e445438f8934, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3950969497398894243, guid: b4080def3f3141d41960e445438f8934, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4797,7 +4814,7 @@ GameObject:
   - component: {fileID: 1458040591}
   - component: {fileID: 1458040590}
   - component: {fileID: 1458040589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArcadeRed (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4812,7 +4829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458040587}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 12.87, y: -0.58, z: 10}
+  m_LocalPosition: {x: 12.87, y: -0.58, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 24237446}
@@ -5313,7 +5330,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &1684596114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5745,7 +5762,7 @@ GameObject:
   - component: {fileID: 1735377345}
   - component: {fileID: 1735377344}
   - component: {fileID: 1735377343}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArcadeBlue (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5760,7 +5777,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735377341}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 14.87, y: -1.61, z: 10}
+  m_LocalPosition: {x: 14.87, y: -1.61, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 24237446}
@@ -5930,7 +5947,7 @@ GameObject:
   - component: {fileID: 1753744532}
   - component: {fileID: 1753744531}
   - component: {fileID: 1753744530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArcadeGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5945,7 +5962,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753744526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.08, y: -0.59000015, z: 10}
+  m_LocalPosition: {x: -9.08, y: -0.59000015, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 24237446}
@@ -6225,7 +6242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899222744}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 16.83, y: -1.75, z: 30}
+  m_LocalPosition: {x: 16.83, y: -1.75, z: 50}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 558742146}
@@ -6241,7 +6258,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.08658397, y: 0.24387562}
@@ -6301,7 +6318,7 @@ GameObject:
   - component: {fileID: 2005338856}
   - component: {fileID: 2005338855}
   - component: {fileID: 2005338854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArcadeBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6316,7 +6333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005338852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.08, y: -1.1, z: 10}
+  m_LocalPosition: {x: -10.08, y: -1.1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 24237446}
@@ -6493,7 +6510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2083570937}
   - component: {fileID: 2083570939}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6508,7 +6525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083570936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.117573, y: 2.8465219, z: 10.783577}
+  m_LocalPosition: {x: 13.117573, y: 2.8465219, z: 55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 24237446}
@@ -7264,7 +7281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000008399689
+      value: -0.000014684818
       objectReference: {fileID: 0}
     - target: {fileID: 2220617832961469804, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
