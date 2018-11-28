@@ -1,4 +1,4 @@
-Dit is de format dat de dialogue json files hebben, hieronder staat uitgelegd waar ieder kopje voor gebruikt wordt in de game
+Dit is de format dat de dialogue json files hebben. Hieronder staat uitgelegd waar ieder kopje voor gebruikt wordt in de game
 
 {
   "speaker": "de naam van de persoon met wie de speler praat",
