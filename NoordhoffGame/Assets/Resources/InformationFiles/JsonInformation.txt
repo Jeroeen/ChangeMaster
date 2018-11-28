@@ -1,0 +1,10 @@
+
+Dit is de format dat de Information json files hebben, hieronder staat uitgelegd waar ieder kopje voor gebruikt wordt in de game
+{
+  "InformationList": [
+    {
+      "Image": "de naam van de stakeholder in de game, deze wordt gebruikt om het plaatje van de stakeholder te vinden",
+      "Text": "de informatie die de speler van de stakeholder krijgt, dit wordt weergegeven naast het plaatje."
+    }
+}
+	
