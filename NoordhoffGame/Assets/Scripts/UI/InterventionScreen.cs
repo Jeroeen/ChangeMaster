@@ -213,12 +213,11 @@ namespace Assets.Scripts.UI
 			Intervention selectedIntervention = interventions.Interventions[selected];
 
 			player.Analytic += selectedIntervention.Analytic;
-			player.Enthousiasm += selectedIntervention.Enthusiasm;
-			player.Decisive += selectedIntervention.Decisive;
-			player.Empathic += selectedIntervention.Empathic;
-			player.Convincing += selectedIntervention.Convincing;
-			player.Creative += selectedIntervention.Creative;
-			player.ChangeKnowledge += selectedIntervention.ChangeKnowledge;
+			player.Approach += selectedIntervention.Approach;
+			player.Ownership += selectedIntervention.Ownership;
+			player.Facilitating += selectedIntervention.Facilitating;
+			player.Communication += selectedIntervention.Communication;
+            game.Player = player;
 			SaveLoadGame.Save();
 
 			RectTransform textRect = textPrefab.GetComponent<RectTransform>();
@@ -239,21 +238,20 @@ namespace Assets.Scripts.UI
 
 			string[] skillSpriteNames =
 			{
-				"Analytisch", "Enthousiasmerend", "Besluitvaardig",
-				"Empatisch", "Overtuigend", "Creatief", "Kennis van veranderkunde"
-			};
+				"Analytisch", "x button", "x button",
+                "x button", "Communiceren"
+            };
 
 			int[] interventionScores =
 			{
-				selectedIntervention.Analytic, selectedIntervention.Enthusiasm, selectedIntervention.Decisive,
-				selectedIntervention.Empathic,
-				selectedIntervention.Convincing, selectedIntervention.Creative, selectedIntervention.ChangeKnowledge
+				selectedIntervention.Analytic, selectedIntervention.Approach, selectedIntervention.Ownership,
+				selectedIntervention.Facilitating, selectedIntervention.Communication
 			};
 
 			showSkills(skillSpriteNames.Length, skillSpriteNames, interventionScores, skillpos);
 
 			chosenText.text = "Gefeliciteerd " + player.GetPlayerTitle() + "! \n"
-							  + "Je hebt level " + game.CurrentLevelNumber + " gehaald en daarbij de volgende skills gehaald";
+							  + "Je hebt level " + (game.LastFinishedLevel - GlobalVariablesHelper.BASE_LEVEL_INDEX) + " gehaald en daarbij de volgende skills gehaald";
 
 			newStandardPosition = new Vector2(newStandardPosition.x + textboxSizeX, newStandardPosition.y);
 
@@ -270,8 +268,7 @@ namespace Assets.Scripts.UI
 
 			int[] playerScores =
 			{
-				player.Analytic, player.Enthousiasm, player.Decisive, player.Empathic, player.Convincing, player.Creative,
-				player.ChangeKnowledge
+				player.Analytic, player.Approach, player.Ownership, player.Facilitating, player.Communication
 			};
 			showSkills(skillSpriteNames.Length, skillSpriteNames, playerScores, skillpos);
 
