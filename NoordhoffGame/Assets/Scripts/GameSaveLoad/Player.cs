@@ -22,13 +22,13 @@ namespace Assets.Scripts.GameSaveLoad
 		}
         #endregion
         public int Coins { get; set; }
+
         public int Analytic { get; set; }
-        public int Enthousiasm { get; set; }
-        public int Decisive { get; set; }
-        public int Empathic { get; set; }
-        public int Convincing { get; set; }
-        public int Creative { get; set; }
-        public int ChangeKnowledge { get; set; }
+        public int Approach { get; set; }
+        public int Ownership { get; set; }
+        public int Facilitating { get; set; }
+        public int Communication { get; set; }
+        
 
 
         void start()
@@ -61,7 +61,7 @@ namespace Assets.Scripts.GameSaveLoad
 
 		public string GetPlayerTitle()
 		{
-			switch (ChangeKnowledge)
+			switch (Analytic)
 			{
 				case 0: return "Rookie";
 				case 1: return "Junior veranderkundige";
