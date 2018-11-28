@@ -9,28 +9,34 @@ namespace Assets.Scripts.GameSaveLoad
 	{
 		[SerializeField] private InputField field;
 		[SerializeField] private Text errorMessage;
-	    private string selectedCharacter;
-        
+		private string selectedCharacter;
+
 		public void CreateCharacter()
 		{
-			if (field.text.Length <= GlobalVariablesHelper.MAX_NAME_LENGTH)
+			if (field.text.Length > GlobalVariablesHelper.MAX_NAME_LENGTH)
 			{
-				errorMessage.text = "";
-				PlayerPrefs.SetString("PlayerName", field.text);
-			    PlayerPrefs.SetString(GlobalVariablesHelper.CHARACTER_NAME_PLAYERPREFS, selectedCharacter);
+				errorMessage.text = "De ingevulde naam is te lang. Maximaal " + GlobalVariablesHelper.MAX_NAME_LENGTH +
+									" tekens is toegestaan.";
+				return;
 			}
-			else
-			{
-				errorMessage.text = "De ingevulde naam is te lang, maximaal " + GlobalVariablesHelper.MAX_NAME_LENGTH + " tekens is toegestaan.";
-			    return;
-			}
-            // Going to the next scene (so current scene index + 1)
-		    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
 
-	    public void SetSelectedCharacter(Transform character)
-	    {
-	        selectedCharacter = character.name;
-	    }
+			if (string.IsNullOrWhiteSpace(field.text))
+			{
+				errorMessage.text = "De ingevulde naam mag niet leeg zijn.";
+				return;
+			}
+
+			errorMessage.text = "";
+			PlayerPrefs.SetString("PlayerName", field.text);
+			PlayerPrefs.SetString(GlobalVariablesHelper.CHARACTER_NAME_PLAYERPREFS, selectedCharacter);
+
+			// Going to the next scene (so current scene index + 1)
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		}
+
+		public void SetSelectedCharacter(Transform character)
+		{
+			selectedCharacter = character.name;
+		}
 	}
 }
