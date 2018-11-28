@@ -217,6 +217,7 @@ namespace Assets.Scripts.UI
 			player.Ownership += selectedIntervention.Ownership;
 			player.Facilitates += selectedIntervention.Facilitates;
 			player.Communication += selectedIntervention.Communication;
+            game.Player = player;
 			SaveLoadGame.Save();
 
 			RectTransform textRect = textPrefab.GetComponent<RectTransform>();
