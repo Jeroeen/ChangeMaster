@@ -31,7 +31,7 @@ namespace Assets.Scripts.GameSaveLoad
 				player.Approach = game.Player.Approach;
 				player.Analytic = game.Player.Analytic;
 				player.Communication = game.Player.Communication;
-				player.Facilitates = game.Player.Facilitates;
+				player.Facilitating = game.Player.Facilitating;
 				player.Ownership = game.Player.Ownership;
 				player.Coins = game.Player.Coins;
 				player.Name = PlayerPrefs.GetString("PlayerName");

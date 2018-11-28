@@ -157,7 +157,7 @@ namespace Assets.Scripts.UI
 			analytic.text = player.Analytic.ToString();
 			approach.text = player.Approach.ToString();
 			ownership.text = player.Ownership.ToString();
-			facilitates.text = player.Facilitates.ToString();
+			facilitates.text = player.Facilitating.ToString();
 			communication.text = player.Communication.ToString();
 
 			playerName.text = "Naam: " + player.Name;

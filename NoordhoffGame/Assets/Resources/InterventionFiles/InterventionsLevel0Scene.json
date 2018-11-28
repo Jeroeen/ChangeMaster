@@ -8,7 +8,7 @@
       "Analytic": 0,
 	  "Approach": 1,
 	  "Ownership": 1,
-	  "Facilitates": 0,
+	  "Facilitating": 0,
 	  "Communication": 0
     },
     {
@@ -19,7 +19,7 @@
       "Analytic": 0,
 	  "Approach": 1,
 	  "Ownership": 0,
-	  "Facilitates": 1,
+	  "Facilitating": 1,
 	  "Communication": 0
     },
     {
@@ -30,7 +30,7 @@
       "Analytic": 1,
 	  "Approach": 1,
 	  "Ownership": 1,
-	  "Facilitates": 1,
+	  "Facilitating": 1,
 	  "Communication": 1
     },
     {
@@ -41,7 +41,7 @@
       "Analytic": 0,
 	  "Approach": 0,
 	  "Ownership": 0,
-	  "Facilitates": 0,
+	  "Facilitating": 0,
 	  "Communication": 0
     },
     {
@@ -52,7 +52,7 @@
       "Analytic": 0,
 	  "Approach": 0,
 	  "Ownership": 0,
-	  "Facilitates": 0,
+	  "Facilitating": 0,
 	  "Communication": 0
     }
   ]

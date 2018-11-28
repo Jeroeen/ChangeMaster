@@ -215,7 +215,7 @@ namespace Assets.Scripts.UI
 			player.Analytic += selectedIntervention.Analytic;
 			player.Approach += selectedIntervention.Approach;
 			player.Ownership += selectedIntervention.Ownership;
-			player.Facilitates += selectedIntervention.Facilitates;
+			player.Facilitating += selectedIntervention.Facilitating;
 			player.Communication += selectedIntervention.Communication;
             game.Player = player;
 			SaveLoadGame.Save();
@@ -245,7 +245,7 @@ namespace Assets.Scripts.UI
 			int[] interventionScores =
 			{
 				selectedIntervention.Analytic, selectedIntervention.Approach, selectedIntervention.Ownership,
-				selectedIntervention.Facilitates, selectedIntervention.Communication
+				selectedIntervention.Facilitating, selectedIntervention.Communication
 			};
 
 			showSkills(skillSpriteNames.Length, skillSpriteNames, interventionScores, skillpos);
@@ -268,7 +268,7 @@ namespace Assets.Scripts.UI
 
 			int[] playerScores =
 			{
-				player.Analytic, player.Approach, player.Ownership, player.Facilitates, player.Communication
+				player.Analytic, player.Approach, player.Ownership, player.Facilitating, player.Communication
 			};
 			showSkills(skillSpriteNames.Length, skillSpriteNames, playerScores, skillpos);
 

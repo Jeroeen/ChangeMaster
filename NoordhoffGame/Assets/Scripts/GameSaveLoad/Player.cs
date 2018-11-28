@@ -26,7 +26,7 @@ namespace Assets.Scripts.GameSaveLoad
         public int Analytic { get; set; }
         public int Approach { get; set; }
         public int Ownership { get; set; }
-        public int Facilitates { get; set; }
+        public int Facilitating { get; set; }
         public int Communication { get; set; }
         
 
