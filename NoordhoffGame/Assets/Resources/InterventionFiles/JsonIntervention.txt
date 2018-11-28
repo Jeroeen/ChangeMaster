@@ -4,7 +4,7 @@ Dit is de format dat de intervention json files hebben. Hieronder staat uitgeleg
   "Interventions": [
     {
 	  "InterventionImage": "de naam van het plaatje dat bij de interventie staat",
-      "InterventionText": "de tekst die de interventie uitlegt, deze staat bij het plaatje van de interventie",
+      "InterventionText": "de tekst die de interventie uitlegt. Deze staat bij het plaatje van de interventie",
       "Hint": "de hint die bij deze interventie hoort",
       "Advice": "het advies wat de speler krijgt nadat hij/zij een interventie gekozen heeft.",
 	  
