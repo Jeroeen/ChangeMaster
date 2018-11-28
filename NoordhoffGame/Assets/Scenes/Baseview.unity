@@ -1675,7 +1675,7 @@ PrefabInstance:
       objectReference: {fileID: 1864428300}
     - target: {fileID: 478198710630758067, guid: b31388bb84950dc40a1980d240f0d3d0, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: showMap
+      value: ShowMap
       objectReference: {fileID: 0}
     - target: {fileID: 3312885523979047636, guid: b31388bb84950dc40a1980d240f0d3d0, type: 3}
       propertyPath: m_RootOrder
@@ -5929,7 +5929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5850628913498139565, guid: 47e8cfd2cc4229e4a86629593aa2d27f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5850628913498139565, guid: 47e8cfd2cc4229e4a86629593aa2d27f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8107,7 +8107,7 @@ PrefabInstance:
       objectReference: {fileID: 475555192}
     - target: {fileID: 2193982484095839393, guid: e38f27f248248f846a8a77cd2a2ab1eb, type: 3}
       propertyPath: orthographic size
-      value: 7.9950495
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38f27f248248f846a8a77cd2a2ab1eb, type: 3}
@@ -8416,7 +8416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492856, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492856, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8480,7 +8480,7 @@ PrefabInstance:
       objectReference: {fileID: 1207778322}
     - target: {fileID: 7330838475554492863, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492857, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_Type

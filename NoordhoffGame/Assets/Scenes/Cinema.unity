@@ -499,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 466622123}
     - target: {fileID: 478198710630758067, guid: b31388bb84950dc40a1980d240f0d3d0, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: showMap
+      value: ShowMap
       objectReference: {fileID: 0}
     - target: {fileID: 478198710630758067, guid: b31388bb84950dc40a1980d240f0d3d0, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -811,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 1832356852}
     - target: {fileID: 2193982484095839393, guid: e38f27f248248f846a8a77cd2a2ab1eb, type: 3}
       propertyPath: orthographic size
-      value: 7.9950495
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e38f27f248248f846a8a77cd2a2ab1eb, type: 3}
@@ -932,7 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 1662506658}
     - target: {fileID: 7330838475554492863, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7330838475554492857, guid: 67183806cf765914b80c1cc3ff9db43c, type: 3}
       propertyPath: m_Type
@@ -1032,6 +1032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 1796189636}
+  image: {fileID: 0}
   CoinAmount: {fileID: 1367535577}
 --- !u!114 &1796189635
 MonoBehaviour:
