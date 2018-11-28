@@ -7,7 +7,6 @@ public class AnimationHandler : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     
-
     public void ToggleAnimation()
     {
         animator.SetBool("isPlaying", !animator.GetBool("isPlaying"));
