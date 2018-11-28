@@ -1,0 +1,20 @@
+Dit is de format dat de intervention json files hebben. Hieronder staat uitgelegd waar ieder kopje voor gebruikt wordt in de game
+
+{
+  "Interventions": [
+    {
+	  "InterventionImage": "de naam van het plaatje dat bij de interventie staat",
+      "InterventionText": "de tekst die de interventie uitlegt. Deze staat bij het plaatje van de interventie",
+      "Hint": "de hint die bij deze interventie hoort",
+      "Advice": "het advies wat de speler krijgt nadat hij/zij een interventie gekozen heeft.",
+	  
+      hieronder staat wat er bij de skills opgeteld moet worden nadat deze interventie gekozen is.
+	  "Analytic": 0,
+      "Enthusiasm": 0,
+      "Decisive": 0,
+      "Empathic": 0,
+      "Convincing": 0,
+      "Creative": 0,
+      "ChangeKnowledge": 0
+    }
+}
