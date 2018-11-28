@@ -13,7 +13,7 @@ namespace Assets.Scripts.GameSaveLoad
         
 		public void CreateCharacter()
 		{
-			if (field.text.Length <= 15)
+			if (field.text.Length <= GlobalVariablesHelper.MAX_NAME_LENGTH)
 			{
 				errorMessage.text = "";
 				PlayerPrefs.SetString("PlayerName", field.text);
@@ -21,9 +21,10 @@ namespace Assets.Scripts.GameSaveLoad
 			}
 			else
 			{
-				errorMessage.text = "De ingevulde naam is te lang, maximaal 15 tekens is toegestaan.";
+				errorMessage.text = "De ingevulde naam is te lang, maximaal " + GlobalVariablesHelper.MAX_NAME_LENGTH + " tekens is toegestaan.";
 			    return;
 			}
+            // Going to the next scene (so current scene index + 1)
 		    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 

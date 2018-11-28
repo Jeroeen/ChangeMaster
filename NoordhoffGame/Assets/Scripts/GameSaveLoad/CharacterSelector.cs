@@ -14,7 +14,7 @@ public class CharacterSelector : MonoBehaviour
     public void SetCurrentSelected(Button button)
     {
         // Can't do "currentSelected.colors.normalColor = x" directly, so a small detour has to be used
-        var newColors = button.colors;
+        ColorBlock newColors = button.colors;
 
         if (currentSelected == null)
         {
@@ -23,7 +23,7 @@ public class CharacterSelector : MonoBehaviour
         }
         else
         {
-            var currentColors = currentSelected.colors;
+            ColorBlock currentColors = currentSelected.colors;
             currentColors.normalColor = resetColor;
             currentColors.highlightedColor = resetColor;
             currentSelected.colors = currentColors;
