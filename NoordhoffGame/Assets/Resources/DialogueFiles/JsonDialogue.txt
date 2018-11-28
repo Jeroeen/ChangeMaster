@@ -6,7 +6,7 @@ Dit is de format dat de dialogue json files hebben, hieronder staat uitgelegd wa
     "dit is de tekst die de dialoog laat zien aan de speler",
     "iedere regel tekst wordt in een apart scherm laten zien, een voor een."
   ],
-  "previousButtonText": "de tekst die op de knop staat om het vorige stuk tekst te zien",
-  "nextButtonText": "de tekst die op de knop staat om het volgende stuk tekst te zien",
-  "confirmButtonText": "de tekst die op de knop staat als de laatste dialoog wordt laten zien"
+  "previousButtonText": "de tekst die op de knop staat om het vorige stuk tekst te zien, hier staat bijvoorbeeld 'vorige'. ",
+  "nextButtonText": "de tekst die op de knop staat om het volgende stuk tekst te zien", hier staat bijvoorbeeld 'volgende'.,
+  "confirmButtonText": "de tekst die op de knop staat als de laatste dialoog wordt laten zien, hier staat bijvoorbeeld 'bevestigen'."
 }
