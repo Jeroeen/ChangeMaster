@@ -17,9 +17,17 @@ namespace Assets.Scripts.UI
 			settingsScreen.SetActive(!settingsScreen.activeSelf);
 			blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
 			settingsButton.interactable = !settingsButton.IsInteractable();
-			infoButton.interactable = !infoButton.IsInteractable();
-			interventionButton.interactable = !interventionButton.IsInteractable();
-        
+
+			if (infoButton)
+			{
+				infoButton.interactable = !infoButton.IsInteractable();
+			}
+
+			if (interventionButton)
+			{
+				interventionButton.interactable = !interventionButton.IsInteractable();
+			}
+
 		}
 	}
 }

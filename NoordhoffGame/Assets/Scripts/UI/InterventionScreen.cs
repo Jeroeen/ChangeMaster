@@ -253,7 +253,7 @@ namespace Assets.Scripts.UI
 			showSkills(skillSpriteNames.Length, skillSpriteNames, interventionScores, skillpos);
 
 			chosenText.text = "Gefeliciteerd " + player.GetPlayerTitle() + "! \n"
-							  + "Je hebt level " + game.CurrentLevelNumber + " gehaald en daarbij de volgende skills gehaald";
+							  + "Je hebt level " + (game.LastFinishedLevel - GlobalVariablesHelper.BASE_LEVEL_INDEX) + " gehaald en daarbij de volgende skills gehaald";
 
 			newStandardPosition = new Vector2(newStandardPosition.x + textboxSizeX, newStandardPosition.y);
 
