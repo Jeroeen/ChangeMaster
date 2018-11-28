@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: transition
       value: 
       objectReference: {fileID: 1281914189}
+    - target: {fileID: 8607144772829095025, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowMap
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
 --- !u!114 &188450104 stripped
@@ -696,6 +700,11 @@ PrefabInstance:
       objectReference: {fileID: 774340677}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4080def3f3141d41960e445438f8934, type: 3}
+--- !u!4 &1131850586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3950969497398894243, guid: b4080def3f3141d41960e445438f8934, type: 3}
+  m_PrefabInstance: {fileID: 1131850585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1281914188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -887,7 +896,7 @@ PrefabInstance:
     - target: {fileID: 2193982484095839327, guid: e38f27f248248f846a8a77cd2a2ab1eb, type: 3}
       propertyPath: startPosition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1131850586}
     - target: {fileID: 2193982484095839327, guid: e38f27f248248f846a8a77cd2a2ab1eb, type: 3}
       propertyPath: TilemapHandler
       value: 
