@@ -27,8 +27,22 @@
     {
       "Image": "Zwembadgast",
       "Text": "Dat water is vies, ik ga er niet meer in!"
+    },
+    {
+      "Image": "SchoonmaakoverzichtCloseup",
+      "Text": "Er wordt om de 4 uur schoongemaakt. Maandag is er geschept, dinsdagochtend is het water getest."
+    },
+    {
+      "Image": "Schoonmaakprocedure",
+      "Text": "Elk uur neemt de badmeester monsters, deze worden getest door de kwaliteitscontroleur. Bij problemen neemt de badmeester actie. De verversingspomp staat aan tussen 4 en 7. Afval wordt zoveel mogelijk opgeruimt door de catering."
+    },
+    {
+      "Image": "openingstijden",
+      "Text": "Het zwembad is open van 7 uur 's ochtends tot en met 7 uur 's avonds."
+    },
+    {
+      "Image": "TestmonstersCloseup",
+      "Text": "Er zijn 2 uur geleden en 5 minuten geleden testmonsters."
     }
   ]
-	
-    
 }

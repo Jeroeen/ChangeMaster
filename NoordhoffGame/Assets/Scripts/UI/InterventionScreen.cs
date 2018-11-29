@@ -377,7 +377,7 @@ namespace Assets.Scripts.UI
 
 			for (int i = 0; i < amountofStakeholders; i++)
 			{
-				if (Game.GetGame().Information.InformationList[i].Found)
+				if (game.Information.InformationList[i].Found)
 				{
 					stakeholdersFound++;
 				}
