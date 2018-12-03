@@ -63,16 +63,15 @@ namespace Assets.Scripts.GameSaveLoad
 		{
 			switch (Analytic)
 			{
-				case 0: return "Rookie";
-				case 1: return "Junior veranderkundige";
-				case 2: return "Adviseur";
-				case 3: return "Mentor";
-				case 4: return "Coach";
-				case 5: return "Teamcoach";
-				case 6: return "Herstructureerder";
-				case 7: return "Herorganisator";
-				case 8: return "Organisatiecoach";
-				case 9: return "Cultuurveranderaar";
+				case 0: return "Junior veranderkundige";
+				case 1: return "Adviseur";
+				case 2: return "Mentor";
+				case 3: return "Coach";
+				case 4: return "Teamcoach";
+				case 5: return "Herstructureerder";
+				case 6: return "Herorganisator";
+				case 7: return "Organisatiecoach";
+				case 8: return "Cultuurveranderaar";
 
 				default: return "Changemaster";
 			}

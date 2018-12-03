@@ -13,10 +13,13 @@ namespace Assets.Scripts.UI
 		//a function that will enable or disable the menu
 		public void ShowMenu()
 		{
-
 			settingsScreen.SetActive(!settingsScreen.activeSelf);
-			blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
 			settingsButton.interactable = !settingsButton.IsInteractable();
+
+			if (blockingPanel)
+			{
+				blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
+			}
 
 			if (infoButton)
 			{
