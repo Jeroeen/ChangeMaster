@@ -15,6 +15,7 @@ namespace Assets.Scripts.UI
 		[SerializeField] private Button stakeholdersButton;
 		[SerializeField] private GameObject infoScreen;
 		[SerializeField] private GameObject stakeholderPanel;
+		[SerializeField] private GameObject skillInfoPanel;
 		[SerializeField] private CanvasGroup blockingPanel;
 		[SerializeField] private Text function;
 		[SerializeField] private Text playerName;
@@ -24,6 +25,8 @@ namespace Assets.Scripts.UI
 		[SerializeField] private Text approach;
         [SerializeField] private Text communication;
 
+        private bool scheduleShow;
+        private bool hasFocus;
 		private List<GameObject> panels = new List<GameObject>();
 		private InfoList information;
 		private Player player;
@@ -49,8 +52,8 @@ namespace Assets.Scripts.UI
 			infoScreen.SetActive(false);
 		}
 
-		//a function that will fill the stakeholders menu with the stakeholders and their opinion on the current problem
-		private void ShowStakeholders()
+        //a function that will fill the stakeholders menu with the stakeholders and their opinion on the current problem
+        private void ShowStakeholders()
 		{
 			position = new Vector2();
         
@@ -175,5 +178,11 @@ namespace Assets.Scripts.UI
 			Game.GetGame().Information = null;
 			SaveLoadGame.Save();
 		}
+
+        public void ShowSkillInformation()
+        {
+            skillInfoPanel.SetActive(!skillInfoPanel.activeSelf);
+            skillInfoPanel.GetComponent<Selectable>().Select();
+        }
 	}
 }
