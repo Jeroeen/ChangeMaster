@@ -815,6 +815,7 @@ MonoBehaviour:
   dialogueText: {fileID: 5557334826740217157}
   prevButton: {fileID: 5557334825955922663}
   nextButton: {fileID: 5557334827838678834}
+  closeButton: {fileID: 1637234177616726227}
   settingButton: {fileID: 0}
   infoButton: {fileID: 0}
   interventionButton: {fileID: 0}

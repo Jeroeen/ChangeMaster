@@ -20,6 +20,7 @@ namespace Assets.Scripts.Dialogue
 
 		[SerializeField] private Button prevButton;
 		[SerializeField] private Button nextButton;
+		[SerializeField] private Button closeButton;
 		[SerializeField] private Button settingButton;
 		[SerializeField] private Button infoButton;
 		[SerializeField] private Button interventionButton;
@@ -85,7 +86,9 @@ namespace Assets.Scripts.Dialogue
 					infoscreen.ShowStakeholder(characterModel.NameOfPartner);
 					infoscreen.SaveInformation();
 				}
+
 				CloseDialogue();
+
 				if (characterModel.AmountOfDialogues >= 0 && characterModel.DialogueCount < characterModel.AmountOfDialogues - 1)
 				{
 					characterModel.DialogueCount++;
@@ -98,15 +101,19 @@ namespace Assets.Scripts.Dialogue
 			prevButton.interactable = true;
 
 			// Next page is final page of slide
-			if (dialogue.IsEndOfDialogue())
+			if (!dialogue.IsEndOfDialogue())
 			{
-				nextButton.GetComponentInChildren<Text>().text = dialogue.ConfirmButtonText;
+				return;
 			}
+
+			nextButton.GetComponentInChildren<Text>().text = dialogue.ConfirmButtonText;
+			closeButton.interactable = false;
 		}
 
 		public void PreviousLine()
 		{
 			dialogueText.text = dialogue.PreviousLine();
+			closeButton.interactable = true;
 			nextButton.interactable = true;
 
 			nextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
