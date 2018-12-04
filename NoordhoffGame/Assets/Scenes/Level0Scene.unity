@@ -237,27 +237,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5969080459379769749, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 2960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5969080459379769749, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5969080459379769749, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5969080459379769749, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5969080459379769749, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5969080459379769749, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5969080459379769749, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_Pivot.x
@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1027381261622369159, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000019786066
+      value: 18.03439
       objectReference: {fileID: 0}
     - target: {fileID: 1973399519404373213, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_Text
@@ -337,7 +337,7 @@ PrefabInstance:
       objectReference: {fileID: 714881147}
     - target: {fileID: 9188085461350629720, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -58.000015
+      value: -58
       objectReference: {fileID: 0}
     - target: {fileID: 9188085461350629723, guid: b09d83ed9c7a85849947014b5611bd5f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1400,7 +1400,7 @@ Camera:
   far clip plane: 500
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 9.003215
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
