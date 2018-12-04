@@ -31,7 +31,6 @@ namespace Assets.Scripts.Dialogue
 
 		public void Initialize(CharacterModel model)
 		{
-
 		    SaveLoadGame.Load();
 
 			characterModel = model;
