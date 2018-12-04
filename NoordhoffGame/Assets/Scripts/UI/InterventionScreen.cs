@@ -23,6 +23,7 @@ namespace Assets.Scripts.UI
         [SerializeField] private GameObject skillPanel;
 		[SerializeField] private CanvasGroup blockingPanel;
 		[SerializeField] private CanvasGroup warningBlockingPanel;
+		[SerializeField] private CanvasGroup confirmBlockingPanel;
 		[SerializeField] private Transition transition;
 		[SerializeField] private GameObject interventionWarning;
 		[SerializeField] private GameObject confirmInterventionGameObject;
@@ -146,6 +147,8 @@ namespace Assets.Scripts.UI
 			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
 			chosenInterventionSprite.sprite = interventionSprite;
 			confirmInterventionGameObject.SetActive(true);
+            confirmBlockingPanel.blocksRaycasts = true;
+
 		}
 
         private void Showhint(int id)
@@ -160,8 +163,9 @@ namespace Assets.Scripts.UI
 		public void ConfirmInterventionChoice()
 		{
 			confirmInterventionGameObject.SetActive(false);
-			
-			ClickAdvice(clickedElementId);
+            confirmBlockingPanel.blocksRaycasts = false;
+
+            ClickAdvice(clickedElementId);
 		}
 
 		private void ClickAdvice(int selected)
