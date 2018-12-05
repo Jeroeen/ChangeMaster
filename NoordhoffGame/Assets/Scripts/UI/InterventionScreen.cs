@@ -46,6 +46,15 @@ namespace Assets.Scripts.UI
 		private bool isInterventionChosen;
 		private Game game;
 
+		public delegate void DoneCallback();
+
+		public static event DoneCallback OnHintButtonClickEvent;
+		public static event DoneCallback OnInterventionChooseButtonClickEvent;
+
+		public delegate void WarningCallback(bool allInfoFound);
+
+		public static event WarningCallback AllInformationFound;
+
 		// Start is called before the first frame update
 		void Start()
 		{
@@ -110,23 +119,21 @@ namespace Assets.Scripts.UI
 				//objectimage[1] is the image element that is contained within the panel, the one i want to change, 
 				//[0] is the image from  the panel containing it
 				objectImage[1].sprite = interventionIcon;
-
-
+				
 				position = new Vector2(position.x + textboxSizeX + textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER,
 					position.y);
 				uiElements[i].name = "button " + i;
 
 				EventTrigger trigger = uiElements[i].GetComponent<EventTrigger>();
 				EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
-
-
+				
 				int id = i;
 				entry.callback.AddListener(eventData => { Confirm(id); });
 				trigger.triggers.Add(entry);
 
                 Button hintButton = uiElements[i].GetComponentInChildren<Button>();
 
-                hintButton.onClick.AddListener(delegate () { Showhint(id); });
+                hintButton.onClick.AddListener(delegate { ShowHint(id); });
 
                 textCount++;
 				elementLimit = scrollviewContent.sizeDelta.x / textboxSizeX;
@@ -146,17 +153,18 @@ namespace Assets.Scripts.UI
 
 		private void Confirm(int id)
 		{
+			OnInterventionChooseButtonClickEvent?.Invoke();
 			clickedElementId = id;
 			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
 			chosenInterventionSprite.sprite = interventionSprite;
 			confirmInterventionGameObject.SetActive(true);
             confirmBlockingPanel.blocksRaycasts = true;
-
 		}
 
-        private void Showhint(int id)
+        private void ShowHint(int id)
         {
-            CanvasGroup hintCanvas = hint.GetComponent<CanvasGroup>();
+			OnHintButtonClickEvent?.Invoke();
+			CanvasGroup hintCanvas = hint.GetComponent<CanvasGroup>();
             hintCanvas.blocksRaycasts = true;
             Text hintText= hint.GetComponentInChildren<Text>();
             hintText.text = interventions.Interventions[id].Hint;
@@ -182,7 +190,7 @@ namespace Assets.Scripts.UI
 			textRect.sizeDelta = new Vector2(textboxSizeX * GlobalVariablesHelper.ADVICE_TEXT_X_MULTIPLIER,
 				textboxSizeY + textboxSizeY / GlobalVariablesHelper.ADVICE_TEXT_Y_DIVIDER);
 
-			scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - (textboxSizeX) * (textCount - 4),
+			scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - textboxSizeX * (textCount - 4),
 				scrollviewContent.sizeDelta.y);
 			scrollviewContent.anchoredPosition = new Vector2(10.0f, 0.0f);
 			interventionScrollView.horizontal = false;
@@ -400,6 +408,9 @@ namespace Assets.Scripts.UI
 		public void ShowMenu()
 		{
 			game = Game.GetGame();
+
+			bool isAllInformationFound = true;
+
 			if (game.Information != null && !interventionscreen.activeSelf)
 			{
 				for (int i = 0; i < game.Information.InformationList.Length; i++)
@@ -407,10 +418,14 @@ namespace Assets.Scripts.UI
 					if (!game.Information.InformationList[i].Found)
 					{
 						ShowWarning();
+						isAllInformationFound = false;
 						break;
 					}
 				}
 			}
+
+			AllInformationFound?.Invoke(isAllInformationFound);
+
 			interventionscreen.SetActive(!interventionscreen.gameObject.activeSelf);
 			blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
 			settingsButton.interactable = !settingsButton.IsInteractable();
@@ -418,14 +433,14 @@ namespace Assets.Scripts.UI
 			interventionButton.interactable = !interventionButton.IsInteractable();
 		}
 
-		private void InitiateTextObject(GameObject initiate, string text, Vector2 position)
+		private void InitiateTextObject(GameObject initiate, string text, Vector2 anchoredPosition)
 		{
 			//set the text of the textObject
 			Text objectText = initiate.GetComponentInChildren<Text>();
 			objectText.text = text;
-			//set the positionof the textObject
+			//set the position of the textObject
 			RectTransform cTextPos = initiate.GetComponent<RectTransform>();
-			cTextPos.anchoredPosition = position;
+			cTextPos.anchoredPosition = anchoredPosition;
 		}
 
 		public void ShowWarning()
