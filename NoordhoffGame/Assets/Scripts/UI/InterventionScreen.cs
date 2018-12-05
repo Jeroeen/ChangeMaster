@@ -438,7 +438,7 @@ namespace Assets.Scripts.UI
 			//set the text of the textObject
 			Text objectText = initiate.GetComponentInChildren<Text>();
 			objectText.text = text;
-			//set the positionof the textObject
+			//set the position of the textObject
 			RectTransform cTextPos = initiate.GetComponent<RectTransform>();
 			cTextPos.anchoredPosition = anchoredPosition;
 		}
