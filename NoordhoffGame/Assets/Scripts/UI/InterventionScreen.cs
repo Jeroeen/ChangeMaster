@@ -21,6 +21,7 @@ namespace Assets.Scripts.UI
 		[SerializeField] private GameObject buttonPrefab;
         [SerializeField] private GameObject hint;
         [SerializeField] private GameObject skillPanel;
+        [SerializeField] private GameObject skillInfo;
 		[SerializeField] private CanvasGroup blockingPanel;
 		[SerializeField] private CanvasGroup warningBlockingPanel;
 		[SerializeField] private CanvasGroup confirmBlockingPanel;
@@ -42,6 +43,7 @@ namespace Assets.Scripts.UI
 		private float textboxSizeY;
 		private float elementLimit;
 		private bool isFading;
+		private bool isInterventionChosen;
 		private Game game;
 
 		public delegate void DoneCallback();
@@ -56,6 +58,7 @@ namespace Assets.Scripts.UI
 		// Start is called before the first frame update
 		void Start()
 		{
+            isInterventionChosen = false;
 			SaveLoadGame.Load();
 			game = Game.GetGame();
 
@@ -178,7 +181,8 @@ namespace Assets.Scripts.UI
 
 		private void ClickAdvice(int selected)
 		{
-			foreach (GameObject g in uiElements)
+            isInterventionChosen = true;
+            foreach (GameObject g in uiElements)
 			{
 				Destroy(g);
 			}
@@ -251,8 +255,17 @@ namespace Assets.Scripts.UI
 
 			string[] skillSpriteNames =
 			{
-				"Analytisch", "x button", "x button",
+				"Analytisch", "Besluitvaardig", "Eigenaarschap",
                 "x button", "Communiceren"
+            };
+
+            string[] skillInfoText =
+            {
+                "Denkt analytisch denken vanuit het geheel",
+                "Kiest een duurzame veranderaanpak",
+                "Gericht op eigenaarschap bij alle stakeholders",
+                "Faciliteert de verandering",
+                "Communiceert open"
             };
 
 			int[] interventionScores =
@@ -261,7 +274,7 @@ namespace Assets.Scripts.UI
 				selectedIntervention.Facilitating, selectedIntervention.Communication
 			};
 
-			showSkills(skillSpriteNames.Length, skillSpriteNames, interventionScores, skillpos);
+			ShowSkills(skillSpriteNames.Length, skillSpriteNames, skillInfoText, interventionScores, skillpos);
 
 			chosenText.text = "Gefeliciteerd " + player.GetPlayerTitle() + "! \n"
 							  + "Je hebt level " + (game.LastFinishedLevel - GlobalVariablesHelper.BASE_LEVEL_INDEX) + " gehaald en daarbij de volgende skills gehaald";
@@ -283,8 +296,8 @@ namespace Assets.Scripts.UI
 			{
 				player.Analytic, player.Approach, player.Ownership, player.Facilitating, player.Communication
 			};
-			showSkills(skillSpriteNames.Length, skillSpriteNames, playerScores, skillpos);
-			
+			ShowSkills(skillSpriteNames.Length, skillSpriteNames, skillInfoText, playerScores, skillpos);
+
 			GameObject confirmButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
 			RectTransform confirmButtonTransform = confirmButton.GetComponent<RectTransform>();
 
@@ -295,34 +308,55 @@ namespace Assets.Scripts.UI
 			confirmButton.GetComponent<Button>().onClick.AddListener(FinishLevel);
 		}
 
-		public void showSkills(int rows, string[] spriteNames, int[] skillNumbers, Vector2 basePosition)
+       
+		public void ShowSkills(int rows, string[] spriteNames, string[] skillInfoStrings, int[] skillNumbers, Vector2 basePosition)
 		{
-			int j = 0;
-			List<GameObject> scorePanels = new List<GameObject>();
-
+			int showSkillIndex = 0;
+			List<GameObject> skillPanels = new List<GameObject>();
+			List<GameObject> skillInfoPanels = new List<GameObject>();
+            EventTrigger trigger;
 			//divide the rows by 2 because we will be adding 2 skills each loop
 			for (int i = 0; i < rows / 2; i++)
 			{
-				j = i * 2;
+				showSkillIndex = i * 2;
 
-				scorePanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
-				InitiateTextObject(scorePanels[j], skillNumbers[j].ToString(), basePosition);
+				skillPanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
+				InitiateTextObject(skillPanels[showSkillIndex], skillNumbers[showSkillIndex].ToString(), basePosition);
 
-				Image[] skillImage = scorePanels[j].GetComponentsInChildren<Image>();
-				skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j]);
+				Image[] skillImage = skillPanels[showSkillIndex].GetComponentsInChildren<Image>();
+				skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[showSkillIndex]);
 
-				basePosition.x += scorePanels[j].GetComponent<RectTransform>().sizeDelta.x;
+                skillInfoPanels.Add(Instantiate(skillInfo, interventionScrollView.content.transform));
+                InitiateTextObject(skillInfoPanels[showSkillIndex], skillInfoStrings[showSkillIndex], skillPanels[showSkillIndex].transform.GetComponent<RectTransform>().anchoredPosition);
 
-				scorePanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
-				InitiateTextObject(scorePanels[j + 1], skillNumbers[j + 1].ToString(), basePosition);
+                trigger = skillPanels[showSkillIndex].GetComponentInChildren<EventTrigger>();
+                EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
 
-				basePosition.y -= scorePanels[j + 1].GetComponent<RectTransform>().sizeDelta.y *
+                int skillInfoIndex1 = showSkillIndex;
+                entry.callback.AddListener(eventData => { ShowSkillInfo(skillInfoPanels[skillInfoIndex1]); });
+                trigger.triggers.Add(entry);
+                basePosition.x += skillPanels[showSkillIndex].GetComponent<RectTransform>().sizeDelta.x;
+
+				skillPanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
+				InitiateTextObject(skillPanels[showSkillIndex + 1], skillNumbers[showSkillIndex + 1].ToString(), basePosition);
+
+				basePosition.y -= skillPanels[showSkillIndex + 1].GetComponent<RectTransform>().sizeDelta.y *
 								  GlobalVariablesHelper.SKILL_POSITION_MULTIPIER;
-				basePosition.x -= scorePanels[j].GetComponent<RectTransform>().sizeDelta.x;
+				basePosition.x -= skillPanels[showSkillIndex].GetComponent<RectTransform>().sizeDelta.x;
 
-				skillImage = scorePanels[j + 1].GetComponentsInChildren<Image>();
-				skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j + 1]);
-			}
+				skillImage = skillPanels[showSkillIndex + 1].GetComponentsInChildren<Image>();
+				skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[showSkillIndex + 1]);
+
+                skillInfoPanels.Add(Instantiate(skillInfo, interventionScrollView.content.transform));
+                InitiateTextObject(skillInfoPanels[showSkillIndex + 1], skillInfoStrings[showSkillIndex+1], skillPanels[showSkillIndex + 1].transform.GetComponent<RectTransform>().anchoredPosition);
+
+                trigger = skillPanels[showSkillIndex+1].GetComponentInChildren<EventTrigger>();
+                EventTrigger.Entry entry2 = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
+
+                int skillInfoIndex2 = showSkillIndex+1;
+                entry2.callback.AddListener(eventData => { ShowSkillInfo(skillInfoPanels[skillInfoIndex2]); });
+                trigger.triggers.Add(entry2);
+            }
 
 			//if there is an uneven amount of rows, add one more, 
 			if (rows % 2 == 0)
@@ -330,20 +364,40 @@ namespace Assets.Scripts.UI
 				return;
 			}
 
-			j += 2;
-			GameObject skillpanel = Instantiate(skillPanel, interventionScrollView.content.transform);
+			showSkillIndex += 2;
+            skillPanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
+          
+            InitiateTextObject(skillPanels[showSkillIndex], skillNumbers[showSkillIndex].ToString(),
+				new Vector2(basePosition.x + 2 * skillPanels[2].GetComponent<RectTransform>().sizeDelta.x,
+					basePosition.y + skillPanels[2].GetComponent<RectTransform>().sizeDelta.y * 3));
 
-			InitiateTextObject(skillpanel, skillNumbers[j].ToString(),
-				new Vector2(basePosition.x + 2 * scorePanels[2].GetComponent<RectTransform>().sizeDelta.x,
-					basePosition.y + scorePanels[2].GetComponent<RectTransform>().sizeDelta.y * 3));
-
-			Text infoText = skillpanel.GetComponentInChildren<Text>();
-			infoText.text = skillNumbers[j].ToString();
+			Text infoText = skillPanels[showSkillIndex].GetComponentInChildren<Text>();
+			infoText.text = skillNumbers[showSkillIndex].ToString();
 			RetrieveAsset.RetrieveAssets();
 
-			Image[] changemanagementImage = skillpanel.GetComponentsInChildren<Image>();
-			changemanagementImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[j]);
-		}
+			Image[] changemanagementImage = skillPanels[showSkillIndex].GetComponentsInChildren<Image>();
+			changemanagementImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[showSkillIndex]);
+
+            skillInfoPanels.Add(Instantiate(skillInfo, interventionScrollView.content.transform));
+            InitiateTextObject(skillInfoPanels[showSkillIndex], skillInfoStrings[showSkillIndex], skillPanels[showSkillIndex].GetComponent<RectTransform>().anchoredPosition);
+
+            trigger = skillPanels[showSkillIndex].GetComponentInChildren<EventTrigger>();
+            EventTrigger.Entry entry3 = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
+
+            int skillInfoIndex3 = showSkillIndex;
+            entry3.callback.AddListener(eventData => { ShowSkillInfo(skillInfoPanels[skillInfoIndex3]); });
+            trigger.triggers.Add(entry3);
+            for (int i = 0; i < skillInfoPanels.Count; i++)
+            {
+                skillInfoPanels[i].GetComponent<RectTransform>().SetAsLastSibling();
+            }
+        }
+
+        public void ShowSkillInfo(GameObject skillInfoPanel)
+        {
+            skillInfoPanel.SetActive(true);
+            skillInfoPanel.GetComponent<Selectable>().Select();
+        }
 
 		public void FinishLevel()
 		{
@@ -391,26 +445,28 @@ namespace Assets.Scripts.UI
 
 		public void ShowWarning()
 		{
-			int amountofStakeholders = game.Information.InformationList.Length;
-			int stakeholdersFound = 0;
+            if (!isInterventionChosen)
+            {
+                int amountofStakeholders = game.Information.InformationList.Length;
+                int stakeholdersFound = 0;
 
-			for (int i = 0; i < amountofStakeholders; i++)
-			{
-				if (game.Information.InformationList[i].Found)
-				{
-					stakeholdersFound++;
-				}
-			}
+                for (int i = 0; i < amountofStakeholders; i++)
+                {
+                    if (game.Information.InformationList[i].Found)
+                    {
+                        stakeholdersFound++;
+                    }
+                }
 
-			//calculate percentage of stakeholders found
-			int percentageFound = stakeholdersFound * 100 / amountofStakeholders;
-			Text warningText = interventionWarning.GetComponentInChildren<Text>();
-			warningText.text = "Weet je zeker dat je een interventie wilt kiezen? Je hebt nog maar " + percentageFound +
-							   "% van de stakeholders gevonden.";
+                //calculate percentage of stakeholders found
+                int percentageFound = stakeholdersFound * 100 / amountofStakeholders;
+                Text warningText = interventionWarning.GetComponentInChildren<Text>();
+                warningText.text = "Weet je zeker dat je een interventie wilt kiezen? Je hebt nog maar " + percentageFound +
+                                   "% van de stakeholders gevonden.";
 
-			interventionWarning.SetActive(true);
-            warningBlockingPanel.blocksRaycasts = true;
-
+                interventionWarning.SetActive(true);
+                warningBlockingPanel.blocksRaycasts = true;
+            }
 		}
 	}
 }
