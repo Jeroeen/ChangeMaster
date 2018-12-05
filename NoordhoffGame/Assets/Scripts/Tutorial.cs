@@ -159,7 +159,7 @@ namespace Assets.Scripts
 				return;
 			}
 
-			// Reset the camera to the initial position
+			// Reset the camera to the initial position       
 			mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y + 4, mainCamera.transform.position.z);
 
 			// Actual position: 33X, -5Y
