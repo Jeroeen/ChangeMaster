@@ -179,11 +179,5 @@ namespace Assets.Scripts.UI
 			Game.GetGame().Information = null;
 			SaveLoadGame.Save();
 		}
-
-        public void ShowSkillInformation()
-        {
-            skillInfoPanel.SetActive(!skillInfoPanel.activeSelf);
-            skillInfoPanel.GetComponent<Selectable>().Select();
-        }
 	}
 }
