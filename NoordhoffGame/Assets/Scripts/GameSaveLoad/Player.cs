@@ -31,7 +31,7 @@ namespace Assets.Scripts.GameSaveLoad
         
 
 
-        void start()
+        void Start()
         {
             name = PlayerPrefs.GetString("PlayerName");
 
