@@ -190,7 +190,7 @@ namespace Assets.Scripts.UI
 			textRect.sizeDelta = new Vector2(textboxSizeX * GlobalVariablesHelper.ADVICE_TEXT_X_MULTIPLIER,
 				textboxSizeY + textboxSizeY / GlobalVariablesHelper.ADVICE_TEXT_Y_DIVIDER);
 
-			scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - (textboxSizeX) * (textCount - 4),
+			scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - textboxSizeX * (textCount - 4),
 				scrollviewContent.sizeDelta.y);
 			scrollviewContent.anchoredPosition = new Vector2(10.0f, 0.0f);
 			interventionScrollView.horizontal = false;
