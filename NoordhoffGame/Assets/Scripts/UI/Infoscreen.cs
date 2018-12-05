@@ -25,7 +25,7 @@ namespace Assets.Scripts.UI
 		[SerializeField] private Text approach;
         [SerializeField] private Text communication;
 
-        private bool scheduleShow;
+        private bool isScheduleShown;
         private bool hasFocus;
 		private List<GameObject> panels = new List<GameObject>();
 		private InfoList information;
