@@ -31,7 +31,7 @@ namespace Assets.Scripts.Dialogue
 
 		public void Initialize(CharacterModel model)
 		{
-			SaveLoadGame.Load();
+		    SaveLoadGame.Load();
 
 			characterModel = model;
 			RetrieveAsset.RetrieveAssets();
@@ -50,7 +50,12 @@ namespace Assets.Scripts.Dialogue
 
 			dialogue = json.LoadJsonDialogue(model.NameOfPartner, model.Stage, model.DialogueCount);
 
-			nextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
+		    if (closeButton != null)
+		    {
+		        closeButton.interactable = dialogue.DialogueLines.Count > 1;
+		    }
+
+            nextButton.GetComponentInChildren<Text>().text = dialogue.NextButtonText;
 			prevButton.GetComponentInChildren<Text>().text = dialogue.PreviousButtonText;
 
 			partnerName.text = dialogue.NameOfSpeaker;
@@ -107,7 +112,10 @@ namespace Assets.Scripts.Dialogue
 			}
 
 			nextButton.GetComponentInChildren<Text>().text = dialogue.ConfirmButtonText;
-			closeButton.interactable = false;
+		    if (closeButton != null)
+		    {
+		        closeButton.interactable = false;
+		    }
 		}
 
 		public void PreviousLine()

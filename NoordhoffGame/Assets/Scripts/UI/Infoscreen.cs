@@ -130,15 +130,16 @@ namespace Assets.Scripts.UI
 				information = json.LoadJsonInformation(SceneManager.GetActiveScene().name);
 			}
 
-        for (int i = 0; i < information.InformationList.Length; i++)
-        {
-            if (information.InformationList[i].Image == Name)
+            for (int i = 0; i < information.InformationList.Length; i++)
             {
-                information.InformationList[i].Found = true;
+                if (information.InformationList[i].Image == Name)
+                {
+                    information.InformationList[i].Found = true;
+                }
             }
-        }
-        Game.GetGame().Information = information;
-        ShowStakeholders();
+            Game.GetGame().Information = information;
+            SaveLoadGame.Save();
+            ShowStakeholders();
     }
 
 		//a function that will enable or disable the menu 

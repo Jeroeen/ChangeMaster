@@ -23,6 +23,8 @@ namespace Assets.Scripts.UI
         [SerializeField] private GameObject skillPanel;
         [SerializeField] private GameObject skillInfo;
 		[SerializeField] private CanvasGroup blockingPanel;
+		[SerializeField] private CanvasGroup warningBlockingPanel;
+		[SerializeField] private CanvasGroup confirmBlockingPanel;
 		[SerializeField] private Transition transition;
 		[SerializeField] private GameObject interventionWarning;
 		[SerializeField] private GameObject confirmInterventionGameObject;
@@ -148,6 +150,8 @@ namespace Assets.Scripts.UI
 			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
 			chosenInterventionSprite.sprite = interventionSprite;
 			confirmInterventionGameObject.SetActive(true);
+            confirmBlockingPanel.blocksRaycasts = true;
+
 		}
 
         private void Showhint(int id)
@@ -162,8 +166,9 @@ namespace Assets.Scripts.UI
 		public void ConfirmInterventionChoice()
 		{
 			confirmInterventionGameObject.SetActive(false);
-			
-			ClickAdvice(clickedElementId);
+            confirmBlockingPanel.blocksRaycasts = false;
+
+            ClickAdvice(clickedElementId);
 		}
 
 		private void ClickAdvice(int selected)
@@ -442,15 +447,14 @@ namespace Assets.Scripts.UI
                     }
                 }
 
-                //calculate percentage of stakeholders found
-                int percentageFound = stakeholdersFound * 100 / amountofStakeholders;
-                Text warningText = interventionWarning.GetComponentInChildren<Text>();
-                warningText.text = "Weet je zeker dat je een interventie wilt kiezen? Je hebt nog maar " + percentageFound +
-                                   "% van de stakeholders gevonden.";
-                CanvasGroup warningGroup = interventionWarning.GetComponent<CanvasGroup>();
-                warningGroup.blocksRaycasts = true;
-                interventionWarning.SetActive(true);
-            }
+			//calculate percentage of stakeholders found
+			int percentageFound = stakeholdersFound * 100 / amountofStakeholders;
+			Text warningText = interventionWarning.GetComponentInChildren<Text>();
+			warningText.text = "Weet je zeker dat je een interventie wilt kiezen? Je hebt nog maar " + percentageFound +
+							   "% van de stakeholders gevonden.";
+
+			interventionWarning.SetActive(true);
+            warningBlockingPanel.blocksRaycasts = true;
 
 		}
 	}
