@@ -38,30 +38,27 @@ namespace Assets.Scripts
 
 		[SerializeField] private CanvasGroup blocking;
 
-		private bool tutorialActive;
+		private bool isTutorialActive;
 		private bool interventionClickedOn;
 
 		private Vector3 camBTargetStartPosition;
 		private Vector3 camBTargetStartPositionB;
-		private Vector3 initialCameraposition;
+		private Vector3 initialCameraPosition;
 		private Vector3 initialCamBTargetScale;
 
 		void Start()
 		{
-			initialCameraposition = mainCamera.transform.position;
-			tutorialActive = false;
+			initialCameraPosition = mainCamera.transform.position;
+			isTutorialActive = false;
 			resetTutorial.interactable = false;
 
 			DisableInteractables();
-
+			
 			DialogueHandler.OnConversationDoneEvent += ConversationDone;
 			InterventionScreen.OnHintButtonClickEvent += OnHintClickDone;
 			InterventionScreen.OnInterventionChooseButtonClickEvent += OnInterventionChoiceClickDone;
 			InterventionScreen.AllInformationFound += ClickOnInterventionDone;
-
-			// Actual: 19.5X, 5.8Y
-			// Desired: 16, 6.8Y
-
+			
 			camBTargetStartPosition = camBTarget.transform.position;
 			camBTargetStartPositionB = camBTargetB.transform.position;
 			initialCamBTargetScale = camBTargetB.transform.localScale;
@@ -77,7 +74,7 @@ namespace Assets.Scripts
 		// Move spotlight to specified position
 		private void MoveSpotlight(Vector3 position)
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
@@ -122,13 +119,14 @@ namespace Assets.Scripts
 
 		private void FinishedCaptainDialogue()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
 
-			// Actual: 11,7X + 5,8Y
-			// Desired: 9,5X + 6,6Y
+			// Actual position: 11,7X + 5,8Y
+			// Desired position: 9,5X + 6,6Y
+			// Difference: 2,2X & 0,8Y
 			MoveSpotlight(helmsman.transform.position.x - 2.2f, helmsman.transform.position.y + 0.8f);
 
 			helmsman.enabled = true;
@@ -138,11 +136,14 @@ namespace Assets.Scripts
 
 		private void FinishedHelmsmanDialogue()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
 
+			// Actual position: 15.3X, 10.9Y 
+			// Desired position: 12.8X, 10.4Y
+			// Difference: -2.5X, -0.5Y
 			MoveSpotlight(bookcase.transform.position.x - 2.5f, bookcase.transform.position.y - 0.5f);
 
 			bookcase.gameObject.SetActive(true);
@@ -153,15 +154,16 @@ namespace Assets.Scripts
 
 		private void FinishedLookOutDialogue()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
 
 			mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y + 4, mainCamera.transform.position.z);
 
-			// Actual: 33X, -5Y
-			// Desired: 26X, 2Y
+			// Actual position: 33X, -5Y
+			// Desired position: 26X, 2Y
+			// Difference: -7X, 7Y
 			MoveSpotlight(interventionScreenButton.transform.position.x - 7f, interventionScreenButton.transform.position.y + 7f);
 
 			interventionScreenButton.interactable = true;
@@ -170,13 +172,14 @@ namespace Assets.Scripts
 
 		private void OnHintClickDone()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
 
-			// Actual: 24.2X, 5.2Y
-			// Desired: 19.2X, 9Y
+			// Actual position: 24.2X, 5.2Y
+			// Desired position: 19.2X, 5.2Y
+			// Difference: 5X, 0Y
 			MoveSpotlight(closeHintButton.transform.position.x - 5f, closeHintButton.transform.position.y);
 
 			camBTargetB.SetActive(true);
@@ -185,17 +188,19 @@ namespace Assets.Scripts
 
 		private void OnInterventionChoiceClickDone()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
 
-			// Actual: 14.4X, -0.7Y
-			// Desired: 11.9X, 1.5Y 
+			// Actual position: 14.4X, -0.7Y
+			// Desired position: 12.9X, 0.5Y 
+			// Difference: -2.5X, 1.2Y
 			MoveSpotlight(cancelChosenInterventionButton.transform.position.x - 2.5f, cancelChosenInterventionButton.transform.position.y + 1.2f);
 
-			// Actual: 15.6X, 4.8Y. Scale: 1.1X, 0.3Y
-			// Desired: 15.9X, 3.3Y. Scale: 1.15X, 0.6Y
+			// Actual position: 15.6X, 4.8Y. Scale: 1.15X, 0.3Y
+			// Desired position: 15.9X, 3.3Y. Scale: 1.15X, 0.6Y
+			// Difference: 0.3X, 1.5Y. Scale: 0.3Y
 			camBTargetB.SetActive(true);
 			camBTargetB.transform.position = new Vector3(camBTargetB.transform.position.x + 0.3f, camBTargetB.transform.position.y - 1.5f, camBTargetB.transform.position.z);
 			camBTargetB.transform.localScale = new Vector3(camBTargetB.transform.localScale.x, camBTargetB.transform.localScale.y + 0.3f, camBTargetB.transform.localScale.z);
@@ -203,13 +208,13 @@ namespace Assets.Scripts
 
 		public void ObjectInfoDone()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
-			// Actual: 31,4X + 12U 
-			// Desired: 24,3X + 11Y
-
+			// Actual position: 31,4X + 12U 
+			// Desired position: 24,4X + 11Y
+			// Difference: -7X, 1Y
 			MoveSpotlight(settingsButton.transform.position.x - 7f, settingsButton.transform.position.y - 1f);
 
 			settingsButton.gameObject.SetActive(true);
@@ -219,11 +224,14 @@ namespace Assets.Scripts
 
 		public void SettingsButtonDone()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
 
+			// Actual position: 14.4X, 4.9Y
+			// Desired position: 15.4X, 7.9Y
+			// Difference: 1X, 3Y
 			MoveSpotlight(infoButton.transform.position.x + 1f, infoButton.transform.position.y + 3f);
 
 			infoButton.gameObject.SetActive(true);
@@ -233,25 +241,28 @@ namespace Assets.Scripts
 
 		public void InformationScreenDone()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
 
+			// Actual position: 19.8X, 13.4Y
+			// Desired position: 12.8X, 10.4Y
+			// Difference: -7X, 3Y
 			MoveSpotlight(interventionScreenButton.transform.position.x - 7f, interventionScreenButton.transform.position.y + 3f);
 
 			interventionScreenButton.gameObject.SetActive(true);
 			infoButton.interactable = false;
 		}
 
-		private void ClickOnInterventionDone(bool allInformationFound)
+		private void ClickOnInterventionDone(bool isAllInformationFound)
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
 
-			if (allInformationFound)
+			if (isAllInformationFound)
 			{
 				camBTargetB.SetActive(false);
 				// Location of the hint-button
@@ -259,8 +270,9 @@ namespace Assets.Scripts
 			}
 			else
 			{
-				// Actual: 16X + 3.5Y
-				// Desired: 13.2X + 5.5Y
+				// Actual position: 16X + 3.5Y
+				// Desired position: 13.2X + 5.5Y
+				// Difference: -2.8X, 2Y
 				chooseInterventionButton.interactable = false;
 				MoveSpotlight(keepLookingButton.gameObject.transform.position.x - 2.8f, keepLookingButton.gameObject.transform.position.y + 2f);
 				camBTargetB.SetActive(true);
@@ -269,13 +281,13 @@ namespace Assets.Scripts
 
 		public void InterventionScreenDone()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
-			// Actual: 15,4X + 7,89Y
-			// Desired: 10,27X + 0,95
-
+			// Actual position: 15,4X + 8Y
+			// Desired position: 9.6X + 5Y
+			// Difference: -5.8X, -3Y
 			MoveSpotlight(keepLookingButton.gameObject.transform.position.x - 5.8f, keepLookingButton.gameObject.transform.position.y - 3f);
 			camBTargetB.SetActive(false);
 
@@ -287,7 +299,7 @@ namespace Assets.Scripts
 
 		public void HintClosed()
 		{
-			if (!tutorialActive)
+			if (!isTutorialActive)
 			{
 				return;
 			}
@@ -299,8 +311,8 @@ namespace Assets.Scripts
 
 		public void InitiateTutorial()
 		{
-			tutorialActive = true;
-			mainCamera.transform.position = initialCameraposition;
+			isTutorialActive = true;
+			mainCamera.transform.position = initialCameraPosition;
 
 			blocking.blocksRaycasts = false;
 			resetTutorial.interactable = false;
@@ -337,7 +349,7 @@ namespace Assets.Scripts
 
 			camBTargetB.transform.localScale = initialCamBTargetScale;
 
-			tutorialActive = false;
+			isTutorialActive = false;
 		}
 
 		public void DisableShader()
