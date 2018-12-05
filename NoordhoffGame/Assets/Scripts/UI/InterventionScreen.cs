@@ -253,11 +253,11 @@ namespace Assets.Scripts.UI
 
             string[] skillInfoText =
             {
-                "Denkt analytisch denken vanuit het geheel (analytisch)",
-                "Kiest een duurzame veranderaanpak (aanpak)",
-                "Gericht op eigenaarschap bij alle stakeholders (eigenaarschap)",
-                "Faciliteert de verandering (faciliteert)",
-                "Communiceert open (communicatie)"
+                "Denkt analytisch denken vanuit het geheel",
+                "Kiest een duurzame veranderaanpak",
+                "Gericht op eigenaarschap bij alle stakeholders",
+                "Faciliteert de verandering",
+                "Communiceert open"
             };
 
 
@@ -447,15 +447,15 @@ namespace Assets.Scripts.UI
                     }
                 }
 
-			//calculate percentage of stakeholders found
-			int percentageFound = stakeholdersFound * 100 / amountofStakeholders;
-			Text warningText = interventionWarning.GetComponentInChildren<Text>();
-			warningText.text = "Weet je zeker dat je een interventie wilt kiezen? Je hebt nog maar " + percentageFound +
-							   "% van de stakeholders gevonden.";
+                //calculate percentage of stakeholders found
+                int percentageFound = stakeholdersFound * 100 / amountofStakeholders;
+                Text warningText = interventionWarning.GetComponentInChildren<Text>();
+                warningText.text = "Weet je zeker dat je een interventie wilt kiezen? Je hebt nog maar " + percentageFound +
+                                   "% van de stakeholders gevonden.";
 
-			interventionWarning.SetActive(true);
-            warningBlockingPanel.blocksRaycasts = true;
-
+                interventionWarning.SetActive(true);
+                warningBlockingPanel.blocksRaycasts = true;
+            }
 		}
 	}
 }
