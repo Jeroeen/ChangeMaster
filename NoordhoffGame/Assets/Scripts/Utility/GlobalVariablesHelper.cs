@@ -7,7 +7,7 @@
 		public static readonly int BASEVIEW_SCENE_INDEX = 6;
 		public static readonly int BASE_LEVEL_INDEX = 5;
 
-        public static readonly float BUTTON_MULTIPLIER = 1.5f;
+        public static readonly float BUTTON_MULTIPLIER = 0.5f;
         public static readonly int ADVICE_TEXT_X_MULTIPLIER = 2;
         public static readonly int ADVICE_TEXT_Y_DIVIDER = 4;
         public static readonly int TEXT_PREFABS_ON_SCREEN = 4;
