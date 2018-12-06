@@ -18,6 +18,8 @@
 
 	    public static readonly string CHARACTER_NAME_PLAYERPREFS = "PlayerCharacter";
 
+	    public static readonly string LEVEL_0_SCENE_NAME = "Level0Scene";
+
 	    public static readonly int MAX_NAME_LENGTH = 15;
 
 
