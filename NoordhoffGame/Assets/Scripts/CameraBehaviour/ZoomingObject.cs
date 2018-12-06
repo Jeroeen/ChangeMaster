@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.CameraBehaviour;
-using UnityEditor;
+﻿using Assets.Scripts.CameraBehaviour;
 using UnityEngine;
 
 public class ZoomingObject : MoveAndZoom
@@ -23,7 +19,8 @@ public class ZoomingObject : MoveAndZoom
         }
         ComputerZoom(x => zoomValue += x, y => zoomValue -= y);
 #elif UNITY_ANDROID
-        if(canMove){
+        if (canMove)
+        {
             MobileMovement(x => x);
         }
         MobileZoom(x => zoomValue += x, y => zoomValue -= y);
