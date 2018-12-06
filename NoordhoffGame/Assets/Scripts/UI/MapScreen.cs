@@ -20,6 +20,7 @@ public class MapScreen : MonoBehaviour
     [SerializeField] private Button infoButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Text warningScreenText;
+    [SerializeField] private ZoomingObject zoomMapScreen;
 
     private Game game;
     private bool isFading;
@@ -75,7 +76,6 @@ public class MapScreen : MonoBehaviour
     
     public void ShowMap()
     {
-
         mapScreen.SetActive(!mapScreen.gameObject.activeSelf);
         if (settingsButton != null)
         {
@@ -95,6 +95,7 @@ public class MapScreen : MonoBehaviour
     {
         if (canTravelToBaseview)
         {
+            zoomMapScreen.enabled = false;
             levelIndex = GlobalVariablesHelper.BASEVIEW_SCENE_INDEX; 
             warningScreenText.text = "Weet je zeker dat je naar de brug wilt reizen";
             warningScreen.SetActive(true);
@@ -105,6 +106,7 @@ public class MapScreen : MonoBehaviour
     {
         if (canTravelToArcade)
         {
+            zoomMapScreen.enabled = false;
             SaveLoadGame.Load();
             levelIndex = GlobalVariablesHelper.ARCADE_SCENE_INDEX;
             warningScreenText.text = "Weet je zeker dat je naar de arcadehal wilt reizen";
@@ -116,6 +118,7 @@ public class MapScreen : MonoBehaviour
     {
         if (canTravelToCinema)
         {
+            zoomMapScreen.enabled = false;
             SaveLoadGame.Load();
             levelIndex = GlobalVariablesHelper.CINEMA_SCENE_INDEX;
             warningScreenText.text = "Weet je zeker dat je naar de bioscoop wilt reizen";
@@ -127,6 +130,7 @@ public class MapScreen : MonoBehaviour
     {
         if (canTravelToLevels && game.CurrentLevelIndex == game.LastFinishedLevel +1)
         {
+            zoomMapScreen.enabled = false;
             levelIndex = game.LastFinishedLevel + 1;
             int currentLevelNr = levelIndex - GlobalVariablesHelper.BASEVIEW_SCENE_INDEX;
             warningScreenText.text = "Weet je zeker dat je naar level " + currentLevelNr + " wilt reizen";

@@ -29,6 +29,7 @@ namespace Assets.Scripts.UI
 		[SerializeField] private GameObject interventionWarning;
 		[SerializeField] private GameObject confirmInterventionGameObject;
 		[SerializeField] private SpriteRenderer chosenInterventionSprite;
+	    [SerializeField] private ZoomingObject zoomInterventionScreen;
 
 		private int clickedElementId;
 		private Player player;
@@ -128,7 +129,7 @@ namespace Assets.Scripts.UI
 				EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
 				
 				int id = i;
-				entry.callback.AddListener(eventData => { Confirm(id); });
+				entry.callback.AddListener(eventData => { ShowConfirm(id); });
 				trigger.triggers.Add(entry);
 
                 Button hintButton = uiElements[i].GetComponentInChildren<Button>();
@@ -151,10 +152,11 @@ namespace Assets.Scripts.UI
 			}
 		}
 
-		private void Confirm(int id)
+		private void ShowConfirm(int id)
 		{
 			OnInterventionChooseButtonClickEvent?.Invoke();
-			clickedElementId = id;
+		    zoomInterventionScreen.enabled = false;
+            clickedElementId = id;
 			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
 			chosenInterventionSprite.sprite = interventionSprite;
 			confirmInterventionGameObject.SetActive(true);
@@ -164,7 +166,8 @@ namespace Assets.Scripts.UI
         private void ShowHint(int id)
         {
 			OnHintButtonClickEvent?.Invoke();
-			CanvasGroup hintCanvas = hint.GetComponent<CanvasGroup>();
+            zoomInterventionScreen.enabled = false;
+            CanvasGroup hintCanvas = hint.GetComponent<CanvasGroup>();
             hintCanvas.blocksRaycasts = true;
             Text hintText= hint.GetComponentInChildren<Text>();
             hintText.text = interventions.Interventions[id].Hint;
@@ -417,6 +420,7 @@ namespace Assets.Scripts.UI
 				{
 					if (!game.Information.InformationList[i].Found)
 					{
+					    zoomInterventionScreen.enabled = false;
 						ShowWarning();
 						isAllInformationFound = false;
 						break;

@@ -15,6 +15,7 @@ namespace Assets.Scripts.World_Map
 		[SerializeField] private GameObject confirmDialogue;
 		[SerializeField] private GameObject uiElements;
 		[SerializeField] private Transition transition;
+	    [SerializeField] private ZoomingObject zoomWorldMap;
 
 		public void Activate()
 		{
@@ -26,7 +27,8 @@ namespace Assets.Scripts.World_Map
 
 		public void DestinationClick(GameObject obj)
 		{
-			destinationObject = obj;
+		    zoomWorldMap.enabled = false;
+            destinationObject = obj;
 			textObject.text = destinationObject.name;
 			confirmDialogue.SetActive(true);
 		}

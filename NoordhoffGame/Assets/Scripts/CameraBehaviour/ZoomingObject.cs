@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.CameraBehaviour;
-using UnityEditor;
+﻿using Assets.Scripts.CameraBehaviour;
 using UnityEngine;
 
 public class ZoomingObject : MoveAndZoom
 {
+    [SerializeField] private bool canMove;
+
     void Start()
     {
         zoomValue = 1;
@@ -15,10 +13,16 @@ public class ZoomingObject : MoveAndZoom
     void Update()
     {
 #if UNITY_EDITOR
-        ComputerMovement(x => transform.position += x);
+        if (canMove)
+        {
+            ComputerMovement(x => transform.position += x);
+        }
         ComputerZoom(x => zoomValue += x, y => zoomValue -= y);
 #elif UNITY_ANDROID
-        MobileMovement(x => x);
+        if (canMove)
+        {
+            MobileMovement(x => x);
+        }
         MobileZoom(x => zoomValue += x, y => zoomValue -= y);
 #endif
         zoomValue = Mathf.Clamp(zoomValue, minZoom, maxZoom);
@@ -29,8 +33,11 @@ public class ZoomingObject : MoveAndZoom
 
     void OnDisable()
     {
-        zoomValue = 1;
-        transform.localPosition = Vector3.zero;
+        if (!gameObject.activeSelf)
+        {
+            zoomValue = 1;
+            transform.localPosition = Vector3.zero;
+        }
     }
 
     private void RestrictObjectToBoundary()
