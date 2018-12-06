@@ -32,6 +32,7 @@ namespace Assets.Scripts.Splashscreen
 				sprite = RetrieveAsset.GetSpriteByName("Splashscreen_frame" + index);
 			}
 
+			// Invokes the method ChangeAnimationFrame in 0.0f seconds every 0.08f seconds.
 			InvokeRepeating("ChangeAnimationFrame", 0.0f, 0.08f);
 		}
 
