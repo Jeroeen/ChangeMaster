@@ -21,16 +21,15 @@ namespace Assets.Scripts.Splashscreen
 
 			RetrieveAsset.RetrieveAssets();
 
-			for (int i = 1; i < Int32.MaxValue; i++)
+			int index = 1;
+			Sprite sprite = RetrieveAsset.GetSpriteByName("Splashscreen_frame" + index);
+
+			while (sprite != null)
 			{
-				Sprite sprite = RetrieveAsset.GetSpriteByName("Splashscreen_frame" + i);
-
-				if (sprite == null)
-				{
-					break;
-				}
-
 				sprites.Add(sprite);
+
+				index++;
+				sprite = RetrieveAsset.GetSpriteByName("Splashscreen_frame" + index);
 			}
 
 			InvokeRepeating("ChangeAnimationFrame", 0.0f, 0.08f);
