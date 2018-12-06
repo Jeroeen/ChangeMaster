@@ -11,16 +11,16 @@ using UnityEngine.UI;
 public class MapScreen : MonoBehaviour
 {
 
-    [SerializeField] private RectTransform player;
-    [SerializeField] private Image playerImage;
-    [SerializeField] private Transition transition;
-    [SerializeField] private GameObject mapScreen;
-    [SerializeField] private GameObject warningScreen;
-    [SerializeField] private Button interventionButton;
-    [SerializeField] private Button infoButton;
-    [SerializeField] private Button settingsButton;
-    [SerializeField] private Text warningScreenText;
-    [SerializeField] private ZoomingObject zoomMapScreen;
+    [SerializeField] private RectTransform player = null;
+    [SerializeField] private Image playerImage = null;
+    [SerializeField] private Transition transition = null;
+    [SerializeField] private GameObject mapScreen = null;
+    [SerializeField] private GameObject warningScreen = null;
+    [SerializeField] private Button interventionButton = null;
+    [SerializeField] private Button infoButton = null;
+    [SerializeField] private Button settingsButton = null;
+    [SerializeField] private Text warningScreenText = null;
+    [SerializeField] private ZoomingObject zoomMapScreen = null;
 
     private Game game;
     private bool isFading;

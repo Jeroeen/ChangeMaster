@@ -6,8 +6,8 @@ namespace Assets.Scripts.Initialization
 {
 	public class InitializeBaseview : MonoBehaviour
 	{
-		[SerializeField] private DialogueHandler dialogueHandler;
-		[SerializeField] private GameObject dialogue;
+		[SerializeField] private DialogueHandler dialogueHandler = null;
+		[SerializeField] private GameObject dialogue = null;
 
 		public void ShowDialogCaptain(CharacterModel characterModel)
 		{

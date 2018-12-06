@@ -11,23 +11,23 @@ namespace Assets.Scripts
 {
 	public class Tutorial : MonoBehaviour
 	{
-		[SerializeField] private Button settingsButton;
-		[SerializeField] private Button infoButton;
-		[SerializeField] private Button interventionScreenButton;
-		[SerializeField] private Button resetTutorial;
-		[SerializeField] private Button keepLookingButton;
-		[SerializeField] private Button chooseInterventionButton;
-		[SerializeField] private Button closeHintButton;
-		[SerializeField] private Button cancelChosenInterventionButton;
-		[SerializeField] private Button confirmChosenInterventionButton;
-		[SerializeField] private Button closeInterventionScreen;
+		[SerializeField] private Button settingsButton = null;
+		[SerializeField] private Button infoButton = null;
+		[SerializeField] private Button interventionScreenButton = null;
+		[SerializeField] private Button resetTutorial = null;
+		[SerializeField] private Button keepLookingButton = null;
+		[SerializeField] private Button chooseInterventionButton = null;
+		[SerializeField] private Button closeHintButton = null;
+		[SerializeField] private Button cancelChosenInterventionButton = null;
+		[SerializeField] private Button confirmChosenInterventionButton = null;
+		[SerializeField] private Button closeInterventionScreen = null;
 
-		[SerializeField] private GameObject shaderPlane;
-		[SerializeField] private GameObject camBTarget;
-		[SerializeField] private GameObject camBTargetB;
-		[SerializeField] private GameObject mainCamera;
-		[SerializeField] private GameObject interventionHintButton;
-		[SerializeField] private GameObject interventionImage;
+		[SerializeField] private GameObject shaderPlane = null;
+		[SerializeField] private GameObject camBTarget = null;
+		[SerializeField] private GameObject camBTargetB = null;
+		[SerializeField] private GameObject mainCamera = null;
+		[SerializeField] private GameObject interventionHintButton = null;
+		[SerializeField] private GameObject interventionImage = null;
 
 		[SerializeField] private BoxCollider2D captain;
 		[SerializeField] private BoxCollider2D helmsman;

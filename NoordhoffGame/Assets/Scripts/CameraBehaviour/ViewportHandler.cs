@@ -35,7 +35,7 @@ namespace Assets.Scripts.CameraBehaviour
 		public float UnitsSize = 1; // size of your scene in unity units
 		public Constraint constraint = Constraint.Portrait;
 		public static ViewportHandler Instance;
-		public new Camera camera;
+		public Camera camera;
 
 		private float _width;
 		private float _height;
