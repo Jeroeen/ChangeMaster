@@ -6,14 +6,21 @@ namespace Assets.Scripts.Dialogue
 {
 	public class OpenPopUp : MonoBehaviour
 	{
-		[SerializeField] private GameObject dialogue;
-		[SerializeField] private GameObject objectInfo;
-		[SerializeField] private Button settingsButton;
-		[SerializeField] private Button infoButton;
-	    [SerializeField] private Button interventionButton;
+		[SerializeField] private GameObject dialogue = null;
+		[SerializeField] private GameObject objectInfo = null;
+		[SerializeField] private Button settingsButton = null;
+		[SerializeField] private Button infoButton = null;
+	    [SerializeField] private Button interventionButton = null;
 
         public static bool IsActive { get; set; }
-	
+
+		private void DisableInteractables()
+		{
+			settingsButton.interactable = false;
+			infoButton.interactable = false;
+			interventionButton.interactable = false;
+		}
+
 		public void StartDialogue(CharacterModel characterModel)
 		{
 			DisableInteractables();
@@ -28,13 +35,6 @@ namespace Assets.Scripts.Dialogue
             ObjectInfoHandler component = objectInfo.GetComponent<ObjectInfoHandler>();
 			component.Initialize(objectModel);
 			objectInfo.SetActive(true);
-		}
-
-		private void DisableInteractables()
-		{
-			settingsButton.interactable = false;
-			infoButton.interactable = false;
-		    interventionButton.interactable = false;
 		}
 	}
 }

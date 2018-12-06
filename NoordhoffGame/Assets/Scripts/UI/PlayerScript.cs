@@ -9,8 +9,8 @@ namespace Assets.Scripts.UI
 	public class PlayerScript : MonoBehaviour
 	{
 	    private Player player;
-	    [SerializeField] private SpriteRenderer playerSprite;
-	    [SerializeField] private Image image;
+	    [SerializeField] private SpriteRenderer playerSprite = null;
+	    [SerializeField] private Image image = null;
 
         public Text CoinAmount;
 	

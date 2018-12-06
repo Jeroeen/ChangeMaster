@@ -1,19 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 
-public class AnimationHandler : MonoBehaviour
+namespace Assets.Scripts.Animation
 {
-    [SerializeField] private Animator animator;
+	public class AnimationHandler : MonoBehaviour
+	{
+		[SerializeField] private Animator animator = null;
     
-    public void ToggleAnimation()
-    {
-        animator.SetBool("isPlaying", !animator.GetBool("isPlaying"));
-    }
+		public void ToggleAnimation(string condition)
+		{
+			animator.SetBool(condition, !animator.GetBool(condition));
+		}
 
-    public void PlayAnimation()
-    {
-        animator.SetTrigger("triggerGlijbaan");
-    }
+		public void PlayAnimation(string trigger)
+		{
+			animator.SetTrigger(trigger);
+		}
+	}
 }

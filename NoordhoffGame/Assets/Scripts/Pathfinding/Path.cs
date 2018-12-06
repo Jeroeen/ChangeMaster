@@ -80,7 +80,7 @@ namespace Assets.Scripts.Pathfinding
                 stack += 1;
                 return NearestNodeRight(cell, ref stack);
             }
-            catch (StackOverflowException ex)
+            catch (StackOverflowException)
             {
                 Debug.Log("HIER GAAT HET FOUT! Right");
             }
@@ -101,7 +101,7 @@ namespace Assets.Scripts.Pathfinding
                 stack += 1;
                 return NearestNodeLeft(cell, ref stack);
             }
-            catch (StackOverflowException ex)
+            catch (StackOverflowException)
             {
                 Debug.Log("HIER GAAT HET FOUT! Left");
             }
@@ -122,7 +122,7 @@ namespace Assets.Scripts.Pathfinding
                 stack += 1;
                 return NearestNodeUp(cell, ref stack);
             }
-            catch (StackOverflowException ex)
+            catch (StackOverflowException)
             {
                 Debug.Log("HIER GAAT HET FOUT! Up");
             }
@@ -143,7 +143,7 @@ namespace Assets.Scripts.Pathfinding
                 stack += 1;
                 return NearestNodeDown(cell, ref stack);
             }
-            catch (StackOverflowException ex)
+            catch (StackOverflowException)
             {
                 Debug.Log("HIER GAAT HET FOUT! Down");
             }

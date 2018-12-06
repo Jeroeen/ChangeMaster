@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Cutscene;
+﻿using Assets.Scripts.CameraBehaviour;
+using Assets.Scripts.Cutscene;
 using Assets.Scripts.GameSaveLoad;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,11 +12,11 @@ namespace Assets.Scripts.World_Map
 		private bool isFading;
 		private GameObject destinationObject;
 
-		[SerializeField] private Text textObject;
-		[SerializeField] private GameObject confirmDialogue;
-		[SerializeField] private GameObject uiElements;
-		[SerializeField] private Transition transition;
-	    [SerializeField] private ZoomingObject zoomWorldMap;
+		[SerializeField] private Text textObject = null;
+		[SerializeField] private GameObject confirmDialogue = null;
+		[SerializeField] private GameObject uiElements = null;
+		[SerializeField] private Transition transition = null;
+	    [SerializeField] private ZoomingObject zoomWorldMap = null;
 
 		public void Activate()
 		{

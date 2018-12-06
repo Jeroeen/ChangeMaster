@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Initialization
+namespace Assets.Scripts.Splashscreen
 {
 	public class LevelChooser : MonoBehaviour
 	{
-		[SerializeField] private Transition transition;
+		[SerializeField] private Transition transition = null;
 
 		private bool isFading;
 		private string levelName;

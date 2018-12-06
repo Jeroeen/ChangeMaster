@@ -3,6 +3,7 @@ using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.Dialogue.Models;
 using Assets.Scripts.UI;
+using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,32 +12,33 @@ namespace Assets.Scripts
 {
 	public class Tutorial : MonoBehaviour
 	{
-		[SerializeField] private Button settingsButton;
-		[SerializeField] private Button infoButton;
-		[SerializeField] private Button interventionScreenButton;
-		[SerializeField] private Button resetTutorial;
-		[SerializeField] private Button keepLookingButton;
-		[SerializeField] private Button chooseInterventionButton;
-		[SerializeField] private Button closeHintButton;
-		[SerializeField] private Button cancelChosenInterventionButton;
-		[SerializeField] private Button confirmChosenInterventionButton;
-		[SerializeField] private Button closeInterventionScreen;
+		[SerializeField] private Button settingsButton = null;
+		[SerializeField] private Button infoButton = null;
+		[SerializeField] private Button interventionScreenButton = null;
+		[SerializeField] private Button resetTutorial = null;
+		[SerializeField] private Button keepLookingButton = null;
+		[SerializeField] private Button chooseInterventionButton = null;
+		[SerializeField] private Button closeHintButton = null;
+		[SerializeField] private Button cancelChosenInterventionButton = null;
+		[SerializeField] private Button confirmChosenInterventionButton = null;
+		[SerializeField] private Button closeInterventionScreen = null;
 
-		[SerializeField] private GameObject shaderPlane;
-		[SerializeField] private GameObject camBTarget;
-		[SerializeField] private GameObject camBTargetB;
-		[SerializeField] private GameObject mainCamera;
-		[SerializeField] private GameObject interventionHintButton;
-		[SerializeField] private GameObject interventionImage;
+		[SerializeField] private GameObject shaderPlane = null;
+		[SerializeField] private GameObject camBTarget = null;
+		[SerializeField] private GameObject camBTargetB = null;
+		[SerializeField] private GameObject mainCamera = null;
+		[SerializeField] private GameObject interventionHintButton = null;
+		[SerializeField] private GameObject interventionImage = null;
 
-		[SerializeField] private BoxCollider2D captain;
-		[SerializeField] private BoxCollider2D helmsman;
-		[SerializeField] private BoxCollider2D lookout;
-		[SerializeField] private BoxCollider2D bookcase;
+		[SerializeField] private BoxCollider2D captain = null;
+		[SerializeField] private BoxCollider2D helmsman = null;
+		[SerializeField] private BoxCollider2D lookout = null;
+		[SerializeField] private BoxCollider2D bookcase = null;
 
-		[SerializeField] private CameraController cameraController;
+		[SerializeField] private CameraController cameraController = null;
+		[SerializeField] private ViewportHandler viewportHandler = null;
 
-		[SerializeField] private CanvasGroup blocking;
+		[SerializeField] private CanvasGroup blocking = null;
 
 		private bool isTutorialActive;
 		private bool interventionClickedOn;
@@ -312,6 +314,8 @@ namespace Assets.Scripts
 
 		public void InitiateTutorial()
 		{
+			viewportHandler.UnitsSize = GlobalVariablesHelper.BASE_UNITS_SIZE_TUTORIAL;
+
 			isTutorialActive = true;
 			mainCamera.transform.position = initialCameraPosition;
 
@@ -346,8 +350,7 @@ namespace Assets.Scripts
 			captain.enabled = true;
 			bookcase.enabled = true;
 			lookout.enabled = true;
-
-
+			
 			camBTargetB.transform.localScale = initialCamBTargetScale;
 
 			isTutorialActive = false;

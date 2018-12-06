@@ -1,35 +1,35 @@
 fileFormatVersion: 2
-guid: c1c9ac88f17754b4da6aee3a0a445e52
+guid: 3e2aa29fde8a50e498f57b425298a950
 TextureImporter:
   fileIDToRecycleName:
-    21300000: glijbaan kind sheet_0
-    21300002: glijbaan kind sheet_1
-    21300004: glijbaan kind sheet_2
-    21300006: glijbaan kind sheet_3
-    21300008: glijbaan kind sheet_4
-    21300010: glijbaan kind sheet_5
-    21300012: glijbaan kind sheet_6
-    21300014: glijbaan kind sheet_7
-    21300016: glijbaan kind sheet_8
-    21300018: glijbaan kind sheet_9
-    21300020: glijbaan kind sheet_10
-    21300022: glijbaan kind sheet_11
-    21300024: glijbaan kind sheet_12
-    21300026: glijbaan kind sheet_13
-    21300028: glijbaan kind sheet_14
-    21300030: glijbaan kind sheet_15
-    21300032: glijbaan kind sheet_16
-    21300034: glijbaan kind sheet_17
-    21300036: glijbaan kind sheet_18
-    21300038: glijbaan kind sheet_19
-    21300040: glijbaan kind sheet_20
-    21300042: glijbaan kind sheet_21
-    21300044: glijbaan kind sheet_22
-    21300046: glijbaan kind sheet_23
-    21300048: glijbaan kind sheet_24
-    21300050: glijbaan kind sheet_25
-    21300052: glijbaan kind sheet_26
-    21300054: glijbaan kind sheet_27
+    21300000: deze glijbaan_0
+    21300002: deze glijbaan_1
+    21300004: deze glijbaan_2
+    21300006: deze glijbaan_3
+    21300008: deze glijbaan_4
+    21300010: deze glijbaan_5
+    21300012: deze glijbaan_6
+    21300014: deze glijbaan_7
+    21300016: deze glijbaan_8
+    21300018: deze glijbaan_9
+    21300020: deze glijbaan_10
+    21300022: deze glijbaan_11
+    21300024: deze glijbaan_12
+    21300026: deze glijbaan_13
+    21300028: deze glijbaan_14
+    21300030: deze glijbaan_15
+    21300032: deze glijbaan_16
+    21300034: deze glijbaan_17
+    21300036: deze glijbaan_18
+    21300038: deze glijbaan_19
+    21300040: deze glijbaan_20
+    21300042: deze glijbaan_21
+    21300044: deze glijbaan_22
+    21300046: deze glijbaan_23
+    21300048: deze glijbaan_24
+    21300050: deze glijbaan_25
+    21300052: deze glijbaan_26
+    21300054: deze glijbaan_27
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,33 +89,33 @@ TextureImporter:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 4096
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
-    crunchedCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 4096
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
-    crunchedCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
     maxTextureSize: 4096
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
-    compressionQuality: 100
-    crunchedCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: glijbaan kind sheet_0
+      name: deze glijbaan_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,13 +137,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 927eeabaf8086c444a25c3dfdde17f5c
+      spriteID: f857406c904dba54fa87634224899fae
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_1
+      name: deze glijbaan_1
       rect:
         serializedVersion: 2
         x: 832
@@ -157,13 +157,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8a396b671f97d94080050aa5ef19f28
+      spriteID: 6cb5c89b96e1f3441b7d4fe60290dd21
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_2
+      name: deze glijbaan_2
       rect:
         serializedVersion: 2
         x: 1664
@@ -177,13 +177,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c2fb419dc2f8a2459124a1c5a2b7587
+      spriteID: 7d7817802d332354db96db94dc2b471e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_3
+      name: deze glijbaan_3
       rect:
         serializedVersion: 2
         x: 2496
@@ -197,13 +197,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e3cd16771d184647a31660da7c605eb
+      spriteID: 35f09c22cd853a84fae3e20d420799a9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_4
+      name: deze glijbaan_4
       rect:
         serializedVersion: 2
         x: 3328
@@ -217,13 +217,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac14b1421a09142489b20acb73eaa55d
+      spriteID: 2f455c0b510ec994f8488dec8ad89525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_5
+      name: deze glijbaan_5
       rect:
         serializedVersion: 2
         x: 4160
@@ -237,13 +237,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a27dd3d20fb0b8142913473d518a6f49
+      spriteID: 56b7d7a9e4293434d9105f05b449afc4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_6
+      name: deze glijbaan_6
       rect:
         serializedVersion: 2
         x: 4992
@@ -257,13 +257,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba0850976cff80c44a8f1dd95b8fcd1f
+      spriteID: d4d0fed7b2380e94b8294e81bbc4b6d3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_7
+      name: deze glijbaan_7
       rect:
         serializedVersion: 2
         x: 5824
@@ -277,13 +277,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b93819b0cb1862478efa1d37cf81e54
+      spriteID: 6f7b30fc8830ee640bb083c131e352e6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_8
+      name: deze glijbaan_8
       rect:
         serializedVersion: 2
         x: 6656
@@ -297,13 +297,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fd17996c441d2345ab9e6bb8b2df96d
+      spriteID: 4d7ab01b6e5543a47948e102d93a7a7f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_9
+      name: deze glijbaan_9
       rect:
         serializedVersion: 2
         x: 0
@@ -317,13 +317,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb8c6fa92e090f0498905fda1f828fd6
+      spriteID: 147e03ae0994ca64985efd4619331362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_10
+      name: deze glijbaan_10
       rect:
         serializedVersion: 2
         x: 832
@@ -337,13 +337,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8ee06d7595bddd478d36b965c70439a
+      spriteID: 559fce52f232f0b4987ffa7855cac595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_11
+      name: deze glijbaan_11
       rect:
         serializedVersion: 2
         x: 1664
@@ -357,13 +357,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79a602f64e4a186499d8d0aee013cb3d
+      spriteID: 950f1beb0743b6144aaa092396845a59
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_12
+      name: deze glijbaan_12
       rect:
         serializedVersion: 2
         x: 2496
@@ -377,13 +377,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 245f0bf5aa4232043b2872c60011eb2c
+      spriteID: c52264cf313803d4ba270c2b1fea7bb0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_13
+      name: deze glijbaan_13
       rect:
         serializedVersion: 2
         x: 3328
@@ -397,13 +397,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1d2aa34268b63c4984a9721dde6f332
+      spriteID: 00ad0344ccc6f514595fde701644b489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_14
+      name: deze glijbaan_14
       rect:
         serializedVersion: 2
         x: 4160
@@ -417,13 +417,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5ea46c4da1636448bf6b45822ef94ab
+      spriteID: f0a65ff41eda3fe408ad6dce3af70483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_15
+      name: deze glijbaan_15
       rect:
         serializedVersion: 2
         x: 4992
@@ -437,13 +437,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53f0bfb328cbd2b46b4041902f49f339
+      spriteID: bde9198e43083f14fb87b7b581e3ac5d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_16
+      name: deze glijbaan_16
       rect:
         serializedVersion: 2
         x: 5824
@@ -457,13 +457,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6d032745c5831a408fce4531fe6979d
+      spriteID: 85656a147e49eee45acbad219987b752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_17
+      name: deze glijbaan_17
       rect:
         serializedVersion: 2
         x: 6656
@@ -477,13 +477,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 497d97d4b56081b4ab188a8f83031135
+      spriteID: a6bbede21840be847b89a9032b2cc379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_18
+      name: deze glijbaan_18
       rect:
         serializedVersion: 2
         x: 0
@@ -497,13 +497,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 615dc6f2fec2c914e904c5735f95b076
+      spriteID: 4f6d48fcb5d49f5499f0e7a9fcf04ab3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_19
+      name: deze glijbaan_19
       rect:
         serializedVersion: 2
         x: 832
@@ -517,13 +517,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47cbf9b176bc0bf4aaff0fb9c56e60c7
+      spriteID: 3b4e90f0dc50b3f47bea1a20f9018d4b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_20
+      name: deze glijbaan_20
       rect:
         serializedVersion: 2
         x: 1664
@@ -537,13 +537,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10ea6fc1deb4b4342b0e8c7d1ae2b7e0
+      spriteID: 14aa48b86915629409db5c7272f2c954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_21
+      name: deze glijbaan_21
       rect:
         serializedVersion: 2
         x: 2496
@@ -557,13 +557,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1836967c2dbb83949811693f668b1de5
+      spriteID: cc58fda71ba4ac6438f4ef96984e6470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_22
+      name: deze glijbaan_22
       rect:
         serializedVersion: 2
         x: 3328
@@ -577,13 +577,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dac55bb5cd84fdd4ab7abeabb48d85ee
+      spriteID: a621d2508469cb44db096b7d07c231fe
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_23
+      name: deze glijbaan_23
       rect:
         serializedVersion: 2
         x: 4160
@@ -597,13 +597,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65fdf3e8e482e654b9a494986f550b7f
+      spriteID: ab6c40503fb9f0845adb79c129ce1c06
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_24
+      name: deze glijbaan_24
       rect:
         serializedVersion: 2
         x: 4992
@@ -617,13 +617,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ec6e7c10ce9acd4e843dda42240fc73
+      spriteID: 42967dc2c93992d45af980f529e861ca
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_25
+      name: deze glijbaan_25
       rect:
         serializedVersion: 2
         x: 5824
@@ -637,13 +637,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25cde2f9c35789446a363ff001597a37
+      spriteID: 4329f3e0b493e0b4c9c2c5842e796d8a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_26
+      name: deze glijbaan_26
       rect:
         serializedVersion: 2
         x: 6656
@@ -657,13 +657,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 599682310fd8c294ebbc402441b2a78e
+      spriteID: 606c8fea838805b4793d66bea9bd0ca5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: glijbaan kind sheet_27
+      name: deze glijbaan_27
       rect:
         serializedVersion: 2
         x: 0
@@ -677,7 +677,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ec8921a2d91300418f042e2d29e42a0
+      spriteID: bcbbcec136bb8ed4aa868a1b5431c269
       vertices: []
       indices: 
       edges: []
@@ -685,7 +685,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b8b7fbb823d50ea47a2b2194dd0c935a
+    spriteID: 3f479cfedaad2ed4dad7b36d75f73156
     vertices: []
     indices: 
     edges: []

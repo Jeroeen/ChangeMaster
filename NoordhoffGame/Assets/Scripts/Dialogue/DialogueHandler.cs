@@ -13,17 +13,17 @@ namespace Assets.Scripts.Dialogue
 		private DialogueItem dialogue;
 		private CharacterModel characterModel;
 
-		[SerializeField] private Infoscreen infoscreen;
-		[SerializeField] private SpriteRenderer partner;
-		[SerializeField] private Text partnerName;
-		[SerializeField] private Text dialogueText;
+		[SerializeField] private Infoscreen infoscreen = null;
+		[SerializeField] private SpriteRenderer partner = null;
+		[SerializeField] private Text partnerName = null;
+		[SerializeField] private Text dialogueText = null;
 
-		[SerializeField] private Button prevButton;
-		[SerializeField] private Button nextButton;
-		[SerializeField] private Button closeButton;
-		[SerializeField] private Button settingButton;
-		[SerializeField] private Button infoButton;
-		[SerializeField] private Button interventionButton;
+		[SerializeField] private Button prevButton = null;
+		[SerializeField] private Button nextButton = null;
+		[SerializeField] private Button closeButton = null;
+		[SerializeField] private Button settingButton = null;
+		[SerializeField] private Button infoButton = null;
+		[SerializeField] private Button interventionButton = null;
 		
 		public delegate void DoneCallback(CharacterModel characterModel);
 		

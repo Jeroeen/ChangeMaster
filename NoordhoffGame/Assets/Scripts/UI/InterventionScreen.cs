@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Cutscene;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.GameSaveLoad;
@@ -12,24 +13,24 @@ namespace Assets.Scripts.UI
 {
 	public class InterventionScreen : MonoBehaviour
 	{
-		[SerializeField] private Button interventionButton;
-		[SerializeField] private Button infoButton;
-		[SerializeField] private Button settingsButton;
-		[SerializeField] private GameObject interventionscreen;
-		[SerializeField] private GameObject textPrefab;
-		[SerializeField] private GameObject textImagePrefab;
-		[SerializeField] private GameObject buttonPrefab;
-        [SerializeField] private GameObject hint;
-        [SerializeField] private GameObject skillPanel;
-        [SerializeField] private GameObject skillInfo;
-		[SerializeField] private CanvasGroup blockingPanel;
-		[SerializeField] private CanvasGroup warningBlockingPanel;
-		[SerializeField] private CanvasGroup confirmBlockingPanel;
-		[SerializeField] private Transition transition;
-		[SerializeField] private GameObject interventionWarning;
-		[SerializeField] private GameObject confirmInterventionGameObject;
-		[SerializeField] private SpriteRenderer chosenInterventionSprite;
-	    [SerializeField] private ZoomingObject zoomInterventionScreen;
+		[SerializeField] private Button interventionButton = null;
+		[SerializeField] private Button infoButton = null;
+		[SerializeField] private Button settingsButton = null;
+		[SerializeField] private GameObject interventionscreen = null;
+		[SerializeField] private GameObject textPrefab = null;
+		[SerializeField] private GameObject textImagePrefab = null;
+		[SerializeField] private GameObject buttonPrefab = null;
+        [SerializeField] private GameObject hint = null;
+        [SerializeField] private GameObject skillPanel = null;
+        [SerializeField] private GameObject skillInfo = null;
+		[SerializeField] private CanvasGroup blockingPanel = null;
+		[SerializeField] private CanvasGroup warningBlockingPanel = null;
+		[SerializeField] private CanvasGroup confirmBlockingPanel = null;
+		[SerializeField] private Transition transition = null;
+		[SerializeField] private GameObject interventionWarning = null;
+		[SerializeField] private GameObject confirmInterventionGameObject = null;
+		[SerializeField] private SpriteRenderer chosenInterventionSprite = null;
+	    [SerializeField] private ZoomingObject zoomInterventionScreen = null;
 
 		private int clickedElementId;
 		private Player player;

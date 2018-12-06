@@ -22,6 +22,6 @@
 
 	    public static readonly int MAX_NAME_LENGTH = 15;
 
-
+		public static readonly int BASE_UNITS_SIZE_TUTORIAL = 28;
 	}
 }

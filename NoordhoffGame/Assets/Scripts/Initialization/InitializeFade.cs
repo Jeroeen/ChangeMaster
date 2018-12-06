@@ -8,11 +8,8 @@ namespace Assets.Scripts.Initialization
 {
 	public class InitializeFade : MonoBehaviour
 	{
-		[SerializeField]
-		private Transition transition;
-
-		[SerializeField]
-		private CameraController controller;
+		[SerializeField] private Transition transition = null;
+		[SerializeField] private CameraController controller = null;
 
 		private bool isFaded;
 
