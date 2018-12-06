@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 955322284}
   - component: {fileID: 955322283}
   m_Layer: 5
-  m_Name: Klik om te spelen
+  m_Name: Touch to play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -674,6 +674,7 @@ GameObject:
   - component: {fileID: 1778356182}
   - component: {fileID: 1778356181}
   - component: {fileID: 1778356180}
+  - component: {fileID: 1778356184}
   m_Layer: 5
   m_Name: LevelChooser
   m_TagString: Untagged
@@ -803,3 +804,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778356178}
   m_CullTransparentMesh: 0
+--- !u!114 &1778356184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778356178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e6c2de12e14c943ac1513946c300b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderedImage: {fileID: 1778356182}
