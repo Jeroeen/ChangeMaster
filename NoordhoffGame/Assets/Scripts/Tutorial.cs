@@ -29,14 +29,14 @@ namespace Assets.Scripts
 		[SerializeField] private GameObject interventionHintButton = null;
 		[SerializeField] private GameObject interventionImage = null;
 
-		[SerializeField] private BoxCollider2D captain;
-		[SerializeField] private BoxCollider2D helmsman;
-		[SerializeField] private BoxCollider2D lookout;
-		[SerializeField] private BoxCollider2D bookcase;
+		[SerializeField] private BoxCollider2D captain = null;
+		[SerializeField] private BoxCollider2D helmsman = null;
+		[SerializeField] private BoxCollider2D lookout = null;
+		[SerializeField] private BoxCollider2D bookcase = null;
 
-		[SerializeField] private CameraController cameraController;
+		[SerializeField] private CameraController cameraController = null;
 
-		[SerializeField] private CanvasGroup blocking;
+		[SerializeField] private CanvasGroup blocking = null;
 
 		private bool isTutorialActive;
 		private bool interventionClickedOn;
@@ -346,8 +346,7 @@ namespace Assets.Scripts
 			captain.enabled = true;
 			bookcase.enabled = true;
 			lookout.enabled = true;
-
-
+			
 			camBTargetB.transform.localScale = initialCamBTargetScale;
 
 			isTutorialActive = false;

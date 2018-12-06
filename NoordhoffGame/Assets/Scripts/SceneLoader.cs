@@ -12,12 +12,12 @@ namespace Assets.Scripts
         private bool isFadingToBridge;
         private bool isFadingToLevel;
 
-        [SerializeField] private Transition transition;
-        [SerializeField] private Text uiText;
-        [SerializeField] private Button settingsButton;
-        [SerializeField] private Button infoButton;
-        [SerializeField] private Button interventionButton;
-        [SerializeField] private GameObject uiElements;
+        [SerializeField] private Transition transition = null;
+        [SerializeField] private Text uiText = null;
+        [SerializeField] private Button settingsButton = null;
+        [SerializeField] private Button infoButton = null;
+        [SerializeField] private Button interventionButton = null;
+        [SerializeField] private GameObject uiElements = null;
 
         public void Activate()
         {

@@ -15,15 +15,15 @@ namespace Assets.Scripts.Cutscene
 		private readonly Queue<Transform> destinations = new Queue<Transform>();
 		private bool isMoveZoomingCamera;
 		private bool hasDialogueOpened;
-		
-		[SerializeField] private float zoomSpeed;
-		[SerializeField] private float moveSpeed;
-		[SerializeField] private int minZoom;
-		[SerializeField] private GameObject cutScene;
-		[SerializeField] private DialogueHandler dialogueHandler;
-		[SerializeField] private GameObject dialogue;
-		[SerializeField] private Transition transition;
-	
+
+		[SerializeField] private float zoomSpeed = 0;
+		[SerializeField] private float moveSpeed = 0;
+		[SerializeField] private int minZoom = 0;
+		[SerializeField] private GameObject cutScene = null;
+		[SerializeField] private DialogueHandler dialogueHandler = null;
+		[SerializeField] private GameObject dialogue = null;
+		[SerializeField] private Transition transition = null;
+
 		public ViewportHandler ViewportHandler;
 
 		void Start()
@@ -52,7 +52,7 @@ namespace Assets.Scripts.Cutscene
 						return;
 					}
 
-					SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+					SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 				}
 
 				if (!hasDialogueOpened)

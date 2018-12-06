@@ -5,11 +5,11 @@ namespace Assets.Scripts.Cutscene
 {
 	public class Transition : MonoBehaviour
 	{
-		[SerializeField] private Image _image;
 		private float _alpha;
 		private float _fadeSpeed = 0.02f;
 
-
+		[SerializeField] private Image _image = null;
+		
 		void Start()
 		{
 			_alpha = _image.color.a;

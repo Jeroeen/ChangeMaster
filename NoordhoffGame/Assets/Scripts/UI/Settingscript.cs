@@ -5,11 +5,11 @@ namespace Assets.Scripts.UI
 {
 	public class Settingscript : MonoBehaviour
 	{
-		[SerializeField] private Button interventionButton;
-		[SerializeField] private Button infoButton;
-		[SerializeField] private Button settingsButton;
-		[SerializeField] private GameObject settingsScreen;
-		[SerializeField] private CanvasGroup blockingPanel;
+		[SerializeField] private Button interventionButton = null;
+		[SerializeField] private Button infoButton = null;
+		[SerializeField] private Button settingsButton = null;
+		[SerializeField] private GameObject settingsScreen = null;
+		[SerializeField] private CanvasGroup blockingPanel = null;
 		//a function that will enable or disable the menu
 		public void ShowMenu()
 		{

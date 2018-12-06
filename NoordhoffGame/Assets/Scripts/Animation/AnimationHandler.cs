@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class AnimationHandler : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator animator = null;
     
     public void ToggleAnimation()
     {

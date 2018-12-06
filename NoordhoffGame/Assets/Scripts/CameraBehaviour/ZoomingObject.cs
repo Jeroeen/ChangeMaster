@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ZoomingObject : MoveAndZoom
 {
-    [SerializeField] private bool canMove;
+    [SerializeField] private bool canMove = false;
 
     void Start()
     {

@@ -7,7 +7,8 @@ public class CharacterSelector : MonoBehaviour
 {
     private Button currentSelected;
     private Color resetColor;
-    [SerializeField] private Button confirmButton;
+
+    [SerializeField] private Button confirmButton = null;
 
     // Shows the current selected button in the color set with "pressedColor"
     // Saves this state even while clicking back on the panel or another button

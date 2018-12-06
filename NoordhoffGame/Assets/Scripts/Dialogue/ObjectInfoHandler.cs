@@ -8,11 +8,11 @@ namespace Assets.Scripts.Dialogue
 {
 	public class ObjectInfoHandler : MonoBehaviour
 	{
-		[SerializeField] private SpriteRenderer spriteRenderer;
-		[SerializeField] private Button settingButton;
-		[SerializeField] private Button infoButton;
-		[SerializeField] private Infoscreen infoscreen;
-		[SerializeField] private Button interventionButton;
+		[SerializeField] private SpriteRenderer spriteRenderer = null;
+		[SerializeField] private Button settingButton = null;
+		[SerializeField] private Button infoButton = null;
+		[SerializeField] private Button interventionButton = null;
+		[SerializeField] private Infoscreen infoscreen = null;
 
 		public void Initialize(ObjectModel objectModel)
 		{

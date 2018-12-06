@@ -11,7 +11,7 @@ namespace Assets.Scripts
 		private List<Sprite> sprites;
 		private int currentIndex;
 
-		[SerializeField] private Image renderedImage;
+		[SerializeField] private Image renderedImage = null;
 
 		// Start is called before the first frame update
 		void Start()

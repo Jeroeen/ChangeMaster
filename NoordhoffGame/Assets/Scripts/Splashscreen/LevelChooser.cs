@@ -6,7 +6,7 @@ namespace Assets.Scripts.Initialization
 {
 	public class LevelChooser : MonoBehaviour
 	{
-		[SerializeField] private Transition transition;
+		[SerializeField] private Transition transition = null;
 
 		private bool isFading;
 		private string levelName;

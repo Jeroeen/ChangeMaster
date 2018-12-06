@@ -17,7 +17,7 @@ namespace Assets.Scripts.CameraBehaviour
 
         [SerializeField] protected ViewportHandler viewportHandler;
 
-        [SerializeField] protected Camera camera;
+        [SerializeField] protected new Camera camera;
 
         // Movement of an object or camera while on the computer
         protected void ComputerMovement(Func<Vector3, Vector3> zoomOperate)

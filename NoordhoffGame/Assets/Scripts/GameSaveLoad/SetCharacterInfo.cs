@@ -7,8 +7,8 @@ namespace Assets.Scripts.GameSaveLoad
 {
 	public class SetCharacterInfo : MonoBehaviour
 	{
-		[SerializeField] private InputField field;
-		[SerializeField] private Text errorMessage;
+		[SerializeField] private InputField field = null;
+		[SerializeField] private Text errorMessage = null;
 		private string selectedCharacter;
 
 		public void CreateCharacter()

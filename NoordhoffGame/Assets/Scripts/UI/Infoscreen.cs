@@ -9,21 +9,20 @@ namespace Assets.Scripts.UI
 {
 	public class Infoscreen : MonoBehaviour
 	{
-		[SerializeField] private Button interventionButton;
-		[SerializeField] private Button infoButton;
-		[SerializeField] private Button settingsButton;
-		[SerializeField] private Button stakeholdersButton;
-		[SerializeField] private GameObject infoScreen;
-		[SerializeField] private GameObject stakeholderPanel;
-		[SerializeField] private GameObject skillInfoPanel;
-		[SerializeField] private CanvasGroup blockingPanel;
-		[SerializeField] private Text function;
-		[SerializeField] private Text playerName;
-		[SerializeField] private Text analytic;
-		[SerializeField] private Text ownership;
-		[SerializeField] private Text facilitates;
-		[SerializeField] private Text approach;
-        [SerializeField] private Text communication;
+		[SerializeField] private Button interventionButton = null;
+		[SerializeField] private Button infoButton = null;
+		[SerializeField] private Button settingsButton = null;
+		[SerializeField] private Button stakeholdersButton = null;
+		[SerializeField] private GameObject infoScreen = null;
+		[SerializeField] private GameObject stakeholderPanel = null;
+		[SerializeField] private CanvasGroup blockingPanel = null;
+		[SerializeField] private Text function = null;
+		[SerializeField] private Text playerName = null;
+		[SerializeField] private Text analytic = null;
+		[SerializeField] private Text ownership = null;
+		[SerializeField] private Text facilitates = null;
+		[SerializeField] private Text approach = null;
+        [SerializeField] private Text communication = null;
 
         private bool isScheduleShown;
         private bool hasFocus;
