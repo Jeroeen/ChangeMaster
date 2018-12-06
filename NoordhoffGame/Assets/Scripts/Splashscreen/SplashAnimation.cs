@@ -23,7 +23,7 @@ namespace Assets.Scripts
 
 			for (int i = 1; i < Int32.MaxValue; i++)
 			{
-				Sprite sprite = RetrieveAsset.GetSpriteByName("Splashscreen_Logo_frame" + i);
+				Sprite sprite = RetrieveAsset.GetSpriteByName("Splashscreen_frame" + i);
 
 				if (sprite == null)
 				{
@@ -32,19 +32,17 @@ namespace Assets.Scripts
 
 				sprites.Add(sprite);
 			}
+
+			InvokeRepeating("ChangeAnimationFrame", 0.0f, 0.08f);
 		}
 
-		// Update is called once per frame
-		void Update()
+		void ChangeAnimationFrame()
 		{
-			if (sprites.Count == 11)
+			renderedImage.sprite = sprites[currentIndex];
+			currentIndex++;
+			if (currentIndex > sprites.Count - 1)
 			{
-				renderedImage.sprite = sprites[currentIndex];
-				currentIndex++;
-				if (currentIndex > sprites.Count - 1)
-				{
-					currentIndex = 0;
-				}
+				currentIndex = 0;
 			}
 		}
 	}
