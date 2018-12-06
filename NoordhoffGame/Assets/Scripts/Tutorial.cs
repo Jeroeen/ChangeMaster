@@ -3,6 +3,7 @@ using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.Dialogue.Models;
 using Assets.Scripts.UI;
+using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -35,6 +36,7 @@ namespace Assets.Scripts
 		[SerializeField] private BoxCollider2D bookcase = null;
 
 		[SerializeField] private CameraController cameraController = null;
+		[SerializeField] private ViewportHandler viewportHandler = null;
 
 		[SerializeField] private CanvasGroup blocking = null;
 
@@ -312,6 +314,8 @@ namespace Assets.Scripts
 
 		public void InitiateTutorial()
 		{
+			viewportHandler.UnitsSize = GlobalVariablesHelper.BASE_UNITS_SIZE_TUTORIAL;
+
 			isTutorialActive = true;
 			mainCamera.transform.position = initialCameraPosition;
 

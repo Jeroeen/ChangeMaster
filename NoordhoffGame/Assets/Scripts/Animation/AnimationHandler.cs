@@ -6,14 +6,14 @@ namespace Assets.Scripts.Animation
 	{
 		[SerializeField] private Animator animator = null;
     
-		public void ToggleAnimation()
+		public void ToggleAnimation(string condition)
 		{
-			animator.SetBool("isPlaying", !animator.GetBool("isPlaying"));
+			animator.SetBool(condition, !animator.GetBool(condition));
 		}
 
-		public void PlayAnimation()
+		public void PlayAnimation(string trigger)
 		{
-			animator.SetTrigger("triggerGlijbaan");
+			animator.SetTrigger(trigger);
 		}
 	}
 }
