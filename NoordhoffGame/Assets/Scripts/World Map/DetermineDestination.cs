@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Cutscene;
+﻿using Assets.Scripts.CameraBehaviour;
+using Assets.Scripts.Cutscene;
 using Assets.Scripts.GameSaveLoad;
 using UnityEngine;
 using UnityEngine.SceneManagement;

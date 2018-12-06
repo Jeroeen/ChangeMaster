@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Initialization
+namespace Assets.Scripts.Splashscreen
 {
 	public class LevelChooser : MonoBehaviour
 	{

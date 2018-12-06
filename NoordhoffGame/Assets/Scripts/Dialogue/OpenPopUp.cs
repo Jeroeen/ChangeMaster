@@ -13,7 +13,14 @@ namespace Assets.Scripts.Dialogue
 	    [SerializeField] private Button interventionButton = null;
 
         public static bool IsActive { get; set; }
-	
+
+		private void DisableInteractables()
+		{
+			settingsButton.interactable = false;
+			infoButton.interactable = false;
+			interventionButton.interactable = false;
+		}
+
 		public void StartDialogue(CharacterModel characterModel)
 		{
 			DisableInteractables();
@@ -28,13 +35,6 @@ namespace Assets.Scripts.Dialogue
             ObjectInfoHandler component = objectInfo.GetComponent<ObjectInfoHandler>();
 			component.Initialize(objectModel);
 			objectInfo.SetActive(true);
-		}
-
-		private void DisableInteractables()
-		{
-			settingsButton.interactable = false;
-			infoButton.interactable = false;
-		    interventionButton.interactable = false;
 		}
 	}
 }

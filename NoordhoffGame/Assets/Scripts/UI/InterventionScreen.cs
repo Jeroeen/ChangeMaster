@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Cutscene;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.GameSaveLoad;
