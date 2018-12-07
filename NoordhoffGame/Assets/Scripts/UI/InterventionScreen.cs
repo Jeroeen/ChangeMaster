@@ -16,6 +16,8 @@ namespace Assets.Scripts.UI
 		[SerializeField] private Button interventionButton = null;
 		[SerializeField] private Button infoButton = null;
 		[SerializeField] private Button settingsButton = null;
+		[SerializeField] private Button consequenceButton = null;
+		[SerializeField] private Text hintText = null;
 		[SerializeField] private GameObject interventionscreen = null;
 		[SerializeField] private GameObject textPrefab = null;
 		[SerializeField] private GameObject textImagePrefab = null;
@@ -159,10 +161,22 @@ namespace Assets.Scripts.UI
 		    zoomInterventionScreen.enabled = false;
             clickedElementId = id;
 			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
-			chosenInterventionSprite.sprite = interventionSprite;
+            chosenInterventionSprite.sprite = interventionSprite;
 			confirmInterventionGameObject.SetActive(true);
             confirmBlockingPanel.blocksRaycasts = true;
+            consequenceButton.onClick.AddListener(delegate { ShowConsequence(clickedElementId); });
+
 		}
+
+        public void HideConsequences()
+        {
+            hintText.text = "";
+        }
+
+        private void ShowConsequence(int id)
+        {
+            hintText.text = interventions.Interventions[id].Consequence;
+        }
 
         private void ShowHint(int id)
         {

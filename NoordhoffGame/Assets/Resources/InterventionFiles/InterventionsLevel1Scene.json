@@ -3,7 +3,8 @@
     {
 	  "InterventionImage": "interventie ontslaan",
       "InterventionText": "Ontslag van de zieke medewerkers.",
-      "Hint": "Je gaat in op een gevolg, niet op de oorzaak.",
+      "Hint": "De oorzaak zit hem niet alleen in de medewerkers",
+      "Consequence": "Lost dit de oorzaak op?.",
       "Advice": "Deze zou kunnen, maar het nadeel is dat het probleem niet bij hun ligt. De keuze is daarom niet de beste optie. ",
       "Analytic": 0,
 	  "Approach": 0,
@@ -14,7 +15,8 @@
     {
 	  "InterventionImage": "interventie schoonmaker inzetten",
       "InterventionText": "Medewerkers ziek laten zijn en schoonmaak- personeel inzetten om daar te werken.",
-      "Hint": "Je lost het probleem voor vandaag op, maar de oorzaak niet.",
+      "Hint": "Maar daarmee los je het probleem van het team niet op.",
+      "Consequence": "Lost dit de oorzaak op?.",
       "Advice": "Kan, maar daarmee los je de oorzaak niet op. Daarnaast creëer je een angstcultuur. Niet de beste keus. ",
       "Analytic": 0,
 	  "Approach": 0,
@@ -25,7 +27,8 @@
     {
 	  "InterventionImage": "interventie berisping",
       "InterventionText": "Berisping van de teamleider om normale roosters te maken en ze niet meer te pesten.",
-      "Hint": "Dat legt de verantwoordelijkheid alleen neer bij de teamleider.",
+      "Hint": "Dat kan tijdelijk helpen, maar is geen duurzame oplossing",
+      "Consequence": "Waar wordt hier de oplossing gevonden?",
       "Advice": "Kan, maar de teamleider doet het ergens om, dus meer zoeken naar de oorzaak en die met elkaar aanpakken",
       "Analytic": 0,
 	  "Approach": 0,
@@ -36,7 +39,8 @@
     {
 	  "InterventionImage": "interventie gesprekteamleider",
       "InterventionText": "Gesprek met de teamleider en haar problemen oplossen.",
-      "Hint": "Dat legt de oplossing neer bij de teamleider",
+      "Hint": "Dat kan tijdelijk helpen, maar is geen duurzame oplossing",
+      "Consequence": "Zit daar de oorzaak van het probleem?",
       "Advice": "Kan, maar dat is eenzijdig. Het probleem zit in het team. Niet de beste keus.",
       "Analytic": 1,
 	  "Approach": 0,
@@ -47,7 +51,8 @@
     {
 	  "InterventionImage": "interventie coaching",
       "InterventionText": "Teamcoaching opstarten om samen te zoeken naar doel en werksfeer. ",
-      "Hint": "Hoe lang duurt zoiets en wat doe je met korte termijn?",
+      "Hint": "Teamcoaching haalt de problemen in het team naar voren en geeft mensen de mogelijkheid om ze samen aan te pakken. Duurt wel langer",
+      "Consequence": "Hoe lang duurt zoiets en wat doe je met korte termijn?",
       "Advice": "Beste keus. Duurt iets langer, maar zorgt voor de meest duurzame oplossing van gedrag. Daarin wordt de teamsamenwerking besproken en gekeken naar wat ieder teamlid nodig heeft. ",
       "Analytic": 1,
 	  "Approach": 1,
@@ -58,7 +63,8 @@
     {
 	  "InterventionImage": "interventie sluiten",
       "InterventionText": "Medewerkers ziek laten zijn en de kinderspeelplek een deel van de dag dicht doen.",
-      "Hint": "Oplossing voor vandaag, maar niet de oorzaak?",
+      "Hint": "Daarmee wordt het probleem niet opgelost en komt later weer terug",
+      "Consequence": "Lost dit de oorzaak op?",
       "Advice": "Kan, maar daarmee los je de oorzaak niet op. Tevredenheid bij gasten gaat naar beneden. Niet de beste keus",
       "Analytic": 0,
 	  "Approach": 0,
@@ -69,7 +75,8 @@
     {
 	  "InterventionImage": "interventie alleenvoordegroep",
       "InterventionText": "Medewerkers ziek laten zijn en de overige animatiemedewerkers alleen voor de groep te zetten. ",
-      "Hint": "Is dat lang houdbaar?",
+      "Hint": "Daarmee ontstaat overbelasting bij de andere medewerkers",
+      "Consequence": "Is dat lang houdbaar?",
       "Advice": "Kan, maar de teamleider doet het ergens om, dus meer zoeken naar de oorzaak en die met elkaar aanpakken",
       "Analytic": 0,
 	  "Approach": 0,
