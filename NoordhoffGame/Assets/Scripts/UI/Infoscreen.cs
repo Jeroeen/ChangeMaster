@@ -75,10 +75,12 @@ namespace Assets.Scripts.UI
 			RectTransform panelRect = stakeholderPanel.GetComponent<RectTransform>();
 			float panelSizeY = panelRect.sizeDelta.y;
 
-			infoScrollview = infoScreen.GetComponentInChildren<ScrollRect>();
+            // Choose the right scrollview for stakeholderpanel
+		    ScrollRect[] scrollViews;
+            scrollViews = infoScreen.GetComponentsInChildren<ScrollRect>();
+		    infoScrollview = scrollViews[1];
 
 			RectTransform scrollviewContent = infoScrollview.content.GetComponent<RectTransform>();
-			scrollviewContent.anchoredPosition = new Vector2(0.0f, scrollviewContent.anchoredPosition.y);
 
 			RectTransform infoScrollviewRect = infoScrollview.content.GetComponent<RectTransform>();
 			foreach (GameObject g in panels)
