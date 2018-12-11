@@ -137,7 +137,8 @@ namespace Assets.Scripts.UI
 
                 Button hintButton = uiElements[i].GetComponentInChildren<Button>();
 
-                hintButton.onClick.AddListener(delegate { ShowHint(id); });
+                hintButton.onClick.AddListener(delegate { ShowConsequence(id); });
+                
 
                 textCount++;
 				elementLimit = scrollviewContent.sizeDelta.x / textboxSizeX;
@@ -164,28 +165,28 @@ namespace Assets.Scripts.UI
             chosenInterventionSprite.sprite = interventionSprite;
 			confirmInterventionGameObject.SetActive(true);
             confirmBlockingPanel.blocksRaycasts = true;
-            consequenceButton.onClick.AddListener(delegate { ShowConsequence(clickedElementId); });
+            consequenceButton.onClick.AddListener(delegate { ShowHint(clickedElementId); });
 
 		}
 
-        public void HideConsequences()
+        public void HideHint()
         {
             hintText.text = "";
         }
 
-        private void ShowConsequence(int id)
+        private void ShowHint(int id)
         {
-            hintText.text = interventions.Interventions[id].Consequence;
+            hintText.text = interventions.Interventions[id].Hint;
         }
 
-        private void ShowHint(int id)
+        private void ShowConsequence(int id)
         {
 			OnHintButtonClickEvent?.Invoke();
             zoomInterventionScreen.enabled = false;
             CanvasGroup hintCanvas = hint.GetComponent<CanvasGroup>();
             hintCanvas.blocksRaycasts = true;
             Text hintText= hint.GetComponentInChildren<Text>();
-            hintText.text = interventions.Interventions[id].Hint;
+            hintText.text = interventions.Interventions[id].Consequence;
             hint.SetActive(true);
         }
 
