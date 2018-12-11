@@ -30,8 +30,10 @@ namespace Assets.Scripts.GameSaveLoad
 			PlayerPrefs.SetString("PlayerName", field.text);
 			PlayerPrefs.SetString(GlobalVariablesHelper.CHARACTER_NAME_PLAYERPREFS, selectedCharacter);
 
-			// Going to the next scene (so current scene index + 1)
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetString("LastLevel", GlobalVariablesHelper.LEVEL_0_SCENE_NAME);
+
+            // Going to the next scene (so current scene index + 1)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 
 		public void SetSelectedCharacter(Transform character)
