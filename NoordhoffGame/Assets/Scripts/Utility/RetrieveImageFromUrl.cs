@@ -15,28 +15,21 @@ namespace Assets.Scripts.Utility
 			StartCoroutine(GetTexture());
 		}
 
-		// Start is called before the first frame update
 		IEnumerator GetTexture()
 		{
-			UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+			UnityWebRequest unityWebRequest = UnityWebRequestTexture.GetTexture(url);
 
-			yield return www.SendWebRequest();
+			yield return unityWebRequest.SendWebRequest();
 
-			if (www.isNetworkError || www.isHttpError)
+			if (unityWebRequest.isNetworkError || unityWebRequest.isHttpError)
 			{
-				Debug.Log(www.error);
+				Debug.Log(unityWebRequest.error);
 			}
 			else
 			{
-				Texture2D texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+				Texture2D texture = ((DownloadHandlerTexture)unityWebRequest.downloadHandler).texture;
 				thumbnail.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
 			}
-		}
-
-		// Update is called once per frame
-		void Update()
-		{
-
 		}
 	}
 }

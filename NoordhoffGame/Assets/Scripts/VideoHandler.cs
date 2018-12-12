@@ -6,9 +6,9 @@ namespace Assets.Scripts
 {
 	public class VideoHandler : MonoBehaviour
 	{
-		[SerializeField] private GameObject level0Movies = null;
 		[SerializeField] private GameObject level1Movies = null;
 		[SerializeField] private GameObject level2Movies = null;
+		[SerializeField] private GameObject[] levelMovies = null;
 
 		[SerializeField] private GameObject movie = null;
 		[SerializeField] private YoutubePlayer youtubePlayer = null;
@@ -17,18 +17,10 @@ namespace Assets.Scripts
 		void Start()
 		{
 			int currentLevel = Game.GetGame().CurrentLevelNumber - 1;
-			
-			if (currentLevel >= -7)
+
+			for (int i = 0; i < currentLevel; i++)
 			{
-				level0Movies.SetActive(true);
-			}
-			if (currentLevel >= 1)
-			{
-				level1Movies.SetActive(true);
-			}
-			if (currentLevel >= 2)
-			{
-				level2Movies.SetActive(true);
+				levelMovies[i].SetActive(true);
 			}
 		}
 
