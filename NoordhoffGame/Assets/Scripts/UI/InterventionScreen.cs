@@ -16,6 +16,8 @@ namespace Assets.Scripts.UI
 		[SerializeField] private Button interventionButton = null;
 		[SerializeField] private Button infoButton = null;
 		[SerializeField] private Button settingsButton = null;
+		[SerializeField] private Button consequenceButton = null;
+		[SerializeField] private Text hintText = null;
 		[SerializeField] private GameObject interventionscreen = null;
 		[SerializeField] private GameObject textPrefab = null;
 		[SerializeField] private GameObject textImagePrefab = null;
@@ -135,7 +137,8 @@ namespace Assets.Scripts.UI
 
                 Button hintButton = uiElements[i].GetComponentInChildren<Button>();
 
-                hintButton.onClick.AddListener(delegate { ShowHint(id); });
+                hintButton.onClick.AddListener(delegate { ShowConsequence(id); });
+                
 
                 textCount++;
 				elementLimit = scrollviewContent.sizeDelta.x / textboxSizeX;
@@ -159,19 +162,31 @@ namespace Assets.Scripts.UI
 		    zoomInterventionScreen.enabled = false;
             clickedElementId = id;
 			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
-			chosenInterventionSprite.sprite = interventionSprite;
+            chosenInterventionSprite.sprite = interventionSprite;
 			confirmInterventionGameObject.SetActive(true);
             confirmBlockingPanel.blocksRaycasts = true;
+            consequenceButton.onClick.AddListener(delegate { ShowHint(clickedElementId); });
+
 		}
 
+        public void HideHint()
+        {
+            hintText.text = "";
+        }
+
         private void ShowHint(int id)
+        {
+            hintText.text = interventions.Interventions[id].Hint;
+        }
+
+        private void ShowConsequence(int id)
         {
 			OnHintButtonClickEvent?.Invoke();
             zoomInterventionScreen.enabled = false;
             CanvasGroup hintCanvas = hint.GetComponent<CanvasGroup>();
             hintCanvas.blocksRaycasts = true;
             Text hintText= hint.GetComponentInChildren<Text>();
-            hintText.text = interventions.Interventions[id].Hint;
+            hintText.text = interventions.Interventions[id].Consequence;
             hint.SetActive(true);
         }
 

@@ -178,7 +178,7 @@ namespace Assets.Scripts.UI
                 }
 
                 // Offset used between panels and the window and the panels to create a bit of space between them
-                float offset = 50;
+                float offset = 30;
                 theoryRect.anchoredPosition = new Vector2(offset + i % 3 * (panelWidth + offset), -(offset + yMultiplier * (panelHeight + offset)));
 
                 theoryPanels.Add(Instantiate(theoryPanel, theoryScrollView.content.transform));
@@ -202,7 +202,7 @@ namespace Assets.Scripts.UI
                 }
 
                 // Offset used between panels and the window and the panels to create a bit of space between them
-                float offset = 50;
+                float offset = 30;
                 theoryRect.anchoredPosition = new Vector2(offset + i % 3 * (panelWidth + offset), -(offset + yMultiplier * (panelHeight + offset)));
 
                 theoryPanels.Add(Instantiate(theoryPanel, theoryScrollView.content.transform));
@@ -227,7 +227,7 @@ namespace Assets.Scripts.UI
                 }
 
                 // Offset used between panels and the window and the panels to create a bit of space between them
-                float offset = 50;
+                float offset = 30;
                 theoryRect.anchoredPosition = new Vector2(offset + i % 3 * (panelWidth + offset), -(offset + yMultiplier * (panelHeight + offset)));
 
                 theoryPanels.Add(Instantiate(theoryPanel, theoryScrollView.content.transform));

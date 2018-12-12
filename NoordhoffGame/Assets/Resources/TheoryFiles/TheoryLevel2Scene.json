@@ -12,13 +12,13 @@
   ],
   "TheoryListImages": [
     {
-      "Image": "TheoryOfConstraints"
+      "Image": "TheoryOfConstraintsImg"
     },
     {
-      "Image": "INKmodel"
+      "Image": "INKmodelImg"
     },
     {
-      "Image": "Procesoptimalisatie"
+      "Image": "ProcesoptimalisatieImg"
     }
   ],
   "TheoryListVideos": [
@@ -26,7 +26,7 @@
       "Thumbnail": "TheoryOfConstraints"
     },
     {
-      "Thumbnail": "INKmodel"
+      "Thumbnail": "INK"
     },
     {
       "Thumbnail": "Procesoptimalisatie"

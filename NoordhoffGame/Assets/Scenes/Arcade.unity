@@ -231,11 +231,27 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1898757741}
+    - target: {fileID: 54, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 83, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 1281914189}
+    - target: {fileID: 59, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: viewportHandler
+      value: 
+      objectReference: {fileID: 1898757739}
+    - target: {fileID: 59, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1898757741}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
 --- !u!114 &188450104 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8607144771365043190, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+  m_CorrespondingSourceObject: {fileID: 83, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
   m_PrefabInstance: {fileID: 188450103}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -246,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!224 &188450105 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8607144771365043191, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+  m_CorrespondingSourceObject: {fileID: 54, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
   m_PrefabInstance: {fileID: 188450103}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &362009519
@@ -415,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389327988, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
       propertyPath: orthographic size
-      value: 9.28125
+      value: 8.241951
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389328010, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
       propertyPath: startPosition
@@ -713,17 +729,6 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &840112812 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8607144771425672647, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
-  m_PrefabInstance: {fileID: 188450103}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1131850585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -782,7 +787,7 @@ PrefabInstance:
     - target: {fileID: 3950969497398894241, guid: b4080def3f3141d41960e445438f8934, type: 3}
       propertyPath: image
       value: 
-      objectReference: {fileID: 840112812}
+      objectReference: {fileID: 0}
     - target: {fileID: 3950969497398894241, guid: b4080def3f3141d41960e445438f8934, type: 3}
       propertyPath: CoinAmount
       value: 

@@ -9,18 +9,18 @@
   ],
   "TheoryListImages": [
     {
-      "Image": "VeiligheidInTeam"
+      "Image": "VeiligheidInTeamImg"
     },
     {
-      "Image": "Teamontwikkeling"
+      "Image": "TeamontwikkelingImg"
     }
   ],
   "TheoryListVideos": [
     {
-      "Thumbnail": "VeiligheidInTeam"
+      "Thumbnail": "Veiligheid in team"
     },
     {
-      "Thumbnail": "Teamontwikkeling"
+      "Thumbnail": "Teambuilding"
     }
   ]
 }

@@ -74,17 +74,22 @@ namespace Assets.Scripts.UI
 				}
 			}
 		}
-    
+
 		public void ShowMap()
 		{
 			mapScreen.SetActive(!mapScreen.gameObject.activeSelf);
-			if (settingsButton != null)
-			{
-				settingsButton.interactable = !settingsButton.IsInteractable();
-				infoButton.interactable = !infoButton.IsInteractable();
-				interventionButton.interactable = !interventionButton.IsInteractable();
-			}
-
+		    if (settingsButton != null)
+		    {
+		        settingsButton.interactable = !settingsButton.IsInteractable();
+		    }
+		    if (infoButton != null)
+		    {
+		        infoButton.interactable = !infoButton.IsInteractable();
+            }
+		    if (interventionButton != null)
+		    {
+		        interventionButton.interactable = !interventionButton.IsInteractable();
+            }
 		}
 
 		public void SwitchScene()
@@ -97,7 +102,7 @@ namespace Assets.Scripts.UI
 			if (canTravelToBaseview)
 			{
 				zoomMapScreen.enabled = false;
-				levelIndex = GlobalVariablesHelper.BASEVIEW_SCENE_INDEX; 
+				levelIndex = GlobalVariablesHelper.BASEVIEW_SCENE_INDEX;
 				warningScreenText.text = "Weet je zeker dat je naar de brug wilt reizen";
 				warningScreen.SetActive(true);
 			}
@@ -129,7 +134,7 @@ namespace Assets.Scripts.UI
 
 		public void TravelLevel()
 		{
-			if (canTravelToLevels && game.CurrentLevelIndex == game.LastFinishedLevel +1)
+			if (canTravelToLevels && game.CurrentLevelIndex == game.LastFinishedLevel + 1)
 			{
 				zoomMapScreen.enabled = false;
 				levelIndex = game.LastFinishedLevel + 1;
