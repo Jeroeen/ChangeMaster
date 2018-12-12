@@ -1,0 +1,26 @@
+{
+  "TheoryListTexts": [
+    {
+      "Text": "Veiligheid in het team"
+    },
+    {
+      "Text": "Uitleg over teamontwikkeling"
+    }
+  ],
+  "TheoryListImages": [
+    {
+      "Image": "VeiligheidInTeam"
+    },
+    {
+      "Image": "Teamontwikkeling"
+    }
+  ],
+  "TheoryListVideos": [
+    {
+      "Thumbnail": "VeiligheidInTeam"
+    },
+    {
+      "Thumbnail": "Teamontwikkeling"
+    }
+  ]
+}

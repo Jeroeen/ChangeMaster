@@ -1,0 +1,35 @@
+{
+  "TheoryListTexts": [
+    {
+      "Text": "TheoryOfConstraints"
+    },
+    {
+      "Text": "INKmodel"
+    },
+    {
+      "Text": "Procesoptimalisatie"
+    }
+  ],
+  "TheoryListImages": [
+    {
+      "Image": "TheoryOfConstraints"
+    },
+    {
+      "Image": "INKmodel"
+    },
+    {
+      "Image": "Procesoptimalisatie"
+    }
+  ],
+  "TheoryListVideos": [
+    {
+      "Thumbnail": "TheoryOfConstraints"
+    },
+    {
+      "Thumbnail": "INKmodel"
+    },
+    {
+      "Thumbnail": "Procesoptimalisatie"
+    }
+  ]
+}
