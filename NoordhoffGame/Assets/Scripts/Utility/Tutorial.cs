@@ -34,6 +34,7 @@ namespace Assets.Scripts
 		[SerializeField] private BoxCollider2D helmsman = null;
 		[SerializeField] private BoxCollider2D lookout = null;
 		[SerializeField] private BoxCollider2D bookcase = null;
+		[SerializeField] private BoxCollider2D goal = null;
 
 		[SerializeField] private CameraController cameraController = null;
 		[SerializeField] private ViewportHandler viewportHandler = null;
@@ -108,6 +109,11 @@ namespace Assets.Scripts
 				FinishedCaptainDialogue();
 			}
 
+			if (characterModel.NameOfPartner == "Doel")
+			{
+				FinishedGoalDialogue();
+			}
+
 			if (characterModel.NameOfPartner == "Roerganger")
 			{
 				FinishedHelmsmanDialogue();
@@ -126,6 +132,21 @@ namespace Assets.Scripts
 				return;
 			}
 
+			// Move camera 4 to the right of the current position (to the portrait)
+			MoveSpotlight(camBTarget.transform.position.x + 4.5f, camBTarget.transform.position.y + 0.5f);
+
+			goal.enabled = true;
+
+			captain.enabled = false;
+		}
+
+		private void FinishedGoalDialogue()
+		{
+			if(!isTutorialActive)
+			{
+				return;
+			}
+
 			// Actual position: 11,7X + 5,8Y
 			// Desired position: 9,5X + 6,6Y
 			// Difference: 2,2X & 0,8Y
@@ -133,7 +154,7 @@ namespace Assets.Scripts
 
 			helmsman.enabled = true;
 
-			captain.enabled = false;
+			goal.enabled = false;
 		}
 
 		private void FinishedHelmsmanDialogue()

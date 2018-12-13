@@ -1,0 +1,92 @@
+{
+  "InformationList": [
+    {
+      "Image": "Kapitein",
+      "Text": "Ik krijg klachten over de bediening en het eten. Wil jij uitzoeken wat er fout gaat?"
+    },
+    {
+      "Image": "Restaurantmanager",
+      "Text": "Ik ben te druk om te vertellen omdat ik meedoe in de bediening."
+    },
+    {
+      "Image": "Personeelsdossier",
+      "Text": "Mensen zijn pas kort aan boord. De meeste medewerkers hebben weinig ervaring en hebben ook geen geschikte opleiding gevolgd."
+    },
+    {
+      "Image": "Sommelier",
+      "Text": "Ziet er enigszins aangeschoten uit. Geeft aan dat hij de wijn voorproeft."
+    },
+    {
+      "Image": "Chefkok",
+      "Text": "De bediening schrijft niet netjes."
+    },
+    {
+      "Image": "Souschef",
+      "Text": "De chefkok loopt te schreeuwen en te zweten."
+    },
+    {
+      "Image": "Kok-1",
+      "Text": "Het is om 19:00 uur ineens heel druk."
+    },
+    {
+      "Image": "Kok-2",
+      "Text": "Ik moet op zoveel dingen letten, dat ik dingen laat aanbranden en het opnieuw moet."
+    },
+    {
+      "Image": "Kok-3",
+      "Text": "Er is te weinig voorbereidingstijd en dat mogen we niet overdag doen"
+    },
+    {
+      "Image": "Kok-4",
+      "Text": "Het menu is te uitgebreid en verandert te vaak, waardoor het niet vloeiend gaat."
+    },
+    {
+      "Image": "Gast-1",
+      "Text": "Mijn bestelde eten is koud. Het duurde een halfuur."
+    },
+    {
+      "Image": "Gast-2",
+      "Text": "Ik kreeg zeebaars terwijl ik zalm had besteld."
+    },
+    {
+      "Image": "Gast-3",
+      "Text": "De bediening is niet vriendelijk: ik moest betalen om mayonaise."
+    },
+    {
+      "Image": "Gast-4",
+      "Text": "Er wordt niet op mij gelet als ik wat wil bijbestellen."
+    },
+    {
+      "Image": "Gast-5",
+      "Text": "Ik eet wel ergens anders mijn nagerecht, omdat het zo lang duurt."
+    },
+    {
+      "Image": "Gast-6",
+      "Text": "De serveerster weet niet wat een boeuf bourguignon is."
+    },
+    {
+      "Image": "Gast-7",
+      "Text": "Ik kreeg de rekening van de tafel naast mij."
+    },
+    {
+      "Image": "Bediening-1",
+      "Text": "We zijn onervaren en onderbemand."
+    },
+    {
+      "Image": "Bediening-2",
+      "Text": "Ik zou graag willen opleiden, maar dan is er wel extra personeel nodig"
+    },
+    {
+      "Image": "Bediening-3",
+      "Text": "De sommelier is vaak aangeschoten en maakt seksistische grapjes."
+    },
+    {
+      "Image": "Bediening-4",
+      "Text": "De Amerikanen zijn erg onvriendelijk"
+    },
+    {
+      "Image": "Bediening-5",
+      "Text": "Soms zijn producten afwezig door onjuiste inkopingen"
+    }
+  ]
+}

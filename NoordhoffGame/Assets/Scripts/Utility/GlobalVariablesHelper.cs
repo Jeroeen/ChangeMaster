@@ -23,5 +23,6 @@
 	    public static readonly int MAX_NAME_LENGTH = 15;
 
 		public static readonly int BASE_UNITS_SIZE_TUTORIAL = 28;
+		public static readonly float PAUSE_SECONDS_BETWEEN_SPLASHSCREEN_ANIMATION = 1.5f;
 	}
 }

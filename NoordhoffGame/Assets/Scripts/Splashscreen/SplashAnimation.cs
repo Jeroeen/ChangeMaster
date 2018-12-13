@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Dialogue;
+using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +12,7 @@ namespace Assets.Scripts.Splashscreen
 	{
 		private List<Sprite> sprites;
 		private int currentIndex;
+		private int pauseTimer;
 
 		[SerializeField] private Image renderedImage = null;
 
@@ -32,17 +35,28 @@ namespace Assets.Scripts.Splashscreen
 				sprite = RetrieveAsset.GetSpriteByName("Splashscreen_frame" + index);
 			}
 
-			// Invokes the method ChangeAnimationFrame in 0.0f seconds every 0.08f seconds.
-			InvokeRepeating("ChangeAnimationFrame", 0.0f, 0.08f);
+			Action changeFrame = ChangeAnimationFrame;
+
+			// Invokes the method ChangeAnimationFrame in 0.0f seconds every 0.1f seconds.
+			InvokeRepeating(changeFrame.Method.Name, 0.0f, 0.1f);
 		}
 
-		void ChangeAnimationFrame()
+		private void ChangeAnimationFrame()
 		{
+			// Animation is called every 0.1 second, so multiply the pause seconds by 10
+			if (pauseTimer < GlobalVariablesHelper.PAUSE_SECONDS_BETWEEN_SPLASHSCREEN_ANIMATION * 10)
+			{
+				pauseTimer++;
+				return;
+			}
+
 			renderedImage.sprite = sprites[currentIndex];
 			currentIndex++;
 			if (currentIndex > sprites.Count - 1)
 			{
 				currentIndex = 0;
+				pauseTimer = 0;
+				renderedImage.sprite = sprites[currentIndex];
 			}
 		}
 	}
