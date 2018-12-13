@@ -1683,6 +1683,14 @@ PrefabInstance:
       propertyPath: settingsButton
       value: 
       objectReference: {fileID: 605223901}
+    - target: {fileID: 59, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: viewportHandler
+      value: 
+      objectReference: {fileID: 400459025}
+    - target: {fileID: 59, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 400459021}
     m_RemovedComponents:
     - {fileID: 4709481580369659956, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
     - {fileID: 1781421119, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
@@ -3179,7 +3187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389327988, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
       propertyPath: orthographic size
-      value: 8.25
+      value: 8.241951
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389328010, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
       propertyPath: startPosition

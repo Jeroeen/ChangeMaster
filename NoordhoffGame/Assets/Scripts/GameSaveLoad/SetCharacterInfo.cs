@@ -32,8 +32,10 @@ namespace Assets.Scripts.GameSaveLoad
 
             PlayerPrefs.SetString("LastLevel", GlobalVariablesHelper.LEVEL_0_SCENE_NAME);
 
-            // Going to the next scene (so current scene index + 1)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		    Game.GetGame().InLevel = true;
+            SaveLoadGame.Save();
+            
+            SceneManager.LoadScene(GlobalVariablesHelper.BASE_LEVEL_INDEX);
 		}
 
 		public void SetSelectedCharacter(Transform character)

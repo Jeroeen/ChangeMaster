@@ -14,9 +14,13 @@ namespace Assets.Scripts.UI
 		public void ShowMenu()
 		{
 			settingsScreen.SetActive(!settingsScreen.activeSelf);
-			settingsButton.interactable = !settingsButton.IsInteractable();
 
-			if (blockingPanel)
+		    if (settingsButton)
+		    {
+		        settingsButton.interactable = !settingsButton.IsInteractable();
+		    }
+
+		    if (blockingPanel)
 			{
 				blockingPanel.blocksRaycasts = !blockingPanel.blocksRaycasts;
 			}
