@@ -50,6 +50,12 @@ namespace Assets.Scripts.UI
             }
             information = Game.GetGame().Information;
 
+            // Choose the right scrollview for stakeholderpanel
+            ScrollRect[] scrollViews;
+            scrollViews = infoScreen.GetComponentsInChildren<ScrollRect>();
+            infoScrollview = scrollViews[1];
+            infoScrollview.content.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+
             ShowStakeholders();
             
             stakeholdersButton.interactable = false;
@@ -80,10 +86,7 @@ namespace Assets.Scripts.UI
             RectTransform panelRect = stakeholderPanel.GetComponent<RectTransform>();
             float panelSizeY = panelRect.sizeDelta.y;
 
-            // Choose the right scrollview for stakeholderpanel
-            ScrollRect[] scrollViews;
-            scrollViews = infoScreen.GetComponentsInChildren<ScrollRect>();
-            infoScrollview = scrollViews[1];
+            
 
             RectTransform scrollviewContent = infoScrollview.content.GetComponent<RectTransform>();
 
@@ -116,11 +119,11 @@ namespace Assets.Scripts.UI
 
                 if (i > elementLimit - 1)
                 {
-                    infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y + (panelSizeY));
+                    infoScrollviewRect.sizeDelta = new Vector2(infoScrollviewRect.sizeDelta.x, infoScrollviewRect.sizeDelta.y + panelSizeY);
                     //when infoScrollviewRect is made bigger, we have to compensate the position, 
                     //so we make it 1/2 the size of panelSizeY to the bottom, so it's correct now
                     infoScrollviewRect.anchoredPosition = new Vector2(infoScrollviewRect.anchoredPosition.x,
-                                                                      infoScrollviewRect.anchoredPosition.y - ((panelSizeY / 2)));
+                                                                      infoScrollviewRect.anchoredPosition.y - (panelSizeY / 2));
                 }
 
                 position = new Vector2(position.x, position.y - (panelSizeY));

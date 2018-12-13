@@ -14,7 +14,7 @@
     public struct TheoryListVideos
     {
         public string Thumbnail;
-        public string URL;
+        public string Url;
     }
 
     public class TheoryList
@@ -28,11 +28,11 @@
 
 		}
 
-		public TheoryList(TheoryListTexts[] texts, TheoryListImages[] images, TheoryListVideos[] thumnails)
+		public TheoryList(TheoryListTexts[] texts, TheoryListImages[] images, TheoryListVideos[] thumbnails)
 		{
 		    TheoryListTexts = texts;
 		    TheoryListImages = images;
-		    TheoryListVideos = thumnails;
+		    TheoryListVideos = thumbnails;
 		}
 	}
 }

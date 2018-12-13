@@ -79,8 +79,6 @@ namespace Assets.Scripts.UI
 		{
 			mapScreen.SetActive(!mapScreen.gameObject.activeSelf);
 
-            Debug.Log(Game.GetGame().CurrentLevelNumber);
-
 		    if (Game.GetGame().CurrentLevelNumber == 0)
 		    {
 		        canTravelToBaseview = false;
@@ -90,13 +88,11 @@ namespace Assets.Scripts.UI
 		    {
 		        settingsButton.interactable = !settingsButton.IsInteractable();
 		    }
-		    if (infoButton != null)
-		    {
-		        infoButton.interactable = !infoButton.IsInteractable();
-            }
-		    if (interventionButton != null)
+
+		    if (infoButton != null && interventionButton != null)
 		    {
 		        interventionButton.interactable = !interventionButton.IsInteractable();
+		        infoButton.interactable = !infoButton.IsInteractable();
             }
 		}
 

@@ -30,12 +30,6 @@ public class TheoryScreen : MonoBehaviour
     [SerializeField] private ZoomingObject zoomInfoScreen = null;
     [SerializeField] private Image panelImage = null;
 
-    public delegate void Callback();
-    public static event Callback OnTextChooseButtonClickEvent;
-    public static event Callback OnImageChooseButtonClickEvent;
-    public static event Callback OnVideoChooseButtonClickEvent;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -89,7 +83,7 @@ public class TheoryScreen : MonoBehaviour
                 yMultiplier++;
             }
 
-            // Offset used between panels and the window and the panels to create a bit of space between them
+            // Offset used between a panel and another panel and the offset for a panel and the window that contains the panels to create a bit of space between them
             float offset = 30;
             theoryRect.anchoredPosition = new Vector2(offset + i % 3 * (panelWidth + offset), -(offset + yMultiplier * (panelHeight + offset)));
 
@@ -97,9 +91,9 @@ public class TheoryScreen : MonoBehaviour
 
             // Needed for the delegate (onClick events)
             int id = i;
-            Button showBigscreenButton = theoryPanels[i].GetComponentInChildren<Button>();
+            Button showBigScreenButton = theoryPanels[i].GetComponentInChildren<Button>();
 
-            // Set the text when you want to show text and images when you select images or video's (for the thumbnail images)
+            // Set the text when you want to show text and images when you select images or videos (for the thumbnail images)
             if (listObject is TheoryListImages[] || listObject is TheoryListVideos[])
             {
                 Image[] panelImage = theoryPanels[i].GetComponentsInChildren<Image>();
@@ -108,13 +102,13 @@ public class TheoryScreen : MonoBehaviour
                 {
                     panelImage[1].sprite = RetrieveAsset.GetSpriteByName(theory.TheoryListImages[i].Image);
 
-                    showBigscreenButton.onClick.AddListener(delegate { ShowTheoryImage(panelImage[1].sprite); });
+                    showBigScreenButton.onClick.AddListener(delegate { ShowTheoryImage(panelImage[1].sprite); });
                 }
                 else
                 {
                     panelImage[1].sprite = RetrieveAsset.GetSpriteByName(theory.TheoryListVideos[i].Thumbnail);
 
-                    showBigscreenButton.onClick.AddListener(delegate { ShowTheoryVideoConfirmScreen(id); });
+                    showBigScreenButton.onClick.AddListener(delegate { ShowTheoryVideoConfirmScreen(id); });
                 }
                 panelImage[1].enabled = true;
             }
@@ -123,23 +117,20 @@ public class TheoryScreen : MonoBehaviour
                 Text panelText = theoryPanels[i].GetComponentInChildren<Text>();
                 panelText.text = theory.TheoryListTexts[i].Title;
                 
-                showBigscreenButton.onClick.AddListener(delegate { ShowTheoryText(theory.TheoryListTexts[id].Text); });
+                showBigScreenButton.onClick.AddListener(delegate { ShowTheoryText(theory.TheoryListTexts[id].Text); });
             }
         }
     }
 
     private void ShowTheoryText(string text)
     {
-        OnTextChooseButtonClickEvent?.Invoke();
         zoomInfoScreen.enabled = false;
-        Text panelText = theoryTextPanel.GetComponentInChildren<Text>();
-        panelText.text = text;
+        theoryTextPanel.GetComponentInChildren<Text>().text = text;
         theoryTextPanel.SetActive(true);
     }
 
     private void ShowTheoryImage(Sprite sprite)
     {
-        OnImageChooseButtonClickEvent?.Invoke();
         zoomInfoScreen.enabled = false;
         panelImage.sprite = sprite;
         theoryImagePanel.SetActive(true);
@@ -147,7 +138,6 @@ public class TheoryScreen : MonoBehaviour
 
     private void ShowTheoryVideoConfirmScreen(int id)
     {
-        OnVideoChooseButtonClickEvent?.Invoke();
         zoomInfoScreen.enabled = false;
         selectedMovieId = id;
         theoryVideoConfirmPanel.SetActive(true);
@@ -155,7 +145,7 @@ public class TheoryScreen : MonoBehaviour
 
     public void GoToCinemaAndPlayVideo()
     {
-        VideoHandler.MovieToLoad = theory.TheoryListVideos[selectedMovieId].URL;
+        VideoHandler.MovieToLoad = theory.TheoryListVideos[selectedMovieId].Url;
         SceneManager.LoadScene(GlobalVariablesHelper.CINEMA_SCENE_INDEX);
     }
 }

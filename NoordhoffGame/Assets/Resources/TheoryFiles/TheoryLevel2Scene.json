@@ -27,15 +27,15 @@
   "TheoryListVideos": [
     {
       "Thumbnail": "TheoryOfConstraints",
-      "URL": "https://www.youtube.com/watch?v=AqzbZUL9Rh8"
+      "Url": "https://www.youtube.com/watch?v=AqzbZUL9Rh8"
     },
     {
       "Thumbnail": "INK",
-      "URL": "https://www.youtube.com/watch?v=k77H9WmK6h8"
+      "Url": "https://www.youtube.com/watch?v=k77H9WmK6h8"
     },
     {
       "Thumbnail": "Procesoptimalisatie",
-      "URL": "https://www.youtube.com/watch?v=YWxWVUExDxM" 
+      "Url": "https://www.youtube.com/watch?v=YWxWVUExDxM"
     }
   ]
 }

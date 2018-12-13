@@ -20,11 +20,11 @@
   "TheoryListVideos": [
     {
       "Thumbnail": "Veiligheid in team",
-      "URL": "https://www.youtube.com/watch?v=_19mdA71lQU"
+      "Url": "https://www.youtube.com/watch?v=_19mdA71lQU"
     },
     {
       "Thumbnail": "Teambuilding",
-      "URL": "https://www.youtube.com/watch?v=OkYDjCB2dPM"
+      "Url": "https://www.youtube.com/watch?v=OkYDjCB2dPM"
     }
   ]
 }
