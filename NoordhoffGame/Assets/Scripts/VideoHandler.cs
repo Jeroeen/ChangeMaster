@@ -14,14 +14,22 @@ namespace Assets.Scripts
 		[SerializeField] private YoutubePlayer youtubePlayer = null;
 		[SerializeField] private VideoPlayer videoPlayer = null;
 
+	    public static string MovieToLoad = ""; 
+
 		void Start()
 		{
-			int currentLevel = Game.GetGame().CurrentLevelNumber - 1;
+			int currentLevel = Game.GetGame().CurrentLevelNumber;
 
 			for (int i = 0; i < currentLevel; i++)
 			{
 				levelMovies[i].SetActive(true);
 			}
+
+		    if (!string.IsNullOrWhiteSpace(MovieToLoad))
+		    {
+                PlayMovie(MovieToLoad);
+		        MovieToLoad = "";
+		    }
 		}
 
 		public void PlayMovie(string youTubeUrl)

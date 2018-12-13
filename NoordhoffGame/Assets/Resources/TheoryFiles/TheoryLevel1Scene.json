@@ -1,10 +1,12 @@
 {
   "TheoryListTexts": [
     {
-      "Text": "Veiligheid in het team"
+      "Title": "Veiligheid in het team",
+      "Text": "Hoe ontstaat een onveilige werksfeer binnen teams? Er kunnen tal van oorzaken zijn maar we noemen er een paar:\n- De relatie tussen teamleden onderling of tussen (sommige) teamleden en de leiding is verstoord\n- Er is groepsvorming binnen het team en er zijn kampen ontstaan\n - Er is te weinig overleg en te weinig werkoverleg\n- De leidinggevende is te dominant aanwezig of sommige teamleden zijn te nadrukkelijk aanwezig\n- Er zit een zoals ze dat noemen een rotte appel in het team\n- Er is negativiteit en weerstand binnen het team\n- Er is teveel onduidelijkheid binnen het team\n- Er wordt met verschillende maten gemeten door de leidinggevende\n- Er is een afrekencultuur"
     },
     {
-      "Text": "Uitleg over teamontwikkeling"
+      "Title": "Uitleg over teamontwikkeling",
+      "Text": "Met teamontwikkeling bouw je aan het fundament van je team en leg je de basis voor betere prestaties.\nTeamleden maken een sterkere verbinding met elkaar en werken effectiever samen.\nEr is openheid, vertrouwen en men neemt uit eigen beweging verantwoordelijkheid en initiatief.\nHet gevolg van teamontwikkeling: Betere resultaten en een team dat met plezier presteert."
     }
   ],
   "TheoryListImages": [
@@ -17,10 +19,12 @@
   ],
   "TheoryListVideos": [
     {
-      "Thumbnail": "Veiligheid in team"
+      "Thumbnail": "Veiligheid in team",
+      "URL": "https://www.youtube.com/watch?v=_19mdA71lQU"
     },
     {
-      "Thumbnail": "Teambuilding"
+      "Thumbnail": "Teambuilding",
+      "URL": "https://www.youtube.com/watch?v=OkYDjCB2dPM"
     }
   ]
 }

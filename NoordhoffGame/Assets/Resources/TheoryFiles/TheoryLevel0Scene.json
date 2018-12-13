@@ -1,7 +1,8 @@
 {
   "TheoryListTexts": [
     {
-      "Text": "Feedback geven"
+      "Title": "Feedback geven",
+      "Text": "Formule voor het geven van feedback\n 1. Beschrijf veranderbaar gedrag\n 2. Beschrijf concreet en specifiek gedrag dat je zelf hebt gezien of gehoord\n 3. Gebruik een ik-boodschap\n 4. Geef aan welk effect dat gedrag op je heeft\n 5. Laat je gesprekspartner reageren\n 6. Vraag om het gewenste gedrag\n7. Verken samen oplossingen of achtergronden"
     }
   ],
   "TheoryListImages": [
@@ -11,7 +12,8 @@
   ],
   "TheoryListVideos": [
     {
-      "Thumbnail": "Feedbackgeven"
+      "Thumbnail": "Feedbackgeven",
+      "URL": "https://www.youtube.com/watch?v=o_GIZ2ad_9Y"
     }
   ]
 }

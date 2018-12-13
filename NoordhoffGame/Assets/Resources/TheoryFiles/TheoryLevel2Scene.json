@@ -1,13 +1,16 @@
 {
   "TheoryListTexts": [
     {
-      "Text": "TheoryOfConstraints"
+      "Title": "TheoryOfConstraints",
+      "Text": "De Theory of constraints (TOC) of beperkingentheorie is een managementtheorie, ontwikkeld door Eliyahu Goldratt. Het komt erop neer dat er in elk proces knelpunten zijn, knooppunten van deelprocessen die gepasseerd moeten worden alvorens de volgende deelprocessen in gang gezet kunnen worden. Hierdoor ontstaat er een plafond voor de capaciteit van een systeem. Het knelpunt (ook wel de bottleneck, flessenhals, genoemd) in het systeem blijkt vaak met eenvoudige middelen op te lossen. Door een beperkte investering is men vaak in staat om een grote verbetering voor het totale proces door te voeren. Goldratt zegt ook wel dat een uur gewonnen op de bottleneck een uur gewonnen is voor het totale proces. Een uur gewonnen op een niet-bottleneck is een verloren inspanning."
     },
     {
-      "Text": "INKmodel"
+      "Title": "INKmodel",
+      "Text": "Het INK-managementmodel is een integraal model voor evaluatie, ontwikkeling en sturing van organisaties. Het model bestaat uit tien aandachtsgebieden: vijf organisatiegebieden, vier resultaatgebieden en het aandachtsgebied 'Verbeteren en vernieuwen'. De resultaatgebieden van het model beschrijven de toegevoegde waarde die de organisatie voor belanghebbenden wil bieden. De organisatiegebieden beschrijven de ambities en activiteiten die de organisatie inzet om die toegevoegde waarde te bereiken. In het model komen de verbanden tot uitdrukking tussen inspanningen en resultaten, tussen organisatie en belanghebbenden. Het INK-managementmodel is een 'Rijnlands'-model. Het zet aan tot het zoeken van de balans tussen de belangen van alle belanghebbenden."
     },
     {
-      "Text": "Procesoptimalisatie"
+      "Title": "Procesoptimalisatie",
+      "Text":  "Procesoptimalisatie is de meest praktische kant van verbeteren. Denk aan het in kaart brengen van een proces, het detecteren van verspillen van tijd of middelen en het elimineren van die verspilling. Lean of Quick Response Manufacturing levert hiervoor een scala aan methoden en technieken.\nVrijwel elk bedrijf kent processen die nog vele malen sneller of eenvoudiger kunnen. Naast het weghalen van onnodige, vaak verouderde, processtappen, kan ook een optimaal ingerichte werkplek, standaardisatie of een compleet andere productiewijze tot de mogelijke interventies behoren.\nEen kleine interventie kan al een hoop tijd of kosten besparen. Verspillingen als wachttijd, onnodige handelingen, transport en fouten, zijn de oorzaak van gemiddeld 90% van de totale doorlooptijd in de industrie! Herkent u uw verbeterpotentieel?"
     }
   ],
   "TheoryListImages": [
@@ -23,13 +26,16 @@
   ],
   "TheoryListVideos": [
     {
-      "Thumbnail": "TheoryOfConstraints"
+      "Thumbnail": "TheoryOfConstraints",
+      "URL": "https://www.youtube.com/watch?v=AqzbZUL9Rh8"
     },
     {
-      "Thumbnail": "INK"
+      "Thumbnail": "INK",
+      "URL": "https://www.youtube.com/watch?v=k77H9WmK6h8"
     },
     {
-      "Thumbnail": "Procesoptimalisatie"
+      "Thumbnail": "Procesoptimalisatie",
+      "URL": "https://www.youtube.com/watch?v=YWxWVUExDxM" 
     }
   ]
 }

@@ -18,7 +18,6 @@ namespace Assets.Scripts.UI
         [SerializeField] private Button stakeholdersButton = null;
         [SerializeField] private GameObject infoScreen = null;
         [SerializeField] private GameObject stakeholderPanel = null;
-        [SerializeField] private GameObject theoryPanel = null;
         [SerializeField] private CanvasGroup blockingPanel = null;
         [SerializeField] private Text function = null;
         [SerializeField] private Text playerName = null;
@@ -31,20 +30,14 @@ namespace Assets.Scripts.UI
         private bool isScheduleShown;
         private bool hasFocus;
         private List<GameObject> stakeholderPanels = new List<GameObject>();
-        private List<GameObject> theoryPanels = new List<GameObject>();
         private InfoList information;
-        private TheoryList theory;
+        
         private Player player;
         private readonly List<Sprite> imagesStakeholder = new List<Sprite>();
         private Vector2 position;
         private ScrollRect infoScrollview;
         private RetrieveJson json;
-
-        private RectTransform theoryRect;
-        private float panelWidth;
-        private float panelHeight;
-        private ScrollRect theoryScrollView;
-
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -58,7 +51,7 @@ namespace Assets.Scripts.UI
             information = Game.GetGame().Information;
 
             ShowStakeholders();
-            ShowTheory();
+            
             stakeholdersButton.interactable = false;
             infoScreen.SetActive(false);
         }
@@ -104,7 +97,6 @@ namespace Assets.Scripts.UI
             stakeholderPanels.Clear();
             for (int i = 0; i < imagesStakeholder.Count; i++)
             {
-
                 stakeholderPanels.Add(Instantiate(stakeholderPanel, infoScrollview.content.transform));
 
                 foreach (Info info in information.InformationList)
@@ -132,109 +124,6 @@ namespace Assets.Scripts.UI
                 }
 
                 position = new Vector2(position.x, position.y - (panelSizeY));
-            }
-        }
-
-        public void ShowTheory()
-        {
-            json = new RetrieveJson();
-            if (theory == null)
-            {
-                theory = json.LoadJsonTheory(SceneManager.GetActiveScene().name);
-            }
-
-            RetrieveAsset.RetrieveAssets();
-
-            theoryRect = theoryPanel.GetComponent<RectTransform>();
-            panelWidth = theoryRect.rect.width;
-            panelHeight = theoryRect.rect.height;
-
-            // Choose the right scrollview for theoryPanel
-            ScrollRect[] scrollViews;
-            scrollViews = infoScreen.GetComponentsInChildren<ScrollRect>();
-            theoryScrollView = scrollViews[0];
-        }
-
-        private void DestroyTheoryPanels()
-        {
-            foreach (GameObject g in theoryPanels)
-            {
-                Destroy(g);
-            }
-            theoryPanels.Clear();
-        }
-
-        public void ShowTheoryTexts()
-        {
-            DestroyTheoryPanels();
-
-            float yMultiplier = 0;
-            for (int i = 0; i < theory.TheoryListTexts.Length; i++)
-            {
-                // modulo 3, because 3 panels are in 1 row
-                if (i != 0 && i % 3 == 0)
-                {
-                    yMultiplier++;
-                }
-
-                // Offset used between panels and the window and the panels to create a bit of space between them
-                float offset = 30;
-                theoryRect.anchoredPosition = new Vector2(offset + i % 3 * (panelWidth + offset), -(offset + yMultiplier * (panelHeight + offset)));
-
-                theoryPanels.Add(Instantiate(theoryPanel, theoryScrollView.content.transform));
-                
-                Text panelText = theoryPanels[i].GetComponentInChildren<Text>();
-                panelText.text = theory.TheoryListTexts[i].Text;
-            }
-        }
-
-        public void ShowTheoryImages()
-        {
-            DestroyTheoryPanels();
-
-            float yMultiplier = 0;
-            for (int i = 0; i < theory.TheoryListImages.Length; i++)
-            {
-                // modulo 3, because 3 panels are in 1 row
-                if (i != 0 && i % 3 == 0)
-                {
-                    yMultiplier++;
-                }
-
-                // Offset used between panels and the window and the panels to create a bit of space between them
-                float offset = 30;
-                theoryRect.anchoredPosition = new Vector2(offset + i % 3 * (panelWidth + offset), -(offset + yMultiplier * (panelHeight + offset)));
-
-                theoryPanels.Add(Instantiate(theoryPanel, theoryScrollView.content.transform));
-
-                Image[] panelImage = theoryPanels[i].GetComponentsInChildren<Image>();
-                panelImage[1].sprite = RetrieveAsset.GetSpriteByName(theory.TheoryListImages[i].Image);
-                panelImage[1].enabled = true;
-            }
-        }
-
-        public void ShowTheoryVideos()
-        {
-            DestroyTheoryPanels();
-
-            float yMultiplier = 0;
-            for (int i = 0; i < theory.TheoryListVideos.Length; i++)
-            {
-                // modulo 3, because 3 panels are in 1 row
-                if (i != 0 && i % 3 == 0)
-                {
-                    yMultiplier++;
-                }
-
-                // Offset used between panels and the window and the panels to create a bit of space between them
-                float offset = 30;
-                theoryRect.anchoredPosition = new Vector2(offset + i % 3 * (panelWidth + offset), -(offset + yMultiplier * (panelHeight + offset)));
-
-                theoryPanels.Add(Instantiate(theoryPanel, theoryScrollView.content.transform));
-
-                Image[] panelThumbnail = theoryPanels[i].GetComponentsInChildren<Image>();
-                panelThumbnail[1].sprite = RetrieveAsset.GetSpriteByName(theory.TheoryListVideos[i].Thumbnail);
-                panelThumbnail[1].enabled = true;
             }
         }
 

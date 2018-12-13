@@ -2,6 +2,7 @@
 {
     public struct TheoryListTexts
     {
+        public string Title;
         public string Text;
     }
 
@@ -13,6 +14,7 @@
     public struct TheoryListVideos
     {
         public string Thumbnail;
+        public string URL;
     }
 
     public class TheoryList

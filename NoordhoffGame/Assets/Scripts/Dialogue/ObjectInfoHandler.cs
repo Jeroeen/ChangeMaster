@@ -8,7 +8,7 @@ namespace Assets.Scripts.Dialogue
 {
 	public class ObjectInfoHandler : MonoBehaviour
 	{
-		[SerializeField] private SpriteRenderer spriteRenderer = null;
+		[SerializeField] private Image image = null;
 		[SerializeField] private Button settingButton = null;
 		[SerializeField] private Button infoButton = null;
 		[SerializeField] private Button interventionButton = null;
@@ -16,7 +16,7 @@ namespace Assets.Scripts.Dialogue
 
 		public void Initialize(ObjectModel objectModel)
 		{
-			spriteRenderer.sprite = objectModel.Sprite;
+			image.sprite = objectModel.Sprite;
 			if (infoscreen != null)
 			{
 				infoscreen.ShowStakeholder(objectModel.Sprite.name);
@@ -28,7 +28,13 @@ namespace Assets.Scripts.Dialogue
 		{
 			gameObject.SetActive(false);
 			OpenPopUp.IsActive = false;
-			if (infoButton != null && settingButton != null)
+
+            if (infoscreen.gameObject.activeSelf)
+		    {
+		        return;
+		    }
+		    
+            if (infoButton != null && settingButton != null)
 			{
 				infoButton.interactable = true;
 				settingButton.interactable = true;

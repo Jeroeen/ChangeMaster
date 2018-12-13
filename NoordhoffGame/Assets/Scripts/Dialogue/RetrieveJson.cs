@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Assets.Scripts.Dialogue.JsonItems;
 using Assets.Scripts.GameSaveLoad;
 using Assets.Scripts.UI;
@@ -64,7 +65,6 @@ namespace Assets.Scripts.Dialogue
 	        string jsonString = GetJsonString(path);
 
 	        TheoryList item = JsonMapper.ToObject<TheoryList>(jsonString);
-
 	        return item;
 	    }
 

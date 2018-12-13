@@ -78,6 +78,14 @@ namespace Assets.Scripts.UI
 		public void ShowMap()
 		{
 			mapScreen.SetActive(!mapScreen.gameObject.activeSelf);
+
+            Debug.Log(Game.GetGame().CurrentLevelNumber);
+
+		    if (Game.GetGame().CurrentLevelNumber == 0)
+		    {
+		        canTravelToBaseview = false;
+		    }
+
 		    if (settingsButton != null)
 		    {
 		        settingsButton.interactable = !settingsButton.IsInteractable();
@@ -134,12 +142,11 @@ namespace Assets.Scripts.UI
 
 		public void TravelLevel()
 		{
-			if (canTravelToLevels && game.CurrentLevelIndex == game.LastFinishedLevel + 1)
+			if (canTravelToLevels && game.InLevel)
 			{
 				zoomMapScreen.enabled = false;
-				levelIndex = game.LastFinishedLevel + 1;
-				int currentLevelNr = levelIndex - GlobalVariablesHelper.BASEVIEW_SCENE_INDEX;
-				warningScreenText.text = "Weet je zeker dat je naar level " + currentLevelNr + " wilt reizen";
+				levelIndex = game.CurrentLevelIndex;
+				warningScreenText.text = "Weet je zeker dat je naar level " + game.CurrentLevelNumber + " wilt reizen";
 				warningScreen.SetActive(true);
 				SaveLoadGame.Save();
 			}
