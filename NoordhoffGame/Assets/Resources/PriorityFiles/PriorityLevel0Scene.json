@@ -1,0 +1,24 @@
+{
+  "Priorities": [
+    {
+	  "PriorityText": "Feedback geven doen we dagelijks en helpt om anderen te laten zien dat gedrag niet of juist wel gewaardeerd wordt.",
+	  "PriorityNumber": 1
+    },
+    {
+	  "PriorityText": "Suggesties helpen om handelingsalternatieven te geven en zo keuzes te bieden voor leren",
+	  "PriorityNumber": 2
+    },
+    {
+	  "PriorityText": "Door hem/haar regelmatig op te wijzen gaat de persoon experimenteren. Goed gedrag wordt beloond, bij terugval wordt feedback gegeven",
+	  "PriorityNumber": 3
+    },
+    {
+	  "PriorityText": "Lukt het niet en zit er meer achter, dan kan training coaching helpen",
+	  "PriorityNumber": 4
+    }
+  ]
+}
+
+
+
+

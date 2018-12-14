@@ -57,7 +57,18 @@ namespace Assets.Scripts.Dialogue
 			return item;
 		}
 
-		private string GetJsonString(string path)
+        public PriorityList LoadJsonPriorities(string level)
+        {
+            string path = "PriorityFiles/Priority" + level;
+
+            string jsonString = GetJsonString(path);
+
+            PriorityList item = JsonMapper.ToObject<PriorityList>(jsonString);
+
+            return item;
+        }
+
+        private string GetJsonString(string path)
 		{
 			TextAsset asset = Resources.Load(path) as TextAsset;
 

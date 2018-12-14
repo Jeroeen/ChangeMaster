@@ -51,7 +51,7 @@
     {
 	  "InterventionImage": "interventie catering",
       "InterventionText": "De mevrouw van de catering krijgt een training hoe ze klantvriendelijk, maar toch dwingend zorgt dat het er netter uit komt te zien.",
-      "Hint": "Deze mevrouw kan hier weinig aan doen."
+      "Hint": "Deze mevrouw kan hier weinig aan doen.",
       "Consequence": "Helpt dat voldoende?",
       "Advice": "Het zal een kleine bijdrage leveren, maar is niet het kernprobleem. Alleen deze keuze, zorgt ervoor dat zij de schuld krijgt.",
       "Analytic": 0,

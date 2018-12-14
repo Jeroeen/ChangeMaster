@@ -1,0 +1,23 @@
+{
+  "Priorities": [
+    {
+	  "PriorityText": "De kwaliteit is dan niet meer afhankelijk van mensen => ingebouwde kwaliteitscontrole",
+	  "PriorityNumber": 1
+    },
+    {
+	  "PriorityText": "Duurzame oplossong door minder gebruik van chloor en andere producten",
+	  "PriorityNumber": 2
+    },
+    {
+	  "PriorityText": "Duur maar terug te verdienen door de kwaliteitscontroleur te ontslaan",
+	  "PriorityNumber": 3
+    },
+    {
+	  "PriorityText": "De badmeester kan straks wel de verantwoordelijkheid nemen en dat past bij zijn rol.",
+	  "PriorityNumber": 4
+    },{
+	  "PriorityText": "Vanaf de brug kan de kwaliteit in de gaten gehouden worden en ingegrepen worden.",
+	  "PriorityNumber": 5
+    }
+  ]
+}
