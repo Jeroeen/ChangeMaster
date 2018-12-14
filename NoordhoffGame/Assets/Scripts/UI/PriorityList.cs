@@ -12,10 +12,7 @@ public class PriorityList
 {
     public Priority[] Priorities;
 
-    public PriorityList()
-    {
-
-    }
+    public PriorityList(){}
 
     public PriorityList(Priority[] Information)
     {

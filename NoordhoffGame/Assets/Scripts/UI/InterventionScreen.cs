@@ -354,7 +354,6 @@ namespace Assets.Scripts.UI
 
             elementLimit = scrollviewContent.sizeDelta.y / priorityPrefab.GetComponent<RectTransform>().sizeDelta.y;
             elementLimit -= 2;
-            
 
             List<GameObject> priorityElements = new List<GameObject>();
 
@@ -372,7 +371,7 @@ namespace Assets.Scripts.UI
 
                 Text[] textElements = uiElements[i].GetComponentsInChildren<Text>();
 
-                textElements[0].text = priorities.Priorities[i].PriorityNumber + "";
+                textElements[0].text = priorities.Priorities[i].PriorityNumber.ToString();
                 textElements[1].text = priorityTexts[i];
 
                 EventTrigger trigger = uiElements[i].GetComponent<EventTrigger>();
@@ -382,7 +381,6 @@ namespace Assets.Scripts.UI
 
                 entry.callback.AddListener(eventData => { SwitchPriorities(priorityElements, currentPriorityPrefab); });
                 trigger.triggers.Add(entry);
-            
             
                 //1.1f instead of just 1, so that there is at least a little bit of space in between this ui element and the next
                 position = new Vector2(position.x, position.y - (1.1f * priorityPrefab.GetComponent<RectTransform>().sizeDelta.y));
@@ -402,7 +400,6 @@ namespace Assets.Scripts.UI
             GameObject confirmButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
             RectTransform confirmButtonTransform = confirmButton.GetComponent<RectTransform>();
 
-
             uiElements.Add(confirmButton);
             InitiateTextObject(confirmButton, "Afronden",
                 new Vector2(-confirmButtonTransform.sizeDelta.x * GlobalVariablesHelper.BUTTON_MULTIPLIER,
@@ -421,7 +418,7 @@ namespace Assets.Scripts.UI
 
             scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x,
                 scrollviewContent.sizeDelta.y -priorityPrefab.GetComponent<RectTransform>().sizeDelta.y * (priorityObjects.Count - elementLimit) );
-            scrollviewContent.anchoredPosition = new Vector2(10.0f, 0.0f);
+            scrollviewContent.anchoredPosition = new Vector2();
             interventionScrollView.vertical = false;
 
             foreach (GameObject priorityObject in priorityObjects)
@@ -441,10 +438,10 @@ namespace Assets.Scripts.UI
             GameObject finishText = Instantiate(textPrefab, interventionScrollView.content.transform);
             uiElements.Add(finishText);
             string CongratulateText = "Gefeliciteerd, je hebt het level helemaal afgemaakt. bij de laatste opdracht had je " 
-                                       + amountCorrect + " van de " + priorityOrder.Length.ToString() + " goed.";
+                                      + amountCorrect + " van de " + priorityOrder.Length.ToString() + " goed.";
 
             InitiateTextObject(finishText, CongratulateText, new Vector2(textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER,
-                                                          -textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER));
+                                                                        -textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER));
 
             GameObject finishButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
             RectTransform nextButtonTransform = finishButton.GetComponent<RectTransform>();
@@ -456,7 +453,6 @@ namespace Assets.Scripts.UI
                 nextButtonTransform.sizeDelta.y * GlobalVariablesHelper.BUTTON_MULTIPLIER));
 
             finishButton.GetComponent<Button>().onClick.AddListener(delegate { FinishLevel(); });
-
         }
 
         private void SwitchPriorities(List<GameObject> draggableObjects, GameObject droppedObject)
@@ -473,8 +469,6 @@ namespace Assets.Scripts.UI
                     string uiPanelPriority = uiPanelTexts[1].text;
                     uiPanelTexts[1].text = droppedObjectTexts[1].text;
                     droppedObjectTexts[1].text = uiPanelPriority;
-
-
                 }
             }
 
@@ -639,8 +633,5 @@ namespace Assets.Scripts.UI
                 warningBlockingPanel.blocksRaycasts = true;
             }
 		}
-
-  
-
     }
 }
