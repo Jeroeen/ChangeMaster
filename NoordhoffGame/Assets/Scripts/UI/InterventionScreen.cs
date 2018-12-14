@@ -417,10 +417,14 @@ namespace Assets.Scripts.UI
                 GameObject.Destroy(child.gameObject);
             }
             uiElements.Clear();
-            string[] priorityOrder = new string[4];
+            string[] priorityOrder = new string[priorities.Priorities.Length];
 
+            scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x,
+                scrollviewContent.sizeDelta.y -priorityPrefab.GetComponent<RectTransform>().sizeDelta.y * (priorityObjects.Count - elementLimit) );
+            scrollviewContent.anchoredPosition = new Vector2(10.0f, 0.0f);
+            interventionScrollView.vertical = false;
 
-            foreach(GameObject priorityObject in priorityObjects)
+            foreach (GameObject priorityObject in priorityObjects)
             {
                 Text[] priorityUIText = priorityObject.GetComponentsInChildren<Text>();
                 priorityOrder[System.Int32.Parse(priorityUIText[0].text) - 1] = priorityUIText[1].text;

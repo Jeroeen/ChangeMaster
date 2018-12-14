@@ -5936,7 +5936,7 @@ MonoBehaviour:
   theoryTextPanel: {fileID: 0}
   theoryImagePanel: {fileID: 0}
   theoryVideoConfirmPanel: {fileID: 0}
-  zoomInfoScreen: {fileID: 0}
+  zoomInfoScreen: {fileID: 6810451047920671740}
   panelImage: {fileID: 0}
 --- !u!225 &5819329071487960604
 CanvasGroup:

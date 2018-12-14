@@ -68,7 +68,6 @@ namespace Assets.Scripts.Dialogue
             return item;
         }
 
-        private string GetJsonString(string path)
 	    public TheoryList LoadJsonTheory(string level)
 	    {
 	        string path = "TheoryFiles/Theory" + level;
