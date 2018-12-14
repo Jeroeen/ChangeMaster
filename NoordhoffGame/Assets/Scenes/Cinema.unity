@@ -876,26 +876,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 83, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
-      propertyPath: transition
-      value: 
-      objectReference: {fileID: 1281914189}
-    - target: {fileID: 59, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
-      propertyPath: viewportHandler
-      value: 
-      objectReference: {fileID: 823257809}
-    - target: {fileID: 59, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 1736481448}
-    - target: {fileID: 1200204260828931588, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
-      propertyPath: viewportHandler
-      value: 
-      objectReference: {fileID: 823257809}
-    - target: {fileID: 1200204260828931588, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 1736481448}
     - target: {fileID: 54, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -903,6 +883,86 @@ PrefabInstance:
     - target: {fileID: 54, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583039082184961835, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583039082184961835, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583039082184961835, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2505.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583039082184961835, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1321.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 59, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: viewportHandler
+      value: 
+      objectReference: {fileID: 823257809}
+    - target: {fileID: 59, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1736481448}
+    - target: {fileID: 1200204260828931588, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: viewportHandler
+      value: 
+      objectReference: {fileID: 823257809}
+    - target: {fileID: 1200204260828931588, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1736481448}
+    - target: {fileID: 1200204260828931588, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 83, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 1281914189}
+    - target: {fileID: 49, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 49, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 49, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 53, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 53, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 53, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 15, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391e3abb6b60b564ebd696c3d3e345ee, type: 3}
@@ -1195,7 +1255,7 @@ GameObject:
   - component: {fileID: 582928249}
   - component: {fileID: 582928248}
   m_Layer: 0
-  m_Name: Teamvuilding
+  m_Name: Teambuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3095,7 +3155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389327988, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
       propertyPath: orthographic size
-      value: 8.259516
+      value: 8.241951
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389328010, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
       propertyPath: m_Enabled
@@ -3135,6 +3195,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389327988, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
       propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829431735389328010, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
+      propertyPath: CanUse
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

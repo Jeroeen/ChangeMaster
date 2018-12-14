@@ -11,7 +11,7 @@ namespace Assets.Scripts.CameraBehaviour
 
 		public TilemapHandler TilemapHandler;
 		public MouseChecker Checker;
-		public bool CanUse { get; set; }
+	    public bool CanUse { get; set; }
 
 
 		void Start()
