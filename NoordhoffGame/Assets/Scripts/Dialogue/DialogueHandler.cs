@@ -86,6 +86,7 @@ namespace Assets.Scripts.Dialogue
 			{
 				Game.GetGame().DialogueRead[characterModel.NameOfPartner + characterModel.Stage + characterModel.DialogueCount] = true;
 				SaveLoadGame.Save();
+
 				if (infoscreen != null)
 				{
 					infoscreen.ShowStakeholder(characterModel.NameOfPartner);

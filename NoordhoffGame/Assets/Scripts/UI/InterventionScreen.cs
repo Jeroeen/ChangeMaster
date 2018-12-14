@@ -140,7 +140,6 @@ namespace Assets.Scripts.UI
 
                 hintButton.onClick.AddListener(delegate { ShowConsequence(id); });
                 
-
                 textCount++;
 				elementLimit = scrollviewContent.sizeDelta.x / textboxSizeX;
 
@@ -167,7 +166,6 @@ namespace Assets.Scripts.UI
 			confirmInterventionGameObject.SetActive(true);
             confirmBlockingPanel.blocksRaycasts = true;
             consequenceButton.onClick.AddListener(delegate { ShowHint(clickedElementId); });
-
 		}
 
         public void HideHint()

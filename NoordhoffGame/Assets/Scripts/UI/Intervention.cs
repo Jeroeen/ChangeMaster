@@ -14,7 +14,7 @@
     public int Facilitating { get; set; }
     public int Communication { get; set; }
 
-		public Intervention() {}
+		public Intervention() { }
 
 		public Intervention(string text, string advice)
 		{

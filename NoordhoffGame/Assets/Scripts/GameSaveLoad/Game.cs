@@ -11,7 +11,7 @@ namespace Assets.Scripts.GameSaveLoad
 		public Player Player { get; set; }
 		public InfoList Information { get; set; }
 		public int LastFinishedLevel { get; set; }
-		public int CurrentLevelIndex => InLevel ? LastFinishedLevel + 1 : -1;
+		public int CurrentLevelIndex => InLevel ? LastFinishedLevel : -1;
 		public int CurrentLevelNumber => CurrentLevelIndex - GlobalVariablesHelper.BASE_LEVEL_INDEX;
 		public Dictionary<string, bool> DialogueRead { get; set; }
 		public string CurrentDestination { get; set; }

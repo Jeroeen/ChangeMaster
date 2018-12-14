@@ -69,6 +69,17 @@ namespace Assets.Scripts.Dialogue
         }
 
         private string GetJsonString(string path)
+	    public TheoryList LoadJsonTheory(string level)
+	    {
+	        string path = "TheoryFiles/Theory" + level;
+
+	        string jsonString = GetJsonString(path);
+
+	        TheoryList item = JsonMapper.ToObject<TheoryList>(jsonString);
+	        return item;
+	    }
+
+        private string GetJsonString(string path)
 		{
 			TextAsset asset = Resources.Load(path) as TextAsset;
 
