@@ -455,6 +455,7 @@ namespace Assets.Scripts.UI
 		{
 			//set the text of the textObject
 			Text objectText = initiate.GetComponentInChildren<Text>();
+			//objectText.resizeTextForBestFit = true;
 			objectText.text = text;
 			//set the position of the textObject
 			RectTransform cTextPos = initiate.GetComponent<RectTransform>();
