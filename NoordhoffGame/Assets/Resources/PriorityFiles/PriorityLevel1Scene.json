@@ -1,0 +1,20 @@
+{
+  "Priorities": [
+    {
+	  "PriorityText": "Teamcoaching geeft de team om het samen om te lossen",
+	  "PriorityNumber": 1
+    },
+    {
+	  "PriorityText": "De oplossing is duurzaam omdat ze het zelf oplossen",
+	  "PriorityNumber": 2
+    },
+    {
+	  "PriorityText": "Het legt niet de schuld bij één persoon",
+	  "PriorityNumber": 3
+    },
+    {
+	  "PriorityText": "Kan snel gestart worden en de eerste stappen kunnen snel gezet worden",
+	  "PriorityNumber": 4
+    }
+  ]
+}

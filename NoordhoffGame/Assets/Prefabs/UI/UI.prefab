@@ -4129,7 +4129,8 @@ MonoBehaviour:
   consequenceButton: {fileID: 1392615185910907398}
   hintText: {fileID: 8273794478198961688}
   interventionscreen: {fileID: 7656575981046010980}
-  textPrefab: {fileID: 2, guid: aea35f00488d80e49871d80f7c149240, type: 3}
+  textPrefab: {fileID: 12, guid: aea35f00488d80e49871d80f7c149240, type: 3}
+  priorityPrefab: {fileID: 4423130473141517584, guid: d9a2b139365605a4ba88a53eb240c523, type: 3}
   textImagePrefab: {fileID: 8040825388452543801, guid: 81f8795a76b0861459417ffb82752210, type: 3}
   buttonPrefab: {fileID: 7703157438557406637, guid: 83135aa65b77dc54e990dbd0e6c3bbe2, type: 3}
   hint: {fileID: 9063024511427878907}
@@ -5935,7 +5936,7 @@ MonoBehaviour:
   theoryTextPanel: {fileID: 0}
   theoryImagePanel: {fileID: 0}
   theoryVideoConfirmPanel: {fileID: 0}
-  zoomInfoScreen: {fileID: 0}
+  zoomInfoScreen: {fileID: 6810451047920671740}
   panelImage: {fileID: 0}
 --- !u!225 &5819329071487960604
 CanvasGroup:
