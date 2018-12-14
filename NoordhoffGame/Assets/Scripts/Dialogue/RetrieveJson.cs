@@ -38,10 +38,8 @@ namespace Assets.Scripts.Dialogue
 
 			string jsonString = GetJsonString(path);
 
-			InterventionList item = JsonMapper.ToObject<InterventionList>(jsonString);
-
-			return item;
-		}
+            return JsonMapper.ToObject<InterventionList>(jsonString);
+        }
 
 		public InfoList LoadJsonInformation(string level)
 		{
@@ -57,15 +55,24 @@ namespace Assets.Scripts.Dialogue
 			return item;
 		}
 
+        public PriorityList LoadJsonPriorities(string level)
+        {
+            string path = "PriorityFiles/Priority" + level;
+
+            string jsonString = GetJsonString(path);
+
+            return JsonMapper.ToObject<PriorityList>(jsonString);
+        }
+
 	    public TheoryList LoadJsonTheory(string level)
 	    {
 	        string path = "TheoryFiles/Theory" + level;
 
 	        string jsonString = GetJsonString(path);
 
-	        TheoryList item = JsonMapper.ToObject<TheoryList>(jsonString);
-	        return item;
-	    }
+
+            return JsonMapper.ToObject<TheoryList>(jsonString);
+        }
 
         private string GetJsonString(string path)
 		{

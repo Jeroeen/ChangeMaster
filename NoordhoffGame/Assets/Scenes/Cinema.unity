@@ -190,6 +190,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2797466}
   m_CullTransparentMesh: 0
+--- !u!1 &38927507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1893231322604534, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+  m_PrefabInstance: {fileID: 1415672495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &46617200
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,8 +389,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1490895488}
   m_HandleRect: {fileID: 1490895487}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.5
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1416,6 +1421,17 @@ MonoBehaviour:
   movie: {fileID: 1490024686}
   youtubePlayer: {fileID: 1415672496}
   videoPlayer: {fileID: 756160551}
+--- !u!114 &749632568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114779305133119110, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+  m_PrefabInstance: {fileID: 1415672495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!328 &756160551 stripped
 VideoPlayer:
   m_CorrespondingSourceObject: {fileID: 328527705056790198, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
@@ -1791,6 +1807,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028259938}
   m_CullTransparentMesh: 0
+--- !u!114 &1042139421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114095130443924696, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+  m_PrefabInstance: {fileID: 1415672495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1043651208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114409900708207472, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+  m_PrefabInstance: {fileID: 1415672495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!328 &1045457812 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 328940336506167326, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+  m_PrefabInstance: {fileID: 1415672495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1075940654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,6 +2125,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5850628913498139565, guid: 47e8cfd2cc4229e4a86629593aa2d27f, type: 3}
   m_PrefabInstance: {fileID: 1281914188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1296843216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114388803169416590, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+  m_PrefabInstance: {fileID: 1415672495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1350030957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,6 +2261,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350030957}
   m_CullTransparentMesh: 0
+--- !u!1 &1356990459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1690742202653660, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+  m_PrefabInstance: {fileID: 1415672495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1415672495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2338,10 +2397,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
-      propertyPath: youtubeUrl
-      value: https://www.youtube.com/watch?v=o_GIZ2ad_9Y
-      objectReference: {fileID: 0}
     - target: {fileID: 328940336506167326, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
       propertyPath: m_AudioOutputMode
       value: 2
@@ -2350,6 +2405,54 @@ PrefabInstance:
       propertyPath: m_AudioOutputMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: videoPlayer
+      value: 
+      objectReference: {fileID: 1045457812}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 756160551}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: videoControllerCanvas
+      value: 
+      objectReference: {fileID: 1822972581}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: loadingContent
+      value: 
+      objectReference: {fileID: 38927507}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: showPlayerControls
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: autoHideControlsTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: mainControllerUi
+      value: 
+      objectReference: {fileID: 1356990459}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: progressSlider
+      value: 
+      objectReference: {fileID: 1043651208}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: volumeSlider
+      value: 
+      objectReference: {fileID: 1953506374}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: playbackSpeed
+      value: 
+      objectReference: {fileID: 1296843216}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: currentTimeString
+      value: 
+      objectReference: {fileID: 749632568}
+    - target: {fileID: 114982571725547566, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+      propertyPath: totalTimeString
+      value: 
+      objectReference: {fileID: 1042139421}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
 --- !u!114 &1415672496 stripped
@@ -3155,7 +3258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389327988, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
       propertyPath: orthographic size
-      value: 8.241951
+      value: 8.255143
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389328010, guid: 754e064b0cae3a046b95e83a55f77d03, type: 3}
       propertyPath: m_Enabled
@@ -3393,6 +3496,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795339890}
   m_CullTransparentMesh: 0
+--- !u!1 &1822972581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1896735209799398, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+  m_PrefabInstance: {fileID: 1415672495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1832356851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,6 +3794,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855335829}
   m_CullTransparentMesh: 0
+--- !u!114 &1953506374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114633058370252996, guid: 81f777b4a89041a45b4d99677844cbf8, type: 3}
+  m_PrefabInstance: {fileID: 1415672495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1995137361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3765,7 +3884,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 581142741}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.31836092
+  m_Size: 0.3183609
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
