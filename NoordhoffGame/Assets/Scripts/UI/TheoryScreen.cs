@@ -25,8 +25,11 @@ public class TheoryScreen : MonoBehaviour
     [SerializeField] private ScrollRect theoryScrollView = null;
     [SerializeField] private GameObject theoryPanel = null;
     [SerializeField] private GameObject theoryTextPanel = null;
+	[Tooltip("Should be ObjectInfo prefab")]
     [SerializeField] private GameObject theoryImagePanel = null;
+	[Tooltip("Should be ConfirmCinema")]
     [SerializeField] private GameObject theoryVideoConfirmPanel = null;
+	[Tooltip("Should be InfoScreen")]
     [SerializeField] private ZoomingObject zoomInfoScreen = null;
     [SerializeField] private Image panelImage = null;
 
@@ -34,6 +37,7 @@ public class TheoryScreen : MonoBehaviour
     void Start()
     {
         ShowTheory();
+		ShowTheoryVideos();
     }
 
     public void ShowTheory()
@@ -51,16 +55,25 @@ public class TheoryScreen : MonoBehaviour
         panelHeight = theoryRect.rect.height;
     }
 
+	/// <summary>
+	/// Shows all theory that is images of this level
+	/// </summary>
     public void ShowTheoryImages()
     {
         ShowTheoryObject(theory.TheoryListImages);
     }
 
+	/// <summary>
+	/// Shows all theory that is text of this level
+	/// </summary>
     public void ShowTheoryTexts()
     {
         ShowTheoryObject(theory.TheoryListTexts);
     }
 
+	/// <summary>
+	/// Shows all theory that is videos of this level
+	/// </summary>
     public void ShowTheoryVideos()
     {
         ShowTheoryObject(theory.TheoryListVideos);
@@ -129,6 +142,10 @@ public class TheoryScreen : MonoBehaviour
         theoryTextPanel.SetActive(true);
     }
 
+	/// <summary>
+	/// Sets ObjectInfo sprite
+	/// </summary>
+	/// <param name="sprite"></param>
     private void ShowTheoryImage(Sprite sprite)
     {
         zoomInfoScreen.enabled = false;

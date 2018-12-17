@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae70a9ff181e29d48a46483fd80b8155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 1868712200}
   confirmButton: {fileID: 2115519236}
 --- !u!1 &87962828
 GameObject:

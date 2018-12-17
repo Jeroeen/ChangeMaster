@@ -1,0 +1,148 @@
+{
+  "Interventions": [
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Het managen door de restaurantmanager: overzicht houden en waarderen van medewerkers.",
+      "Hint": "De manager is de key persoon binnen het restaurant. Hij moet de medewerkers beschermen en waarderen.",
+      "Consequence": "Is er dan voldoende personeel om het draaiende te houden?",
+      "Advice": "Goede keuze. Door waardering en ze te beschermen gaan de medewerkers niet uitvallen.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Klantvriendelijkheids- training doen",
+      "Hint": "Training on the job door de leidinggevende kan, maar een training ergens anders lukt niet.",
+      "Consequence": "Duurt dat niet te lang?",
+      "Advice": "Lijkt me nu nog niet handig. Coaching on the job is dan beter.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Kleiner en onveranderlijk menu",
+      "Hint": "Zorgt ervoor dat er minder fouten en variatie is. Eten is er sneller. Advies is beter.",
+      "Consequence": "Mis je daarbij niet de keuze van de kaart?",
+      "Advice": "Goede keuze. Daardoor is er minder variatie, minder kans om fout te gaan en kunnen de koks sneller werken.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Sommelier ontslaan",
+      "Hint": "Ontslaan is wellicht te snel, maar aanspreken kan zeker.",
+      "Consequence": "En wie gaat dan de wijn doen?",
+      "Advice": "Hij moet zeker aangesproken worden en beloven de wijn niet meer te drinken. Anders zou hij kunnen worden ontslagen.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Meer mensen inzetten in de bediening (mensen van de bar instrueren om eerst te werken in het restaurant)",
+      "Hint": "Daarmee ontlast je de werkdruk bij de bediening zodat de klanten blijer worden.",
+      "Consequence": "Hebben ze geen opleiding nodig?",
+      "Advice": "Goede keuze. Door werkdrukvermindering kan de restaurantmanager echt gaan mangen. De medewerkers kunnen meer aandacht geven aan de gasten.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Leer de chefkok leidinggeven aan de keuken: wat moet er tegelijk klaar zijn? Daarop instueren.",
+      "Hint": "Hij moet aansturen en zorgen dat alles past. Maar wel vriendelijk.",
+      "Consequence": "Lukt dat wel met spullen die allemaal een andere bereidingsduur hebben?",
+      "Advice": "Is een relevante oplossing, maar wellicht een die niet het meeste effect heeft.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Eten voor een deel in de middag laten klaarmaken.",
+      "Hint": "Zorgt voor minder druk in de keuken en daardoor betere kwaliteit",
+      "Consequence": "Past dat bij het concept Fresh Food?",
+      "Advice": "Goede keuze. Zorgt voor meer focus bij de koks. Veel kan al wel gedaan worden zonder dat het concept verloren gaat.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Tablets inzetten om te bestellen",
+      "Hint": "Lijkt een oplossing voor de lange termijn. Bestellingen gaan dan gelijk naar de keuken",
+      "Consequence": "Kan dat op korte termijn? Moeten medewerkers geen training krijgen?",
+      "Advice": "Kan, maar is op korte termijn niet haalbaar. Voor lange termijn zeker onderzoeken.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Marketing: korting bij eten tussen 17:00 en 18:00",
+      "Hint": "Zorgt voor verspreiding van de drukte",
+      "Consequence": "Wat mis je aan inkomsten?",
+      "Advice": "Kan goed, maar lost niet veel problemen op.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Taakverdeling bij de koks, zodat ze meer specialisten worden.",
+      "Hint": "Betere taakverdeling zorgt dat koks niet te veel dingen tegelijk hoeven te doen.",
+      "Consequence": "Wordt het werk dan niet saai en eentonig?",
+      "Advice": "Goede keuze en zeker in combinatie met andere inrichting. Nu kan dit al wel, maar voorkom dat mensen elkaar niet kunnen helpen.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Keuken inrichten op de taakverdeling",
+      "Hint": "Lijkt op korte termijn niet haalbaar.",
+      "Consequence": "Kan dat op korte termijn?",
+      "Advice": "Kan, maar is op korte termijn niet haalbaar.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    },
+    {
+      "InterventionImage": "-",
+      "InterventionText": "Overdag medewerkers in de bediening laten trainen door de ervaren medewerkers.",
+      "Hint": "Moeten ze dan niet te lang werken op een dag?",
+      "Consequence": "Kan zeker helpen",
+      "Advice": "Goede keuze, geef de bediening een goede training, zodat ze beter voorbereid zijn. De seniore medewerkers kunnen de training geven.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
+    }
+  ]
+}

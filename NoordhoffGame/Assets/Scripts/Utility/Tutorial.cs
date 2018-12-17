@@ -34,6 +34,7 @@ namespace Assets.Scripts
 		[SerializeField] private BoxCollider2D helmsman = null;
 		[SerializeField] private BoxCollider2D lookout = null;
 		[SerializeField] private BoxCollider2D bookcase = null;
+		[SerializeField] private BoxCollider2D goal = null;
 
 		[SerializeField] private CameraController cameraController = null;
 		[SerializeField] private ViewportHandler viewportHandler = null;
@@ -108,6 +109,11 @@ namespace Assets.Scripts
 				FinishedCaptainDialogue();
 			}
 
+			if (characterModel.NameOfPartner == "Doel")
+			{
+				FinishedGoalDialogue();
+			}
+
 			if (characterModel.NameOfPartner == "Roerganger")
 			{
 				FinishedHelmsmanDialogue();
@@ -126,14 +132,27 @@ namespace Assets.Scripts
 				return;
 			}
 
+			// Move camera 4 to the right of the current position (to the portrait)
+			MoveSpotlight(camBTarget.transform.position.x + 4.5f, camBTarget.transform.position.y + 0.5f);
+
+			goal.enabled = true;
+			captain.enabled = false;
+		}
+
+		private void FinishedGoalDialogue()
+		{
+			if(!isTutorialActive)
+			{
+				return;
+			}
+
 			// Actual position: 11,7X + 5,8Y
 			// Desired position: 9,5X + 6,6Y
 			// Difference: 2,2X & 0,8Y
 			MoveSpotlight(helmsman.transform.position.x - 2.2f, helmsman.transform.position.y + 0.8f);
 
 			helmsman.enabled = true;
-
-			captain.enabled = false;
+			goal.enabled = false;
 		}
 
 		private void FinishedHelmsmanDialogue()
@@ -205,7 +224,7 @@ namespace Assets.Scripts
 			// Desired position: 15.9X, 3.3Y. Scale: 1.15X, 0.6Y
 			// Difference: 0.3X, 1.5Y. Scale: 0.3Y
 			camBTargetB.SetActive(true);
-			camBTargetB.transform.position = new Vector3(camBTargetB.transform.position.x + 0.3f, camBTargetB.transform.position.y - 1.5f, camBTargetB.transform.position.z);
+			camBTargetB.transform.position = new Vector3(camBTargetB.transform.position.x - 0.2f, camBTargetB.transform.position.y - 0.8f, camBTargetB.transform.position.z);
 			camBTargetB.transform.localScale = new Vector3(camBTargetB.transform.localScale.x, camBTargetB.transform.localScale.y + 0.3f, camBTargetB.transform.localScale.z);
 		}
 
