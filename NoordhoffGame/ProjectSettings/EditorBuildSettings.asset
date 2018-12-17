@@ -5,37 +5,37 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SplashScreen.unity
     guid: a6d22ea7d13f2cf439906fedbe299f22
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Cinema.unity
     guid: 08ed58cbdbd1d444f9809969c307365a
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Arcade.unity
     guid: 24955caaa481c284188d3e8e3f834416
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Opening Cutscene.unity
     guid: 9509bd403723f9544a94e3390f442464
   - enabled: 1
     path: Assets/Scenes/Character_Selection.unity
     guid: 0501b6356f228034b8f3da4f24854e11
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Baseview.unity
     guid: da7f8888820de76488cd58ffe5674d37
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Level0Scene.unity
     guid: 92db731ecbebdeb46a466c3072a4c4ec
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Level1Scene.unity
     guid: 4e144b264a8600a46959fa5be730cedd
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Level2Scene.unity
     guid: ebb1099c62130504aaacd3b3ff5b4d62
   - enabled: 0
     path: Assets/Scenes/Level3Scene.unity
     guid: 3aaee45454f321c4a821887a85aed312
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 8832fec4e0a327e4bafce31d8f33cea8
   m_configObjects: {}

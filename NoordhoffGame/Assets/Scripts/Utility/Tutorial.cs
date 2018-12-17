@@ -136,7 +136,6 @@ namespace Assets.Scripts
 			MoveSpotlight(camBTarget.transform.position.x + 4.5f, camBTarget.transform.position.y + 0.5f);
 
 			goal.enabled = true;
-
 			captain.enabled = false;
 		}
 
@@ -153,7 +152,6 @@ namespace Assets.Scripts
 			MoveSpotlight(helmsman.transform.position.x - 2.2f, helmsman.transform.position.y + 0.8f);
 
 			helmsman.enabled = true;
-
 			goal.enabled = false;
 		}
 
@@ -226,7 +224,7 @@ namespace Assets.Scripts
 			// Desired position: 15.9X, 3.3Y. Scale: 1.15X, 0.6Y
 			// Difference: 0.3X, 1.5Y. Scale: 0.3Y
 			camBTargetB.SetActive(true);
-			camBTargetB.transform.position = new Vector3(camBTargetB.transform.position.x + 0.3f, camBTargetB.transform.position.y - 1.5f, camBTargetB.transform.position.z);
+			camBTargetB.transform.position = new Vector3(camBTargetB.transform.position.x - 0.2f, camBTargetB.transform.position.y - 0.8f, camBTargetB.transform.position.z);
 			camBTargetB.transform.localScale = new Vector3(camBTargetB.transform.localScale.x, camBTargetB.transform.localScale.y + 0.3f, camBTargetB.transform.localScale.z);
 		}
 

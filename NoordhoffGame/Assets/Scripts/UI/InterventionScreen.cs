@@ -601,9 +601,7 @@ namespace Assets.Scripts.UI
 		private void InitiateTextObject(GameObject initiate, string text, Vector2 anchoredPosition)
 		{
 			//set the text of the textObject
-			Text objectText = initiate.GetComponentInChildren<Text>();
-			//objectText.resizeTextForBestFit = true;
-			objectText.text = text;
+			initiate.GetComponentInChildren<Text>().text = text;
 			//set the position of the textObject
 			RectTransform cTextPos = initiate.GetComponent<RectTransform>();
 			cTextPos.anchoredPosition = anchoredPosition;
