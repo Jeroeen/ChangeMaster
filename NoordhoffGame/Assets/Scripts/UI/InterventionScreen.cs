@@ -32,7 +32,7 @@ namespace Assets.Scripts.UI
 		[SerializeField] private Transition transition = null;
 		[SerializeField] private GameObject interventionWarning = null;
 		[SerializeField] private GameObject confirmInterventionGameObject = null;
-		[SerializeField] private SpriteRenderer chosenInterventionSprite = null;
+		[SerializeField] private Image chosenInterventionSprite = null;
 	    [SerializeField] private ZoomingObject zoomInterventionScreen = null;
 
 		private int clickedElementId;
@@ -274,7 +274,7 @@ namespace Assets.Scripts.UI
 			string[] skillSpriteNames =
 			{
 				"Analytisch", "Besluitvaardig", "Eigenaarschap",
-                "x button", "Communiceren"
+                "Creatief", "Communiceren"
             };
 
             string[] skillInfoText =

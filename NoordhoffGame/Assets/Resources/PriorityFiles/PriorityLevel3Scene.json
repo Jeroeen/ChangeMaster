@@ -1,0 +1,23 @@
+{
+  "Priorities": [
+    {
+	  "PriorityText": "Meer mensen inzetten in de bediening. Mensen van de bar werken eerst in het restaurant",
+	  "PriorityNumber": 1
+    },
+    {
+	  "PriorityText": "Eten voor een deel al in de middag laten klaarmaken",
+	  "PriorityNumber": 2
+    },
+    {
+	  "PriorityText": "Kleiner en onveranderlijk menu",
+	  "PriorityNumber": 3
+    },
+    {
+	  "PriorityText": "Overdag medewerkers in de bediening laten oefenen",
+	  "PriorityNumber": 4
+    },{
+	  "PriorityText": "Het managen door de restaurantmanager: overzicht houden en waarderen van medewerkers",
+	  "PriorityNumber": 5
+    }
+  ]
+}
