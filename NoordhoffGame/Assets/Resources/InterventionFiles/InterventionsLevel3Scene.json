@@ -1,7 +1,7 @@
 {
   "Interventions": [
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie_restaurantmanager",
       "InterventionText": "Het managen door de restaurantmanager: overzicht houden en waarderen van medewerkers.",
       "Hint": "De manager is de key persoon binnen het restaurant. Hij moet de medewerkers beschermen en waarderen.",
       "Consequence": "Is er dan voldoende personeel om het draaiende te houden?",
@@ -13,7 +13,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie_bedieningtraining",
       "InterventionText": "Klantvriendelijkheids- training doen",
       "Hint": "Training on the job door de leidinggevende kan, maar een training ergens anders lukt niet.",
       "Consequence": "Duurt dat niet te lang?",
@@ -25,7 +25,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie_menu",
       "InterventionText": "Kleiner en onveranderlijk menu",
       "Hint": "Zorgt ervoor dat er minder fouten en variatie is. Eten is er sneller. Advies is beter.",
       "Consequence": "Mis je daarbij niet de keuze van de kaart?",
@@ -73,7 +73,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie_etenklaarmaken",
       "InterventionText": "Eten voor een deel in de middag laten klaarmaken.",
       "Hint": "Zorgt voor minder druk in de keuken en daardoor betere kwaliteit",
       "Consequence": "Past dat bij het concept Fresh Food?",
@@ -83,9 +83,20 @@
       "Ownership": 0,
       "Facilitating": 0,
       "Communication": 0
+    },{
+      "InterventionImage": "interventie_tijdsduur",
+      "InterventionText": "Tijdsduur van handeling beter managen zodat alle gerechten van 1 tafel tegelijkertijd klaar is.",
+      "Hint": "Als alles wat je moet doen ongeveer even lang duurt dan is alles ook tegelijk klaar, toch?",
+      "Consequence": "Past dat bij het concept Fresh food?",
+      "Advice": "Kan, maar andere oplossing in de keuken leveren meer op.",
+      "Analytic": 0,
+      "Approach": 0,
+      "Ownership": 0,
+      "Facilitating": 0,
+      "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie_tablets",
       "InterventionText": "Tablets inzetten om te bestellen",
       "Hint": "Lijkt een oplossing voor de lange termijn. Bestellingen gaan dan gelijk naar de keuken",
       "Consequence": "Kan dat op korte termijn? Moeten medewerkers geen training krijgen?",
@@ -97,7 +108,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie_discount",
       "InterventionText": "Marketing: korting bij eten tussen 17:00 en 18:00",
       "Hint": "Zorgt voor verspreiding van de drukte",
       "Consequence": "Wat mis je aan inkomsten?",
@@ -109,7 +120,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie_taakverdeling",
       "InterventionText": "Taakverdeling bij de koks, zodat ze meer specialisten worden.",
       "Hint": "Betere taakverdeling zorgt dat koks niet te veel dingen tegelijk hoeven te doen.",
       "Consequence": "Wordt het werk dan niet saai en eentonig?",
@@ -121,7 +132,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie_keukeninrichten",
       "InterventionText": "Keuken inrichten op de taakverdeling",
       "Hint": "Lijkt op korte termijn niet haalbaar.",
       "Consequence": "Kan dat op korte termijn?",
