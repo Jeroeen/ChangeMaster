@@ -279,7 +279,7 @@ namespace Assets.Scripts.UI
 
             string[] skillInfoText =
             {
-                "Denkt analytisch denken vanuit het geheel",
+                "Denkt analytisch, denken vanuit het geheel",
                 "Kiest een duurzame veranderaanpak",
                 "Gericht op eigenaarschap bij alle stakeholders",
                 "Faciliteert de verandering",
@@ -559,6 +559,7 @@ namespace Assets.Scripts.UI
 
         public void ShowSkillInfo(GameObject skillInfoPanel)
         {
+            skillInfoPanel.transform.SetAsLastSibling();
             skillInfoPanel.SetActive(true);
             skillInfoPanel.GetComponent<Selectable>().Select();
         }
