@@ -1,13 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ToggleSound : MonoBehaviour
+namespace Assets.Scripts
 {
-	[SerializeField] private AudioSource source;
-
-	public void ToggleAudio()
+	public class ToggleSound : MonoBehaviour
 	{
-		source.enabled = !source.enabled;
+		[SerializeField] private AudioSource source;
+
+		public void ToggleAudio()
+		{
+			source.enabled = !source.enabled;
+		}
+
+		public void PlayAudio()
+		{
+			if (!source.isPlaying)
+			{
+				source.Play();
+			}
+		}
 	}
 }
