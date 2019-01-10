@@ -13,8 +13,6 @@ namespace Assets.Scripts.Utility
 		{
 			// Standard is UK time, so add one hour.
 			int time = DateTime.UtcNow.Hour + 1;
-			Debug.Log(time);
-
 
 			if (time < 6)
 			{
