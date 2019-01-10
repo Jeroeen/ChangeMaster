@@ -1,7 +1,7 @@
 {
   "Interventions": [
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie restaurantmanager",
       "InterventionText": "Het managen door de restaurantmanager: overzicht houden en waarderen van medewerkers.",
       "Hint": "De manager is de key persoon binnen het restaurant. Hij moet de medewerkers beschermen en waarderen.",
       "Consequence": "Is er dan voldoende personeel om het draaiende te houden?",
@@ -13,7 +13,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie klantvriendelijkheidstraining",
       "InterventionText": "Klantvriendelijkheids- training doen",
       "Hint": "Training on the job door de leidinggevende kan, maar een training ergens anders lukt niet.",
       "Consequence": "Duurt dat niet te lang?",
@@ -25,7 +25,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie menu",
       "InterventionText": "Kleiner en onveranderlijk menu",
       "Hint": "Zorgt ervoor dat er minder fouten en variatie is. Eten is er sneller. Advies is beter.",
       "Consequence": "Mis je daarbij niet de keuze van de kaart?",
@@ -37,7 +37,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie sommelier",
       "InterventionText": "Sommelier ontslaan",
       "Hint": "Ontslaan is wellicht te snel, maar aanspreken kan zeker.",
       "Consequence": "En wie gaat dan de wijn doen?",
@@ -49,7 +49,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie meerbediening",
       "InterventionText": "Meer mensen inzetten in de bediening (mensen van de bar instrueren om eerst te werken in het restaurant)",
       "Hint": "Daarmee ontlast je de werkdruk bij de bediening zodat de klanten blijer worden.",
       "Consequence": "Hebben ze geen opleiding nodig?",
@@ -61,7 +61,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie chefkok",
       "InterventionText": "Leer de chefkok leidinggeven aan de keuken: wat moet er tegelijk klaar zijn? Daarop instueren.",
       "Hint": "Hij moet aansturen en zorgen dat alles past. Maar wel vriendelijk.",
       "Consequence": "Lukt dat wel met spullen die allemaal een andere bereidingsduur hebben?",
@@ -73,7 +73,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie etenklaarmaken",
       "InterventionText": "Eten voor een deel in de middag laten klaarmaken.",
       "Hint": "Zorgt voor minder druk in de keuken en daardoor betere kwaliteit",
       "Consequence": "Past dat bij het concept Fresh Food?",
@@ -85,7 +85,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie tablets",
       "InterventionText": "Tablets inzetten om te bestellen",
       "Hint": "Lijkt een oplossing voor de lange termijn. Bestellingen gaan dan gelijk naar de keuken",
       "Consequence": "Kan dat op korte termijn? Moeten medewerkers geen training krijgen?",
@@ -97,7 +97,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie discount",
       "InterventionText": "Marketing: korting bij eten tussen 17:00 en 18:00",
       "Hint": "Zorgt voor verspreiding van de drukte",
       "Consequence": "Wat mis je aan inkomsten?",
@@ -109,7 +109,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie taakverdeling",
       "InterventionText": "Taakverdeling bij de koks, zodat ze meer specialisten worden.",
       "Hint": "Betere taakverdeling zorgt dat koks niet te veel dingen tegelijk hoeven te doen.",
       "Consequence": "Wordt het werk dan niet saai en eentonig?",
@@ -121,7 +121,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie keukeninrichten",
       "InterventionText": "Keuken inrichten op de taakverdeling",
       "Hint": "Lijkt op korte termijn niet haalbaar.",
       "Consequence": "Kan dat op korte termijn?",
@@ -133,7 +133,7 @@
       "Communication": 0
     },
     {
-      "InterventionImage": "-",
+      "InterventionImage": "interventie bedieningtraining",
       "InterventionText": "Overdag medewerkers in de bediening laten trainen door de ervaren medewerkers.",
       "Hint": "Moeten ze dan niet te lang werken op een dag?",
       "Consequence": "Kan zeker helpen",

@@ -26,7 +26,7 @@ namespace Assets.Scripts.Dialogue
 			string jsonString = GetJsonString(path);
 
 			DialogueItem item = JsonMapper.ToObject<DialogueItem>(jsonString);
-			item.ReplaceName();
+			item.ReplaceTags();
 
 			return item;
 		}

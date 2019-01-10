@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7864956524242222724}
   - component: {fileID: 7864956524242222731}
   - component: {fileID: 7864956524242222730}
+  - component: {fileID: 1770889535}
+  - component: {fileID: 1770889536}
   m_Layer: 9
   m_Name: ArcadeBlue
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7864956524242222728}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.08, y: -1.1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
@@ -144,11 +146,15 @@ PolygonCollider2D:
     - - {x: 0.37674236, y: 0.52048725}
       - {x: 0.33261395, y: 0.75936455}
       - {x: 0.1413269, y: 0.8591313}
-      - {x: -0.4994979, y: 0.5578535}
-      - {x: -0.49487162, y: -0.61925334}
-      - {x: -0.37433004, y: -0.6727683}
-      - {x: -0.20435333, y: -0.7578601}
-      - {x: -0.12427759, y: -0.7951543}
+      - {x: -0.49076128, y: 0.57531744}
+      - {x: -0.22408557, y: 0.4958145}
+      - {x: -0.15354681, y: 0.27151853}
+      - {x: -0.2712624, y: 0.30607635}
+      - {x: -0.2010777, y: -0.07049841}
+      - {x: -0.031835556, y: -0.34856445}
+      - {x: -0.016132593, y: -0.777551}
+      - {x: 0.00532341, y: -0.8277153}
+      - {x: -0.010702848, y: -0.8475456}
       - {x: -0.008140087, y: -0.8549425}
       - {x: 0.05105877, y: -0.85326284}
       - {x: 0.505, y: -0.645}
@@ -184,6 +190,126 @@ MonoBehaviour:
             m_StringArgument: isPlaying
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1770889536}
+          m_MethodName: ToggleAudio
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!82 &1770889535
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864956524242222728}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a21b0944b1086264eb1c4ee6a2e72bc0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.7
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1770889536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864956524242222728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03959d8c08b971f47884a1762ba23e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1770889535}

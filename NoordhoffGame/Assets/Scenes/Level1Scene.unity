@@ -1564,7 +1564,7 @@ PrefabInstance:
     - target: {fileID: 5819329070787635212, guid: 4a49f85760da7864282f9094a7a62491,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000008357597
+      value: 0.0075384015
       objectReference: {fileID: 0}
     - target: {fileID: 5819329071712183286, guid: 4a49f85760da7864282f9094a7a62491,
         type: 3}
@@ -1629,7 +1629,7 @@ PrefabInstance:
     - target: {fileID: 1983433852943325242, guid: 4a49f85760da7864282f9094a7a62491,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.59467745
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1983433852943325242, guid: 4a49f85760da7864282f9094a7a62491,
         type: 3}
@@ -1644,7 +1644,7 @@ PrefabInstance:
     - target: {fileID: 7752318608615529025, guid: 4a49f85760da7864282f9094a7a62491,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 686.9001
+      value: 686.88513
       objectReference: {fileID: 0}
     - target: {fileID: 3301487027212120381, guid: 4a49f85760da7864282f9094a7a62491,
         type: 3}
@@ -5993,7 +5993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1684596113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7216,7 +7216,7 @@ PrefabInstance:
     - target: {fileID: 1829431735389327988, guid: 754e064b0cae3a046b95e83a55f77d03,
         type: 3}
       propertyPath: orthographic size
-      value: 8.239101
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 1829431735389328011, guid: 754e064b0cae3a046b95e83a55f77d03,
         type: 3}
