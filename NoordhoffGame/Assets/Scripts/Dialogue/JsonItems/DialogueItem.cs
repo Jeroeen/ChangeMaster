@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.Utility;
 using Assets.UnityLitJson;
 using UnityEngine;
 
@@ -50,16 +51,21 @@ namespace Assets.Scripts.Dialogue.JsonItems
 			return CurrentPage <= 0;
 		}
 
-	    public void ReplaceName()
-	    {
-	        for (int i = 0; i < DialogueLines.Count; i++)
-	        {
-	            string s = DialogueLines[i];
-	            if (s.Contains("[Naam]"))
-	            {
-                    DialogueLines[i] = s.Replace("[Naam]", PlayerPrefs.GetString("PlayerName"));
-	            }
-	        }
-	    }
+		public void ReplaceTags()
+		{
+			for (int i = 0; i < DialogueLines.Count; i++)
+			{
+				string s = DialogueLines[i];
+				if (s.Contains("[Naam]"))
+				{
+					DialogueLines[i] = s.Replace("[Naam]", PlayerPrefs.GetString("PlayerName"));
+				}
+
+				if (s.Contains("[Greeting]"))
+				{
+					DialogueLines[i] = DialogueLines[i].Replace("[Greeting]", TimeHelper.GetGreetingTimeOfDay());
+				}
+			}
+		}
 	}
 }
