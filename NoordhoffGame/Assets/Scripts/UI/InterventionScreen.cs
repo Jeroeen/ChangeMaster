@@ -144,7 +144,7 @@ namespace Assets.Scripts.UI
 				elementLimit = scrollviewContent.sizeDelta.x / textboxSizeX;
 
                 //i starts at 0, so to compensate we subtract 1 from the elementlimit
-                if (i >= elementLimit - 2) 
+                if (i >= elementLimit - 1) 
 				{
 					scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x + textboxSizeX,
 						scrollviewContent.sizeDelta.y);
