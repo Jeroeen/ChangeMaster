@@ -6,8 +6,6 @@ namespace Assets.Scripts
 {
 	public class VideoHandler : MonoBehaviour
 	{
-		[SerializeField] private GameObject level1Movies = null;
-		[SerializeField] private GameObject level2Movies = null;
 		[SerializeField] private GameObject[] levelMovies = null;
 
 		[SerializeField] private GameObject movie = null;
