@@ -351,16 +351,26 @@ namespace Assets.Scripts.UI
                 priorityTexts[randomNr] = priorityTexts[index];
                 priorityTexts[index] = value;
             }
-
+            
             elementLimit = scrollviewContent.sizeDelta.y / priorityPrefab.GetComponent<RectTransform>().sizeDelta.y;
-            elementLimit -= 2;
+            //start counting 4 * the length of priorityPrefab down, since the first part of the content element doesn't have the priorityPrefab in it. 
+            elementLimit -= 4;
 
             List<GameObject> priorityElements = new List<GameObject>();
 
-            //number used so that the priorityprefab is put bout halfway in the interventionscreen
+            //number used so that the priorityprefab is put about halfway in the interventionscreen
             float priorityPrefabDivider = 1.7f;
 
             position = new Vector2(priorityPrefab.GetComponent<RectTransform>().sizeDelta.x / priorityPrefabDivider, -priorityPrefab.GetComponent<RectTransform>().sizeDelta.y);
+
+            GameObject ExplanationText = Instantiate(textPrefab, interventionScrollView.content.transform);
+            ExplanationText.GetComponentInChildren<Text>().text = "Zet de oorzaken in de juiste volgorde.";
+            ExplanationText.GetComponentInChildren<Text>().fontSize = 80;
+            RectTransform ExplanationRectTransform = ExplanationText.GetComponent<RectTransform>();
+            ExplanationRectTransform.sizeDelta = new Vector2(ExplanationRectTransform.sizeDelta.x *2, ExplanationRectTransform.sizeDelta.y );
+            ExplanationRectTransform.anchoredPosition = new Vector2(position.x - ExplanationRectTransform.sizeDelta.x / 2, position.y);
+            position = new Vector2(position.x, position.y - (priorityPrefab.GetComponent<RectTransform>().sizeDelta.y*1.5f));
+        
 
             for (int i = 0; i < priorities.Priorities.Length; i++)
             {
