@@ -1,12 +1,10 @@
 using System;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
-namespace UnityStandardAssets.Utility
+namespace Assets.LightShaft.Standard_Assets.Utility
 {
     public class TimedObjectActivator : MonoBehaviour
     {
@@ -83,11 +81,8 @@ namespace UnityStandardAssets.Utility
             SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
         }
     }
-}
 
 
-namespace UnityStandardAssets.Utility.Inspector
-{
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof (TimedObjectActivator.Entries))]
     public class EntriesDrawer : PropertyDrawer

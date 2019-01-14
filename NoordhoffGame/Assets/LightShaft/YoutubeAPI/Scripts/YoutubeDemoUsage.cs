@@ -1,42 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.LightShaft.Scripts;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class YoutubeDemoUsage : MonoBehaviour {
-    public GameObject mainUI;
+namespace Assets.LightShaft.YoutubeAPI.Scripts
+{
+    public class YoutubeDemoUsage : MonoBehaviour {
+        public GameObject mainUI;
 
-	public void DemoPlayback()
-    {
-        //search for the low quality if not find search for highquality
-        if (GameObject.FindObjectOfType<YoutubePlayer>() != null)
+        public void DemoPlayback()
         {
-            GameObject.FindObjectOfType<YoutubePlayer>().LoadYoutubeVideo("bc0sJvtKrRM");
-            GameObject.FindObjectOfType<YoutubePlayer>().videoPlayer.loopPointReached += OnVideoFinished;
+            //search for the low quality if not find search for highquality
+            if (GameObject.FindObjectOfType<YoutubePlayer>() != null)
+            {
+                GameObject.FindObjectOfType<YoutubePlayer>().LoadYoutubeVideo("bc0sJvtKrRM");
+                GameObject.FindObjectOfType<YoutubePlayer>().videoPlayer.loopPointReached += OnVideoFinished;
+            }
+            mainUI.SetActive(false);
         }
-        mainUI.SetActive(false);
-    }
 
-    public UnityEngine.UI.Text videoUrlInput;
+        public UnityEngine.UI.Text videoUrlInput;
 
-    public void PlayFromInput()
-    {
-        //search for the low quality if not find search for highquality
-        if (GameObject.FindObjectOfType<YoutubePlayer>() != null)
+        public void PlayFromInput()
         {
-            GameObject.FindObjectOfType<YoutubePlayer>().LoadYoutubeVideo(videoUrlInput.text);
-            GameObject.FindObjectOfType<YoutubePlayer>().videoPlayer.loopPointReached += OnVideoFinished;
-        }
+            //search for the low quality if not find search for highquality
+            if (GameObject.FindObjectOfType<YoutubePlayer>() != null)
+            {
+                GameObject.FindObjectOfType<YoutubePlayer>().LoadYoutubeVideo(videoUrlInput.text);
+                GameObject.FindObjectOfType<YoutubePlayer>().videoPlayer.loopPointReached += OnVideoFinished;
+            }
        
-        mainUI.SetActive(false);
-    }
-
-    private void OnVideoFinished(VideoPlayer vPlayer)
-    {
-        if (GameObject.FindObjectOfType<YoutubePlayer>() != null)
-        {
-            GameObject.FindObjectOfType<YoutubePlayer>().videoPlayer.loopPointReached -= OnVideoFinished;
+            mainUI.SetActive(false);
         }
-        mainUI.SetActive(true);
+
+        private void OnVideoFinished(VideoPlayer vPlayer)
+        {
+            if (GameObject.FindObjectOfType<YoutubePlayer>() != null)
+            {
+                GameObject.FindObjectOfType<YoutubePlayer>().videoPlayer.loopPointReached -= OnVideoFinished;
+            }
+            mainUI.SetActive(true);
+        }
     }
 }

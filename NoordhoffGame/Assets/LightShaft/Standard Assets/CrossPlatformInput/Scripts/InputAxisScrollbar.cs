@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace UnityStandardAssets.CrossPlatformInput
+namespace Assets.LightShaft.Standard_Assets.CrossPlatformInput.Scripts
 {
     public class InputAxisScrollbar : MonoBehaviour
     {

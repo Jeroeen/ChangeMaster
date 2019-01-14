@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YoutubeLight
+namespace Assets.LightShaft.YoutubeSrc
 {
     public class VideoNotAvailableException : Exception
     {
@@ -11,10 +11,7 @@ namespace YoutubeLight
             : base(message)
         { }
     }
-}
 
-namespace YoutubeLight
-{
     public class YoutubeParseException : Exception
     {
         public YoutubeParseException(string message, Exception innerException)

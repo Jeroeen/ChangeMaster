@@ -1,7 +1,8 @@
 using Assets.Scripts.Dialogue.JsonItems;
 using Assets.Scripts.Dialogue.Models;
-using Assets.Scripts.GameSaveLoad;
+using Assets.Scripts.Progress;
 using Assets.Scripts.UI;
+using Assets.Scripts.UI.Info;
 using UnityEngine;
 using UnityEngine.UI;
 

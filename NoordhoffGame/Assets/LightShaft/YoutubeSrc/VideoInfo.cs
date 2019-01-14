@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace YoutubeLight
+namespace Assets.LightShaft.YoutubeSrc
 {
     public class VideoInfo
     {

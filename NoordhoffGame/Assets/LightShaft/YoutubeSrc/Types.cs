@@ -1,4 +1,4 @@
-﻿namespace YoutubeLight
+﻿namespace Assets.LightShaft.YoutubeSrc
 {
     public enum AudioType
     {
@@ -7,10 +7,7 @@
         Vorbis,
         Unknown
     }
-}
 
-namespace YoutubeLight
-{
     public enum VideoType
     {
 
@@ -20,10 +17,7 @@ namespace YoutubeLight
         WebM,
         Unknown
     }
-}
 
-namespace YoutubeLight
-{
     public enum AdaptiveType
     {
         None,

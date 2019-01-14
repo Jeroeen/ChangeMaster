@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using Assets.Scripts.Dialogue;
-using Assets.Scripts.GameSaveLoad;
+using Assets.Scripts.Progress;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
-namespace Assets.Scripts.UI
+namespace Assets.Scripts.UI.Info
 {
     public class Infoscreen : MonoBehaviour
     {

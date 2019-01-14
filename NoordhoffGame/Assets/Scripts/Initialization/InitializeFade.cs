@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Cutscene;
-using Assets.Scripts.GameSaveLoad;
+using Assets.Scripts.Progress;
 using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.SceneManagement;

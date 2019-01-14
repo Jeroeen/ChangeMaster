@@ -1,11 +1,11 @@
 ﻿using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Cutscene;
-using Assets.Scripts.GameSaveLoad;
+using Assets.Scripts.Progress;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.World_Map
+namespace Assets.Scripts.UI.World_Map
 {
 	public class DetermineDestination : MonoBehaviour
 	{

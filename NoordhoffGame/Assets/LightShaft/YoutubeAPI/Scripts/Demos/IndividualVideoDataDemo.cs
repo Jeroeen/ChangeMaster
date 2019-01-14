@@ -1,54 +1,57 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using Assets.LightShaft.YoutubeAPI.Scripts.Src;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IndividualVideoDataDemo : MonoBehaviour {
+namespace Assets.LightShaft.YoutubeAPI.Scripts.Demos
+{
+    public class IndividualVideoDataDemo : MonoBehaviour {
 
-    YoutubeAPIManager youtubeapi;
+        YoutubeAPIManager youtubeapi;
 
-    public Text videoIdInput,UI_title, UI_description, UI_duration, UI_likes, UI_dislikes, UI_favorites, UI_comments, UI_views;
-    public Image UI_thumbnail;
+        public Text videoIdInput,UI_title, UI_description, UI_duration, UI_likes, UI_dislikes, UI_favorites, UI_comments, UI_views;
+        public Image UI_thumbnail;
 
-    void Start()
-    {
-        //Get the api component
-        youtubeapi = GameObject.FindObjectOfType<YoutubeAPIManager>();
-        if (youtubeapi == null)
+        void Start()
         {
-            youtubeapi = gameObject.AddComponent<YoutubeAPIManager>();
+            //Get the api component
+            youtubeapi = GameObject.FindObjectOfType<YoutubeAPIManager>();
+            if (youtubeapi == null)
+            {
+                youtubeapi = gameObject.AddComponent<YoutubeAPIManager>();
+            }
         }
-    }
 
-    public void GetVideoData()
-    {
-        youtubeapi.GetVideoData(videoIdInput.text, OnFinishLoadingData);
-    }
+        public void GetVideoData()
+        {
+            youtubeapi.GetVideoData(videoIdInput.text, OnFinishLoadingData);
+        }
 
-    void OnFinishLoadingData(YoutubeData result)
-    {
-        UI_title.text = result.snippet.title;
-        UI_description.text = result.snippet.description;
-        UI_duration.text = "Duration: "+result.contentDetails.duration.Replace("PT", "");
-        UI_likes.text = "Likes: " + result.statistics.likeCount;
-        UI_dislikes.text = "Dislikes: " + result.statistics.dislikeCount;
-        UI_favorites.text = "Favs: " + result.statistics.favoriteCount;
-        UI_comments.text = "Comments: " + result.statistics.commentCount;
-        UI_views.text = "Views: " + result.statistics.viewCount;
-        LoadThumbnail(result.snippet.thumbnails.defaultThumbnail.url);
-    }
+        void OnFinishLoadingData(YoutubeData result)
+        {
+            UI_title.text = result.snippet.title;
+            UI_description.text = result.snippet.description;
+            UI_duration.text = "Duration: "+result.contentDetails.duration.Replace("PT", "");
+            UI_likes.text = "Likes: " + result.statistics.likeCount;
+            UI_dislikes.text = "Dislikes: " + result.statistics.dislikeCount;
+            UI_favorites.text = "Favs: " + result.statistics.favoriteCount;
+            UI_comments.text = "Comments: " + result.statistics.commentCount;
+            UI_views.text = "Views: " + result.statistics.viewCount;
+            LoadThumbnail(result.snippet.thumbnails.defaultThumbnail.url);
+        }
 
-    void LoadThumbnail(string url)
-    {
-        StartCoroutine(DownloadThumb(url));
-    }
+        void LoadThumbnail(string url)
+        {
+            StartCoroutine(DownloadThumb(url));
+        }
 
-    IEnumerator DownloadThumb(string url)
-    {
-        WWW www = new WWW(url);
-        yield return www;
-        Texture2D thumb = new Texture2D(100, 100);
-        www.LoadImageIntoTexture(thumb);
-        UI_thumbnail.sprite = Sprite.Create(thumb, new Rect(0, 0, thumb.width, thumb.height), new Vector2(0.5f, 0.5f), 100);
+        IEnumerator DownloadThumb(string url)
+        {
+            WWW www = new WWW(url);
+            yield return www;
+            Texture2D thumb = new Texture2D(100, 100);
+            www.LoadImageIntoTexture(thumb);
+            UI_thumbnail.sprite = Sprite.Create(thumb, new Rect(0, 0, thumb.width, thumb.height), new Vector2(0.5f, 0.5f), 100);
+        }
     }
 }

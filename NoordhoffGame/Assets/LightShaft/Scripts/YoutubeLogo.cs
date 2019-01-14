@@ -1,14 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class YoutubeLogo : MonoBehaviour {
+namespace Assets.LightShaft.Scripts
+{
+    public class YoutubeLogo : MonoBehaviour {
 
-    public string youtubeurl;
+        public string youtubeurl;
 
-    private void OnMouseDown()
-    {
-        Application.OpenURL(youtubeurl);
+        private void OnMouseDown()
+        {
+            Application.OpenURL(youtubeurl);
+        }
+
     }
-
 }

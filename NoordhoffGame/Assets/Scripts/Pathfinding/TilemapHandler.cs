@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Tilemap
+namespace Assets.Scripts.Pathfinding
 {
 	public class TilemapHandler : MonoBehaviour
 	{

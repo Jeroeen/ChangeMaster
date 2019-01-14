@@ -1,14 +1,12 @@
-﻿using System.Linq.Expressions;
-using Assets.Scripts.CameraBehaviour;
+﻿using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.Dialogue.Models;
 using Assets.Scripts.UI;
-using Assets.Scripts.Utility;
+using Assets.Scripts.UI.InterventionScreen;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Utility
 {
 	public class Tutorial : MonoBehaviour
 	{

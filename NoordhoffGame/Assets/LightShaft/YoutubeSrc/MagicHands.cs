@@ -2,9 +2,8 @@
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using UnityEngine;
 
-namespace YoutubeLight
+namespace Assets.LightShaft.YoutubeSrc
 {
     internal static class MagicHands
     {

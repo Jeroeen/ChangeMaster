@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿namespace Assets.LightShaft.YoutubeAPI.Scripts.Src
+{
+    public class YoutubeContentDetails {
 
-public class YoutubeContentDetails {
-
-    public string duration;
-    public string dimension;
-    public string definition;
-    public string caption;
-    public string licensedContent;
-    public string projection;
-    public bool ageRestrict;
+        public string duration;
+        public string dimension;
+        public string definition;
+        public string caption;
+        public string licensedContent;
+        public string projection;
+        public bool ageRestrict;
+    }
 }

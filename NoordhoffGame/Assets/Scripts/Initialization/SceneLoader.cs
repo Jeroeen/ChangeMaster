@@ -1,11 +1,11 @@
 ﻿using Assets.Scripts.Cutscene;
-using Assets.Scripts.GameSaveLoad;
+using Assets.Scripts.Progress;
 using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Initialization
 {
     public class SceneLoader : MonoBehaviour
     {

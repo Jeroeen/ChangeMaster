@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.GameSaveLoad;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Progress
 {

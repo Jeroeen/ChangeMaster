@@ -1,8 +1,7 @@
-using System;
+using Assets.LightShaft.Standard_Assets.Utility;
 using UnityEngine;
-using UnityStandardAssets.Utility;
 
-namespace UnityStandardAssets.Characters.FirstPerson
+namespace Assets.LightShaft.Standard_Assets.Characters.FirstPersonCharacter.Scripts
 {
     public class HeadBob : MonoBehaviour
     {

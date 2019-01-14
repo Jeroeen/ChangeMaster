@@ -1,9 +1,10 @@
-﻿using Assets.Scripts.Utility;
+﻿using Assets.Scripts.Progress;
+using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GameSaveLoad
+namespace Assets.Scripts.CharacterSelection
 {
 	public class SetCharacterInfo : MonoBehaviour
 	{

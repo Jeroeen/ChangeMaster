@@ -1,8 +1,9 @@
-﻿using Assets.Scripts.GameSaveLoad;
+﻿using Assets.LightShaft.Scripts;
+using Assets.Scripts.Progress;
 using UnityEngine;
 using UnityEngine.Video;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Multimedia
 {
 	public class VideoHandler : MonoBehaviour
 	{

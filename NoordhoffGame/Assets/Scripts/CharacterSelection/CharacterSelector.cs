@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GameSaveLoad
+namespace Assets.Scripts.CharacterSelection
 {
 	public class CharacterSelector : MonoBehaviour
 	{
