@@ -1,8 +1,7 @@
-using System;
+using Assets.LightShaft.Standard_Assets.CrossPlatformInput.Scripts;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets._2D
+namespace Assets.LightShaft.Standard_Assets._2D.Scripts
 {
     [RequireComponent(typeof (PlatformerCharacter2D))]
     public class Platformer2DUserControl : MonoBehaviour

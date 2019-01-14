@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Tilemap;
+﻿using Assets.Scripts.Pathfinding;
 using Assets.Scripts.Utility;
 using UnityEngine;
 

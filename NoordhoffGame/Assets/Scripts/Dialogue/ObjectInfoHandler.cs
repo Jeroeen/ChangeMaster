@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Dialogue.Models;
 using Assets.Scripts.UI;
+using Assets.Scripts.UI.Info;
 using UnityEngine;
 using UnityEngine.UI;
 

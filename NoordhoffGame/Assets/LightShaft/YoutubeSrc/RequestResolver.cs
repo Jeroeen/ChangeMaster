@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Assets.LightShaft.Scripts;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace YoutubeLight
+namespace Assets.LightShaft.YoutubeSrc
 {
     public class RequestResolver : MonoBehaviour
     {

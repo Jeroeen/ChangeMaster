@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.UI;
+using Assets.Scripts.UI.Info;
 using Assets.Scripts.Utility;
 
-namespace Assets.Scripts.GameSaveLoad
+namespace Assets.Scripts.Progress
 {
 	[System.Serializable]
 	public class Game

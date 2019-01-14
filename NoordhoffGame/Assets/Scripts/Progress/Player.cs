@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.GameSaveLoad
+namespace Assets.Scripts.Progress
 {
     [System.Serializable]
 	public class Player

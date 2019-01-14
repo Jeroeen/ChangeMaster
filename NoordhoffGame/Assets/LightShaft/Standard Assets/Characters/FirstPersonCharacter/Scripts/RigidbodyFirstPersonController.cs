@@ -1,8 +1,8 @@
 using System;
+using Assets.LightShaft.Standard_Assets.CrossPlatformInput.Scripts;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets.Characters.FirstPerson
+namespace Assets.LightShaft.Standard_Assets.Characters.FirstPersonCharacter.Scripts
 {
     [RequireComponent(typeof (Rigidbody))]
     [RequireComponent(typeof (CapsuleCollider))]

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YoutubeLight
+namespace Assets.LightShaft.YoutubeSrc
 {
     
     public abstract class Downloader

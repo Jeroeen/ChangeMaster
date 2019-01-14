@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Dialogue;
-using Assets.Scripts.GameSaveLoad;
+using Assets.Scripts.Progress;
 using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.UI;

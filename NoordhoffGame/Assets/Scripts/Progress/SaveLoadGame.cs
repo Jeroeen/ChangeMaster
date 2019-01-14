@@ -2,7 +2,7 @@
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-namespace Assets.Scripts.GameSaveLoad
+namespace Assets.Scripts.Progress
 {
 	public static class SaveLoadGame
 	{

@@ -1,103 +1,105 @@
 ﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class JsonNetSample : MonoBehaviour
+namespace Assets.LightShaft.YoutubeAPI.UnityPackages.JsonNetSample
 {
-    public Text Output;
-
-    void Start()
+    public class JsonNetSample : MonoBehaviour
     {
-        Output.text = "Start!\n\n";
+        public Text Output;
 
-        TestJson();
-        SerailizeJson();
-        DeserializeJson();
-        LinqToJson();
-        JsonPath();
-
-        WriteLine("\nDone!");
-    }
-
-    void WriteLine(string msg)
-    {
-        Output.text = Output.text + msg + "\n";
-    }
-
-    public class Product
-    {
-        public string Name;
-        public DateTime ExpiryDate = new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        public decimal Price;
-        public string[] Sizes;
-
-        public override bool Equals(object obj)
+        void Start()
         {
-            if (obj is Product)
-            {
-                Product p = (Product)obj;
+            Output.text = "Start!\n\n";
 
-                return (p.Name == Name && p.ExpiryDate == ExpiryDate && p.Price == Price);
+            TestJson();
+            SerailizeJson();
+            DeserializeJson();
+            LinqToJson();
+            JsonPath();
+
+            WriteLine("\nDone!");
+        }
+
+        void WriteLine(string msg)
+        {
+            Output.text = Output.text + msg + "\n";
+        }
+
+        public class Product
+        {
+            public string Name;
+            public DateTime ExpiryDate = new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            public decimal Price;
+            public string[] Sizes;
+
+            public override bool Equals(object obj)
+            {
+                if (obj is Product)
+                {
+                    Product p = (Product)obj;
+
+                    return (p.Name == Name && p.ExpiryDate == ExpiryDate && p.Price == Price);
+                }
+
+                return base.Equals(obj);
             }
 
-            return base.Equals(obj);
+            public override int GetHashCode()
+            {
+                return (Name ?? string.Empty).GetHashCode();
+            }
         }
 
-        public override int GetHashCode()
+        [System.Serializable]
+        public class CharacterListItem
         {
-            return (Name ?? string.Empty).GetHashCode();
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public int Level { get; set; }
+            public string Class { get; set; }
+            public string Sex { get; set; }
         }
-    }
 
-    [System.Serializable]
-    public class CharacterListItem
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Level { get; set; }
-        public string Class { get; set; }
-        public string Sex { get; set; }
-    }
+        void TestJson()
+        {
+            WriteLine("* TestJson");
+            var json = "{\"Id\":51, \"Name\":\"padre\", \"Level\":0, \"Class\":\"Vampire\", \"Sex\":\"F\"}";
+            var c = JsonConvert.DeserializeObject<CharacterListItem>(json);
+            WriteLine(c.Id + " " + c.Name);
+        }
 
-    void TestJson()
-    {
-        WriteLine("* TestJson");
-        var json = "{\"Id\":51, \"Name\":\"padre\", \"Level\":0, \"Class\":\"Vampire\", \"Sex\":\"F\"}";
-        var c = JsonConvert.DeserializeObject<CharacterListItem>(json);
-        WriteLine(c.Id + " " + c.Name);
-    }
+        void SerailizeJson()
+        {
+            WriteLine("* SerailizeJson");
 
-    void SerailizeJson()
-    {
-        WriteLine("* SerailizeJson");
+            Product product = new Product();
+            product.Name = "Apple";
+            product.ExpiryDate = new DateTime(2008, 12, 28);
+            product.Sizes = new string[] { "Small" };
 
-        Product product = new Product();
-        product.Name = "Apple";
-        product.ExpiryDate = new DateTime(2008, 12, 28);
-        product.Sizes = new string[] { "Small" };
+            string json = JsonConvert.SerializeObject(product);
+            WriteLine(json);
+        }
 
-        string json = JsonConvert.SerializeObject(product);
-        WriteLine(json);
-    }
+        public class Movie
+        {
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public string Classification { get; set; }
+            public string Studio { get; set; }
+            public DateTime? ReleaseDate { get; set; }
+            public List<string> ReleaseCountries { get; set; }
+        }
 
-    public class Movie
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Classification { get; set; }
-        public string Studio { get; set; }
-        public DateTime? ReleaseDate { get; set; }
-        public List<string> ReleaseCountries { get; set; }
-    }
+        void DeserializeJson()
+        {
+            WriteLine("* DeserializeJson");
 
-    void DeserializeJson()
-    {
-        WriteLine("* DeserializeJson");
-
-        string json = @"{
+            string json = @"{
           'Name': 'Bad Boys',
           'ReleaseDate': '1995-4-7T00:00:00',
           'Genres': [
@@ -106,32 +108,32 @@ public class JsonNetSample : MonoBehaviour
           ]
         }";
 
-        Movie m = JsonConvert.DeserializeObject<Movie>(json);
+            Movie m = JsonConvert.DeserializeObject<Movie>(json);
 
-        string name = m.Name;
-        WriteLine(name);
-    }
+            string name = m.Name;
+            WriteLine(name);
+        }
 
-    void LinqToJson()
-    {
-        WriteLine("* LinqToJson");
+        void LinqToJson()
+        {
+            WriteLine("* LinqToJson");
 
-        JArray array = new JArray();
-        array.Add("Manual text");
-        array.Add(new DateTime(2000, 5, 23));
+            JArray array = new JArray();
+            array.Add("Manual text");
+            array.Add(new DateTime(2000, 5, 23));
 
-        JObject o = new JObject();
-        o["MyArray"] = array;
+            JObject o = new JObject();
+            o["MyArray"] = array;
 
-        string json = o.ToString();
-        WriteLine(json);
-    }
+            string json = o.ToString();
+            WriteLine(json);
+        }
 
-    private void JsonPath()
-    {
-        WriteLine("* JsonPath");
+        private void JsonPath()
+        {
+            WriteLine("* JsonPath");
 
-        var o = JObject.Parse(@"{
+            var o = JObject.Parse(@"{
             'Stores': [
             'Lambton Quay',
             'Willis Street'
@@ -162,13 +164,14 @@ public class JsonNetSample : MonoBehaviour
             ]
         }");
 
-        JToken acme = o.SelectToken("$.Manufacturers[?(@.Name == 'Acme Co')]");
-        WriteLine(acme.ToString());
+            JToken acme = o.SelectToken("$.Manufacturers[?(@.Name == 'Acme Co')]");
+            WriteLine(acme.ToString());
 
-        IEnumerable<JToken> pricyProducts = o.SelectTokens("$..Products[?(@.Price >= 50)].Name");
-        foreach (var item in pricyProducts)
-        {
-            WriteLine(item.ToString());
+            IEnumerable<JToken> pricyProducts = o.SelectTokens("$..Products[?(@.Price >= 50)].Name");
+            foreach (var item in pricyProducts)
+            {
+                WriteLine(item.ToString());
+            }
         }
     }
 }
