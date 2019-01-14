@@ -3,7 +3,7 @@
     {
 	  "InterventionImage": "interventie extra inspecteur", 
       "InterventionText": "Er komt een tweede kwaliteitscontroleur bij die alleen het zwembad doet en ook verantwoordelijk is voor alle acties.",
-      "Hint": "Hoe deze kosten terugverdienen?",
+      "Hint": "Dat is te duur en verdient zich niet terug.",
       "Consequence": "Hoe deze kosten terugverdienen?",
       "Advice": "Dit kan leiden tot minder problemen, maar het kost het schip wel extra geld wat niet terugverdiend wordt.",
       "Analytic": 1,
@@ -15,7 +15,7 @@
     {
 	  "InterventionImage": "interventie vergadering",
       "InterventionText": "De supervisor haalt alle medewerkers bij elkaar voor een vergadering en daarin worden de procedures nog eens doorgenomen en de medewerkers worden aangesproken zich hier beter aan te houden.",
-      "Hint": "Lost dat de grondoorzaak op?",
+      "Hint": "Procedures zijn mooi, maar het proces werkt niet zoals op papier staat.",
       "Consequence": "Lost dat de grondoorzaak op?",
       "Advice": "De kern van het probleem wordt hier niet mee opgelost. Wellicht zal de badmeester elk uur een monster nemen, maar de analyse kan niet gedaan worden. Ook de medewerker catering weet niet hoe ze dit het beste op kan lossen. De externe druk kan zo wel verhoogd worden, maar medewerkers kunnen de verandering niet doorvoeren.",
       "Analytic": 0,
@@ -39,7 +39,7 @@
     {
 	  "InterventionImage": "interventie badmeester",
       "InterventionText": "De badmeester wordt aangesproken om meer regie te pakken en zelf acties te ondernemen als hij denkt dat het nodig is. Er wordt uitgegaan van het professionalisme van deze persoon, die weet wanneer hij/zij iets moet doen. Waar nodig krijgt hij een extra training.",
-      "Hint": "Dit probleem zit niet bij de badmeester, maar bij de het proces van meten en analyseren",
+      "Hint": "Dit probleem zit niet bij de badmeester, maar bij het proces van meten en analyseren.",
       "Consequence": "Kan hij het veranderen?",
       "Advice": "Door in te spelen op de taakverantwoordelijkheid van medewerkers, komen mensen in hun kracht. De badmeester wil waarschijnlijk wel, maar heeft kan het niet omdat hij/zij weinig invloed heeft op de kwaliteit van het water. Dus hij moet iets doen, wat hij niet kan. Training helpt daar niet bij.",
       "Analytic": 0,

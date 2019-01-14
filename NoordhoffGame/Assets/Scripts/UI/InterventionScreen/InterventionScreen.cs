@@ -23,9 +23,9 @@ namespace Assets.Scripts.UI.InterventionScreen
 		[SerializeField] private GameObject priorityPrefab = null;
 		[SerializeField] private GameObject textImagePrefab = null;
 		[SerializeField] private GameObject buttonPrefab = null;
-        [SerializeField] private GameObject hint = null;
-        [SerializeField] private GameObject skillPanel = null;
-        [SerializeField] private GameObject skillInfo = null;
+		[SerializeField] private GameObject hint = null;
+		[SerializeField] private GameObject skillPanel = null;
+		[SerializeField] private GameObject skillInfo = null;
 		[SerializeField] private CanvasGroup blockingPanel = null;
 		[SerializeField] private CanvasGroup warningBlockingPanel = null;
 		[SerializeField] private CanvasGroup confirmBlockingPanel = null;
@@ -33,7 +33,7 @@ namespace Assets.Scripts.UI.InterventionScreen
 		[SerializeField] private GameObject interventionWarning = null;
 		[SerializeField] private GameObject confirmInterventionGameObject = null;
 		[SerializeField] private Image chosenInterventionSprite = null;
-	    [SerializeField] private ZoomingObject zoomInterventionScreen = null;
+		[SerializeField] private ZoomingObject zoomInterventionScreen = null;
 
 		private int clickedElementId;
 		private Player player;
@@ -63,7 +63,7 @@ namespace Assets.Scripts.UI.InterventionScreen
 		// Start is called before the first frame update
 		void Start()
 		{
-            isInterventionChosen = false;
+			isInterventionChosen = false;
 			SaveLoadGame.Load();
 			game = Game.GetGame();
 
@@ -124,27 +124,27 @@ namespace Assets.Scripts.UI.InterventionScreen
 				//objectimage[1] is the image element that is contained within the panel, the one i want to change, 
 				//[0] is the image from  the panel containing it
 				objectImage[1].sprite = interventionIcon;
-				
+
 				position = new Vector2(position.x + textboxSizeX + textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER,
 					position.y);
 				uiElements[i].name = "button " + i;
 
 				EventTrigger trigger = uiElements[i].GetComponent<EventTrigger>();
 				EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
-				
+
 				int id = i;
 				entry.callback.AddListener(eventData => { ShowConfirm(id); });
 				trigger.triggers.Add(entry);
 
-                Button hintButton = uiElements[i].GetComponentInChildren<Button>();
+				Button hintButton = uiElements[i].GetComponentInChildren<Button>();
 
-                hintButton.onClick.AddListener(delegate { ShowConsequence(id); });
-                
-                textCount++;
+				hintButton.onClick.AddListener(delegate { ShowConsequence(id); });
+
+				textCount++;
 				elementLimit = scrollviewContent.sizeDelta.x / textboxSizeX;
 
-                //i starts at 0, so to compensate we subtract 1 from the elementlimit
-                if (i >= elementLimit - 1) 
+				//i starts at 0, so to compensate we subtract 1 from the elementlimit
+				if (i >= elementLimit - 2)
 				{
 					scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x + textboxSizeX,
 						scrollviewContent.sizeDelta.y);
@@ -159,48 +159,48 @@ namespace Assets.Scripts.UI.InterventionScreen
 		private void ShowConfirm(int id)
 		{
 			OnInterventionChooseButtonClickEvent?.Invoke();
-		    zoomInterventionScreen.enabled = false;
-            clickedElementId = id;
+			zoomInterventionScreen.enabled = false;
+			clickedElementId = id;
 			Sprite interventionSprite = RetrieveAsset.GetSpriteByName(interventions.Interventions[clickedElementId].InterventionImage);
-            chosenInterventionSprite.sprite = interventionSprite;
+			chosenInterventionSprite.sprite = interventionSprite;
 			confirmInterventionGameObject.SetActive(true);
-            confirmBlockingPanel.blocksRaycasts = true;
-            consequenceButton.onClick.AddListener(delegate { ShowHint(clickedElementId); });
+			confirmBlockingPanel.blocksRaycasts = true;
+			consequenceButton.onClick.AddListener(delegate { ShowHint(clickedElementId); });
 		}
 
-        public void HideHint()
-        {
-            hintText.text = "";
-        }
+		public void HideHint()
+		{
+			hintText.text = "";
+		}
 
-        private void ShowHint(int id)
-        {
-            hintText.text = interventions.Interventions[id].Hint;
-        }
+		private void ShowHint(int id)
+		{
+			hintText.text = interventions.Interventions[id].Hint;
+		}
 
-        private void ShowConsequence(int id)
-        {
+		private void ShowConsequence(int id)
+		{
 			OnHintButtonClickEvent?.Invoke();
-            zoomInterventionScreen.enabled = false;
-            CanvasGroup hintCanvas = hint.GetComponent<CanvasGroup>();
-            hintCanvas.blocksRaycasts = true;
-            Text hintText= hint.GetComponentInChildren<Text>();
-            hintText.text = interventions.Interventions[id].Consequence;
-            hint.SetActive(true);
-        }
+			zoomInterventionScreen.enabled = false;
+			CanvasGroup hintCanvas = hint.GetComponent<CanvasGroup>();
+			hintCanvas.blocksRaycasts = true;
+			Text hintText = hint.GetComponentInChildren<Text>();
+			hintText.text = interventions.Interventions[id].Consequence;
+			hint.SetActive(true);
+		}
 
 		public void ConfirmInterventionChoice()
 		{
 			confirmInterventionGameObject.SetActive(false);
-            confirmBlockingPanel.blocksRaycasts = false;
+			confirmBlockingPanel.blocksRaycasts = false;
 
-            ClickAdvice(clickedElementId);
+			ClickAdvice(clickedElementId);
 		}
 
 		private void ClickAdvice(int selected)
 		{
-            isInterventionChosen = true;
-            foreach (GameObject g in uiElements)
+			isInterventionChosen = true;
+			foreach (GameObject g in uiElements)
 			{
 				Destroy(g);
 			}
@@ -208,7 +208,7 @@ namespace Assets.Scripts.UI.InterventionScreen
 			textRect.sizeDelta = new Vector2(textboxSizeX * GlobalVariablesHelper.ADVICE_TEXT_X_MULTIPLIER,
 				textboxSizeY + textboxSizeY / GlobalVariablesHelper.ADVICE_TEXT_Y_DIVIDER);
 
-			scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - textboxSizeX * (textCount - 4),
+			scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x - textboxSizeX * (textCount - 3),
 				scrollviewContent.sizeDelta.y);
 			scrollviewContent.anchoredPosition = new Vector2(10.0f, 0.0f);
 			interventionScrollView.horizontal = false;
@@ -252,7 +252,7 @@ namespace Assets.Scripts.UI.InterventionScreen
 			player.Ownership += selectedIntervention.Ownership;
 			player.Facilitating += selectedIntervention.Facilitating;
 			player.Communication += selectedIntervention.Communication;
-            game.Player = player;
+			game.Player = player;
 			SaveLoadGame.Save();
 
 			RectTransform textRect = textPrefab.GetComponent<RectTransform>();
@@ -274,17 +274,17 @@ namespace Assets.Scripts.UI.InterventionScreen
 			string[] skillSpriteNames =
 			{
 				"Analytisch", "Besluitvaardig", "Eigenaarschap",
-                "Creatief", "Communiceren"
-            };
+				"Creatief", "Communiceren"
+			};
 
-            string[] skillInfoText =
-            {
-                "Denkt analytisch, denken vanuit het geheel",
-                "Kiest een duurzame veranderaanpak",
-                "Gericht op eigenaarschap bij alle stakeholders",
-                "Faciliteert de verandering",
-                "Communiceert open"
-            };
+			string[] skillInfoText =
+			{
+				"Denkt analytisch, denken vanuit het geheel",
+				"Kiest een duurzame veranderaanpak",
+				"Gericht op eigenaarschap bij alle stakeholders",
+				"Faciliteert de verandering",
+				"Communiceert open"
+			};
 
 			int[] interventionScores =
 			{
@@ -326,170 +326,170 @@ namespace Assets.Scripts.UI.InterventionScreen
 			confirmButton.GetComponent<Button>().onClick.AddListener(showPriorities);
 		}
 
-        private void showPriorities()
-        {
-            foreach (Transform child in interventionScrollView.content.transform)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
+		private void showPriorities()
+		{
+			foreach (Transform child in interventionScrollView.content.transform)
+			{
+				GameObject.Destroy(child.gameObject);
+			}
 
-            PriorityList priorities = json.LoadJsonPriorities(SceneManager.GetActiveScene().name);
-            uiElements.Clear();
+			PriorityList priorities = json.LoadJsonPriorities(SceneManager.GetActiveScene().name);
+			uiElements.Clear();
 
-            List<string> priorityTexts = new List<string>();
-            for (int i = 0; i < priorities.Priorities.Length; i++)
-            {
-                priorityTexts.Add(priorities.Priorities[i].PriorityText);
-            }
+			List<string> priorityTexts = new List<string>();
+			for (int i = 0; i < priorities.Priorities.Length; i++)
+			{
+				priorityTexts.Add(priorities.Priorities[i].PriorityText);
+			}
 
-            int index = priorityTexts.Count;
-            while (index > 1)
-            {
-                index--;
-                int randomNr = Random.Range(0, index);
-                string value = priorityTexts[randomNr];
-                priorityTexts[randomNr] = priorityTexts[index];
-                priorityTexts[index] = value;
-            }
-            
-            elementLimit = scrollviewContent.sizeDelta.y / priorityPrefab.GetComponent<RectTransform>().sizeDelta.y;
-            //start counting 4 * the length of priorityPrefab down, since the first part of the content element doesn't have the priorityPrefab in it. 
-            elementLimit -= 4;
+			int index = priorityTexts.Count;
+			while (index > 1)
+			{
+				index--;
+				int randomNr = Random.Range(0, index);
+				string value = priorityTexts[randomNr];
+				priorityTexts[randomNr] = priorityTexts[index];
+				priorityTexts[index] = value;
+			}
 
-            List<GameObject> priorityElements = new List<GameObject>();
+			elementLimit = scrollviewContent.sizeDelta.y / priorityPrefab.GetComponent<RectTransform>().sizeDelta.y;
+			//start counting 4 * the length of priorityPrefab down, since the first part of the content element doesn't have the priorityPrefab in it. 
+			elementLimit -= 4;
 
-            //number used so that the priorityprefab is put about halfway in the interventionscreen
-            float priorityPrefabDivider = 1.7f;
+			List<GameObject> priorityElements = new List<GameObject>();
 
-            position = new Vector2(priorityPrefab.GetComponent<RectTransform>().sizeDelta.x / priorityPrefabDivider, -priorityPrefab.GetComponent<RectTransform>().sizeDelta.y);
+			//number used so that the priorityprefab is put about halfway in the interventionscreen
+			float priorityPrefabDivider = 1.7f;
 
-            GameObject ExplanationText = Instantiate(textPrefab, interventionScrollView.content.transform);
-            ExplanationText.GetComponentInChildren<Text>().text = "Zet de oorzaken in de juiste volgorde.";
-            ExplanationText.GetComponentInChildren<Text>().fontSize = 80;
-            RectTransform ExplanationRectTransform = ExplanationText.GetComponent<RectTransform>();
-            ExplanationRectTransform.sizeDelta = new Vector2(ExplanationRectTransform.sizeDelta.x *2, ExplanationRectTransform.sizeDelta.y );
-            ExplanationRectTransform.anchoredPosition = new Vector2(position.x - ExplanationRectTransform.sizeDelta.x / 2, position.y);
-            position = new Vector2(position.x, position.y - (priorityPrefab.GetComponent<RectTransform>().sizeDelta.y*1.5f));
-        
+			position = new Vector2(priorityPrefab.GetComponent<RectTransform>().sizeDelta.x / priorityPrefabDivider, -priorityPrefab.GetComponent<RectTransform>().sizeDelta.y);
 
-            for (int i = 0; i < priorities.Priorities.Length; i++)
-            {
+			GameObject ExplanationText = Instantiate(textPrefab, interventionScrollView.content.transform);
+			ExplanationText.GetComponentInChildren<Text>().text = "Zet de oorzaken in de juiste volgorde.";
+			ExplanationText.GetComponentInChildren<Text>().fontSize = 80;
+			RectTransform ExplanationRectTransform = ExplanationText.GetComponent<RectTransform>();
+			ExplanationRectTransform.sizeDelta = new Vector2(ExplanationRectTransform.sizeDelta.x * 2, ExplanationRectTransform.sizeDelta.y);
+			ExplanationRectTransform.anchoredPosition = new Vector2(position.x - ExplanationRectTransform.sizeDelta.x / 2, position.y);
+			position = new Vector2(position.x, position.y - (priorityPrefab.GetComponent<RectTransform>().sizeDelta.y * 1.5f));
 
-                uiElements.Add(Instantiate(priorityPrefab, interventionScrollView.content.transform));
-                priorityElements.Add(uiElements[i]);
-                uiElements[i].GetComponent<RectTransform>().anchoredPosition = position;
 
-                Text[] textElements = uiElements[i].GetComponentsInChildren<Text>();
+			for (int i = 0; i < priorities.Priorities.Length; i++)
+			{
 
-                textElements[0].text = priorities.Priorities[i].PriorityNumber.ToString();
-                textElements[1].text = priorityTexts[i];
+				uiElements.Add(Instantiate(priorityPrefab, interventionScrollView.content.transform));
+				priorityElements.Add(uiElements[i]);
+				uiElements[i].GetComponent<RectTransform>().anchoredPosition = position;
 
-                EventTrigger trigger = uiElements[i].GetComponent<EventTrigger>();
-                EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.EndDrag };
+				Text[] textElements = uiElements[i].GetComponentsInChildren<Text>();
 
-                GameObject currentPriorityPrefab = uiElements[i];
+				textElements[0].text = priorities.Priorities[i].PriorityNumber.ToString();
+				textElements[1].text = priorityTexts[i];
 
-                entry.callback.AddListener(eventData => { SwitchPriorities(priorityElements, currentPriorityPrefab); });
-                trigger.triggers.Add(entry);
-            
-                //1.1f instead of just 1, so that there is at least a little bit of space in between this ui element and the next
-                position = new Vector2(position.x, position.y - (1.1f * priorityPrefab.GetComponent<RectTransform>().sizeDelta.y));
-                interventionScrollView.vertical = true;
+				EventTrigger trigger = uiElements[i].GetComponent<EventTrigger>();
+				EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.EndDrag };
 
-                //i starts at 0, so to compensate we subtract 1 from the elementlimit
-                if (i >= elementLimit - 1)
-                {
-                    scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x,
-                        scrollviewContent.sizeDelta.y + priorityPrefab.GetComponent<RectTransform>().sizeDelta.y);
-                    //when scrollviewContent is made bigger, we have to compensate the position, 
-                    //so we make it 1/2 the size of textboxSizeX to the right, so it's correct now
-                    scrollviewContent.anchoredPosition = new Vector2(scrollviewContent.anchoredPosition.x,
-                        scrollviewContent.anchoredPosition.y + priorityPrefab.GetComponent<RectTransform>().sizeDelta.y / 2);
-                }
-            }
-            GameObject confirmButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
-            RectTransform confirmButtonTransform = confirmButton.GetComponent<RectTransform>();
+				GameObject currentPriorityPrefab = uiElements[i];
 
-            uiElements.Add(confirmButton);
-            InitiateTextObject(confirmButton, "Afronden",
-                new Vector2(-confirmButtonTransform.sizeDelta.x * GlobalVariablesHelper.BUTTON_MULTIPLIER,
-                    confirmButtonTransform.sizeDelta.y * GlobalVariablesHelper.BUTTON_MULTIPLIER));
-            confirmButton.GetComponent<Button>().onClick.AddListener((delegate { ShowPrioritiesDone(priorityElements, priorities); }));
-        }
-       
-        private void ShowPrioritiesDone(List<GameObject> priorityObjects, PriorityList priorities)
-        {
-            foreach (Transform child in interventionScrollView.content.transform)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-            uiElements.Clear();
-            string[] priorityOrder = new string[priorities.Priorities.Length];
+				entry.callback.AddListener(eventData => { SwitchPriorities(priorityElements, currentPriorityPrefab); });
+				trigger.triggers.Add(entry);
 
-            scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x,
-                scrollviewContent.sizeDelta.y -priorityPrefab.GetComponent<RectTransform>().sizeDelta.y * (priorityObjects.Count - elementLimit) );
-            scrollviewContent.anchoredPosition = new Vector2();
-            interventionScrollView.vertical = false;
+				//1.1f instead of just 1, so that there is at least a little bit of space in between this ui element and the next
+				position = new Vector2(position.x, position.y - (1.1f * priorityPrefab.GetComponent<RectTransform>().sizeDelta.y));
+				interventionScrollView.vertical = true;
 
-            foreach (GameObject priorityObject in priorityObjects)
-            {
-                Text[] priorityUIText = priorityObject.GetComponentsInChildren<Text>();
-                priorityOrder[System.Int32.Parse(priorityUIText[0].text) - 1] = priorityUIText[1].text;
-            }
-            int amountCorrect = 0;
-            foreach(Priority priority in priorities.Priorities)
-            {
-                if(priorityOrder[priority.PriorityNumber-1] == priority.PriorityText)
-                {
-                    amountCorrect++;
-                }
-            }
+				//i starts at 0, so to compensate we subtract 1 from the elementlimit
+				if (i >= elementLimit - 1)
+				{
+					scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x,
+						scrollviewContent.sizeDelta.y + priorityPrefab.GetComponent<RectTransform>().sizeDelta.y);
+					//when scrollviewContent is made bigger, we have to compensate the position, 
+					//so we make it 1/2 the size of textboxSizeX to the right, so it's correct now
+					scrollviewContent.anchoredPosition = new Vector2(scrollviewContent.anchoredPosition.x,
+						scrollviewContent.anchoredPosition.y + priorityPrefab.GetComponent<RectTransform>().sizeDelta.y / 2);
+				}
+			}
+			GameObject confirmButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
+			RectTransform confirmButtonTransform = confirmButton.GetComponent<RectTransform>();
 
-            GameObject finishText = Instantiate(textPrefab, interventionScrollView.content.transform);
-            uiElements.Add(finishText);
-            string CongratulateText = "Gefeliciteerd, je hebt het level helemaal afgemaakt. bij de laatste opdracht had je " 
-                                      + amountCorrect + " van de " + priorityOrder.Length.ToString() + " goed.";
+			uiElements.Add(confirmButton);
+			InitiateTextObject(confirmButton, "Afronden",
+				new Vector2(-confirmButtonTransform.sizeDelta.x * GlobalVariablesHelper.BUTTON_MULTIPLIER,
+					confirmButtonTransform.sizeDelta.y * GlobalVariablesHelper.BUTTON_MULTIPLIER));
+			confirmButton.GetComponent<Button>().onClick.AddListener((delegate { ShowPrioritiesDone(priorityElements, priorities); }));
+		}
 
-            InitiateTextObject(finishText, CongratulateText, new Vector2(textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER,
-                                                                        -textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER));
+		private void ShowPrioritiesDone(List<GameObject> priorityObjects, PriorityList priorities)
+		{
+			foreach (Transform child in interventionScrollView.content.transform)
+			{
+				GameObject.Destroy(child.gameObject);
+			}
+			uiElements.Clear();
+			string[] priorityOrder = new string[priorities.Priorities.Length];
 
-            GameObject finishButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
-            RectTransform nextButtonTransform = finishButton.GetComponent<RectTransform>();
-            uiElements.Add(finishButton);
-            nextButtonTransform.sizeDelta = new Vector2(nextButtonTransform.sizeDelta.x ,nextButtonTransform.sizeDelta.y * 2);
+			scrollviewContent.sizeDelta = new Vector2(scrollviewContent.sizeDelta.x,
+				scrollviewContent.sizeDelta.y - priorityPrefab.GetComponent<RectTransform>().sizeDelta.y * (priorityObjects.Count - elementLimit));
+			scrollviewContent.anchoredPosition = new Vector2();
+			interventionScrollView.vertical = false;
 
-            InitiateTextObject(finishButton, "Level afmaken", new Vector2(
-                -nextButtonTransform.sizeDelta.x * GlobalVariablesHelper.BUTTON_MULTIPLIER,
-                nextButtonTransform.sizeDelta.y * GlobalVariablesHelper.BUTTON_MULTIPLIER));
+			foreach (GameObject priorityObject in priorityObjects)
+			{
+				Text[] priorityUIText = priorityObject.GetComponentsInChildren<Text>();
+				priorityOrder[System.Int32.Parse(priorityUIText[0].text) - 1] = priorityUIText[1].text;
+			}
+			int amountCorrect = 0;
+			foreach (Priority priority in priorities.Priorities)
+			{
+				if (priorityOrder[priority.PriorityNumber - 1] == priority.PriorityText)
+				{
+					amountCorrect++;
+				}
+			}
 
-            finishButton.GetComponent<Button>().onClick.AddListener(delegate { FinishLevel(); });
-        }
+			GameObject finishText = Instantiate(textPrefab, interventionScrollView.content.transform);
+			uiElements.Add(finishText);
+			string CongratulateText = "Gefeliciteerd, je hebt het level helemaal afgemaakt. bij de laatste opdracht had je "
+									  + amountCorrect + " van de " + priorityOrder.Length.ToString() + " goed.";
 
-        private void SwitchPriorities(List<GameObject> draggableObjects, GameObject droppedObject)
-        {
-            foreach (GameObject draggable in draggableObjects)
-            {
-                RectTransform uiPanel = draggable.GetComponent<RectTransform>();
-                
-                if (RectTransformUtility.RectangleContainsScreenPoint(uiPanel, Input.mousePosition, Camera.main))
-                {
-                    Text[] uiPanelTexts = uiPanel.GetComponentsInChildren<Text>();
-                    Text[] droppedObjectTexts = droppedObject.GetComponentsInChildren<Text>();
+			InitiateTextObject(finishText, CongratulateText, new Vector2(textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER,
+																		-textboxSizeX / GlobalVariablesHelper.TEXTBOX_DIVIDER));
 
-                    string uiPanelPriority = uiPanelTexts[1].text;
-                    uiPanelTexts[1].text = droppedObjectTexts[1].text;
-                    droppedObjectTexts[1].text = uiPanelPriority;
-                }
-            }
+			GameObject finishButton = Instantiate(buttonPrefab, interventionScrollView.content.transform);
+			RectTransform nextButtonTransform = finishButton.GetComponent<RectTransform>();
+			uiElements.Add(finishButton);
+			nextButtonTransform.sizeDelta = new Vector2(nextButtonTransform.sizeDelta.x, nextButtonTransform.sizeDelta.y * 2);
 
-        }
+			InitiateTextObject(finishButton, "Level afmaken", new Vector2(
+				-nextButtonTransform.sizeDelta.x * GlobalVariablesHelper.BUTTON_MULTIPLIER,
+				nextButtonTransform.sizeDelta.y * GlobalVariablesHelper.BUTTON_MULTIPLIER));
+
+			finishButton.GetComponent<Button>().onClick.AddListener(delegate { FinishLevel(); });
+		}
+
+		private void SwitchPriorities(List<GameObject> draggableObjects, GameObject droppedObject)
+		{
+			foreach (GameObject draggable in draggableObjects)
+			{
+				RectTransform uiPanel = draggable.GetComponent<RectTransform>();
+
+				if (RectTransformUtility.RectangleContainsScreenPoint(uiPanel, Input.mousePosition, Camera.main))
+				{
+					Text[] uiPanelTexts = uiPanel.GetComponentsInChildren<Text>();
+					Text[] droppedObjectTexts = droppedObject.GetComponentsInChildren<Text>();
+
+					string uiPanelPriority = uiPanelTexts[1].text;
+					uiPanelTexts[1].text = droppedObjectTexts[1].text;
+					droppedObjectTexts[1].text = uiPanelPriority;
+				}
+			}
+
+		}
 
 		public void ShowSkills(int skillAmount, string[] spriteNames, string[] skillInfoStrings, int[] skillNumbers, Vector2 basePosition)
 		{
 			int showSkillIndex = 0;
 			List<GameObject> skillPanels = new List<GameObject>();
 			List<GameObject> skillInfoPanels = new List<GameObject>();
-            EventTrigger trigger;
+			EventTrigger trigger;
 			//divide the rows by 2 because we will be adding 2 skills each loop
 			for (int i = 0; i < skillAmount / 2; i++)
 			{
@@ -501,19 +501,19 @@ namespace Assets.Scripts.UI.InterventionScreen
 				Image[] skillImage = skillPanels[showSkillIndex].GetComponentsInChildren<Image>();
 				skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[showSkillIndex]);
 
-                skillInfoPanels.Add(Instantiate(skillInfo, interventionScrollView.content.transform));
-                InitiateTextObject(skillInfoPanels[showSkillIndex], skillInfoStrings[showSkillIndex], skillPanels[showSkillIndex].transform.GetComponent<RectTransform>().anchoredPosition);
+				skillInfoPanels.Add(Instantiate(skillInfo, interventionScrollView.content.transform));
+				InitiateTextObject(skillInfoPanels[showSkillIndex], skillInfoStrings[showSkillIndex], skillPanels[showSkillIndex].transform.GetComponent<RectTransform>().anchoredPosition);
 
-                trigger = skillPanels[showSkillIndex].GetComponentInChildren<EventTrigger>();
-                EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
+				trigger = skillPanels[showSkillIndex].GetComponentInChildren<EventTrigger>();
+				EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
 
-                int skillInfoIndex1 = showSkillIndex;
-                entry.callback.AddListener(eventData => { ShowSkillInfo(skillInfoPanels[skillInfoIndex1]); });
-                trigger.triggers.Add(entry);
-                basePosition.x += skillPanels[showSkillIndex].GetComponent<RectTransform>().sizeDelta.x;
+				int skillInfoIndex1 = showSkillIndex;
+				entry.callback.AddListener(eventData => { ShowSkillInfo(skillInfoPanels[skillInfoIndex1]); });
+				trigger.triggers.Add(entry);
+				basePosition.x += skillPanels[showSkillIndex].GetComponent<RectTransform>().sizeDelta.x;
 
 				skillPanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
-                InitiateTextObject(skillPanels[showSkillIndex + 1], skillNumbers[showSkillIndex + 1].ToString(), basePosition);
+				InitiateTextObject(skillPanels[showSkillIndex + 1], skillNumbers[showSkillIndex + 1].ToString(), basePosition);
 
 				basePosition.y -= skillPanels[showSkillIndex + 1].GetComponent<RectTransform>().sizeDelta.y *
 								  GlobalVariablesHelper.SKILL_POSITION_MULTIPIER;
@@ -522,16 +522,16 @@ namespace Assets.Scripts.UI.InterventionScreen
 				skillImage = skillPanels[showSkillIndex + 1].GetComponentsInChildren<Image>();
 				skillImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[showSkillIndex + 1]);
 
-                skillInfoPanels.Add(Instantiate(skillInfo, interventionScrollView.content.transform));
-                InitiateTextObject(skillInfoPanels[showSkillIndex + 1], skillInfoStrings[showSkillIndex+1], skillPanels[showSkillIndex + 1].transform.GetComponent<RectTransform>().anchoredPosition);
+				skillInfoPanels.Add(Instantiate(skillInfo, interventionScrollView.content.transform));
+				InitiateTextObject(skillInfoPanels[showSkillIndex + 1], skillInfoStrings[showSkillIndex + 1], skillPanels[showSkillIndex + 1].transform.GetComponent<RectTransform>().anchoredPosition);
 
-                trigger = skillPanels[showSkillIndex+1].GetComponentInChildren<EventTrigger>();
-                EventTrigger.Entry entry2 = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
+				trigger = skillPanels[showSkillIndex + 1].GetComponentInChildren<EventTrigger>();
+				EventTrigger.Entry entry2 = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
 
-                int skillInfoIndex2 = showSkillIndex+1;
-                entry2.callback.AddListener(eventData => { ShowSkillInfo(skillInfoPanels[skillInfoIndex2]); });
-                trigger.triggers.Add(entry2);
-            }
+				int skillInfoIndex2 = showSkillIndex + 1;
+				entry2.callback.AddListener(eventData => { ShowSkillInfo(skillInfoPanels[skillInfoIndex2]); });
+				trigger.triggers.Add(entry2);
+			}
 
 			//if there is an uneven amount of rows, add one more, 
 			if (skillAmount % 2 == 0)
@@ -540,8 +540,8 @@ namespace Assets.Scripts.UI.InterventionScreen
 			}
 
 			showSkillIndex += 2;
-            skillPanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
-            InitiateTextObject(skillPanels[showSkillIndex], skillNumbers[showSkillIndex].ToString(),
+			skillPanels.Add(Instantiate(skillPanel, interventionScrollView.content.transform));
+			InitiateTextObject(skillPanels[showSkillIndex], skillNumbers[showSkillIndex].ToString(),
 				new Vector2(basePosition.x + 2 * skillPanels[2].GetComponent<RectTransform>().sizeDelta.x,
 					basePosition.y + skillPanels[2].GetComponent<RectTransform>().sizeDelta.y * 3));
 
@@ -552,27 +552,27 @@ namespace Assets.Scripts.UI.InterventionScreen
 			Image[] changemanagementImage = skillPanels[showSkillIndex].GetComponentsInChildren<Image>();
 			changemanagementImage[1].sprite = RetrieveAsset.GetSpriteByName(spriteNames[showSkillIndex]);
 
-            skillInfoPanels.Add(Instantiate(skillInfo, interventionScrollView.content.transform));
-            InitiateTextObject(skillInfoPanels[showSkillIndex], skillInfoStrings[showSkillIndex], skillPanels[showSkillIndex].GetComponent<RectTransform>().anchoredPosition);
+			skillInfoPanels.Add(Instantiate(skillInfo, interventionScrollView.content.transform));
+			InitiateTextObject(skillInfoPanels[showSkillIndex], skillInfoStrings[showSkillIndex], skillPanels[showSkillIndex].GetComponent<RectTransform>().anchoredPosition);
 
-            trigger = skillPanels[showSkillIndex].GetComponentInChildren<EventTrigger>();
-            EventTrigger.Entry entry3 = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
+			trigger = skillPanels[showSkillIndex].GetComponentInChildren<EventTrigger>();
+			EventTrigger.Entry entry3 = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
 
-            int skillInfoIndex3 = showSkillIndex;
-            entry3.callback.AddListener(eventData => { ShowSkillInfo(skillInfoPanels[skillInfoIndex3]); });
-            trigger.triggers.Add(entry3);
-            for (int i = 0; i < skillInfoPanels.Count; i++)
-            {
-                skillInfoPanels[i].GetComponent<RectTransform>().SetAsLastSibling();
-            }
-        }
+			int skillInfoIndex3 = showSkillIndex;
+			entry3.callback.AddListener(eventData => { ShowSkillInfo(skillInfoPanels[skillInfoIndex3]); });
+			trigger.triggers.Add(entry3);
+			for (int i = 0; i < skillInfoPanels.Count; i++)
+			{
+				skillInfoPanels[i].GetComponent<RectTransform>().SetAsLastSibling();
+			}
+		}
 
-        public void ShowSkillInfo(GameObject skillInfoPanel)
-        {
-            skillInfoPanel.transform.SetAsLastSibling();
-            skillInfoPanel.SetActive(true);
-            skillInfoPanel.GetComponent<Selectable>().Select();
-        }
+		public void ShowSkillInfo(GameObject skillInfoPanel)
+		{
+			skillInfoPanel.transform.SetAsLastSibling();
+			skillInfoPanel.SetActive(true);
+			skillInfoPanel.GetComponent<Selectable>().Select();
+		}
 
 		public void FinishLevel()
 		{
@@ -592,7 +592,7 @@ namespace Assets.Scripts.UI.InterventionScreen
 				{
 					if (!game.Information.InformationList[i].Found)
 					{
-					    zoomInterventionScreen.enabled = false;
+						zoomInterventionScreen.enabled = false;
 						ShowWarning();
 						isAllInformationFound = false;
 						break;
@@ -620,28 +620,28 @@ namespace Assets.Scripts.UI.InterventionScreen
 
 		public void ShowWarning()
 		{
-            if (!isInterventionChosen)
-            {
-                int amountofStakeholders = game.Information.InformationList.Length;
-                int stakeholdersFound = 0;
+			if (!isInterventionChosen)
+			{
+				int amountofStakeholders = game.Information.InformationList.Length;
+				int stakeholdersFound = 0;
 
-                for (int i = 0; i < amountofStakeholders; i++)
-                {
-                    if (game.Information.InformationList[i].Found)
-                    {
-                        stakeholdersFound++;
-                    }
-                }
+				for (int i = 0; i < amountofStakeholders; i++)
+				{
+					if (game.Information.InformationList[i].Found)
+					{
+						stakeholdersFound++;
+					}
+				}
 
-                //calculate percentage of stakeholders found
-                int percentageFound = stakeholdersFound * 100 / amountofStakeholders;
-                Text warningText = interventionWarning.GetComponentInChildren<Text>();
-                warningText.text = "Weet je zeker dat je een interventie wilt kiezen? Je hebt nog maar " + percentageFound +
-                                   "% van de stakeholders gevonden.";
+				//calculate percentage of stakeholders found
+				int percentageFound = stakeholdersFound * 100 / amountofStakeholders;
+				Text warningText = interventionWarning.GetComponentInChildren<Text>();
+				warningText.text = "Weet je zeker dat je een interventie wilt kiezen? Je hebt nog maar " + percentageFound +
+								   "% van de stakeholders gevonden.";
 
-                interventionWarning.SetActive(true);
-                warningBlockingPanel.blocksRaycasts = true;
-            }
+				interventionWarning.SetActive(true);
+				warningBlockingPanel.blocksRaycasts = true;
+			}
 		}
-    }
+	}
 }
