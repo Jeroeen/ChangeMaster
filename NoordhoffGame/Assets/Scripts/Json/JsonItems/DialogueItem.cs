@@ -3,7 +3,7 @@ using Assets.Scripts.Utility;
 using Assets.UnityLitJson;
 using UnityEngine;
 
-namespace Assets.Scripts.Dialogue.JsonItems
+namespace Assets.Scripts.Json.JsonItems
 {
 	public class DialogueItem
 	{
