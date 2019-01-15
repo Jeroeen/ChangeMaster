@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.Json;
+using Assets.Scripts.Json.JsonItems;
 using Assets.Scripts.UI;
 using Assets.Scripts.UI.Info;
 using Assets.Scripts.Utility;
@@ -23,8 +24,6 @@ namespace Assets.Scripts.Progress
 		private Game()
 		{
 			Player = Player.GetPlayer();
-			// This must be changed to 2 once level 0 is implemented
-			// Base is 3 because of the StageChooser-Opening Cutscene-Character Creation-Bridge
 			LastFinishedLevel = GlobalVariablesHelper.BASE_LEVEL_INDEX;
 			DialogueRead = new Dictionary<string, bool>();
 		}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.Dialogue.Models;
+using Assets.Scripts.Initialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

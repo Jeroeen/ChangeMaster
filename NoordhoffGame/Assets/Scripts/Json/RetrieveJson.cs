@@ -68,8 +68,7 @@ namespace Assets.Scripts.Json
 	        string path = "TheoryFiles/Theory" + level;
 
 	        string jsonString = GetJsonString(path);
-
-
+			
             return JsonMapper.ToObject<TheoryList>(jsonString);
         }
 

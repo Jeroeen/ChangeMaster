@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Json
+﻿namespace Assets.Scripts.Json.JsonItems
 {
 	public class InterventionList 
 	{
