@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.UI.InterventionScreen
+﻿namespace Assets.Scripts.Json
 {
 	public class InterventionList 
 	{

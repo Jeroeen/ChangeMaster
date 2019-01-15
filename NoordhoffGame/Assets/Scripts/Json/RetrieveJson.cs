@@ -1,14 +1,10 @@
 ﻿using System;
-using Assets.Scripts.Dialogue.JsonItems;
+using Assets.Scripts.Json.JsonItems;
 using Assets.Scripts.Progress;
-using Assets.Scripts.UI;
-using Assets.Scripts.UI.Info;
-using Assets.Scripts.UI.Info.Theory;
-using Assets.Scripts.UI.InterventionScreen;
 using Assets.UnityLitJson;
 using UnityEngine;
 
-namespace Assets.Scripts.Dialogue
+namespace Assets.Scripts.Json
 {
 	public class RetrieveJson
 	{

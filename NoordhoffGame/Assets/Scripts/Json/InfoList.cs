@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.UI.Info
+﻿namespace Assets.Scripts.Json
 {
 	[System.Serializable]
 	public struct Info

@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.UI.Info.Theory
+﻿namespace Assets.Scripts.Json
 {
     public struct TheoryListTexts
     {

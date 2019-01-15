@@ -2,6 +2,7 @@
 using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Cutscene;
 using Assets.Scripts.Dialogue;
+using Assets.Scripts.Json;
 using Assets.Scripts.Progress;
 using Assets.Scripts.Utility;
 using UnityEngine;
