@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.Json;
+using Assets.Scripts.Json.JsonItems;
 using Assets.Scripts.Progress;
 using Assets.Scripts.Utility;
 using UnityEngine;
@@ -103,7 +104,7 @@ namespace Assets.Scripts.UI.Info
             {
                 stakeholderPanels.Add(Instantiate(stakeholderPanel, infoScrollview.content.transform));
 
-                foreach (Json.Info info in information.InformationList)
+                foreach (Json.JsonItems.Info info in information.InformationList)
                 {
                     if (info.Image == imagesStakeholder[i].name)
                     {

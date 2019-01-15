@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Cutscene
+namespace Assets.Scripts.Initialization
 {
 	public class Transition : MonoBehaviour
 	{

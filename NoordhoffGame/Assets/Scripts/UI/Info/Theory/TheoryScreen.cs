@@ -2,6 +2,7 @@
 using Assets.Scripts.CameraBehaviour;
 using Assets.Scripts.Dialogue;
 using Assets.Scripts.Json;
+using Assets.Scripts.Json.JsonItems;
 using Assets.Scripts.Multimedia;
 using Assets.Scripts.Utility;
 using UnityEngine;
