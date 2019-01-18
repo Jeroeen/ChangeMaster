@@ -19,7 +19,7 @@ namespace Assets.Scripts.CameraBehaviour
 				ComputerMovement(x => transform.position += x);
 			}
 			ComputerZoom(x => zoomValue += x, y => zoomValue -= y);
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID || UNITY_IOS
         if (canMove)
         {
             MobileMovement(x => x);
