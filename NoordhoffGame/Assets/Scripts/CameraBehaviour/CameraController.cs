@@ -33,7 +33,7 @@ namespace Assets.Scripts.CameraBehaviour
 #if UNITY_EDITOR
 			ComputerMovement(x => transform.position -= x);
 			ComputerZoom(x => zoomValue -= x, y => zoomValue += y);
-#elif UNITY_ANDROID
+#elif UNITY_ANDROID || UNITY_IOS
             MobileMovement(x => -x);
             MobileZoom(x => zoomValue += x, y => zoomValue -= y);
 #endif
